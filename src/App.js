@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 
-// Main scss
+// ? Main scss
 import "./Styling/app.scss";
 
 const App = () => {
