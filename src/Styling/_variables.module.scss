@@ -10,21 +10,39 @@ $army-green: #595020;
 
 // Neutrals
 $cream: #f2ebdc;
-$dusty: #d9bbb0;
+$dusty-pink: #d9bbb0;
 
 // Warm colours
 $orange: #d98236;
 $yellow: #f2c849;
 
-// ? Fonts Vars
-// !!! Empty placeholders for fonts
+// ? Fonts Variables
+// ! "Roboto Regular" is set as the _reset (default) font
 
-// // ! Colours
-// $main-font-colour: ;
-// $main-font-colour-dark-bg: ;
-// // ! Font families
-// $main-font-font-family: ;
-// $sub-heading-font-family: ;
-// // ! Font sizes
+// ? Font Colours
+// main font colour is $dark-green with grey mixed in
+$main-font-colour: #34523e;
+// main font colour is $cream darkened a little for when we have a dark background
+$main-font-colour-light: #ece4d0;
+
+// ? Font Family
+// Todo Which fallback font shall we use? - Roboto is in the serif family
+// ? Main Font variables
+$main-font-font-family: "Roboto Regular", sans-serif;
+$sub-heading-font-family: "Roboto Bold", sans-serif;
+
+// ? All font variables from @font-face
+$roboto-regular-font-family: "Roboto Regular", sans-serif;
+$roboto-italic-font-family: "Roboto Italic", sans-serif;
+$roboto-bold-font-family: "Roboto Bold", sans-serif;
+$roboto-bold-italic-font-family: "Roboto Bold Italic", sans-serif;
+$roboto-thin-font-family: "Roboto Thin", sans-serif;
+$roboto-thin-italic-font-family: "Roboto Thin Italic", sans-serif;
+$roboto-light-font-family: "Roboto Light", sans-serif;
+$roboto-light-italic-font-family: "Roboto Light Italic", sans-serif;
+$roboto-medium-font-family: "Roboto Medium", sans-serif;
+$roboto-medium-italic-font-family: "Roboto Medium Italic", sans-serif;
+
+// Todo Font sizes TBD
 // $main-heading-font-size: ;
 // $sub-heading-font-size: ;

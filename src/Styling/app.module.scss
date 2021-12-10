@@ -1,10 +1,10 @@
 @import "./variables.module.scss";
 @import "./mixins.module.scss";
 @import "./reset.module.scss";
+@import "./fonts.module.scss";
 
 // @use "variables.module" as *;
 // @use "mixins" as *;
-
 // ? View and Component imports
 @import "../Components/Footer/footer.module.scss";
 @import "../Components/Navbar/navbar.module.scss";
@@ -29,4 +29,5 @@ div {
   align-items: center;
   height: 100vh;
   font-size: 5rem;
+  color: $main-font-colour;
 }

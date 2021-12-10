@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 // ? Main scss
-import "./Styling/app.module.scss";
+import "./Styling/App.module.scss";
 
 const App = () => {
   return (
