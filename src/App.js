@@ -14,7 +14,7 @@ const App = () => {
     <div className="app-container">
       This is gonna be our awesome app!!
       <Router>
-        {/* // !! NavBar Component can live here */}
+        {/* // !! NavBar Component could live here */}
         <main>
           <Switch>
             {/* // !! Template/placeholder for how to setup paths with components.. */}
@@ -27,7 +27,7 @@ const App = () => {
           </Switch>
         </main>
 
-        {/* // !! Footer Component can live here */}
+        {/* // !! Footer  Component could live here */}
       </Router>
     </div>
   );

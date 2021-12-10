@@ -21,7 +21,9 @@
   font-size: 5rem;
 }
 
-// !!! Testing if it works! - no need to watch sass  - just need to confirm how classNames work!
+// !!! no need to watch sass  - just need to confirm how classNames work!
+
+// !! Universal styling
 div {
   display: flex;
   flex-direction: column;
@@ -30,4 +32,14 @@ div {
   height: 100vh;
   font-size: 5rem;
   color: $main-font-colour;
+
+  text-align: center;
+
+  // ! Dummy for example.
+  // @include x-small {
+  //   div {
+  //     font-size: 2rem;
+  //     background-color: red;
+  //   }
+  // }
 }
