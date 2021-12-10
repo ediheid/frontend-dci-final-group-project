@@ -1,0 +1,29 @@
+@import "./variables.module.scss";
+@import "./mixins.module.scss";
+@import "./reset.module.scss";
+
+// @use "variables.module" as *;
+// @use "mixins" as *;
+
+// ? View imports
+@import "../Components/Footer/footer.module.scss";
+
+// !!!!! Can delete !!!!!
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 5rem;
+}
+
+// !!! Testing if it works! - no need to watch sass  - just need to confirm how classNames work!
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 5rem;
+}
