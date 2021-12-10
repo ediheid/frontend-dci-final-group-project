@@ -5,9 +5,12 @@
 // @use "variables.module" as *;
 // @use "mixins" as *;
 
-// ? View imports
+// ? View and Component imports
 @import "../Components/Footer/footer.module.scss";
+@import "../Components/Navbar/navbar.module.scss";
+@import "../Views/LandingPage/landing-page.module.scss";
 
+// =================================
 // !!!!! Can delete !!!!!
 .app-container {
   display: flex;
