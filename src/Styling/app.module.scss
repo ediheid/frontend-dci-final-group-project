@@ -11,7 +11,7 @@
 // ? View and Component imports
 @import "../Components/Footer/footer.module.scss";
 @import "../Components/Navbar/navbar.module.scss";
-@import "../Views/LandingPage/landing-page.module.scss";
+@import "../Views/LandingPage/LandingPage.module.scss";
 
 // =================================
 
@@ -30,12 +30,18 @@
 
   color: $main-font-colour;
   background-color: $dusty-pink;
+}
 
-  // ! Dummy for example.
-  @include x-small {
-    div {
-      font-size: 2rem;
-      background-color: red;
-    }
+// ! Dummy for example.
+@include x-small {
+  div {
+    font-size: 2rem;
+    background-color: red;
+  }
+}
+
+@include small {
+  .app-container {
+    font-size: 4rem;
   }
 }

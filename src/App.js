@@ -14,9 +14,9 @@ import styles from "./Styling/App.module.scss";
 const App = () => {
   return (
     // !!!! - Figure out module classes..
-    <div className={styles["app-container"]}>
-      This is gonna be our awesome app!!
+    <div>
       <Router>
+        {/* <Navbar /> */}
         {/* // ? NavBar Component could live here */}
         <main>
           <Switch>
@@ -29,7 +29,7 @@ const App = () => {
             {/* <Route path="*" exact /> */}
           </Switch>
         </main>
-
+        {/* <Footer /> */}
         {/* // ? Footer  Component could live here */}
       </Router>
     </div>
