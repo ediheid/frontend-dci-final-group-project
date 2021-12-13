@@ -1,15 +1,27 @@
 @import "/src/Styling/variables.module";
 @import "/src/Styling/mixins.module";
+@import "/src/Styling/fonts.module";
 
 // ? Universal styling
-
 .footer-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
   background-color: $dark-green;
   color: $main-font-colour-light;
+  font-family: $roboto-medium-font-family;
+  height: auto;
   width: 100vw;
 
+  padding: 5rem 0 5rem 0;
+
   // todo Change to auto when ready
-  height: 10rem;
+  // !!!
+  position: fixed;
+  bottom: 0;
 }
 
 // ? x-small

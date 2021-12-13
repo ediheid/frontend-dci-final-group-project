@@ -4,7 +4,11 @@ import styles from "../Footer/Footer.module.scss";
 const Footer = () => {
   return (
     <div className={styles["footer-container"]}>
-      This will be the footer test
+      <div>
+        <h2>Freshbnb</h2>
+      </div>
+
+      <div>Web design by container...</div>
     </div>
   );
 };
