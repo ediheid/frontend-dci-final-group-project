@@ -1,55 +1,164 @@
 @import "/src/Styling/variables.module";
 @import "/src/Styling/mixins.module";
 @import "/src/Styling/fonts.module";
+@import "/src/Styling/reset.module";
 
 // ? Universal styling
+
 .footer-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-
-  background-color: $dark-green;
   color: $main-font-colour-light;
-  font-family: $roboto-medium-font-family;
+  background-color: $dark-green;
+  font-family: $roboto-regular-font-family;
+
   height: auto;
   width: 100vw;
 
-  padding: 5rem 0 5rem 0;
-
-  // todo Change to auto when ready
   // !!!
+  // todo Remove position fixed once we have the 'main' content
   position: fixed;
   bottom: 0;
 }
 
+#footer-heading {
+  font-size: 3.5rem;
+  letter-spacing: 0.2rem;
+  padding: 6rem 0 3rem 0;
+}
+
+.footer-main-content {
+  height: 5rem;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.content-spans,
+.social-media-icons {
+  letter-spacing: 0.05rem;
+  padding: 1rem;
+
+  cursor: pointer;
+}
+
+.content-spans,
+.copyright-span {
+  font-family: $roboto-thin-font-family;
+  font-size: 1.6rem;
+}
+
+.content-spans {
+  // Can use hover instead of active here as there won't be small enough devices for sticky hover state
+  &:hover {
+    font-family: $roboto-bold-font-family;
+    // color: $light-green;
+  }
+}
+
+// !!! Testing collapsible content styling from 'react-collapsible'
+.collapsible-content-container {
+  position: absolute;
+  bottom: 40%;
+  left: 0;
+
+  background-color: $dark-green;
+
+  width: 100vw;
+  height: 100%;
+  margin-bottom: 5.5rem;
+}
+
+.collapsible-content-paragraph {
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 5rem;
+
+  line-height: 2.5rem;
+}
+
+.social-media-container {
+  display: flex;
+  justify-content: space-between;
+
+  width: 5.6rem;
+}
+
+.social-media-icons,
+.collapse-icon {
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.social-media-icons {
+  font-size: 2.1rem;
+  &:hover {
+    color: $light-green;
+  }
+}
+
+.collapse-icon {
+  font-size: 2.8rem;
+  color: $orange;
+}
+
+#design-by-section {
+  background-color: $dusty-pink;
+
+  width: 100vw;
+  padding: 1.6rem 0 1.6rem 0;
+
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+
+// !! Display none on mobile devices as the navbar lives on the bottom of the page
+
 // ? x-small
 
 @include x-small {
+  .footer-container {
+    display: none;
+  }
 }
 
 // ? small
 
 @include small {
+  .footer-container {
+    display: none;
+  }
 }
 
-// ? medium
+// !! Currently no special rules apply to the following @media queries..
 
-@include medium {
-}
+// // ? medium
 
-// ? large
+// @include medium {
+// }
 
-@include large {
-}
+// // ? large
+
+// @include large {
+// }
 
 // ? extra-large
 
 @include extra-large {
+  .collapsible-content-paragraph {
+    padding: 7rem 6rem 0 7rem;
+  }
 }
 
-// ? extra EXTRA large
+// // ? extra EXTRA large
 
-@include extra-extra-large {
-}
+// @include extra-extra-large {
+// }
