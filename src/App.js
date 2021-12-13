@@ -7,27 +7,30 @@ import {
 } from "react-router-dom";
 
 // ? Main scss
-import "./Styling/App.module.scss";
+
+// !!!! - Figure out module classes..
+import styles from "./Styling/App.module.scss";
 
 const App = () => {
   return (
-    <div className="app-container">
+    // !!!! - Figure out module classes..
+    <div className={styles["app-container"]}>
       This is gonna be our awesome app!!
       <Router>
-        {/* // !! NavBar Component could live here */}
+        {/* // ? NavBar Component could live here */}
         <main>
           <Switch>
-            {/* // !! Template/placeholder for how to setup paths with components.. */}
+            {/* // ? Template/placeholder for how to setup paths with components.. */}
             {/*  <Route path="/" exact component={Home} />*/}
 
-            {/* // !! Fallback path - directs user back to login page */}
+            {/* // ? Fallback path - directs user back to login page */}
             {/* <Redirect to="/" exact /> */}
-            {/* // !! or */}
+            {/* // ? or */}
             {/* <Route path="*" exact /> */}
           </Switch>
         </main>
 
-        {/* // !! Footer  Component could live here */}
+        {/* // ? Footer  Component could live here */}
       </Router>
     </div>
   );
