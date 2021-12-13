@@ -1,1 +1,43 @@
+@import "/src/Styling/variables.module";
+@import "/src/Styling/mixins.module";
 
+// ? Universal styling
+
+.footer-container {
+  background-color: $dark-green;
+  color: $main-font-colour-light;
+  width: 100vw;
+
+  // todo Change to auto when ready
+  height: 10rem;
+}
+
+// ? x-small
+
+@include x-small {
+}
+
+// ? small
+
+@include small {
+}
+
+// ? medium
+
+@include medium {
+}
+
+// ? large
+
+@include large {
+}
+
+// ? extra-large
+
+@include extra-large {
+}
+
+// ? extra EXTRA large
+
+@include extra-extra-large {
+}
