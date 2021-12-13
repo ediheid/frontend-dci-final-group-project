@@ -1,87 +1,130 @@
-//varibales
-//mixins
-//fonts
+@import "../../Styling/variables.module";
+@import "../../Styling/mixins.module";
+@import "../../Styling/fonts.module";
+@import "../../Styling/reset.module";
 
-// ? Media Queries
-// Based on Bootstrap breakpoints
-
-.container {
-    position: fixed;
-    // margin: 0;
+// ? Universal styling
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
-    height: 100vh;
-    background-color: pink;
-    // margin-top: 10vh;
-    // margin-left: 10vw;
+    height: auto;
+    // color: $main-font-colour;
+    // background-color: pink;
 }
 
-.about-us {
-    background-color: tomato;
-    width: 100%;
-    height: 30%;
+.image-container {
+    position: relative;
+    text-align: center;
+    font-family: $sub-heading-font-family;
+    font-size: 2rem;
+    color: $main-font-colour-light;
+    // border: 2px solid yellow;
+    // width: 100vw;
+    // height: 100vh;
+}
+
+.heading {
+    position: absolute;
+    top: 76%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.background-image {
+    // position: fixed;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.about-button {
+    margin-top: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: $main-font-colour;
+    background-color: $main-font-colour-light;
+    border-radius: 25px;
+    font-size: 1.7rem;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    width: 90vw;
+    height: 80vh;
+    // background-color: blue;
+    font-family: $sub-heading-font-family;
+    font-size: 2rem;
 }
 
 .carousel {
-    background-color: yellow;
-    width: 100%;
-    height: 30%;
+    border: 1px solid $main-font-colour;
+    width: 90vw;
+    height: 33.3%;
+    border-radius: $border-radius;
+    margin-bottom: 5vw;
 }
 
 .info {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    border-radius: $border-radius;
 }
 
-.info-guest {
-    width: 50%;
-    height: 20%;
-    background-color: green;
-}
-
+.info-guest,
 .info-host {
-    width: 50%;
-    height: 20%;
-    background-color: blue;
+    position: relative;
+    text-align: center;
+    border-radius: $border-radius;
 }
 
-// // * X-Small = Less than 576px - small mobile devices
-// @mixin x-small {
-//     @media (max-width: 576px) {
-//         @content;
-//     }
-// }
+.guest-image,
+.host-image {
+    // position: fixed;
+    width: 43.5vw;
+    height: 80vw;
+    object-fit: cover;
+    border-radius: $border-radius;
+}
 
-// // * Small = Less than 768px - mobile devices
-// @mixin small {
-//     @media (max-width: 768px) {
-//         @content;
-//     }
-// }
+.heading-guest,
+.heading-host {
+    position: absolute;
+    color: $main-font-colour-light;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-// // * Medium = Less than 992px - tablets
-// @mixin medium {
-//     @media (max-width: 992px) {
-//         @content;
-//     }
-// }
+// ? Media Queries
+// Based on Bootstrap breakpoints
 
-// // * Large = Less than 1200px - small desktops
-// @mixin large {
-//     @media (max-width: 1200px) {
-//         @content;
-//     }
-// }
+// * X-Small = Less than 576px - small mobile devices
+@include x-small {
+}
 
-// // * Extra Large = Less than 1399px - medium desktops
-// @mixin extra-large {
-//     @media (max-width: 1399px) {
-//         @content;
-//     }
-// }
+// * Small = Less than 768px - mobile devices
+@include small {
+}
 
-// // * Extra EXTRA Large = More than 1400px - medium desktops
-// @mixin extra-extra-large {
-//     @media (min-width: 1400px) {
-//         @content;
-//     }
-// }
+// * Medium = Less than 992px - tablets
+@include medium {
+}
+
+// * Large = Less than 1200px - small desktopsge
+@include large {
+}
+
+// * Extra Large = Less than 1399px - medium desktops
+@include extra-large {
+}
+
+// * Extra EXTRA Large = More than 1400px - medium desktops
+@include extra-extra-large {
+}

@@ -11,7 +11,7 @@ import LandingPage from "./Views/LandingPage/LandingPage";
 // ? Main scss
 
 // !!!! - Figure out module classes..
-// import styles from "./Styling/App.module.scss";
+import styles from "../src/Styling/app.module.scss";
 
 const App = () => {
     return (
