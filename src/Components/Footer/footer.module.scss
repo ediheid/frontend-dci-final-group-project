@@ -5,6 +5,7 @@
 
 // ? Universal styling
 
+// Main container for all footer content
 .footer-container {
   display: flex;
   flex-direction: column;
@@ -30,6 +31,7 @@
   padding: 6rem 0 3rem 0;
 }
 
+// Main content is everything BUT the 'design-by-section'
 .footer-main-content {
   height: 5rem;
   width: 80%;
@@ -62,7 +64,7 @@
   }
 }
 
-// !!! Testing collapsible content styling from 'react-collapsible'
+// Collapsible content styling from 'react-collapsible'
 .collapsible-content-container {
   position: absolute;
   bottom: 40%;
@@ -83,6 +85,7 @@
   line-height: 2.5rem;
 }
 
+// Container for mock social media link icons
 .social-media-container {
   display: flex;
   justify-content: space-between;
@@ -90,6 +93,7 @@
   width: 5.6rem;
 }
 
+// social media + collapse icon hover effect
 .social-media-icons,
 .collapse-icon {
   &:hover {
@@ -109,6 +113,7 @@
   color: $orange;
 }
 
+// Bottom section of footer - 'design-by-section'
 #design-by-section {
   background-color: $dusty-pink;
 
@@ -138,7 +143,7 @@
   }
 }
 
-// !! Currently no special rules apply to the following @media queries..
+// * Currently no special rules apply to the commented out @media queries..
 
 // // ? medium
 
