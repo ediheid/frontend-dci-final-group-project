@@ -16,32 +16,3 @@
 // =================================
 
 // !!! no need to watch sass  - just need to confirm how classNames work!
-
-// !!!!! Can delete once we start coding !!!!!
-
-// !! Universal styling
-.app-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 5rem;
-
-  color: $main-font-colour;
-  background-color: $dusty-pink;
-}
-
-// ! Dummy for example.
-@include x-small {
-  div {
-    font-size: 2rem;
-    background-color: red;
-  }
-}
-
-@include small {
-  .app-container {
-    font-size: 4rem;
-  }
-}
