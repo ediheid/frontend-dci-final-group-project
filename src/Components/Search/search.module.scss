@@ -9,11 +9,11 @@
   width: 100vw;
   height: 10vh;
 
-  // !! Min height on search component otherwise it disappears on sideways view
+  // !!! Min height on search component otherwise it disappears on sideways view
   min-height: 6rem;
 
   // todo
-  // !!  for dev...? or what do we think?
+  // !!!  for dev...? or what do we think?
   background-color: $cream;
 }
 
@@ -37,7 +37,7 @@
 
   padding: 0.3rem 1rem 0.3rem 1rem;
 
-  // !! So input field does not zoom in on ios devices
+  // !!! So input field does not zoom in on ios devices
   font-size: 1.6rem;
 
   &::placeholder {
@@ -54,6 +54,39 @@
     background-position-x: right;
     background-position-y: center;
   }
+}
+
+// ? Dropdown section
+
+.form-dropdown-container {
+  position: absolute;
+  left: 0;
+  top: 10vh;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  height: auto;
+  width: 100vw;
+
+  padding: 3rem 0 5rem 0;
+
+  // todo - should we make this rgba to give it opacity? - wait til we have main content
+  background-color: $cream;
+  // ! OR
+  //   background-color: rgba(242, 235, 220, 0.9);
+
+  // !! Make sure z-index is higher than all other elements / Components
+  z-index: 100;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+
+  width: 15rem;
+  padding: 1rem;
 }
 
 // ? x-small
@@ -83,7 +116,7 @@
 // ? medium
 
 @include medium {
-  // !
+  // !!!
   // todo - position components so search field will sit under Navbar
 
   .search-input {
