@@ -9,18 +9,47 @@
   width: 100vw;
   height: 10vh;
 
+  // !! Min height on search component otherwise it disappears on sideways view
+  min-height: 6rem;
+
+  // todo
   // !!  for dev...? or what do we think?
   background-color: $cream;
+}
+
+.form-container,
+.form {
+  display: flex;
+  // todo
+  // !! Column will come into play once dropdown div is added..
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.search-input {
+  width: 70%;
+  border: none;
+  border-radius: 1rem;
 }
 
 // ? x-small
 
 @include x-small {
+  .search-input {
+    height: 3rem;
+  }
 }
 
 // ? small
 
 @include small {
+  .search-input {
+    height: 4rem;
+  }
 }
 
 // ? medium
@@ -28,19 +57,32 @@
 @include medium {
   // !
   // todo - position components so search field will sit under Navbar
+
+  .search-input {
+    height: 4rem;
+  }
 }
 
 // ? large
 
 @include large {
+  .search-input {
+    height: 4rem;
+  }
 }
 
 // ? extra-large
 
 @include extra-large {
+  .search-input {
+    height: 4rem;
+  }
 }
 
 // ? extra EXTRA large
 
 @include extra-extra-large {
+  .search-input {
+    height: 4.5rem;
+  }
 }

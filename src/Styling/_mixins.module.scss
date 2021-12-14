@@ -31,7 +31,7 @@
 
 // * Extra Large = Less than 1399px - medium desktops
 @mixin extra-large {
-  @media (min-width: 1201) and (max-width: 1399px) {
+  @media (min-width: 1201px) and (max-width: 1399px) {
     @content;
   }
 }

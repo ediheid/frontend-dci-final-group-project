@@ -5,11 +5,12 @@ import styles from "../Search/search.module.scss";
 const Search = () => {
   return (
     <div className={styles["search-main-container"]}>
-      <div>
-        <form>
-          <input></input>
+      {/* // ! Do I need form container? */}
+      <div className={styles["form-container"]}>
+        <form className={styles.form}>
+          <input className={styles["search-input"]}></input>
 
-          <div>
+          <div className={styles["form-dropdown-container"]}>
             {/* Drop down of hidden extra input on form */}
             {/* Will it be on enter? */}
             {/* Manually code it instead of bringing in library */}
