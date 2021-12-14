@@ -9,6 +9,7 @@ const LandingPage = () => {
     return (
         <>
             <div className={styles["main-container"]}>
+                {/* //  Component */}
                 <div className={styles["image-container"]}>
                     <img
                         className={styles["background-image"]}
@@ -24,11 +25,13 @@ const LandingPage = () => {
                         <div className={styles["about-button"]}>About us</div>
                     </div>
                 </div>
-
                 <div className={styles["content-container"]}>
+                 
+                    {/* //  Carousel Component */}
                     <div>Find your next adventure </div>
                     <div className={styles.carousel}>CAROUSEL</div>
 
+                    {/* //  Info Component */}
                     <div className={styles.info}>
                         <div className={styles["info-guest"]}>
                             <img
@@ -36,8 +39,11 @@ const LandingPage = () => {
                                 src={guestImage}
                                 alt="Camper by Devries from Pexels"
                             />
-                            <div className={styles["heading-guest"]}>Become<br/>guest</div>
-                            {/* <div>GUEST</div> */}
+                            <div className={styles["heading-guest"]}>
+                                Become
+                                <br />
+                                a guest
+                            </div>
                         </div>
 
                         <div className={styles["info-host"]}>
@@ -53,7 +59,6 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-
                 {/* <div>TEST3</div>
                 <div>TEST4</div> */}
             </div>
