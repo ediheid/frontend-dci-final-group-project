@@ -1,5 +1,4 @@
 import React from "react";
-
 import styles from "../Search/search.module.scss";
 
 const Search = () => {
@@ -7,8 +6,15 @@ const Search = () => {
     <div className={styles["search-main-container"]}>
       {/* // ! Do I need form container? */}
       <div className={styles["form-container"]}>
-        <form className={styles.form}>
-          <input className={styles["search-input"]}></input>
+        <form
+          // !! Form will be onSubmit..
+          // onSubmit=""
+          className={styles.form}
+        >
+          <input
+            className={styles["search-input"]}
+            placeholder="Dream about Schwarzwald?"
+          ></input>
 
           <div className={styles["form-dropdown-container"]}>
             {/* Drop down of hidden extra input on form */}
