@@ -38,7 +38,7 @@ const Search = () => {
                   <label className={styles["search-labels"]}>Check in</label>
                   <input
                     className={styles["dropdown-input"]}
-                    placeholder="calendar will go here"
+                    placeholder="Add dates"
                   ></input>
                 </div>
 
@@ -47,7 +47,7 @@ const Search = () => {
                   <label className={styles["search-labels"]}>Check out</label>
                   <input
                     className={styles["dropdown-input"]}
-                    placeholder="calendar will go here"
+                    placeholder="Add dates"
                   ></input>
                 </div>
 
@@ -62,9 +62,7 @@ const Search = () => {
 
                 {/* Dropdown for amenities will go here.. */}
                 <div className={styles["search-item"]}>
-                  <label className={styles["search-labels"]}>
-                    Filter placeholder
-                  </label>
+                  <label className={styles["search-labels"]}>Amenities</label>
                   <input className={styles["dropdown-input"]}></input>
                 </div>
                 {/* Drop down of hidden extra input on form */}
