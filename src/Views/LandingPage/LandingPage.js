@@ -1,8 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import Card from "../../Components/Card/Card"
+// ? Stylesheet
 import styles from "./LandingPage.module.scss";
 
+// ? All Component and View imports
+import Card from "../../Components/Card/Card";
+import Carousel from "../../Components/Carousel/Carousel";
+import Button from "../../UI/Button/Button";
+
+// ? All Images
 import backgroundImage from "./static/pexels-matthew-devries-2775231.jpg";
 import guestImage from "./static/pexels-taryn-elliott-5581736.jpg";
 import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
@@ -24,16 +31,20 @@ const LandingPage = () => {
                         know who we are?
                         <br />
                         No problem.
-                        <div className={styles["about-button"]}>About us</div>
+                        <Link to="/about-us">
+                            {/* // ? Button */}
+                            <div>
+                                <Button>About Us</Button>
+                            </div>
+                        </Link>
                     </div>
                 </div>
-                <div className={styles["content-container"]}>
-                    {/* //  Carousel Component */}
-                    <div>Find your next adventure </div>
-                    <div className={styles.carousel}>CAROUSEL</div>
-                    <Card />
 
-                    {/* //  Info Component */}
+                {/* // ?  Carousel Component */}
+                <Carousel />
+
+                <div className={styles["content-container"]}>
+                    {/* // ? Info Component */}
                     <div className={styles.info}>
                         <div className={styles["info-guest"]}>
                             <img
@@ -60,8 +71,6 @@ const LandingPage = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div>TEST3</div>
-                <div>TEST4</div> */}
             </div>
         </>
     );

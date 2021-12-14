@@ -6,13 +6,13 @@ import {
     Switch,
 } from "react-router-dom";
 
-import LandingPage from "./Views/LandingPage/LandingPage";
-
 // ? Main scss
 // !!!! - Figure out module classes..
 import styles from "../src/Styling/app.module.scss";
 
 // ? All Component and View imports
+import LandingPage from "./Views/LandingPage/LandingPage";
+import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
 
 const App = () => {
@@ -28,17 +28,20 @@ const App = () => {
                         {/*  <Route path="/" exact component={Home} />*/}
                         <LandingPage />
 
-            {/* // ? Fallback path - directs user back to login page */}
-            {/* <Redirect to="/" exact /> */}
-            {/* // ? or */}
-            {/* <Route path="*" exact /> */}
-          </Switch>
-        </main>
-        <Footer />
-        {/* // ? Footer  Component could live here */}
-      </Router>
-    </div>
-  );
+                        {/* // ? Fallback path - directs user back to login page */}
+                        {/* <Redirect to="/" exact /> */}
+                        {/* // ? or */}
+                        {/* <Route path="*" exact /> */}
+                        
+                        {/* // ? About us overview */}
+                        <Route path="/about-us" exact component={AboutUs} />
+                    </Switch>
+                </main>
+                <Footer />
+                {/* // ? Footer  Component could live here */}
+            </Router>
+        </div>
+    );
 };
 
 export default App;
