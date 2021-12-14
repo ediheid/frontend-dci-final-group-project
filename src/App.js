@@ -8,7 +8,7 @@ import {
 
 // ? Main scss
 // !!!! - Figure out module classes..
-import styles from "./Styling/App.module.scss";
+import styles from "./Styling/app.module.scss";
 
 // ? All Component and View imports
 import Footer from "./Components/Footer/Footer";
