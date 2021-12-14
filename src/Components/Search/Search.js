@@ -36,26 +36,37 @@ const Search = () => {
                 {/* Check in */}
                 <div className={styles["search-item"]}>
                   <label className={styles["search-labels"]}>Check in</label>
-                  <input placeholder="calendar will go here"></input>
+                  <input
+                    className={styles["dropdown-input"]}
+                    placeholder="calendar will go here"
+                  ></input>
                 </div>
 
                 {/* Check out */}
                 <div className={styles["search-item"]}>
                   <label className={styles["search-labels"]}>Check out</label>
-                  <input placeholder="calendar will go here"></input>
+                  <input
+                    className={styles["dropdown-input"]}
+                    placeholder="calendar will go here"
+                  ></input>
                 </div>
 
                 {/* Number of Campervans */}
                 <div className={styles["search-item"]}>
-                  <label className={styles["search-labels"]}>
-                    How many campers?
-                  </label>
-                  <input placeholder="e.g. 1"></input>
+                  <label className={styles["search-labels"]}>Campervans</label>
+                  <input
+                    className={styles["dropdown-input"]}
+                    placeholder="e.g. 1"
+                  ></input>
                 </div>
 
                 {/* Dropdown for amenities will go here.. */}
-                <label className={styles["search-labels"]}></label>
-                <div className={styles["search-item"]}>Filter placeholder</div>
+                <div className={styles["search-item"]}>
+                  <label className={styles["search-labels"]}>
+                    Filter placeholder
+                  </label>
+                  <input className={styles["dropdown-input"]}></input>
+                </div>
                 {/* Drop down of hidden extra input on form */}
                 {/* Will it be on enter? */}
                 {/* Manually code it instead of bringing in library */}

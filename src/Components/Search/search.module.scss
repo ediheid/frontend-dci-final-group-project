@@ -34,11 +34,13 @@
   width: 70%;
   border: none;
   border-radius: 1rem;
+  outline: none;
 
   padding: 0.3rem 1rem 0.3rem 1rem;
 
   // !!! So input field does not zoom in on ios devices
   font-size: 1.6rem;
+  color: $main-font-colour;
 
   &::placeholder {
     font-size: 1.8rem;
@@ -87,6 +89,29 @@
 
   width: 15rem;
   padding: 1rem;
+}
+
+.search-labels {
+  font-family: $roboto-bold-font-family;
+  color: $main-font-colour;
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
+  padding: 0 0 0.5rem 0.5rem;
+}
+
+.dropdown-input {
+  color: $main-font-colour;
+
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+
+  font-size: 1.5rem;
+
+  &::placeholder {
+    font-size: 1.3rem;
+  }
 }
 
 // ? x-small
