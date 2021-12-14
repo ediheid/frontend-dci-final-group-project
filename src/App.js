@@ -8,7 +8,7 @@ import {
 
 // ? Main scss
 // !!!! - Figure out module classes..
-import styles from "./Styling/App.module.scss";
+import styles from "./Styling/app.module.scss";
 
 // ? All Component and View imports
 import Footer from "./Components/Footer/Footer";
@@ -31,6 +31,8 @@ const App = () => {
             {/* <Route path="*" exact /> */}
           </Switch>
         </main>
+        {/* // !!! Note: For footer to display correctly we need to place margin //
+        // !! .. bottom on any View container to push the footer to the bottom */}
         <Footer />
         {/* // ? Footer  Component could live here */}
       </Router>

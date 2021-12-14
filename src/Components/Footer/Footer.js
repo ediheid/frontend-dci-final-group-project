@@ -1,7 +1,7 @@
 import React from "react";
 import Collapsible from "react-collapsible";
 
-import styles from "../Footer/Footer.module.scss";
+import styles from "../Footer/footer.module.scss";
 
 // React icons - Bootstrap family
 import { BsInstagram } from "react-icons/bs";
