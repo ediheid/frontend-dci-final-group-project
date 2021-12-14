@@ -19,9 +19,10 @@
   height: auto;
   width: 100vw;
 
-  // !!!
-  // todo Remove position fixed once we have the 'main' content
-  position: fixed;
+  // !!! Note: For footer to display correctly we need to place margin bottom on any View container to push the footer to the bottom
+
+  // !!  position relative is important here for collapsible functionality
+  position: relative;
   bottom: 0;
 }
 
