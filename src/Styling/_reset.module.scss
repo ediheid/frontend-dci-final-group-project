@@ -3,8 +3,8 @@
 *::after {
   margin: 0;
   padding: 0;
-
-  font-family: $main-font-font-family;
+  // !! Make sure this is removed in main!
+  // font-family: $main-font-font-family;
 }
 
 :root {

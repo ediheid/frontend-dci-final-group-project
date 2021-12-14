@@ -1,1 +1,190 @@
+@import "/src/Styling/variables.module";
+@import "/src/Styling/mixins.module";
+@import "/src/Styling/fonts.module";
+@import "/src/Styling/reset.module";
 
+// ? Universal styling
+
+// Main container for all footer content
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  color: $main-font-colour-light;
+  background-color: $dark-green;
+  font-family: $roboto-regular-font-family;
+
+  height: auto;
+  width: 100vw;
+
+  // !!!
+  // todo Remove position fixed once we have the 'main' content
+  position: fixed;
+  bottom: 0;
+}
+
+#footer-heading {
+  font-size: 3.5rem;
+  letter-spacing: 0.2rem;
+  padding: 6rem 0 3rem 0;
+}
+
+// Main content is everything BUT the 'design-by-section'
+.footer-main-content {
+  height: 5rem;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.content-spans,
+.social-media-icons {
+  letter-spacing: 0.05rem;
+  padding: 1rem;
+
+  cursor: pointer;
+}
+
+.content-spans,
+.copyright-span {
+  font-family: $roboto-thin-font-family;
+  font-size: 1.6rem;
+}
+
+.content-spans {
+  // Can use hover instead of active here as there won't be small enough devices for sticky hover state
+  &:hover {
+    font-family: $roboto-bold-font-family;
+    // color: $light-green;
+  }
+}
+
+// Collapsible content styling from 'react-collapsible'
+.collapsible-content-container {
+  position: absolute;
+  bottom: 40%;
+  left: 0;
+
+  background-color: $dark-green;
+
+  width: 100vw;
+  height: 100%;
+  margin-bottom: 5.5rem;
+}
+
+.collapsible-content-paragraph {
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 2rem 5rem 5rem 5rem;
+
+  line-height: 2.5rem;
+
+  margin-top: 3rem;
+  max-height: 15rem;
+  overflow: scroll;
+
+  .extra-paragraphs {
+    padding-top: 1rem;
+  }
+}
+
+// Container for mock social media link icons
+.social-media-container {
+  display: flex;
+  justify-content: space-between;
+
+  width: 5.6rem;
+}
+
+// social media + collapse icon hover effect
+.social-media-icons,
+.collapse-icon {
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.social-media-icons {
+  font-size: 2.1rem;
+  &:hover {
+    color: $light-green;
+  }
+}
+
+.collapse-icon {
+  font-size: 2.8rem;
+  color: $orange;
+}
+
+// Bottom section of footer - 'design-by-section'
+#design-by-section {
+  display: flex;
+  justify-content: center;
+
+  background-color: $dusty-pink;
+
+  width: 100vw;
+  padding: 1.6rem 0 1.6rem 0;
+
+  a {
+    font-family: $roboto-regular-font-family;
+    color: $main-font-colour-light;
+    text-decoration: none;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
+
+    &:hover {
+      font-family: $roboto-bold-font-family;
+      color: $light-green;
+    }
+  }
+}
+
+// !! Display none on mobile devices as the navbar lives on the bottom of the page
+
+// ? x-small
+
+@include x-small {
+  .footer-container {
+    display: none;
+  }
+}
+
+// ? small
+
+@include small {
+  .footer-container {
+    display: none;
+  }
+}
+
+// * Currently no special rules apply to the commented out @media queries..
+
+// // ? medium
+
+// @include medium {
+// }
+
+// // ? large
+
+// @include large {
+// }
+
+// ? extra-large
+
+@include extra-large {
+  .collapsible-content-paragraph {
+    padding: 7rem 6rem 0 7rem;
+  }
+}
+
+// // ? extra EXTRA large
+
+// @include extra-extra-large {
+// }
