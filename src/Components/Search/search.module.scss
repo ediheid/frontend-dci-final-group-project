@@ -4,3 +4,43 @@
 @import "/src/Styling/reset.module";
 
 // ? Universal styling
+
+.search-main-container {
+  width: 100vw;
+  height: 10vh;
+
+  // !!  for dev...? or what do we think?
+  background-color: $cream;
+}
+
+// ? x-small
+
+@include x-small {
+}
+
+// ? small
+
+@include small {
+}
+
+// ? medium
+
+@include medium {
+  // !
+  // todo - position components so search field will sit under Navbar
+}
+
+// ? large
+
+@include large {
+}
+
+// ? extra-large
+
+@include extra-large {
+}
+
+// ? extra EXTRA large
+
+@include extra-extra-large {
+}

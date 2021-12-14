@@ -12,13 +12,16 @@ import styles from "./Styling/app.module.scss";
 
 // ? All Component and View imports
 import Footer from "./Components/Footer/Footer";
+import Search from "./Components/Search/Search";
 
 const App = () => {
   return (
-    // !!!! - Figure out module classes..
     <div>
       <Router>
         {/* <Navbar /> */}
+        {/* // !! Search Component is just here for development and will later only be imported to the required page Views */}
+        <Search />
+
         {/* // ? NavBar Component could live here */}
         <main>
           <Switch>
