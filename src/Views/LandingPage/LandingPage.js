@@ -1,6 +1,8 @@
 import React from "react";
 
+import Card from "../../Components/Card/Card"
 import styles from "./LandingPage.module.scss";
+
 import backgroundImage from "./static/pexels-matthew-devries-2775231.jpg";
 import guestImage from "./static/pexels-taryn-elliott-5581736.jpg";
 import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
@@ -9,7 +11,7 @@ const LandingPage = () => {
     return (
         <>
             <div className={styles["main-container"]}>
-                {/* //  Component */}
+                {/* //  Welcome Image Component */}
                 <div className={styles["image-container"]}>
                     <img
                         className={styles["background-image"]}
@@ -26,10 +28,10 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className={styles["content-container"]}>
-                 
                     {/* //  Carousel Component */}
                     <div>Find your next adventure </div>
                     <div className={styles.carousel}>CAROUSEL</div>
+                    <Card />
 
                     {/* //  Info Component */}
                     <div className={styles.info}>
@@ -41,8 +43,7 @@ const LandingPage = () => {
                             />
                             <div className={styles["heading-guest"]}>
                                 Become
-                                <br />
-                                a guest
+                                <br />a guest
                             </div>
                         </div>
 
