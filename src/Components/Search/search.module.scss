@@ -50,6 +50,8 @@
     color: $light-green;
 
     padding: 2rem 2rem 2rem 0;
+
+    // !!! Can change icon to plain!?
     // Magnifying glass search icon as React-icon Components are not permitted inside <input>
     background-image: url("./Static/magnifying-glass.png");
     background-size: 2.5rem;
@@ -100,7 +102,7 @@
   padding: 0 0 0.5rem 0.5rem;
 }
 
-.dropdown-input {
+.dropdown-section-input {
   color: $main-font-colour;
 
   border: none;
@@ -114,8 +116,14 @@
     font-size: 1.3rem;
     font-style: italic;
     color: $light-grey;
+
+    // To match react-dropdown component
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
 }
+
+// !! Dropdown Component is styled in "../Search/dropdown-styling.css" - from node modules default styles; - still need to refactor to SASS with correct units
 
 // ? x-small
 
