@@ -21,12 +21,12 @@ import beach from "./static/pexels-alasdair-braxton-1992889.jpg";
 
 const Carousel = () => {
     const settings = {
-        className: "center",
+        // className: "center",
         centerMode: true,
         dots: true,
         infinite: true,
-        centerPadding: "20px",
-        slidesToShow: 1.5,
+        centerPadding: "70vw",
+        slidesToShow: 1,
         slidesToScroll: 1,
         swipeToSlide: true,
         arrows: true,

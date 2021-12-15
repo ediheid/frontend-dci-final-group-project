@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./LandingPage.module.scss";
 
 // ? All Component and View imports
-import Card from "../../Components/Card/Card";
+import Card from "../../UI/Card/Card";
 import Carousel from "../../Components/Carousel/Carousel";
 import Button from "../../UI/Button/Button";
 

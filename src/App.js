@@ -25,14 +25,14 @@ const App = () => {
                 <main>
                     <Switch>
                         {/* // ? Template/placeholder for how to setup paths with components.. */}
-                        {/*  <Route path="/" exact component={Home} />*/}
-                        <LandingPage />
+                        <Route path="/" exact component={LandingPage} />
+                        {/* <LandingPage /> */}
 
                         {/* // ? Fallback path - directs user back to login page */}
                         {/* <Redirect to="/" exact /> */}
                         {/* // ? or */}
                         {/* <Route path="*" exact /> */}
-                        
+
                         {/* // ? About us overview */}
                         <Route path="/about-us" exact component={AboutUs} />
                     </Switch>

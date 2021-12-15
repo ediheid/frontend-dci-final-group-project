@@ -5,7 +5,7 @@ import styles from "../AboutUs/AboutUs.module.scss";
 const AboutUs = () => {
     return <>
         <div className={styles.header}>LOGO</div>
-        <div className={styles["content-container"]}></div>
+        <div className={styles["content-container"]}>tehdfsihfgwdngvomaeg</div>
     </>;
 };
 
