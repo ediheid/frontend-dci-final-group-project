@@ -13,6 +13,64 @@ const SignUp = (props) => {
         event.stopPropagation();
     };
 
+    const sendData = (event) => {
+        event.preventDefault();
+
+        const firstname = event.target.firstname.value;
+        const lastname = event.target.lastname.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        const confirmedPassword = event.target.confirmedPassword.value;
+
+        const userData = {
+            firstname,
+            lastname,
+            email,
+            password,
+            confirmedPassword,
+        };
+
+        console.log(userData);
+
+
+        // !! Kathi copied from tutorial
+        //   if (
+        //       !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        //           email
+        //       )
+        //   ) {
+        //       M.toast({
+        //           html: "invalid email",
+        //           classes: "#c62828 red darken-3",
+        //       });
+        //       return;
+        //   }
+
+        // IS SENDING THE REQUETS TO LOCALHOST 3000
+        // TO SOLVE IT: ADD CODE SNIPPET TO BACKEND APP.JS FILE (see Petstagram project)
+        // fetch("/signup", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(userData),
+        // })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         if (data.error) {
+        //             M.toast({ html: data.error, classes: "pink accent-2" });
+        //         } else {
+        //             // M.toast({
+        //             //     html: data.message,
+        //             //     classes: "green lighten-2",
+        //             // });
+        //             // IF THE USER IS SIGNED UP, NAVIGATE TO PAGE: PLEASE CHECK YOUR INBOX AND CONFIRM YOUR EMAIL ADDRESS
+        //             // navigate("/login");
+        //         }
+        //         // console.log(data);
+        //     });
+    };
+
     return (
         <>
             <div
@@ -27,7 +85,7 @@ const SignUp = (props) => {
                         <div className={styles.title}>Sign up</div>
                     </div>
                     <div className={styles.body}>
-                        <form>
+                        <form onSubmit={sendData}>
                             <div className={styles["form-container"]}>
                                 <input
                                     className={styles["input-signup"]}
@@ -59,7 +117,7 @@ const SignUp = (props) => {
                                     className={styles["input-signup"]}
                                     type="password"
                                     placeholder="Repeat Password"
-                                    name="password"
+                                    name="confirmedPassword"
                                 />
 
                                 <input

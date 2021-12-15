@@ -30,6 +30,80 @@ const LogIn = (props) => {
         event.stopPropagation();
     };
 
+    // Kathi: Go through it with Jan, Marc or Edith
+    const sendData = (event) => {
+        // const history = useHistory();
+        // const navigate = useNavigate();
+        event.preventDefault();
+
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+
+        // let navigate = useNavigate();
+
+        const userData = {
+            email,
+            password,
+        };
+
+        console.log(userData);
+
+        // !! Kathi copied from Tutorial
+        //     // IS SENDING THE REQUETS TO LOCALHOST 3000
+        //     // TO SOLVE IT: ADD CODE SNIPPET TO BACKEND APP.JS FILE
+        //     fetch("/login", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //             // Authorization: "Bearer " + localStorage.getItem("jwt"),
+        //         },
+        //         body: JSON.stringify(userData),
+        //     })
+        //         .then((res) => res.json())
+        //         .then((data) => {
+        //             console.log(data);
+        //             if (data.error) {
+        //                 M.toast({ html: data.error, classes: "pink accent-2" });
+        //             } else {
+        //                 localStorage.setItem("jwt", data.token);
+        //                 localStorage.setItem("user", JSON.stringify(data.user));
+        //                 dispatch({ type: "USER", payload: data.user });
+
+        //                 M.toast({
+        //                     html: "Logged in successfully",
+        //                     classes: "green lighten-2",
+        //                 });
+
+        //                 // IF THE USER IS LOGGED IN, NAVIGATE TO HOME
+        //                 navigate("/");
+        //             }
+        //             // console.log(data);
+        //         })
+        //         .catch((err) => {
+        //             console.log(err);
+        //         });
+    };
+
+    // !! USER CONTEXT
+    //     export const UserContext = createContext();
+
+    // const Routing = () => {
+    //     let navigate = useNavigate();
+    //     const { state, dispatch } = useContext(UserContext);
+
+    //     useEffect(() => {
+    //         const user = JSON.parse(localStorage.getItem("user"));
+    //         // IF USER IS LOGGED IN THE URL ROUTES WORKS
+    //         if (user) {
+    //             dispatch({ type: "USER", payload: user });
+    //             // navigate("/");
+    //             // IF USER IS NOT LOGGED IN, USER WILL GO TO /LOGIN
+    //         } else {
+    //             // if (!navigate.location.pathname.startsWith("/reset"))
+    //             navigate("/login");
+    //         }
+    //     }, []);
+
     return (
         <>
             <div
@@ -44,7 +118,7 @@ const LogIn = (props) => {
                         <div className={styles.title}>Log in</div>
                     </div>
                     <div className={styles.body}>
-                        <form>
+                        <form onSubmit={sendData}>
                             <div className={styles["form-container"]}>
                                 <input
                                     className={styles["input-login"]}
