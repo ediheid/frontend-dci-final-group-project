@@ -16,8 +16,9 @@ You will also see any lint errors in the console.
 `npm i react-dropdown`
 `npm i react-icons`
 `npm i react-slick`
+`npm i react-datepicker`
 
-react-dates via:
+<!-- react-dates via:
 `( export PKG=react-dates; npm info "$PKG" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g; s/ *//g' | xargs npm install --save "$PKG" ) `
 See docs here:
-https://github.com/airbnb/react-dates
+https://github.com/airbnb/react-dates -->

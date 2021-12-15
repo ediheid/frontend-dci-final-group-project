@@ -6,10 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 
-import "react-dates/initialize";
-
 // ? Main scss
-// !!!! - Figure out module classes..
 import styles from "./Styling/app.module.scss";
 
 // ? All Component and View imports
@@ -20,7 +17,6 @@ import Search from "./Components/Search/Search";
 
 const App = () => {
   return (
-    // !!!! - Figure out module classes..
     <div>
       <Router>
         {/* <Navbar /> */}

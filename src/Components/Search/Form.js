@@ -1,38 +1,47 @@
-import React, { Fragment } from "react";
-// !!!
-import {
-  DateRangePicker,
-  SingleDatePicker,
-  DayPickerRangeController,
-} from "react-dates";
+import React, { Fragment, useState } from "react";
 
-import moment from "moment";
-
+// Styles
+// ? Main Styles
 import styles from "../Search/search.module.scss";
+// ? Remove original once done
+// (still need to refactor to SASS with correct units)
+// import "react-datepicker/dist/react-datepicker.css";
+// !!!!
+import "../Search/Datepicker-Styling/datepicker-override.scss";
+// ? Remove original once done
+//  (still need to refactor to SASS with correct units)
+// import "react-dropdown/style.css";
+import "../Search/Dropdown-Styling/dropdown-styling.css";
 
 // Libraries
 import Expand from "react-expand-animated";
 import Dropdown from "react-dropdown";
-
-// ? Updated this style sheet!
-// import "react-dropdown/style.css";
-// todo to this.. (still need to refactor to SASS with correct units)
-import "../Search/dropdown-styling.css";
+import DatePicker from "react-datepicker";
 
 const Form = (props) => {
-  // State hooks
-  //   const [open, setOpen] = useState(false);
-
   // todo Dropdown - Ready to take in data - see docs:
   // https://www.npmjs.com/package/react-dropdown
   const options = ["one", "two", "three"];
   // ? Default
 
-  // !!!!
-  let test = new Date();
+  // todo Calendar - work on functionality and data collection
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
+  // !!!
+  // let test = new Date();
   //   let test = moment("20211215");
   //   console.log(test);
+
+  // !!! New test react-dates
+  // const [startDate, setStartDate] = useState(null);
+  // const [endDate, setEndDate] = useState(null);
+  // const [focusedInput, setFocusedInput] = useState(null);
+
+  // const handleDatesChange = ({ startDate, endDate }) => {
+  //   setStartDate(startDate);
+  //   setEndDate(endDate);
+  // };
 
   return (
     <div className={styles["form-container"]}>
@@ -53,19 +62,32 @@ const Form = (props) => {
               {/* Check in */}
               <div className={styles["search-item"]}>
                 <label className={styles["search-labels"]}>Check in</label>
-                <input
+
+                <DatePicker
+                  className={styles["dropdown-section-input"]}
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                />
+                {/* // todo: Original to match */}
+                {/* <input
                   className={styles["dropdown-section-input"]}
                   placeholder="Add dates"
-                ></input>
+                ></input> */}
               </div>
 
               {/* Check out */}
               <div className={styles["search-item"]}>
                 <label className={styles["search-labels"]}>Check out</label>
-                <input
+                <DatePicker
+                  className={styles["dropdown-section-input"]}
+                  selected={endDate}
+                  onChange={(date) => setEndDate(date)}
+                />
+                {/* // todo: Original to match */}
+                {/* <input
                   className={styles["dropdown-section-input"]}
                   placeholder="Add dates"
-                ></input>
+                ></input> */}
               </div>
 
               {/* Number of Campervans */}
@@ -86,14 +108,6 @@ const Form = (props) => {
                   // onChange={this._onSelect} // todo: Look into docs
                 />
               </div>
-
-              <SingleDatePicker
-                date={moment().subtract(6, "days")} // momentPropTypes.momentObj or null
-                onDateChange={(date) => console.log("test")} // PropTypes.func.isRequired
-                focused={false} // PropTypes.bool
-                onFocusChange={({ focused }) => console.log("test2")} // PropTypes.func.isRequired
-                id="your_unique_id" // PropTypes.string.isRequired,
-              />
             </div>
           </Expand>
         </form>
