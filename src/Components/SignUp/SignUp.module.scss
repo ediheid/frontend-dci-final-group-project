@@ -5,7 +5,7 @@
 
 // ? Universal styling
 
-.sign-up-modal-container {
+.signup-modal-container {
     z-index: 5000;
     position: fixed;
     top: 0;
@@ -23,16 +23,17 @@
 }
 
 .content {
-    width: auto;
-    height: 60vh;
+    min-width: 70vw;
+    min-height: 50vh;
     background-color: $cream;
     border-radius: 20px;
-    padding: 10vw;
+    padding: 5vw;
 }
 
 .header {
     display: flex;
     flex-direction: row;
+    // background: yellow;
     // justify-content: space-between;
 }
 
@@ -40,12 +41,15 @@
     // background-color: blue;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
 }
 
 .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 2vh;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .body {
@@ -57,9 +61,9 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .input-signup,
@@ -75,20 +79,36 @@
 .input-signup-button {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3vw;
+    margin-top: 5vw;
     color: $main-font-colour-light;
     background-color: $orange;
     width: 30vw;
+    font-size: 1.5rem;
 }
 
-.line {
-    margin-left: auto;
-    margin-right: auto;
-    border: 0;
-    height: 0.1vh;
-    background-color: $main-font-colour;
-    width: 40vw;
-    margin: 2vh;
+.modal-footer {
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    // background: yellow;
+    margin-top: 3vw;
+    font-size: 1.2rem;
+}
+
+.modal-footer div:nth-child(2) {
+    color: $orange;
+}
+
+.modal-footer div:nth-child(2) {
+    margin-top: 0.5vw;
+}
+
+.link {
+    text-decoration: none;
+    color: $orange;
 }
 
 // ? Media Queries

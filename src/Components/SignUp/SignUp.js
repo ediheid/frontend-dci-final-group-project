@@ -5,7 +5,7 @@ import styles from "../SignUp/SignUp.module.scss";
 
 const SignUp = (props) => {
     // SIgnup Modal is not visible
-    if (!props.show) {
+    if (!props.showSignup) {
         return null;
     }
 
@@ -16,25 +16,24 @@ const SignUp = (props) => {
     return (
         <>
             <div
-                className={styles["sign-up-modal-container"]}
-                onClick={props.onCloseLogin}
+                className={styles["signup-modal-container"]}
+                onClick={props.onCloseSignup}
             >
+                {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
                 <div className={styles.content} onClick={stop}>
                     <div className={styles.header}>
-                        <div onClick={props.onClose}>X</div>
-                        <div>Log in or sign up</div>
+                        <div onClick={props.onCloseSignup}>X</div>
+
+                        <div className={styles.title}>Sign up</div>
                     </div>
-                    <div className={styles.title}>Welcome to Freshbnb</div>
                     <div className={styles.body}>
-                        <form
-                        // onSubmit={SendData}
-                        >
+                        <form>
                             <div className={styles["form-container"]}>
                                 <input
                                     className={styles["input-signup"]}
                                     type="text"
                                     placeholder="First Name"
-                                    name="fristname"
+                                    name="firstname"
                                 />
                                 <input
                                     className={styles["input-signup"]}
@@ -48,36 +47,40 @@ const SignUp = (props) => {
                                     placeholder="E-Mail"
                                     name="email"
                                 />
+
                                 <input
                                     className={styles["input-signup"]}
                                     type="password"
                                     placeholder="Password"
                                     name="password"
                                 />
+
                                 <input
                                     className={styles["input-signup"]}
                                     type="password"
-                                    placeholder="Repeat password"
+                                    placeholder="Repeat Password"
                                     name="password"
                                 />
+
                                 <input
                                     className={styles["input-signup-button"]}
                                     type="submit"
-                                    value="Sign Up"
+                                    value="Log In"
                                 />
-                                <hr className={styles.line} />
-                                or
-                                <h5>
-                                    {/* <Link to="/login">
-                                        Already have an account?
-                                    </Link> */}
-                                </h5>
+                                <div className={styles["modal-footer"]}>
+                                    <div>Already have a Freshbnb account?</div>
+                                    <div
+                                        onClick={props.onCloseLogin}
+                                        className={styles.link}
+                                    >
+                                        Log in
+                                    </div>
+                                </div>
                             </div>
                         </form>
-                        This is the sign up form
                     </div>
                 </div>
-            </div>
+            </div>{" "}
         </>
     );
 };

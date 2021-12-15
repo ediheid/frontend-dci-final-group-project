@@ -18,6 +18,7 @@ const LogIn = (props) => {
     const closeSignUp = (event) => {
         event.preventDefault();
         setShowSignUp(false);
+        console.log("background was clicked close sign up");
     };
 
     // Login Modal is not visible
@@ -35,6 +36,7 @@ const LogIn = (props) => {
                 className={styles["login-modal-container"]}
                 onClick={props.onCloseLogin}
             >
+                <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} />
                 <div className={styles.content} onClick={stop}>
                     <div className={styles.header}>
                         <div onClick={props.onCloseLogin}>X</div>
@@ -66,18 +68,26 @@ const LogIn = (props) => {
                                     <div>Forgot your password?</div>
                                     <div>
                                         Not a member yet?
-                                        <SignUp
+                                        {/* <SignUp
                                             onClose={closeSignUp}
                                             show={showSignUp}
-                                        />
+                                        /> */}
                                         <span
-                                            onClick={`${props.openSignUp} ${props.onCloseLogin} `}
-                                            // onClick={props.onClose}
+                                            // onClick={`${props.openSignUp} ${props.onCloseLogin} `}
+
+                                            onClick={props.onCloseLogin}
                                             className={styles.link}
                                         >
                                             {" "}
                                             Sign up
                                         </span>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <div onClick={openSignUp}>
+                                            I AM A TEST SIGN UP BUTTON
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -26,6 +26,7 @@ const LandingPage = () => {
     const closeLogIn = (event) => {
         event.preventDefault();
         setShowLogIn(false);
+        console.log("background was clicked close log in");
     };
 
     return (
