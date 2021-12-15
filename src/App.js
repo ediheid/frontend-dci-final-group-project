@@ -23,6 +23,7 @@ const App = () => {
       <Router>
         {/* <Navbar /> */}
         {/* // ? NavBar Component could live here */}
+        <Search />
         <main>
           <Switch>
             {/* // ? Template/placeholder for how to setup paths with components.. */}
