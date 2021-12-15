@@ -19,3 +19,5 @@ You will also see any lint errors in the console.
 
 react-dates via:
 `( export PKG=react-dates; npm info "$PKG" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g; s/ *//g' | xargs npm install --save "$PKG" ) `
+See docs here:
+https://github.com/airbnb/react-dates
