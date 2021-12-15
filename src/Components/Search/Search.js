@@ -15,17 +15,6 @@ const Search = () => {
   // State hooks
   const [open, setOpen] = useState(false);
 
-  const [bgChange, setBgChange] = useState(false);
-
-  // ! Change bg colour on open
-  const changeHeaderColour = () => {
-    if (setOpen(true)) {
-      setBgChange(true);
-    } else {
-      setBgChange(false);
-    }
-  };
-
   // Open Search function
   const openSearch = () => {
     // !! Question for team: Should we have it as a toggle OR have state as true so dropdown only closes on submit?
@@ -41,8 +30,9 @@ const Search = () => {
 
   return (
     <header
-      className={`${styles["search-main-container"]} ${styles["bgChange"]}`}
-      // className={styles[`search-main-container`]}
+      className={`${styles["search-main-container"]} ${
+        open ? styles["bgChange"] : styles["search-main-container"]
+      }`}
     >
       {/* // todo Do I actually need this form container? */}
       <div className={styles["form-container"]}>
