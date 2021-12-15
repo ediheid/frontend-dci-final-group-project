@@ -16,17 +16,23 @@ import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
 import Search from "./Components/Search/Search";
 import SignUp from "./Components/SignUp/SignUp";
+import Navbar from "./Components/Navbar/Navbar";
 
 const App = () => {
     return (
         // !!!! - Figure out module classes..
         <div>
             <Router>
-                {/* <Navbar /> */}
+                {/* // !! Nearly works */}
+                <Navbar />
                 {/* // ? NavBar Component could live here */}
                 <Search />
+
                 <main>
                     <Switch>
+                        {/* Navbar visible, but rets is gone */}
+                        {/* <Navbar /> */}
+
                         {/* // ? Template/placeholder for how to setup paths with components.. */}
                         <Route path="/" exact component={LandingPage} />
 
@@ -40,9 +46,10 @@ const App = () => {
                         {/* // ? or */}
                         {/* <Route path="*" exact /> */}
                         {/* // ? Sign Up modal */}
+                        {/* <Route path="/navbar" exact component={Navbar} /> */}
                     </Switch>
                 </main>
-                <Footer />
+
                 {/* // ? Footer  Component could live here */}
             </Router>
         </div>

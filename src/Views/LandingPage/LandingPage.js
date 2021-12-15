@@ -16,23 +16,23 @@ import guestImage from "./static/pexels-taryn-elliott-5581736.jpg";
 import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
 
 const LandingPage = () => {
-    const [showLogIn, setShowLogIn] = useState(false);
+    // const [showLogIn, setShowLogIn] = useState(false);
 
-    const openLogIn = (event) => {
-        event.preventDefault();
-        setShowLogIn(true);
-    };
+    // const openLogIn = (event) => {
+    //     event.preventDefault();
+    //     setShowLogIn(true);
+    // };
 
-    const closeLogIn = (event) => {
-        event.preventDefault();
-        setShowLogIn(false);
-        console.log("background was clicked close log in");
-    };
+    // const closeLogIn = (event) => {
+    //     event.preventDefault();
+    //     setShowLogIn(false);
+    //     console.log("background was clicked close log in");
+    // };
 
     return (
         <>
             <div className={styles["main-container"]}>
-                <LogIn onCloseLogin={closeLogIn} showLogin={showLogIn} />
+                {/* <LogIn onCloseLogin={closeLogIn} showLogin={showLogIn} /> */}
                 {/* //  Welcome Image Component */}
                 <div className={styles["image-container"]}>
                     <img
@@ -52,7 +52,7 @@ const LandingPage = () => {
                                 <Button>About Us</Button>
                             </div>
                         </Link>
-                        <div onClick={openLogIn}>Test log in</div>
+                        {/* <div onClick={openLogIn}>Test log in</div> */}
                     </div>
                 </div>
 
