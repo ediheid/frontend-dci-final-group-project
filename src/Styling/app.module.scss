@@ -3,6 +3,11 @@
 @import "./reset.module.scss";
 @import "./fonts.module.scss";
 
+// @use "fonts.module" as *;
+// @use "variables.module" as *;
+// @use "mixins.module" as *;
+// @use "reset.module" as *;
+
 // ? View and Component imports
 @import "../Components/Footer/footer.module.scss";
 @import "../Components/Navbar/navbar.module.scss";
