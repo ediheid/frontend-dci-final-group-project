@@ -4,3 +4,251 @@
 @import "/src/Styling/reset.module";
 
 // ? Universal styling
+
+.search-main-container {
+  width: 100vw;
+  height: 10vh;
+
+  position: fixed;
+  // !!!
+  z-index: 3000;
+
+  // !!! Min height on search component otherwise it disappears on sideways view
+  min-height: 6rem;
+
+  // todo
+  // !!!  for dev...? or what do we think?
+  // background-color: $cream;
+
+  background-color: rgba(242, 235, 220, 0.8);
+}
+
+.bgChange {
+  background-color: $cream;
+}
+
+.form-container,
+.form {
+  display: flex;
+  // todo
+  // ? Column will come into play once dropdown div is added..
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.search-input {
+  width: 70%;
+  border: none;
+  border-radius: 1.5rem;
+  outline: none;
+
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  //   margin-top: 0.5rem 0 0.5rem 0;
+
+  // !!! So input field does not zoom in on ios devices
+  font-size: 1.5rem;
+  color: $main-font-colour;
+
+  &::placeholder {
+    font-size: 1.8rem;
+    font-style: italic;
+    letter-spacing: 0.1rem;
+    color: $main-font-colour;
+
+    padding: 2rem 2rem 2rem 0;
+
+    // !!! Can change icon to plain!?
+    // !!! Other problem is that I cannot make this click to submit - shall we keep it or not?
+    // Magnifying glass search icon as React-icon Components are not permitted inside <input>
+    background-image: url("./Static/magnifying-glass.png");
+    background-size: 2.5rem;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+  }
+}
+
+// ? Dropdown section
+
+.form-dropdown-container {
+  position: absolute;
+  left: 0;
+  top: 9vh;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  height: auto;
+  width: 100vw;
+
+  padding: 3rem 0 5rem 0;
+
+  // todo - should we make this rgba to give it opacity? - wait til we have main content
+  background-color: $cream;
+  // ! OR
+  // background-color: rgba(242, 235, 220, 0.8);
+
+  // !! Make sure z-index is higher than all other elements / Components
+  z-index: 3000;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+
+  width: 15rem;
+  padding: 1rem;
+}
+
+.search-labels {
+  font-family: $roboto-bold-font-family;
+  color: $main-font-colour;
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
+  padding: 0 0 0.5rem 0.5rem;
+}
+
+.dropdown-section-input {
+  color: $main-font-colour;
+
+  border: none;
+  border-radius: 1.5rem;
+  outline: none;
+  padding: 0.8rem 1rem 0.8rem 1rem;
+
+  font-size: 1.5rem;
+
+  &::placeholder {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: $light-grey;
+
+    // To match react-dropdown component
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+}
+
+// !! Dropdown Component is styled in "../Search/dropdown-styling.css" - from node modules default styles; - still need to refactor to SASS with correct units
+
+// ? x-small
+
+@include x-small {
+  .search-input {
+    height: 3rem;
+    border-radius: 3.5rem;
+
+    padding: 0.3rem 1rem 0.3rem 1rem;
+
+    &::placeholder {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// ? small
+
+@include small {
+  .search-input {
+    height: 4rem;
+    border-radius: 3.5rem;
+
+    padding: 0.3rem 1.8rem 0.3rem 1.8rem;
+
+    &::placeholder {
+      font-size: 1.6rem;
+    }
+  }
+
+  .search-item {
+    width: 18rem;
+  }
+}
+
+// ? medium
+
+@include medium {
+  // !!!
+  // todo - position components so search field will sit under Navbar
+
+  .search-input {
+    height: 4rem;
+    border-radius: 3.5rem;
+
+    padding: 0.3rem 1.8rem 0.3rem 1.8rem;
+  }
+
+  .search-item {
+    width: 18rem;
+  }
+}
+
+// ? large
+
+@include large {
+  // !! Had to put this higher for spacing
+  .search-main-container {
+    height: 12vh;
+  }
+
+  .search-input {
+    height: 4rem;
+    border-radius: 3.5rem;
+
+    padding: 0.3rem 1.8rem 0.3rem 1.8rem;
+  }
+
+  .search-item {
+    width: 18rem;
+  }
+}
+
+// ? extra-large
+
+@include extra-large {
+  // !! Had to put this higher for spacing
+  .search-main-container {
+    height: 12vh;
+  }
+
+  .search-input {
+    height: 4rem;
+    border-radius: 3.5rem;
+
+    padding: 0.3rem 1.8rem 0.3rem 1.8rem;
+  }
+
+  .search-item {
+    width: 20rem;
+  }
+}
+
+// ? extra EXTRA large
+
+@include extra-extra-large {
+  // !! Had to put this higher for spacing
+  .search-main-container {
+    height: 12vh;
+  }
+
+  .search-input {
+    height: 4.5rem;
+    border-radius: 4rem;
+
+    padding: 0.3rem 2rem 0.3rem 2rem;
+  }
+
+  .search-item {
+    width: 25rem;
+  }
+
+  .search-labels {
+    font-size: 1.8rem;
+    padding: 0 0 0.6rem 1rem;
+  }
+}
