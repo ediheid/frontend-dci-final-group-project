@@ -6,6 +6,8 @@ import {
   Switch,
 } from "react-router-dom";
 
+import "react-dates/initialize";
+
 // ? Main scss
 // !!!! - Figure out module classes..
 import styles from "./Styling/app.module.scss";

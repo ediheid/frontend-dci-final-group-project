@@ -1,4 +1,12 @@
-import React, { Component, Fragment, useState } from "react";
+import React, { Fragment } from "react";
+// !!!
+import {
+  DateRangePicker,
+  SingleDatePicker,
+  DayPickerRangeController,
+} from "react-dates";
+
+import moment from "moment";
 
 import styles from "../Search/search.module.scss";
 
@@ -19,6 +27,12 @@ const Form = (props) => {
   // https://www.npmjs.com/package/react-dropdown
   const options = ["one", "two", "three"];
   // ? Default
+
+  // !!!!
+  let test = new Date();
+
+  //   let test = moment("20211215");
+  //   console.log(test);
 
   return (
     <div className={styles["form-container"]}>
@@ -72,6 +86,14 @@ const Form = (props) => {
                   // onChange={this._onSelect} // todo: Look into docs
                 />
               </div>
+
+              <SingleDatePicker
+                date={moment().subtract(6, "days")} // momentPropTypes.momentObj or null
+                onDateChange={(date) => console.log("test")} // PropTypes.func.isRequired
+                focused={false} // PropTypes.bool
+                onFocusChange={({ focused }) => console.log("test2")} // PropTypes.func.isRequired
+                id="your_unique_id" // PropTypes.string.isRequired,
+              />
             </div>
           </Expand>
         </form>
