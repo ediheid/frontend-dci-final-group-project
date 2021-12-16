@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     BrowserRouter as Router,
     Route,
@@ -14,41 +14,57 @@ import styles from "./Styling/app.module.scss";
 import LandingPage from "./Views/LandingPage/LandingPage";
 import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
-// import Search from "./Components/Search/Search";
-import SignUp from "./Components/SignUp/SignUp";
+import Search from "./Components/Search/Search";
+import Verification from "./Components/Verification/Verification";
 import Navbar from "./Components/Navbar/Navbar";
 
 const App = () => {
+    const [currentUser, setCurrentUser] = useState({
+        _id: "",
+        firstname: "",
+        lastname: "",
+        email: "",
+        adress: {
+            street: "",
+            number: "",
+            city: "",
+            postcode: "",
+        },
+        birthday: "",
+        locations: [],
+        bookings: [],
+        verified: false,
+    });
+
     return (
         // !!!! - Figure out module classes..
         <div>
             <Router>
-                {/* // !! Nearly works */}
                 <Navbar />
                 {/* // ? NavBar Component could live here */}
-                {/* <Search /> */}
-
+                <Search />
                 <main>
                     <Switch>
                         {/* // ? Template/placeholder for how to setup paths with components.. */}
                         <Route path="/" exact component={LandingPage} />
+                        {/* <LandingPage /> */}
 
-                        <Route path="/sign-up" exact component={SignUp} />
+                        {/* // ? Fallback path - directs user back to login page */}
+                        {/* <Redirect to="/" exact /> */}
+                        {/* // ? or */}
+                        {/* <Route path="*" exact /> */}
 
                         {/* // ? About us overview */}
                         <Route path="/about-us" exact component={AboutUs} />
-
-                        {/* // ? Fallback path - directs user back to login page */}
-                        {/* <Redirect to="/log-in" exact /> */}
-                        {/* // ? or */}
-                        {/* <Route path="*" exact /> */}
-                        {/* // ? Sign Up modal */}
-                        {/* <Route path="/navbar" exact component={Navbar} /> */}
+                        <Route
+                            path="/verify-email"
+                            exact
+                            component={Verification}
+                        />
                     </Switch>
                 </main>
-
-                {/* // ? Footer  Component could live here */}
                 <Footer />
+                {/* // ? Footer  Component could live here */}
             </Router>
         </div>
     );
