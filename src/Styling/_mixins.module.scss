@@ -42,3 +42,11 @@
     @content;
   }
 }
+
+// ? Special Media Query just for calendar on extra small devices
+
+@mixin extra-extra-small {
+  @media (max-width: 320px) {
+    @content;
+  }
+}

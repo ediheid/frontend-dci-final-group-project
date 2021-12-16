@@ -265,3 +265,11 @@
     width: 18rem;
   }
 }
+
+@include extra-extra-small {
+  .search-input {
+    &::placeholder {
+      font-size: 1rem;
+    }
+  }
+}

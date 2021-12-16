@@ -39,9 +39,9 @@
 //     left: 35px;
 //   }
 
-//   .react-datepicker__time-container {
-//     border-left: 0;
-//   }
+// .react-datepicker__time-container {
+//   border-left: 0;
+// }
 
 //   .react-datepicker__time,
 //   .react-datepicker__time-box {
@@ -58,6 +58,8 @@
 
 .react-datepicker-popper {
   z-index: 6000;
+
+  // background-color: red;
 
   &[data-placement^="bottom"] {
     // * My styles
@@ -162,11 +164,11 @@
   // font-weight: bold;
 }
 
-// .react-datepicker-time__header {
-//   text-overflow: ellipsis;
-//   white-space: nowrap;
-//   overflow: hidden;
-// }
+.react-datepicker-time__header {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 .react-datepicker__navigation {
   // * My Styles
@@ -436,8 +438,8 @@
   color: $main-font-colour;
   font-family: $main-font-font-family;
 
-  //
   // !! Make this bigger on desktop and smaller on phone
+  // See media queries at the bottom of the style sheet
   padding: 0.5rem;
 
   // * Library Styles
@@ -742,16 +744,17 @@
   .react-datepicker__day,
   .react-datepicker__time-name {
     // * My Styles
-
-    //
-    // !! Make this bigger on desktop and smaller on phone
     padding: 0.1rem;
+  }
+}
 
-    // * Library Styles
-    // display: inline-block;
-    // width: $datepicker__item-size;
-    // line-height: $datepicker__item-size;
-    // text-align: center;
-    // margin: $datepicker__day-margin;
+// ? Special Media Query just for calendar on extra small devices
+
+@include extra-extra-small {
+  .react-datepicker__day-name,
+  .react-datepicker__day,
+  .react-datepicker__time-name {
+    // * My Styles
+    padding: 0;
   }
 }
