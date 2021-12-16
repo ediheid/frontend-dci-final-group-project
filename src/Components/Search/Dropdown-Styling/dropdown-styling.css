@@ -17,7 +17,7 @@
   cursor: default;
   outline: none;
   padding: 9px 82px 8px 10px;
-  /* !! */
+  /* !! Added media query for tablet + */
   width: 16.5rem;
   max-width: 16.5rem;
   /* !! */
@@ -107,4 +107,13 @@
   cursor: default;
   display: block;
   padding: 8px 10px;
+}
+
+/* ? Media query for dropdown input sizing to match the rest in search.module.scss .dropdown-section-input  */
+
+@media (min-width: 769px) {
+  .Dropdown-control {
+    width: 19.2rem;
+    max-width: 19.2rem;
+  }
 }

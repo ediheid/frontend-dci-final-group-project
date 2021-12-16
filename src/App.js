@@ -41,7 +41,12 @@ const App = () => {
       <Router>
         <Navbar />
         {/* // ? NavBar Component could live here */}
-        <Search />
+        {/* // todo - setup conditional display of Navbar to sit underneath the search field on landing page tablet and desktop view - might have to bring in on individual page Views?  */}
+        {/* // todo Fix Navbar to bottom of the screen on small devices - kick in from 100vh (just below the landing page main image - Scroll Event Listener?)  */}
+        {/* <Search /> */}
+        {/* // !! Note: Search is commented out here as we currently only need the search Component to display up the top on the Landing page so it is brought in there  */}
+        {/* // todo - Open the form Component on click of search icon in the Navbar for all other pages */}
+
         <main>
           <Switch>
             {/* // ? Template/placeholder for how to setup paths with components.. */}
