@@ -3,11 +3,11 @@
 @import "/src/Styling/fonts.module";
 @import "/src/Styling/reset.module";
 
-// !!! Bring these into main folder
 @import "../Datepicker-Styling/datepicker-override-variables.scss";
 @import "../Datepicker-Styling/datepicker-override-mixins.scss";
 
 .react-datepicker-wrapper {
+  // * Library styles
   display: inline-block;
   padding: 0;
   border: 0;
@@ -15,104 +15,126 @@
 }
 
 .react-datepicker {
-  font-family: $datepicker__font-family;
-  font-size: $datepicker__font-size;
+  // * My styles
+  font-size: 1.4rem;
+
+  word-spacing: 0.15rem;
+  font-family: $main-font-font-family;
+  color: $main-font-colour;
+  border: none;
+  border-radius: 2rem;
+
+  // !!! Make smaller if I cannot make calendar bigger
+  padding: 1.3rem;
+
+  // * Library styles
   background-color: #fff;
-  color: $datepicker__text-color;
-  border: 1px solid $datepicker__border-color;
-  border-radius: $datepicker__border-radius;
   display: inline-block;
   position: relative;
 }
 
-.react-datepicker--time-only {
-  .react-datepicker__triangle {
-    left: 35px;
-  }
+// !! Do I need this?
+// .react-datepicker--time-only {
+//   .react-datepicker__triangle {
+//     left: 35px;
+//   }
 
-  .react-datepicker__time-container {
-    border-left: 0;
-  }
+//   .react-datepicker__time-container {
+//     border-left: 0;
+//   }
 
-  .react-datepicker__time,
-  .react-datepicker__time-box {
-    border-bottom-left-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-  }
-}
+//   .react-datepicker__time,
+//   .react-datepicker__time-box {
+//     border-bottom-left-radius: 0.3rem;
+//     border-bottom-right-radius: 0.3rem;
+//   }
+// }
 
-.react-datepicker__triangle {
-  position: absolute;
-  left: 50px;
-}
+// .react-datepicker__triangle {
+//   position: absolute;
+//   left: 50px;
+
+// }
 
 .react-datepicker-popper {
-  z-index: 1;
+  z-index: 6000;
 
   &[data-placement^="bottom"] {
-    padding-top: $datepicker__triangle-size + 2px;
+    // * My styles
+    padding-top: 0.5rem;
 
-    .react-datepicker__triangle {
-      @extend %triangle-arrow-up;
-    }
+    // * Library styles - Removed triangle pointing to input fieled
+    // padding-top: $datepicker__triangle-size + 2px;
+    // .react-datepicker__triangle {
+    //   @extend %triangle-arrow-up;
+    // }
   }
 
-  &[data-placement="bottom-end"],
-  &[data-placement="top-end"] {
-    .react-datepicker__triangle {
-      left: auto;
-      right: 50px;
-    }
-  }
+  // &[data-placement="bottom-end"],
+  // &[data-placement="top-end"] {
+  //   .react-datepicker__triangle {
+  //     left: auto;
+  //     right: 50px;
+  //   }
+  // }
 
-  &[data-placement^="top"] {
-    padding-bottom: $datepicker__triangle-size + 2px;
+  // &[data-placement^="top"] {
+  //   padding-bottom: $datepicker__triangle-size + 2px;
 
-    .react-datepicker__triangle {
-      @extend %triangle-arrow-down;
-    }
-  }
+  //   .react-datepicker__triangle {
+  //     @extend %triangle-arrow-down;
+  //   }
+  // }
 
-  &[data-placement^="right"] {
-    padding-left: $datepicker__triangle-size;
+  // &[data-placement^="right"] {
+  //   padding-left: $datepicker__triangle-size;
 
-    .react-datepicker__triangle {
-      left: auto;
-      right: 42px;
-    }
-  }
+  //   .react-datepicker__triangle {
+  //     left: auto;
+  //     right: 42px;
+  //   }
+  // }
 
-  &[data-placement^="left"] {
-    padding-right: $datepicker__triangle-size;
+  // &[data-placement^="left"] {
+  //   padding-right: $datepicker__triangle-size;
 
-    .react-datepicker__triangle {
-      left: 42px;
-      right: auto;
-    }
-  }
+  //   .react-datepicker__triangle {
+  //     left: 42px;
+  //     right: auto;
+  //   }
+  // }
 }
 
 .react-datepicker__header {
-  text-align: center;
-  background-color: $datepicker__background-color;
-  border-bottom: 1px solid $datepicker__border-color;
-  border-top-left-radius: $datepicker__border-radius;
-  padding: 8px 0;
+  // * My styles
+  background-color: $cream;
+  // width: 100%;
+  color: $main-font-colour;
+  font-size: 1.5rem;
+
+  // !! Change on mob/desktop - width and padding
+  padding: 1.3rem;
   position: relative;
+  border-radius: 1rem;
 
-  &--time {
-    padding-bottom: 8px;
-    padding-left: 5px;
-    padding-right: 5px;
+  // * Library Styles
+  text-align: center;
+  // border-bottom: 1px solid $datepicker__border-color;
+  // border-top-left-radius: $datepicker__border-radius;
 
-    &:not(&--only) {
-      border-top-left-radius: 0;
-    }
-  }
+  // &--time {
+  //   padding-bottom: 8px;
+  //   padding-left: 5px;
+  //   padding-right: 5px;
 
-  &:not(&--has-time-select) {
-    border-top-right-radius: $datepicker__border-radius;
-  }
+  //   &:not(&--only) {
+  //     border-top-left-radius: 0;
+  //   }
+  // }
+
+  // &:not(&--has-time-select) {
+  //   border-top-right-radius: $datepicker__border-radius;
+  // }
 }
 
 .react-datepicker__year-dropdown-container--select,
@@ -128,19 +150,29 @@
 .react-datepicker__current-month,
 .react-datepicker-time__header,
 .react-datepicker-year-header {
+  // * My Styles
+  color: $orange;
+  font-family: $roboto-bold-font-family;
+  letter-spacing: 0.03rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+
+  // * Library Styles
   margin-top: 0;
-  color: $datepicker__header-color;
-  font-weight: bold;
-  font-size: $datepicker__font-size * 1.18;
+  // font-weight: bold;
 }
 
-.react-datepicker-time__header {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
+// .react-datepicker-time__header {
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   overflow: hidden;
+// }
 
 .react-datepicker__navigation {
+  // * My Styles
+  top: 2.5rem;
+
+  // * Library Styles
   align-items: center;
   background: none;
   display: flex;
@@ -148,7 +180,7 @@
   text-align: center;
   cursor: pointer;
   position: absolute;
-  top: 2px;
+
   padding: 0;
   border: none;
   z-index: 1;

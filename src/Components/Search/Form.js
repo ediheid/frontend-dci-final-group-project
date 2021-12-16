@@ -25,6 +25,8 @@ const Form = (props) => {
   // ? Default
 
   // todo Calendar - work on functionality and data collection
+  // See docs..
+  // https://reactdatepicker.com/
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
