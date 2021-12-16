@@ -13,6 +13,12 @@ const SignUp = (props) => {
         event.stopPropagation();
     };
 
+    // !! ASK GROUP, go to line
+    // const switchToLogin = (event) => {
+    //     setShowLogIn(true);
+    //     props.setShowSignUp(false);
+    // };
+
     const sendData = (event) => {
         event.preventDefault();
 
@@ -31,7 +37,6 @@ const SignUp = (props) => {
         };
 
         console.log(userData);
-
 
         // !! Kathi copied from tutorial
         //   if (

@@ -17,6 +17,8 @@ import Footer from "./Components/Footer/Footer";
 import Search from "./Components/Search/Search";
 import SignUp from "./Components/SignUp/SignUp";
 import Navbar from "./Components/Navbar/Navbar";
+import Navbar2 from "./Components/Navbar/Navbar";
+
 
 const App = () => {
     return (

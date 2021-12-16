@@ -5,6 +5,7 @@ import styles from "../Navbar/Navbar.module.scss";
 
 // ? All Component and View imports
 import LogIn from "../../Components/LogIn/LogIn";
+// import LogIn2 from "../test/LogIn2/LogIn2";
 
 const Navbar = () => {
     const [showLogIn, setShowLogIn] = useState(false);
@@ -19,10 +20,15 @@ const Navbar = () => {
         setShowLogIn(false);
         console.log("background was clicked close log in");
     };
+
     return (
         <>
             <div className={styles["navbar-container"]}>
-                <LogIn onCloseLogin={closeLogIn} showLogin={showLogIn} />
+                <LogIn
+                    onCloseLogin={closeLogIn}
+                    showLogin={showLogIn}
+                    setShowLogIn={setShowLogIn}
+                />
 
                 <div className={styles["icon-container"]}>
                     <div className={styles.icon}>

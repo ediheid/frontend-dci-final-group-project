@@ -22,7 +22,7 @@ const LogIn = (props) => {
     };
 
     // Login Modal is not visible
-    if (!props.showLogin) {
+    if (!props.setShowLogIn) {
         return null;
     }
 
@@ -30,7 +30,13 @@ const LogIn = (props) => {
         event.stopPropagation();
     };
 
-    // Kathi: Go through it with Jan, Marc or Edith
+    // !! ASK GROUP, go to line 159
+    const switchToSignup = (event) => {
+        props.setShowLogIn(false);
+        setShowSignUp(true);
+    };
+
+    // !! Kathi: Go through it with Jan, Marc or Edith
     const sendData = (event) => {
         // const history = useHistory();
         // const navigate = useNavigate();
@@ -149,7 +155,9 @@ const LogIn = (props) => {
                                         <span
                                             // onClick={`${props.openSignUp} ${props.onCloseLogin} `}
 
-                                            onClick={props.onCloseLogin}
+                                            // onClick={props.onCloseLogin}
+                                            // !! Ask group
+                                            onClick={switchToSignup}
                                             className={styles.link}
                                         >
                                             {" "}
