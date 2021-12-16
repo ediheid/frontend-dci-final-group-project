@@ -8,33 +8,33 @@ import SignUp from "../SignUp/SignUp";
 import styles from "../LogIn/LogIn.module.scss";
 
 const LogIn = (props) => {
-    // const [showSignUp, setShowSignUp] = useState(false);
+    const [showSignUp, setShowSignUp] = useState(false);
 
-    // const openSignUp = (event) => {
-    //     event.preventDefault();
-    //     setShowSignUp(true);
-    // };
+    const openSignUp = (event) => {
+        event.preventDefault();
+        setShowSignUp(true);
+    };
 
-    // const closeSignUp = (event) => {
-    //     event.preventDefault();
-    //     setShowSignUp(false);
-    //     console.log("background was clicked close sign up");
-    // };
+    const closeSignUp = (event) => {
+        event.preventDefault();
+        setShowSignUp(false);
+        console.log("background was clicked close sign up");
+    };
 
-    // // Login Modal is not visible
-    // if (!props.showLogin) {
-    //     return null;
-    // }
+    // Login Modal is not visible
+    if (!props.showLogin) {
+        return null;
+    }
 
-    // const stop = (event) => {
-    //     event.stopPropagation();
-    // };
+    const stop = (event) => {
+        event.stopPropagation();
+    };
 
-    // // !! ASK GROUP, go to line
-    // const switchToSignup = (event) => {
-    //     props.setShowLogIn(false);
-    //     setShowSignUp(true);
-    // };
+    // !! ASK GROUP, go to line
+    const switchToSignup = (event) => {
+        props.setShowLogIn(false);
+        setShowSignUp(true);
+    };
 
     // !! Kathi: Go through it with Jan, Marc or Edith
     const sendData = (event) => {
@@ -116,7 +116,7 @@ const LogIn = (props) => {
                 className={styles["login-modal-container"]}
                 onClick={props.onCloseLogin}
             >
-                {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
+                <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} />
                 <div className={styles.content} onClick={stop}>
                     <div className={styles.header}>
                         <div onClick={props.onCloseLogin}>X</div>
