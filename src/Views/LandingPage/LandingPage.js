@@ -9,6 +9,7 @@ import Card from "../../UI/Card/Card";
 import Carousel from "../../Components/Carousel/Carousel";
 import Button from "../../UI/Button/Button";
 import LogIn from "../../Components/LogIn/LogIn";
+import Search from "../../Components/Search/Search";
 
 // ? All Images
 import backgroundImage from "./static/pexels-matthew-devries-2775231.jpg";
@@ -31,6 +32,7 @@ const LandingPage = () => {
 
     return (
         <>
+            <Search />
             <div className={styles["main-container"]}>
                 {/* <LogIn onCloseLogin={closeLogIn} showLogin={showLogIn} /> */}
                 {/* //  Welcome Image Component */}
@@ -41,9 +43,9 @@ const LandingPage = () => {
                         alt="Camper by Devries from Pexels"
                     />
                     <div className={styles.heading}>
-                        You don't
+                        Don't know
                         <br />
-                        know who we are?
+                        who we are?
                         <br />
                         No problem.
                         <Link to="/about-us">

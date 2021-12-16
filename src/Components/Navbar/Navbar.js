@@ -27,7 +27,7 @@ const Navbar = () => {
                 <LogIn
                     onCloseLogin={closeLogIn}
                     showLogin={showLogIn}
-                    setShowLogIn={setShowLogIn}
+                    // setShowLogIn={setShowLogIn}
                 />
 
                 <div className={styles["icon-container"]}>

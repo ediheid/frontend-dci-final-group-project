@@ -14,11 +14,9 @@ import styles from "./Styling/app.module.scss";
 import LandingPage from "./Views/LandingPage/LandingPage";
 import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
-import Search from "./Components/Search/Search";
+// import Search from "./Components/Search/Search";
 import SignUp from "./Components/SignUp/SignUp";
 import Navbar from "./Components/Navbar/Navbar";
-import Navbar2 from "./Components/Navbar/Navbar";
-
 
 const App = () => {
     return (
@@ -28,13 +26,10 @@ const App = () => {
                 {/* // !! Nearly works */}
                 <Navbar />
                 {/* // ? NavBar Component could live here */}
-                <Search />
+                {/* <Search /> */}
 
                 <main>
                     <Switch>
-                        {/* Navbar visible, but rets is gone */}
-                        {/* <Navbar /> */}
-
                         {/* // ? Template/placeholder for how to setup paths with components.. */}
                         <Route path="/" exact component={LandingPage} />
 
@@ -53,6 +48,7 @@ const App = () => {
                 </main>
 
                 {/* // ? Footer  Component could live here */}
+                <Footer />
             </Router>
         </div>
     );
