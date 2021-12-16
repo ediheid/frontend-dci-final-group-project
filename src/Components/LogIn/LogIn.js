@@ -153,12 +153,12 @@ const LogIn = (props) => {
                                             show={showSignUp}
                                         /> */}
                                         <span
-                                            onClick={`${props.openSignUp} ${props.onCloseLogin} `}
+                                            // onClick={`${props.openSignUp} ${props.onCloseLogin} `}
 
-                                            // onClick={props.onCloseLogin}
+                                            onClick={props.onCloseLogin}
                                             // Ask group
                                             // onClick={switchToSignup}
-                                            // className={styles.link}
+                                            className={styles.link}
                                         >
                                             {" "}
                                             Sign up
