@@ -734,3 +734,24 @@
     font-size: $datepicker__font-size * 1.8;
   }
 }
+
+// ? Media queries
+
+@include x-small {
+  .react-datepicker__day-name,
+  .react-datepicker__day,
+  .react-datepicker__time-name {
+    // * My Styles
+
+    //
+    // !! Make this bigger on desktop and smaller on phone
+    padding: 0.1rem;
+
+    // * Library Styles
+    // display: inline-block;
+    // width: $datepicker__item-size;
+    // line-height: $datepicker__item-size;
+    // text-align: center;
+    // margin: $datepicker__day-margin;
+  }
+}
