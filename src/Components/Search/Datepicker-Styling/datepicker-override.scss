@@ -170,7 +170,9 @@
 
 .react-datepicker__navigation {
   // * My Styles
-  top: 2.5rem;
+  top: 2rem;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
 
   // * Library Styles
   align-items: center;
@@ -219,7 +221,9 @@
 
   &:hover {
     *::before {
-      border-color: darken($datepicker__muted-color, 15%);
+      // * My Style
+      border-color: $army-green;
+      // border-color: darken($datepicker__muted-color, 15%);
     }
   }
 }
@@ -274,14 +278,16 @@
   }
 }
 
+// !!!
 .react-datepicker__month {
+  // * Edited margin mixin
   margin: $datepicker__margin;
   text-align: center;
 
   .react-datepicker__month-text,
   .react-datepicker__quarter-text {
     display: inline-block;
-    width: 4rem;
+    width: 4.5rem;
     margin: 2px;
   }
 }
@@ -420,13 +426,21 @@
 }
 
 .react-datepicker__day-names {
-  margin-bottom: -8px;
+  margin-bottom: -2px;
 }
 
 .react-datepicker__day-name,
 .react-datepicker__day,
 .react-datepicker__time-name {
-  color: $datepicker__text-color;
+  // * My Styles
+  color: $main-font-colour;
+  font-family: $main-font-font-family;
+
+  //
+  // !! Make this bigger on desktop and smaller on phone
+  padding: 0.5rem;
+
+  // * Library Styles
   display: inline-block;
   width: $datepicker__item-size;
   line-height: $datepicker__item-size;
@@ -440,6 +454,7 @@
   &--in-selecting-range,
   &--in-range {
     border-radius: $datepicker__border-radius;
+    // ? Changed date picker variable to light
     background-color: $datepicker__selected-color;
     color: #fff;
 

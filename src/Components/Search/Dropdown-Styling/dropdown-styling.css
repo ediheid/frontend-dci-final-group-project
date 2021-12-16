@@ -16,7 +16,11 @@
   box-sizing: border-box;
   cursor: default;
   outline: none;
-  padding: 9px 52px 8px 10px;
+  padding: 9px 82px 8px 10px;
+  /* !! */
+  width: 16.5rem;
+  max-width: 16.5rem;
+  /* !! */
   transition: all 200ms ease;
 
   font-size: 1.3rem;

@@ -101,7 +101,9 @@
 .search-item {
   display: flex;
   flex-direction: column;
+  margin-right: 2rem;
 
+  // !!
   width: 15rem;
   padding: 1rem;
 }
@@ -120,7 +122,10 @@
   border: none;
   border-radius: 1.5rem;
   outline: none;
-  padding: 0.8rem 1rem 0.8rem 1rem;
+  padding: 0.8rem 0.5rem 0.8rem 1rem;
+
+  // !!
+  width: 15rem;
 
   font-size: 1.5rem;
 
