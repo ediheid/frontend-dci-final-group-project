@@ -1,7 +1,7 @@
-@import "./variables.module.scss";
-@import "./mixins.module.scss";
-@import "./reset.module.scss";
-@import "./fonts.module.scss";
+@import "././variables.module";
+@import "././mixins.module";
+@import "././reset.module";
+@import "././fonts.module";
 
 // @use "fonts.module" as *;
 // @use "variables.module" as *;
@@ -12,4 +12,4 @@
 @import "../Components/Footer/footer.module.scss";
 @import "../Components/Navbar/navbar.module.scss";
 @import "../Views/LandingPage/LandingPage.module.scss";
-@import "../Components/Search/search.module.scss"; // =================================
+@import "../Components/Search/search.module.scss";
