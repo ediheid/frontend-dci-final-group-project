@@ -1,0 +1,139 @@
+@import "../../Styling/variables.module";
+@import "../../Styling/mixins.module";
+@import "../../Styling/fonts.module";
+@import "../../Styling/reset.module";
+
+// ? Universal styling
+
+.login-modal-container {
+    z-index: 3000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(242, 235, 220, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+    font-family: $main-font-font-family;
+    color: $main-font-colour;
+}
+
+.content {
+    min-width: 70vw;
+    min-height: 50vh;
+    background-color: $cream;
+    border-radius: 20px;
+    padding: 5vw;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    // background: yellow;
+    // justify-content: space-between;
+}
+
+.header div:nth-child(2) {
+    // background-color: blue;
+    margin-left: auto;
+    margin-right: auto;
+    // font-size: 1.5rem;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    font-size: 3rem;
+}
+
+.body {
+    margin-top: 2vh;
+}
+
+.form-container {
+    // background-color: pink;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.input-login,
+.input-login-button {
+    border: transparent;
+    border-radius: 20px;
+    margin: 1vw;
+    padding: 2vw;
+    width: 50vw;
+    color: $main-font-colour;
+}
+
+.input-login-button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vw;
+    color: $main-font-colour-light;
+    background-color: $orange;
+    width: 30vw;
+    font-size: 1.5rem;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    // background: yellow;
+    margin-top: 3vw;
+    font-size: 1.2rem;
+}
+
+.modal-footer div:nth-child(1) {
+    color: $orange;
+}
+
+.modal-footer div:nth-child(2) {
+    margin-top: 0.5vw;
+}
+
+.link {
+    text-decoration: none;
+    color: $orange;
+}
+
+// ? Media Queries
+// Based on Bootstrap breakpoints
+
+// * X-Small = Less than 576px - small mobile devices
+@include x-small {
+}
+
+// * Small = Less than 768px - mobile devices
+@include small {
+}
+
+// * Medium = Less than 992px - tablets
+@include medium {
+}
+
+// * Large = Less than 1200px - small desktops
+@include large {
+}
+
+// * Extra Large = Less than 1399px - medium desktops
+@include extra-large {
+}
+
+// * Extra EXTRA Large = More than 1400px - medium desktops
+@include extra-extra-large {
+}

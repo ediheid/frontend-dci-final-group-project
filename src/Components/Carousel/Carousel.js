@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import middleOfNowhere from "./static/pexels-arthouse-studio-4579021.jpg";
 import field from "./static/pexels-rachel-claire-4577786.jpg";
 import forrest from "./static/pexels-taryn-elliott-6861137.jpg";
-import camper from "./static/pexels-gantas-vaičiulėnas-4499510.jpg";
+// import camper from "./static/pexels-gantas-vaicciulenas-4499510.jpg";
 import cozyCamper from "./static/pexels-pnw-production-9354781.jpg";
 import garden from "./static/pexels-matheus-bertelli-1906155.jpg";
 import mountains from "./static/pexels-toth-photos-10539693.jpg";
