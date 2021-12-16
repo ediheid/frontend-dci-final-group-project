@@ -155,9 +155,9 @@ const LogIn = (props) => {
                                         <span
                                             // onClick={`${props.openSignUp} ${props.onCloseLogin} `}
 
-                                            onClick={props.onCloseLogin}
+                                            // onClick={props.onCloseLogin}
                                             // Ask group
-                                            // onClick={switchToSignup}
+                                            onClick={switchToSignup}
                                             className={styles.link}
                                         >
                                             {" "}
