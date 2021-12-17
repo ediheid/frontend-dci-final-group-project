@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // ? Stylesheet
-import styles from "../Navbar/navbar.module.scss";
+import styles from "../Navbar/Navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
@@ -17,8 +17,8 @@ const Navbar = (props) => {
 
     const openLoginFromSignup = () => {
         setShowSignupModal(false);
-        setShowLoginModal(true)
-    }
+        setShowLoginModal(true);
+    };
 
     const closeLoginModal = (event) => {
         event.preventDefault();
@@ -58,15 +58,16 @@ const Navbar = (props) => {
                     </div>
 
                     <div className={styles.icon}>
-                        
-                            <i class="far fa-user-circle" onClick={openLoginModal}> 
-                                <Registration showLogin={showLoginModal} closeLogin={closeLoginModal}
+                        <i class="far fa-user-circle" onClick={openLoginModal}>
+                            <Registration
+                                showLogin={showLoginModal}
+                                closeLogin={closeLoginModal}
                                 showSignup={showSignupModal}
                                 openSignup={openSignupModal}
                                 closeSignup={closeSignupModal}
-                                openLogin={openLoginFromSignup} />
-                            </i>
-                    
+                                openLogin={openLoginFromSignup}
+                            />
+                        </i>
                     </div>
                 </div>
             </div>
