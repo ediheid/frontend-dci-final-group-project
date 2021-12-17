@@ -5,6 +5,7 @@ import {
     Redirect,
     Switch,
 } from "react-router-dom";
+import signup from "./Services/createNewUser.js";
 
 // ? Main scss
 // !!!! - Figure out module classes..
@@ -19,6 +20,17 @@ import Verification from "./Components/Verification/Verification";
 import Navbar from "./Components/Navbar/Navbar";
 
 const App = () => {
+    const [signupData, setSignupData] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "", 
+        confirmedPassword: ""
+    })
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: ""
+    })
     const [currentUser, setCurrentUser] = useState({
         _id: "",
         firstname: "",
@@ -35,6 +47,14 @@ const App = () => {
         bookings: [],
         verified: false,
     });
+
+    const collectSignupData = event => { 
+        setSignupData({...signupData, [event.target.name]: event.target.value })
+    }
+
+    const collectLoginData = event => {
+        setLoginData({...loginData, [event.target.name]: event.target.value })
+    }
 
     return (
         // !!!! - Figure out module classes..

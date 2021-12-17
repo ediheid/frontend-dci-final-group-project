@@ -12,12 +12,12 @@ const Verification = () => {
   
     const changeContent = () => {
         if (query === "Your account has been successfully activated!" || query === "User has already been verified. Please login!") {
-            return (<Link to="/login">
+            return (<Link to="/landingpage">
                         <Button>Login</Button>
                     </Link>)
         } else if (query === "We were unable to find a user for this verification. Please SignUp!") {
             return (<Link to="/signup">
-                        <Button>Login</Button>
+                        <Button>Sign up</Button>
                     </Link>)
         } else {
             return (<Link to="/login">
