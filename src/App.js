@@ -73,11 +73,9 @@ const App = () => {
             {/* // ? About us overview */}
             <Route path="/about-us" exact component={AboutUs} />
             <Route path="/verify-email" exact component={Verification} />
-            {/* // ? Fallback path - directs user back to login page */}
-            {/* Url redirect to landing page */}
+
+            {/* // ? Url redirect to landing page on unknown path */}
             <Redirect to="/" exact />
-            {/* // ? or */}
-            {/* <Route path="*" exact /> */}
           </Switch>
         </main>
         {/* // ? Footer lives outside of Main and is only visible on tablet + views */}

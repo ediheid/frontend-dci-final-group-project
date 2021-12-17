@@ -18,6 +18,10 @@ const Search = () => {
     // setOpen(!open);
   };
 
+  const closeSearchButton = () => {
+    setOpen(!open);
+  };
+
   return (
     <>
       <Navbar open={open} openSearch={openSearch} />
@@ -26,7 +30,11 @@ const Search = () => {
           open ? styles["bgChange"] : styles["search-main-container"]
         }`}
       >
-        <Form open={open} openSearch={openSearch} />
+        <Form
+          open={open}
+          openSearch={openSearch}
+          closeSearchButton={closeSearchButton}
+        />
       </header>
     </>
   );
