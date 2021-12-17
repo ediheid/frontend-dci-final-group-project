@@ -17,12 +17,12 @@ const SignUp = (props) => {
         <>
             <div
                 className={styles["signup-modal-container"]}
-                onClick={props.onCloseSignup}
+                onClick={props.closeSignup}
             >
                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
                 <div className={styles.content} onClick={stop}>
                     <div className={styles.header}>
-                        <div onClick={props.onCloseSignup}>X</div>
+                        <div onClick={props.closeSignup}>X</div>
 
                         <div className={styles.title}>Sign up</div>
                     </div>
@@ -70,7 +70,7 @@ const SignUp = (props) => {
                                 <div className={styles["modal-footer"]}>
                                     <div>Already have a Freshbnb account?</div>
                                     <div
-                                        onClick={props.showLogin}
+                                        onClick={props.openLogin}
                                         className={styles.link}
                                     >
                                         Log in

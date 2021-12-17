@@ -7,6 +7,35 @@ import styles from "../Navbar/navbar.module.scss";
 import Registration from "../../Views/Registration/Registration";
 
 const Navbar = (props) => {
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showSignupModal, setShowSignupModal] = useState(false);
+
+    const openLoginModal = (event) => {
+        event.preventDefault();
+        setShowLoginModal(true);
+    };
+
+    const openLoginFromSignup = () => {
+        setShowSignupModal(false);
+        setShowLoginModal(true)
+    }
+
+    const closeLoginModal = (event) => {
+        event.preventDefault();
+        setShowLoginModal(false);
+    };
+
+    const openSignupModal = (event) => {
+        event.preventDefault();
+        setShowSignupModal(true);
+        setShowLoginModal(false);
+    };
+
+    const closeSignupModal = (event) => {
+        event.preventDefault();
+        setShowSignupModal(false);
+    };
+
     return (
         <>
             <div className={styles["navbar-container"]}>
@@ -30,8 +59,12 @@ const Navbar = (props) => {
 
                     <div className={styles.icon}>
                         
-                            <i class="far fa-user-circle"> 
-                                <Registration />
+                            <i class="far fa-user-circle" onClick={openLoginModal}> 
+                                <Registration showLogin={showLoginModal} closeLogin={closeLoginModal}
+                                showSignup={showSignupModal}
+                                openSignup={openSignupModal}
+                                closeSignup={closeSignupModal}
+                                openLogin={openLoginFromSignup} />
                             </i>
                     
                     </div>

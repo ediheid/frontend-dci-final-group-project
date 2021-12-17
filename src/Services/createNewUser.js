@@ -4,11 +4,11 @@ const signup = event => {
     event.preventDefault();
 
     const userData = {
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        password: password,
-        confirmedPassword: confirmedPassword
+        // firstname: firstname,
+        // lastname: lastname,
+        // email: email,
+        // password: password,
+        // confirmedPassword: confirmedPassword
     } 
 
     const settings = {
@@ -43,7 +43,7 @@ const signup = event => {
         }
     })
     .then(data => {
-        setCurrentUser(data)
+        // setCurrentUser(data)
     })
     .catch(err => {
         alert(err.message)
