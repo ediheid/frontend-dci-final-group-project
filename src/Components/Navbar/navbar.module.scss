@@ -6,34 +6,38 @@
 // ? Universal styling
 
 .navbar-container {
-    z-index: 6000;
-    overflow: hidden;
-    // background-color: $cream;
-    background-color: rgba(242, 235, 220, 0.8);
-    position: fixed;
-    bottom: 0vh;
-    width: 100vw;
-    height: 10vh;
-    // top: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  z-index: 6000;
+  overflow: hidden;
 
-    // margin-top: 50%;
+  background-color: rgba(242, 235, 220, 0.8);
+  position: fixed;
+
+  width: 100vw;
+  height: 10vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // margin-top: 50%;
+}
+
+.bgChange {
+  background-color: $cream;
 }
 
 .icon-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    // background-color: pink;
-    width: 80vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  // background-color: pink;
+  width: 80vw;
 }
 
 .icon {
-    font-size: 2rem;
-    color: $main-font-colour;
+  font-size: 2rem;
+  color: $main-font-colour;
 }
 
 // ? Media Queries
@@ -41,24 +45,42 @@
 
 // * X-Small = Less than 576px - small mobile devices
 @include x-small {
+  .navbar-container {
+    bottom: 0;
+  }
 }
 
 // * Small = Less than 768px - mobile devices
 @include small {
+  .navbar-container {
+    bottom: 0;
+  }
 }
 
 // * Medium = Less than 992px - tablets
 @include medium {
+  .navbar-container {
+    top: 0;
+  }
 }
 
 // * Large = Less than 1200px - small desktops
 @include large {
+  .navbar-container {
+    top: 0;
+  }
 }
 
 // * Extra Large = Less than 1399px - medium desktops
 @include extra-large {
+  .navbar-container {
+    top: 0;
+  }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
 @include extra-extra-large {
+  .navbar-container {
+    top: 0;
+  }
 }

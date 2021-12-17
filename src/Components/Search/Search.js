@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import Navbar from "../Navbar/Navbar";
 import Form from "./Form";
 
 import styles from "../Search/search.module.scss";
@@ -17,14 +18,25 @@ const Search = () => {
     // setOpen(!open);
   };
 
+  const closeSearchButton = () => {
+    setOpen(!open);
+  };
+
   return (
-    <header
-      className={`${styles["search-main-container"]} ${
-        open ? styles["bgChange"] : styles["search-main-container"]
-      }`}
-    >
-      <Form open={open} openSearch={openSearch} />
-    </header>
+    <>
+      <Navbar open={open} openSearch={openSearch} />
+      <header
+        className={`${styles["search-main-container"]} ${
+          open ? styles["bgChange"] : styles["search-main-container"]
+        }`}
+      >
+        <Form
+          open={open}
+          openSearch={openSearch}
+          closeSearchButton={closeSearchButton}
+        />
+      </header>
+    </>
   );
 };
 

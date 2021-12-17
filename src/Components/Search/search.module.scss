@@ -79,12 +79,26 @@
   height: auto;
   width: 100vw;
 
-  padding: 3rem 0 5rem 0;
+  padding: 3rem 0 10rem 0;
 
   background-color: $cream;
 
   // !! Make sure z-index is higher than all other elements / Components o it does not disappear
   z-index: 3000;
+}
+
+// Close button
+.close-button {
+  position: absolute;
+  bottom: 3rem;
+
+  border: none;
+  background: none;
+
+  font-size: 2.5rem;
+  color: $main-font-colour;
+
+  // background-color: red;
 }
 
 .search-item {
@@ -166,8 +180,9 @@
 // ? medium
 
 @include medium {
-  // !!!
-  // todo - position components so search field will sit under Navbar
+  .search-main-container {
+    top: 10vh;
+  }
 
   .search-input {
     height: 4rem;
@@ -189,9 +204,9 @@
 // ? large
 
 @include large {
-  // !! Had to put this higher for spacing
   .search-main-container {
     height: 12vh;
+    top: 10vh;
   }
 
   .search-input {
@@ -214,9 +229,9 @@
 // ? extra-large
 
 @include extra-large {
-  // !! Had to put this higher for spacing
   .search-main-container {
     height: 12vh;
+    top: 10vh;
   }
 
   .search-input {
@@ -239,9 +254,9 @@
 // ? extra EXTRA large
 
 @include extra-extra-large {
-  // !! Had to put this higher for spacing
   .search-main-container {
     height: 12vh;
+    top: 10vh;
   }
 
   .search-input {
