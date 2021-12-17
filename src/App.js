@@ -19,72 +19,69 @@ import Verification from "./Components/Verification/Verification";
 import Navbar from "./Components/Navbar/Navbar";
 
 const App = () => {
-    const [signupData, setSignupData] = useState({
-        firstname: "",
-        lastname: "",
-        email: "",
-        password: "", 
-        confirmedPassword: ""
-    })
-    const [loginData, setLoginData] = useState({
-        email: "",
-        password: ""
-    })
-    const [currentUser, setCurrentUser] = useState({
-        _id: "",
-        firstname: "",
-        lastname: "",
-        email: "",
-        adress: {
-            street: "",
-            number: "",
-            city: "",
-            postcode: "",
-        },
-        birthday: "",
-        locations: [],
-        bookings: [],
-        verified: false,
-    });
+  const [signupData, setSignupData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmedPassword: "",
+  });
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+  const [currentUser, setCurrentUser] = useState({
+    _id: "",
+    firstname: "",
+    lastname: "",
+    email: "",
+    adress: {
+      street: "",
+      number: "",
+      city: "",
+      postcode: "",
+    },
+    birthday: "",
+    locations: [],
+    bookings: [],
+    verified: false,
+  });
 
-    const collectSignupData = event => { 
-        setSignupData({...signupData, [event.target.name]: event.target.value })
-    }
+  const collectSignupData = (event) => {
+    setSignupData({ ...signupData, [event.target.name]: event.target.value });
+  };
 
-    const collectLoginData = event => {
-        setLoginData({...loginData, [event.target.name]: event.target.value })
-    }
+  const collectLoginData = (event) => {
+    setLoginData({ ...loginData, [event.target.name]: event.target.value });
+  };
 
   return (
-    // !!!! - Figure out module classes..
     <div>
       <Router>
-        <Navbar />
-        {/* // ? NavBar Component could live here */}
-        {/* // todo - setup conditional display of Navbar to sit underneath the search field on landing page tablet and desktop view - might have to bring in on individual page Views?  */}
-        {/* // todo Fix Navbar to bottom of the screen on small devices - kick in from 100vh (just below the landing page main image - Scroll Event Listener?)  */}
+        {/* <Navbar /> */}
+        {/* // !! Note: Navbar is now passed through individual page components - for the landing page it sits INSIDE the Search.js Component to be able to take over the open of search state */}
+
         {/* <Search /> */}
         {/* // !! Note: Search is commented out here as we currently only need the search Component to display up the top on the Landing page so it is brought in there  */}
+
         {/* // todo - Open the form Component on click of search icon in the Navbar for all other pages */}
 
         <main>
           <Switch>
             {/* // ? Template/placeholder for how to setup paths with components.. */}
             <Route path="/" exact component={LandingPage} />
-            {/* <LandingPage /> */}
-
-            {/* // ? Fallback path - directs user back to login page */}
-            {/* <Redirect to="/" exact /> */}
-            {/* // ? or */}
-            {/* <Route path="*" exact /> */}
-
             {/* // ? About us overview */}
             <Route path="/about-us" exact component={AboutUs} />
             <Route path="/verify-email" exact component={Verification} />
+            {/* // ? Fallback path - directs user back to login page */}
+            {/* Url redirect to landing page */}
+            <Redirect to="/" exact />
+            {/* // ? or */}
+            {/* <Route path="*" exact /> */}
           </Switch>
         </main>
+        {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
         <Footer />
-        {/* // ? Footer  Component could live here */}
       </Router>
     </div>
   );
