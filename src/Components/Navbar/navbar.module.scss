@@ -8,18 +8,14 @@
 .navbar-container {
     z-index: 6000;
     overflow: hidden;
-    // background-color: $cream;
     background-color: rgba(242, 235, 220, 0.8);
     position: fixed;
     bottom: 0vh;
     width: 100vw;
     height: 10vh;
-    // top: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    // margin-top: 50%;
 }
 
 .icon-container {
@@ -27,7 +23,6 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    // background-color: pink;
     width: 80vw;
 }
 
