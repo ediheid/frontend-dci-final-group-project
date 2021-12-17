@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // ? Stylesheet
 import styles from "../LogIn/LogIn.module.scss";
@@ -15,21 +15,11 @@ const LogIn = (props) => {
         event.stopPropagation();
     };
 
-    // const ref = useRef();
-
-    // useEffect(() => {
-    //     const checkIfClickedOutside = (e) => {
-    //         if (props.showLogin && ref.current && !ref.current.contains(e.target)) {
-    //             props.closeLogin()
-    //         }
-    //     }
-    // }, [props.showLogin])
-
     return (
         <>
             <div
                 className={styles["login-modal-container"]}
-                onClick={props.closeLogin}
+                onClick={props.closeModal} ref={props.ref}
             >
                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
                 <div className={styles.content} onClick={stop}>

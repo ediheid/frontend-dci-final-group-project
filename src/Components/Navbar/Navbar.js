@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // ? Stylesheet
 import styles from "../Navbar/navbar.module.scss";
@@ -10,32 +10,36 @@ const Navbar = (props) => {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
 
-    const openLoginModal = (event) => {
-        event.preventDefault();
-        setShowLoginModal(true);
-    };
+
+    const openLoginModal = () => setShowLoginModal(true);
+
+    const closeLoginModal = () => setShowLoginModal(false);
 
     const openLoginFromSignup = () => {
         setShowSignupModal(false);
         setShowLoginModal(true)
-    }
-
-    const closeLoginModal = (event) => {
-        event.preventDefault();
-        setShowLoginModal(false);
     };
 
-    const openSignupModal = (event) => {
-        event.preventDefault();
+    const openSignupModal = () => {
         setShowSignupModal(true);
         setShowLoginModal(false);
     };
 
-    const closeSignupModal = (event) => {
-        event.preventDefault();
-        setShowSignupModal(false);
-    };
+    const closeSignupModal = () => setShowSignupModal(false);
 
+    const ref = useRef();
+
+    const closeModal = event => {
+        if(ref.current === event.target) {
+            setShowLoginModal(false)
+        }
+    }
+
+    useEffect (() => {
+        console.log("login", showLoginModal)
+        console.log("signup", showSignupModal)
+    }, [showLoginModal, showSignupModal])
+    
     return (
         <>
             <div className={styles["navbar-container"]}>
@@ -64,7 +68,10 @@ const Navbar = (props) => {
                                 showSignup={showSignupModal}
                                 openSignup={openSignupModal}
                                 closeSignup={closeSignupModal}
-                                openLogin={openLoginFromSignup} />
+                                openLogin={openLoginFromSignup}
+                                ref={ref}
+                                closeModal={closeModal}
+                                 />
                             </i>
                     
                     </div>
