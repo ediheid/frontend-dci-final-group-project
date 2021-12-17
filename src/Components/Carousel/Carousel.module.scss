@@ -29,7 +29,7 @@
     // font-family: $sub-heading-font-family;
     font-size: 3.5rem;
     color: $main-font-colour;
-    margin-top: 5vh;
+    margin-top: 10vh;
     padding-bottom: 2vh;
     padding-left: 5vw;
 }
@@ -37,11 +37,9 @@
 .image {
     width: auto;
     max-height: 60vh;
-    // height: 436px;
-
     object-fit: cover;
     border-radius: 20px;
-    // background-color: pink;
+    background-color: pink;
     // margin-left: -45vw;
 }
 .beach {
