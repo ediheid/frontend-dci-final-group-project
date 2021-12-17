@@ -1,44 +1,42 @@
 import React, { useState } from "react";
 
 // ? Stylesheet
-import styles from "../Navbar/Navbar.module.scss";
+import styles from "../Navbar/navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
 
 const Navbar = (props) => {
-    return (
-        <>
-            <div className={styles["navbar-container"]}>
-                {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
-                <div className={styles["icon-container"]}>
-                    <div className={styles.icon}>
-                        <i class="fas fa-caravan"></i>
-                    </div>
+  return (
+    <>
+      <div className={styles["navbar-container"]}>
+        {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
+        <div className={styles["icon-container"]}>
+          <div className={styles.icon}>
+            <i class="fas fa-caravan"></i>
+          </div>
 
-                    <div className={styles.icon}>
-                        <i class="fas fa-search"></i>
-                    </div>
+          <div className={styles.icon}>
+            <i class="fas fa-search"></i>
+          </div>
 
-                    <div className={styles.icon}>
-                        <i class="far fa-heart"></i>
-                    </div>
+          <div className={styles.icon}>
+            <i class="far fa-heart"></i>
+          </div>
 
-                    <div className={styles.icon}>
-                        <i class="far fa-comment"></i>
-                    </div>
+          <div className={styles.icon}>
+            <i class="far fa-comment"></i>
+          </div>
 
-                    <div className={styles.icon}>
-                        
-                            <i class="far fa-user-circle"> 
-                                <Registration />
-                            </i>
-                    
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+          <div className={styles.icon}>
+            <i class="far fa-user-circle">
+              <Registration />
+            </i>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Navbar;

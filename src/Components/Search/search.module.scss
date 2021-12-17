@@ -4,21 +4,18 @@
 @import "./src/Styling/reset.module";
 
 // ? Universal styling
-
 .search-main-container {
   width: 100vw;
   height: 10vh;
-
   position: fixed;
-  // !!!
+
+  // ? Can fix to bottom of Navbar on tablet and desktop view - Look up measurements once navbar is fixed to top for tablet and desktop
+
+  // !!! Make sure to have highest z-index so it does not disappear
   z-index: 3000;
 
   // !!! Min height on search component otherwise it disappears on sideways view
   min-height: 6rem;
-
-  // todo
-  // !!!  for dev...? or what do we think?
-  // background-color: $cream;
 
   background-color: rgba(242, 235, 220, 0.8);
 }
@@ -30,8 +27,6 @@
 .form-container,
 .form {
   display: flex;
-  // todo
-  // ? Column will come into play once dropdown div is added..
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -47,9 +42,8 @@
   outline: none;
 
   padding: 0.3rem 1rem 0.3rem 1rem;
-  //   margin-top: 0.5rem 0 0.5rem 0;
 
-  // !!! So input field does not zoom in on ios devices
+  // ? So input field does not zoom in on ios devices
   font-size: 1.5rem;
   color: $main-font-colour;
 
@@ -59,11 +53,10 @@
     letter-spacing: 0.1rem;
     color: $main-font-colour;
 
-    padding: 2rem 2rem 2rem 0;
+    padding: 1rem 2rem 1rem 1rem;
 
-    // !!! Can change icon to plain!?
-    // !!! Other problem is that I cannot make this click to submit - shall we keep it or not?
-    // Magnifying glass search icon as React-icon Components are not permitted inside <input>
+    // ? Magnifying glass search icon as React-icon Components are not permitted inside <input>
+    // Added image inside placeholder so it disappears on focus of search
     background-image: url("./Static/magnifying-glass.png");
     background-size: 2.5rem;
     background-repeat: no-repeat;
@@ -72,7 +65,7 @@
   }
 }
 
-// ? Dropdown section
+// ? Dropdown Search section
 
 .form-dropdown-container {
   position: absolute;
@@ -88,18 +81,16 @@
 
   padding: 3rem 0 5rem 0;
 
-  // todo - should we make this rgba to give it opacity? - wait til we have main content
   background-color: $cream;
-  // ! OR
-  // background-color: rgba(242, 235, 220, 0.8);
 
-  // !! Make sure z-index is higher than all other elements / Components
+  // !! Make sure z-index is higher than all other elements / Components o it does not disappear
   z-index: 3000;
 }
 
 .search-item {
   display: flex;
   flex-direction: column;
+  margin-right: 2rem;
 
   width: 15rem;
   padding: 1rem;
@@ -115,13 +106,14 @@
 
 .dropdown-section-input {
   color: $main-font-colour;
-
+  font-size: 1.5rem;
   border: none;
   border-radius: 1.5rem;
   outline: none;
-  padding: 0.8rem 1rem 0.8rem 1rem;
+  padding: 0.8rem 0.5rem 0.8rem 1rem;
 
-  font-size: 1.5rem;
+  // !! also added to dropdown styling .Dropdown-control to match
+  width: 15rem;
 
   &::placeholder {
     font-size: 1.3rem;
@@ -167,6 +159,7 @@
 
   .search-item {
     width: 18rem;
+    margin: 0 1rem 0 1rem;
   }
 }
 
@@ -184,6 +177,11 @@
   }
 
   .search-item {
+    width: 18rem;
+    margin: 2rem;
+  }
+
+  .dropdown-section-input {
     width: 18rem;
   }
 }
@@ -205,6 +203,11 @@
 
   .search-item {
     width: 18rem;
+    margin-right: 2rem;
+  }
+
+  .dropdown-section-input {
+    width: 18rem;
   }
 }
 
@@ -225,6 +228,11 @@
 
   .search-item {
     width: 20rem;
+    margin-right: 2rem;
+  }
+
+  .dropdown-section-input {
+    width: 18rem;
   }
 }
 
@@ -245,10 +253,23 @@
 
   .search-item {
     width: 25rem;
+    margin-right: 2rem;
   }
 
   .search-labels {
     font-size: 1.8rem;
     padding: 0 0 0.6rem 1rem;
+  }
+
+  .dropdown-section-input {
+    width: 18rem;
+  }
+}
+
+@include extra-extra-small {
+  .search-input {
+    &::placeholder {
+      font-size: 1rem;
+    }
   }
 }
