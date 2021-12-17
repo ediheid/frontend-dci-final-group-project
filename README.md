@@ -8,10 +8,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-## Footer functionality
+## Extra libraries to install
 
-For collapsible footer text, install
+`npm i react-router-dom`
+`npm i react-collapsible`
+`npm i react-expand-animated`
+`npm i react-dropdown`
+`npm i react-icons`
+`npm i react-slick`
+`npm i react-datepicker`
 
-`npm i react-collapsible` from
-
-https://github.com/glennflanagan/react-collapsible
+<!-- react-dates via:
+`( export PKG=react-dates; npm info "$PKG" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g; s/ *//g' | xargs npm install --save "$PKG" ) `
+See docs here:
+https://github.com/airbnb/react-dates -->
