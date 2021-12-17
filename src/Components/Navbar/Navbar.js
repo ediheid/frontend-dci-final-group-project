@@ -7,36 +7,71 @@ import styles from "../Navbar/navbar.module.scss";
 import Registration from "../../Views/Registration/Registration";
 
 const Navbar = (props) => {
-  return (
-    <>
-      <div className={styles["navbar-container"]}>
-        {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
-        <div className={styles["icon-container"]}>
-          <div className={styles.icon}>
-            <i class="fas fa-caravan"></i>
-          </div>
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showSignupModal, setShowSignupModal] = useState(false);
 
-          <div className={styles.icon}>
-            <i class="fas fa-search"></i>
-          </div>
+    const openLoginModal = (event) => {
+        event.preventDefault();
+        setShowLoginModal(true);
+    };
 
-          <div className={styles.icon}>
-            <i class="far fa-heart"></i>
-          </div>
+    const openLoginFromSignup = () => {
+        setShowSignupModal(false);
+        setShowLoginModal(true)
+    }
 
-          <div className={styles.icon}>
-            <i class="far fa-comment"></i>
-          </div>
+    const closeLoginModal = (event) => {
+        event.preventDefault();
+        setShowLoginModal(false);
+    };
 
-          <div className={styles.icon}>
-            <i class="far fa-user-circle">
-              <Registration />
-            </i>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+    const openSignupModal = (event) => {
+        event.preventDefault();
+        setShowSignupModal(true);
+        setShowLoginModal(false);
+    };
+
+    const closeSignupModal = (event) => {
+        event.preventDefault();
+        setShowSignupModal(false);
+    };
+
+    return (
+        <>
+            <div className={styles["navbar-container"]}>
+                {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
+                <div className={styles["icon-container"]}>
+                    <div className={styles.icon}>
+                        <i class="fas fa-caravan"></i>
+                    </div>
+
+                    <div className={styles.icon}>
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <div className={styles.icon}>
+                        <i class="far fa-heart"></i>
+                    </div>
+
+                    <div className={styles.icon}>
+                        <i class="far fa-comment"></i>
+                    </div>
+
+                    <div className={styles.icon}>
+                        
+                            <i class="far fa-user-circle" onClick={openLoginModal}> 
+                                <Registration showLogin={showLoginModal} closeLogin={closeLoginModal}
+                                showSignup={showSignupModal}
+                                openSignup={openSignupModal}
+                                closeSignup={closeSignupModal}
+                                openLogin={openLoginFromSignup} />
+                            </i>
+                    
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default Navbar;

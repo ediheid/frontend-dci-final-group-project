@@ -5,6 +5,7 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
+import signup from "./Services/createNewUser.js";
 
 // ? Main scss
 import styles from "./Styling/app.module.scss";
@@ -18,22 +19,41 @@ import Verification from "./Components/Verification/Verification";
 import Navbar from "./Components/Navbar/Navbar";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState({
-    _id: "",
-    firstname: "",
-    lastname: "",
-    email: "",
-    adress: {
-      street: "",
-      number: "",
-      city: "",
-      postcode: "",
-    },
-    birthday: "",
-    locations: [],
-    bookings: [],
-    verified: false,
-  });
+    const [signupData, setSignupData] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "", 
+        confirmedPassword: ""
+    })
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: ""
+    })
+    const [currentUser, setCurrentUser] = useState({
+        _id: "",
+        firstname: "",
+        lastname: "",
+        email: "",
+        adress: {
+            street: "",
+            number: "",
+            city: "",
+            postcode: "",
+        },
+        birthday: "",
+        locations: [],
+        bookings: [],
+        verified: false,
+    });
+
+    const collectSignupData = event => { 
+        setSignupData({...signupData, [event.target.name]: event.target.value })
+    }
+
+    const collectLoginData = event => {
+        setLoginData({...loginData, [event.target.name]: event.target.value })
+    }
 
   return (
     // !!!! - Figure out module classes..

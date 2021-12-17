@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 // ? Stylesheet
 import styles from "../../Views/Registration/Registration.module.scss";
@@ -7,44 +7,39 @@ import styles from "../../Views/Registration/Registration.module.scss";
 import LogIn from "../../Components/LogIn/LogIn";
 import SignUp from "../../Components/SignUp/SignUp";
 
-const Registration = () => {
-    const [showLoginModal, setShowLoginModal] = useState(false);
-    const [showSignupModal, setShowSignupModal] = useState(false);
+const Registration = (props) => {
+    const ref = useRef();
 
-    const openLoginModal = (event) => {
-        event.preventDefault();
-        setShowLoginModal(true);
-    };
-
-    const closeLoginModal = (event) => {
-        event.preventDefault();
-        setShowLoginModal(false);
-    };
-
-    const openSignupModal = (event) => {
-        event.preventDefault();
-        setShowSignupModal(true);
-    };
-
-    const closeSignupModal = (event) => {
-        event.preventDefault();
-        setShowSignupModal(false);
-    };
+useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+        if (props.showLogin && ref.current && !ref.current.contains(e.target)) {
+            props.closeLogin()
+        }
+    }
+}, [props.showLogin])
+    
 
     return (
         <>
-            <div>
+            <div className={styles.module}>
                 <LogIn
-                    onCloseLogin={closeLoginModal}
-                    showLogin={showLoginModal}
+                    closeLogin={props.closeLogin}
+                    showLogin={props.showLogin}
+                    showSignup={props.showSignup}
+                    openSignup={props.openSignup}
+
                 />
                 <SignUp
-                    onCloseSignup={closeSignupModal}
-                    showSignup={showSignupModal}
+                    showSignup={props.showSignup}
+                    closeSignup={props.closeSignup}
+                    showLogin={props.showLogin}
+                    openLogin={props.openLogin}
+                    // onCloseSignup={closeSignupModal}
+                    // showSignup={showSignupModal}
                 />
 
-                <div onClick={openLoginModal}>OPEN LOG IN</div>
-                <div onClick={openSignupModal}>OPEN SIGN UP</div>
+                {/* <div onClick={openLoginModal}>OPEN LOG IN</div>
+                <div onClick={openSignupModal}>OPEN SIGN UP</div> */}
             </div>
         </>
     );

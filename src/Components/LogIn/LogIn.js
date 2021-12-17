@@ -3,6 +3,8 @@ import React, { useState } from "react";
 // ? Stylesheet
 import styles from "../LogIn/LogIn.module.scss";
 
+
+
 const LogIn = (props) => {
     // Login Modal is not visible
     if (!props.showLogin) {
@@ -13,16 +15,26 @@ const LogIn = (props) => {
         event.stopPropagation();
     };
 
+    // const ref = useRef();
+
+    // useEffect(() => {
+    //     const checkIfClickedOutside = (e) => {
+    //         if (props.showLogin && ref.current && !ref.current.contains(e.target)) {
+    //             props.closeLogin()
+    //         }
+    //     }
+    // }, [props.showLogin])
+
     return (
         <>
             <div
                 className={styles["login-modal-container"]}
-                onClick={props.onCloseLogin}
+                onClick={props.closeLogin}
             >
                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
                 <div className={styles.content} onClick={stop}>
                     <div className={styles.header}>
-                        <div onClick={props.onCloseLogin}>X</div>
+                        <div onClick={props.closeLogin} >X</div>
 
                         <div className={styles.title}>Log in</div>
                     </div>
@@ -52,7 +64,7 @@ const LogIn = (props) => {
                                     <div>
                                         Not a member yet?
                                         <span
-                                            onClick={props.showSignup}
+                                            onClick={props.openSignup}
                                             className={styles.link}
                                         >
                                             Sign up
