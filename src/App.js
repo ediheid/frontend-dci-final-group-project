@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -15,7 +15,6 @@ import LandingPage from "./Views/LandingPage/LandingPage";
 import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
 import Verification from "./Components/Verification/Verification";
-
 
 const App = () => {
   const [signupData, setSignupData] = useState({
