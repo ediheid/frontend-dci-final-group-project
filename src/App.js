@@ -16,6 +16,9 @@ import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
 import Verification from "./Components/Verification/Verification";
 
+// !! createContext variable
+export const AppContext = createContext();
+
 const App = () => {
   const [signupData, setSignupData] = useState({
     firstname: "",
@@ -53,32 +56,44 @@ const App = () => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
+  console.log("!!!!!!!", loginData);
+
+  console.log("??????", signupData);
+
   return (
     <div>
-      <Router>
-        {/* <Navbar /> */}
-        {/* // !! Note: Navbar is now passed through individual page components - for the landing page it sits INSIDE the Search.js Component to be able to take over the open of search state */}
+      {/* // !!! This is where our context lives */}
+      <AppContext.Provider
+        value={{
+          collectSignupData: collectSignupData,
+          collectLoginData: collectLoginData,
+        }}
+      >
+        <Router>
+          {/* <Navbar /> */}
+          {/* // !! Note: Navbar is now passed through individual page components - for the landing page it sits INSIDE the Search.js Component to be able to take over the open of search state */}
 
-        {/* <Search /> */}
-        {/* // !! Note: Search is commented out here as we currently only need the search Component to display up the top on the Landing page so it is brought in there  */}
+          {/* <Search /> */}
+          {/* // !! Note: Search is commented out here as we currently only need the search Component to display up the top on the Landing page so it is brought in there  */}
 
-        {/* // todo - Open the form Component on click of search icon in the Navbar for all other pages */}
+          {/* // todo - Open the form Component on click of search icon in the Navbar for all other pages */}
 
-        <main>
-          <Switch>
-            {/* // ? Template/placeholder for how to setup paths with components.. */}
-            <Route path="/" exact component={LandingPage} />
-            {/* // ? About us overview */}
-            <Route path="/about-us" exact component={AboutUs} />
-            <Route path="/verify-email" exact component={Verification} />
+          <main>
+            <Switch>
+              {/* // ? Template/placeholder for how to setup paths with components.. */}
+              <Route path="/" exact component={LandingPage} />
+              {/* // ? About us overview */}
+              <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/verify-email" exact component={Verification} />
 
-            {/* // ? Url redirect to landing page on unknown path */}
-            <Redirect to="/" exact />
-          </Switch>
-        </main>
-        {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-        <Footer />
-      </Router>
+              {/* // ? Url redirect to landing page on unknown path */}
+              <Redirect to="/" exact />
+            </Switch>
+          </main>
+          {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
+          <Footer />
+        </Router>
+      </AppContext.Provider>
     </div>
   );
 };
