@@ -17,13 +17,12 @@ import LandingPage from "./Views/LandingPage/LandingPage";
 import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
 import Verification from "./Components/Verification/Verification";
-
+import Navbar from "./Components/Navbar/Navbar";
 
 // ? Imported fetch requests
 import { signup } from "./Services/createNewUser.js";
 
 const App = () => {
-<<<<<<< HEAD
    const [signupData, setSignupData] = useState({
         firstname: "",
         lastname: "",
@@ -57,113 +56,77 @@ const App = () => {
     const collectSignupData = event => { 
         setSignupData({...signupData, [event.target.name]: event.target.value })
     }
-=======
-  const [signupData, setSignupData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    confirmedPassword: "",
-  });
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
-  const [currentUser, setCurrentUser] = useState({
-    _id: "",
-    firstname: "",
-    lastname: "",
-    email: "",
-    adress: {
-      street: "",
-      number: "",
-      city: "",
-      postcode: "",
-    },
-    birthday: "",
-    locations: [],
-    bookings: [],
-    verified: false,
-  });
-
-  const collectSignupData = (event) => {
-    setSignupData({ ...signupData, [event.target.name]: event.target.value });
-  };
->>>>>>> f603464777c89148ea52e4c422b1c647ba8bc256
-
-  const collectLoginData = (event) => {
-    setLoginData({ ...loginData, [event.target.name]: event.target.value });
-  };
 
     useEffect(() => {
       signup(signupData)
     }, [signupData])
-  //   const signup = event => {
-  //     event.preventDefault();
+    
+    const signup = event => {
+      event.preventDefault();
   
-  //     const userData = {
-  //         firstname: signupData.firstname,
-  //         lastname: signupData.lastname,
-  //         email: signupData.email,
-  //         password: signupData.password,
-  //         confirmedPassword: signupData.confirmedPassword
-  //     } 
+      const userData = {
+          firstname: signupData.firstname,
+          lastname: signupData.lastname,
+          email: signupData.email,
+          password: signupData.password,
+          confirmedPassword: signupData.confirmedPassword
+      } 
   
-  //     const settings = {
-  //         method: "POST",
-  //         body: JSON.stringify(userData),
-  //         headers: {
-  //             "Content-Type": "application/json"
-  //         }
-  //     }
+      const settings = {
+          method: "POST",
+          body: JSON.stringify(userData),
+          headers: {
+              "Content-Type": "application/json"
+          }
+      }
   
-  //     fetch("http://localhost:3001/user", settings)
-  //     .then((response) => {
-  //         if (response.ok) {
-  //             return response.json();
-  //         } else {
-  //             switch(response.status) {
-  //                 case 400:
-  //                     return response.json().then(err => {
-  //                         throw new Error(err.message)
-  //                     })
-  //                 case 401: 
-  //                     return response.json().then(err => {
-  //                         throw new Error(err.message)
-  //                     })
-  //                 case 406: 
-  //                     return response.json().then(err => {
-  //                         throw new Error(err.message)
-  //                     })
-  //                 default:
-  //                     throw new Error("Internal Server Error!")
-  //             }
-  //         }
-  //     })
-  //     .then(data => {
-  //         console.log(data)// setCurrentUser(data)
-  //         const signUpSuccessful = () => {
-  //           toast("Login successful!! Taking you to your dashboard!", {
-  //             position: "top-center",
-  //             autoClose: 2000,
-  //             draggable: false
-  //           });
-  //         };
+      fetch("http://localhost:3001/user", settings)
+      .then((response) => {
+          if (response.ok) {
+              return response.json();
+          } else {
+              switch(response.status) {
+                  case 400:
+                      return response.json().then(err => {
+                          throw new Error(err.message)
+                      })
+                  case 401: 
+                      return response.json().then(err => {
+                          throw new Error(err.message)
+                      })
+                  case 406: 
+                      return response.json().then(err => {
+                          throw new Error(err.message)
+                      })
+                  default:
+                      throw new Error("Internal Server Error!")
+              }
+          }
+      })
+      .then(data => {
+          console.log(data)// setCurrentUser(data)
+          const signUpSuccessful = () => {
+            toast("Login successful!! Taking you to your dashboard!", {
+              position: "top-center",
+              autoClose: 2000,
+              draggable: false
+            });
+          };
 
-  //         setSignupData({
-  //           firstname: "",
-  //           lastname: "",
-  //           email: "",
-  //           password: "", 
-  //           confirmedPassword: ""
-  //         })
+          setSignupData({
+            firstname: "",
+            lastname: "",
+            email: "",
+            password: "", 
+            confirmedPassword: ""
+          })
 
-  //         signUpSuccessful()
-  //     })
-  //     .catch(err => {
-  //         alert(err.message)
-  //     })
-  // } 
+          signUpSuccessful()
+      })
+      .catch(err => {
+          alert(err.message)
+      })
+  } 
 
 
   const login = event => {
@@ -226,9 +189,8 @@ const App = () => {
   return (
     <div>
       <Router>
-<<<<<<< HEAD
         <Navbar 
-          collectLoginData={collectLoginData}
+          // collectLoginData={collectLoginData}
           collectSignupData={collectSignupData}
           signupFetch={signup}
           loginFetch={login}
@@ -238,11 +200,6 @@ const App = () => {
         {/* // ? NavBar Component could live here */}
         {/* // todo - setup conditional display of Navbar to sit underneath the search field on landing page tablet and desktop view - might have to bring in on individual page Views?  */}
         {/* // todo Fix Navbar to bottom of the screen on small devices - kick in from 100vh (just below the landing page main image - Scroll Event Listener?)  */}
-=======
-        {/* <Navbar /> */}
-        {/* // !! Note: Navbar is now passed through individual page components - for the landing page it sits INSIDE the Search.js Component to be able to take over the open of search state */}
-
->>>>>>> f603464777c89148ea52e4c422b1c647ba8bc256
         {/* <Search /> */}
         {/* // !! Note: Search is commented out here as we currently only need the search Component to display up the top on the Landing page so it is brought in there  */}
 

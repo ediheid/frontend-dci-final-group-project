@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 
 // ? Stylesheet
-import styles from "../Navbar/Navbar.module.scss";
+import styles from "../Navbar/navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
@@ -17,16 +17,7 @@ const Navbar = (props) => {
 
     const openLoginFromSignup = () => {
         setShowSignupModal(false);
-<<<<<<< HEAD
         setShowLoginModal(true)
-=======
-        setShowLoginModal(true);
-    };
-
-    const closeLoginModal = (event) => {
-        event.preventDefault();
-        setShowLoginModal(false);
->>>>>>> f603464777c89148ea52e4c422b1c647ba8bc256
     };
 
     const openSignupModal = () => {
@@ -77,21 +68,13 @@ const Navbar = (props) => {
                     </div>
 
                     <div className={styles.icon}>
-<<<<<<< HEAD
                         
                             <i className="far fa-user-circle" onClick={openLoginModal}> 
                                 <Registration showLogin={showLoginModal} closeLogin={closeLoginModal}
-=======
-                        <i class="far fa-user-circle" onClick={openLoginModal}>
-                            <Registration
-                                showLogin={showLoginModal}
-                                closeLogin={closeLoginModal}
->>>>>>> f603464777c89148ea52e4c422b1c647ba8bc256
                                 showSignup={showSignupModal}
                                 openSignup={openSignupModal}
                                 closeSignup={closeSignupModal}
                                 openLogin={openLoginFromSignup}
-<<<<<<< HEAD
                                 // ref={ref}
                                 // closeModal={closeModal}
                                 signupFetch={props.signupFetch}
@@ -103,10 +86,6 @@ const Navbar = (props) => {
                                  />
                             </i>
                     
-=======
-                            />
-                        </i>
->>>>>>> f603464777c89148ea52e4c422b1c647ba8bc256
                     </div>
                 </div>
             </div>

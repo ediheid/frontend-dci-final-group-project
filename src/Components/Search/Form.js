@@ -43,13 +43,8 @@ const Form = (props) => {
       <Fragment>
         {/* // ! Note: onSubmit placeholder for collection data in future */}
         {/* // todo - future function will reset form AND setOpen to FALSE */}
-<<<<<<< HEAD
         //! OnSubmit was removed because of Error!!!
         <form className={styles.form}>
-=======
-
-        <form onSubmit="" className={styles.form}>
->>>>>>> f603464777c89148ea52e4c422b1c647ba8bc256
           {/* // ? Search bar - when clicked will open all search fields */}
           <input
             className={styles["search-input"]}

@@ -16,11 +16,11 @@ const SignUp = (props) => {
     };
 
 
-    const handleSubmit = useCallback((event) => {
-        event.preventDefault()
+    // const handleSubmit = useCallback((event) => {
+    //     event.preventDefault()
 
-        signup(props.signupData)
-      }, [])
+    //     signup(props.signupData)
+    //   }, [])
 
     return (
         <>
