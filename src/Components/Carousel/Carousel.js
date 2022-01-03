@@ -29,7 +29,7 @@ const Carousel = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         swipeToSlide: true,
-        arrows: true,
+        // arrows: true,
         // centerMode: true,
         // responsive: [
         //     {

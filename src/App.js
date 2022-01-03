@@ -14,9 +14,8 @@ import styles from "./Styling/app.module.scss";
 import LandingPage from "./Views/LandingPage/LandingPage";
 import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
-import Search from "./Components/Search/Search";
 import Verification from "./Components/Verification/Verification";
-import Navbar from "./Components/Navbar/Navbar";
+
 
 const App = () => {
   const [signupData, setSignupData] = useState({
