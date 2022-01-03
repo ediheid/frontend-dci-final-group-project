@@ -12,6 +12,9 @@ import Expand from "react-expand-animated";
 import Dropdown from "react-dropdown";
 import DatePicker from "react-datepicker";
 
+// Icons
+import { BsArrowsCollapse } from "react-icons/bs";
+
 // ? Form Component
 const Form = (props) => {
   // todo Dropdown - Ready to take in data - see docs:
@@ -36,11 +39,17 @@ const Form = (props) => {
     <div className={styles["form-container"]}>
       {/* //? Expand sits WITHIN the <form> so everything can be submitted at once (onSubmit) */}
       {/* // todo - when setting up data collection add error handling of not ALL fields are filled out */}
+
       <Fragment>
         {/* // ! Note: onSubmit placeholder for collection data in future */}
         {/* // todo - future function will reset form AND setOpen to FALSE */}
+<<<<<<< HEAD
         //! OnSubmit was removed because of Error!!!
         <form className={styles.form}>
+=======
+
+        <form onSubmit="" className={styles.form}>
+>>>>>>> f603464777c89148ea52e4c422b1c647ba8bc256
           {/* // ? Search bar - when clicked will open all search fields */}
           <input
             className={styles["search-input"]}
@@ -51,6 +60,14 @@ const Form = (props) => {
           {/* // ? This is the dropdown area with all other search fields in the form */}
           <Expand open={props.open}>
             <div className={styles["form-dropdown-container"]}>
+              {/* //? Close button - state passed down from Search Component */}
+              <button
+                className={styles["close-button"]}
+                onClick={props.closeSearchButton}
+              >
+                <BsArrowsCollapse />
+              </button>
+
               {/* // ? Check in */}
               <div className={styles["search-item"]}>
                 <label className={styles["search-labels"]}>Check in</label>
