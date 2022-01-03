@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "../Navbar/Navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
+import Search from "../Search/Form";
 
 const Navbar = (props) => {
+  const SearchContext = useContext(AppContext);
+
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
 
@@ -41,7 +46,9 @@ const Navbar = (props) => {
       {/* // !! Conditional styling passed down from  Search.js Component - to change the colour of Navbar when search field is open - to match search full opacity background  */}
       <div
         className={`${styles["navbar-container"]} ${
-          props.open ? styles["bgChange"] : styles["navbar-container"]
+          SearchContext.openSearch
+            ? styles["bgChange"]
+            : styles["navbar-container"]
         }`}
         //   className={styles["navbar-container"]}
       >
@@ -53,8 +60,8 @@ const Navbar = (props) => {
 
           <div
             className={styles.icon}
-            onClick={props.openSearch}
-            onClick={props.closeSearchButton}
+            onClick={SearchContext.openSearch}
+            onClick={SearchContext.closeSearchButton}
           >
             <i class="fas fa-search"></i>
           </div>
@@ -81,6 +88,12 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
+
+      {/* <Search
+        open={SearchContext.openForm}
+        openSearch={SearchContext.openSearch}
+        closeSearchButton={SearchContext.closeSearchButton}
+      /> */}
     </>
   );
 };

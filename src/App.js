@@ -19,7 +19,28 @@ import Verification from "./Components/Verification/Verification";
 // !! createContext variable
 export const AppContext = createContext();
 
+// export const SearchContext = createContext();
+
 const App = () => {
+  // !!! Signup and nav top level..
+  // ? State hooks
+  // Passed down to Form.js - is used to to openSearch but also to change bg opacity
+  const [openSearch, setOpenSearch] = useState(false);
+
+  // ? Open Search Form function
+  // Passed down to Form.js
+  const openForm = () => {
+    setOpenSearch(true);
+    // or if we want to toggle between but the UX is not that great as when user clicks on a new search bar the entire form will disappear
+    // setOpen(!open);
+  };
+
+  const closeSearchButton = () => {
+    setOpenSearch(!openSearch);
+  };
+
+  // !!!
+
   const [signupData, setSignupData] = useState({
     firstname: "",
     lastname: "",
@@ -67,6 +88,10 @@ const App = () => {
         value={{
           collectSignupData: collectSignupData,
           collectLoginData: collectLoginData,
+          // Search..
+          openSearch: openSearch,
+          openForm: openForm,
+          closeSearchButton: closeSearchButton,
         }}
       >
         <Router>
