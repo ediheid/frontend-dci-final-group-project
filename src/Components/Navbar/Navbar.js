@@ -89,11 +89,14 @@ const Navbar = (props) => {
         </div>
       </div>
 
-      {/* <Search
+      {/* // !!! Match bg colour styling! AND Hide search bar on close */}
+      {/*  // !!! Maybe make new function to display full Search Field and form */}
+      {/*  // !!! Hide when magnifier is not clicked */}
+      <Search
         open={SearchContext.openForm}
         openSearch={SearchContext.openSearch}
         closeSearchButton={SearchContext.closeSearchButton}
-      /> */}
+      />
     </>
   );
 };

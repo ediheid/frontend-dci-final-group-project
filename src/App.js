@@ -22,12 +22,12 @@ export const AppContext = createContext();
 // export const SearchContext = createContext();
 
 const App = () => {
-  // !!! Signup and nav top level..
-  // ? State hooks
+  // ? Search and Navbar functionality to pass down via Provider
+  //  State hooks
   // Passed down to Form.js - is used to to openSearch but also to change bg opacity
   const [openSearch, setOpenSearch] = useState(false);
 
-  // ? Open Search Form function
+  //  Open Search Form function
   // Passed down to Form.js
   const openForm = () => {
     setOpenSearch(true);
@@ -39,7 +39,7 @@ const App = () => {
     setOpenSearch(!openSearch);
   };
 
-  // !!!
+  // ==============
 
   const [signupData, setSignupData] = useState({
     firstname: "",
@@ -88,7 +88,7 @@ const App = () => {
         value={{
           collectSignupData: collectSignupData,
           collectLoginData: collectLoginData,
-          // Search..
+          // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
           openForm: openForm,
           closeSearchButton: closeSearchButton,
