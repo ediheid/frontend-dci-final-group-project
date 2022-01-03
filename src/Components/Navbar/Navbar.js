@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 
 // ? Stylesheet
 import styles from "../Navbar/navbar.module.scss";
@@ -27,13 +27,13 @@ const Navbar = (props) => {
 
     const closeSignupModal = () => setShowSignupModal(false);
 
-    const ref = useRef();
+    // const ref = useRef();
 
-    const closeModal = event => {
-        if(ref.current === event.target) {
-            setShowLoginModal(false)
-        }
-    }
+    // const closeModal = event => {
+    //     if(ref.current === event.target) {
+    //         setShowLoginModal(false)
+    //     }
+    // }
 
     useEffect (() => {
         console.log("login", showLoginModal)
@@ -46,31 +46,37 @@ const Navbar = (props) => {
                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
                 <div className={styles["icon-container"]}>
                     <div className={styles.icon}>
-                        <i class="fas fa-caravan"></i>
+                        <i className="fas fa-caravan"></i>
                     </div>
 
                     <div className={styles.icon}>
-                        <i class="fas fa-search"></i>
+                        <i className="fas fa-search"></i>
                     </div>
 
                     <div className={styles.icon}>
-                        <i class="far fa-heart"></i>
+                        <i className="far fa-heart"></i>
                     </div>
 
                     <div className={styles.icon}>
-                        <i class="far fa-comment"></i>
+                        <i className="far fa-comment"></i>
                     </div>
 
                     <div className={styles.icon}>
                         
-                            <i class="far fa-user-circle" onClick={openLoginModal}> 
+                            <i className="far fa-user-circle" onClick={openLoginModal}> 
                                 <Registration showLogin={showLoginModal} closeLogin={closeLoginModal}
                                 showSignup={showSignupModal}
                                 openSignup={openSignupModal}
                                 closeSignup={closeSignupModal}
                                 openLogin={openLoginFromSignup}
-                                ref={ref}
-                                closeModal={closeModal}
+                                // ref={ref}
+                                // closeModal={closeModal}
+                                signupFetch={props.signupFetch}
+                                loginFetch={props.loginFetch}
+                                collectLoginData={props.collectLoginData}
+                                collectSignupData={props.collectSignupData}
+                                signupData={props.signupData}
+                                loginData={props.loginData}
                                  />
                             </i>
                     

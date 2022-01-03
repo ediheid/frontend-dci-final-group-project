@@ -29,19 +29,23 @@ const LogIn = (props) => {
                         <div className={styles.title}>Log in</div>
                     </div>
                     <div className={styles.body}>
-                        <form>
+                        <form onSubmit={props.loginFetch}>
                             <div className={styles["form-container"]}>
                                 <input
                                     className={styles["input-login"]}
                                     type="text"
                                     placeholder="E-Mail"
                                     name="email"
+                                    onChange={props.collectLoginData}
+                                    value={props.loginData.email}
                                 />
                                 <input
                                     className={styles["input-login"]}
                                     type="password"
                                     placeholder="Password"
                                     name="password"
+                                    onChange={props.collectLoginData}
+                                    value={props.loginData.password}
                                 />
 
                                 <input

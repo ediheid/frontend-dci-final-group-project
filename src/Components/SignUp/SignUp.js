@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 // ? Stylesheet
 import styles from "../SignUp/SignUp.module.scss";
+
+import { signup } from "../../Services/createNewUser.js";
 
 const SignUp = (props) => {
     // Signup Modal is not visible
@@ -12,6 +14,13 @@ const SignUp = (props) => {
     const stop = (event) => {
         event.stopPropagation();
     };
+
+
+    const handleSubmit = useCallback((event) => {
+        event.preventDefault()
+
+        signup(props.signupData)
+      }, [])
 
     return (
         <>
@@ -27,25 +36,31 @@ const SignUp = (props) => {
                         <div className={styles.title}>Sign up</div>
                     </div>
                     <div className={styles.body}>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className={styles["form-container"]}>
                                 <input
                                     className={styles["input-signup"]}
                                     type="text"
                                     placeholder="First Name"
                                     name="firstname"
+                                    onChange={props.collectSignupData}
+                                    value={props.signupData.firstname}
                                 />
                                 <input
                                     className={styles["input-signup"]}
                                     type="text"
                                     placeholder="Last Name"
                                     name="lastname"
+                                    onChange={props.collectSignupData}
+                                    value={props.signupData.lastname}
                                 />
                                 <input
                                     className={styles["input-signup"]}
                                     type="text"
                                     placeholder="E-Mail"
                                     name="email"
+                                    onChange={props.collectSignupData}
+                                    value={props.signupData.email}
                                 />
 
                                 <input
@@ -53,6 +68,8 @@ const SignUp = (props) => {
                                     type="password"
                                     placeholder="Password"
                                     name="password"
+                                    onChange={props.collectSignupData}
+                                    value={props.signupData.password}
                                 />
 
                                 <input
@@ -60,12 +77,14 @@ const SignUp = (props) => {
                                     type="password"
                                     placeholder="Repeat Password"
                                     name="confirmedPassword"
+                                    onChange={props.collectSignupData}
+                                    value={props.signupData.confirmedPassword}
                                 />
 
                                 <input
                                     className={styles["input-signup-button"]}
                                     type="submit"
-                                    value="Log In"
+                                    value="Signup"
                                 />
                                 <div className={styles["modal-footer"]}>
                                     <div>Already have a Freshbnb account?</div>

@@ -1,14 +1,13 @@
 import React from "react";
 
-const signup = event => {
-    event.preventDefault();
+export const signup = hookData => {
 
     const userData = {
-        // firstname: firstname,
-        // lastname: lastname,
-        // email: email,
-        // password: password,
-        // confirmedPassword: confirmedPassword
+        firstname: hookData.firstname,
+        lastname: hookData.lastname,
+        email: hookData.email,
+        password: hookData.password,
+        confirmedPassword: hookData.confirmedPassword
     } 
 
     const settings = {
@@ -43,11 +42,9 @@ const signup = event => {
         }
     })
     .then(data => {
-        // setCurrentUser(data)
+        console.log(data)// setCurrentUser(data)
     })
     .catch(err => {
         alert(err.message)
     })
 } 
-
-export default signup;
