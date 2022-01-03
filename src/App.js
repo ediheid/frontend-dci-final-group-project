@@ -31,12 +31,17 @@ const App = () => {
   // Passed down to Form.js
   const openForm = () => {
     setOpenSearch(true);
-    // or if we want to toggle between but the UX is not that great as when user clicks on a new search bar the entire form will disappear
-    // setOpen(!open);
   };
 
   const closeSearchButton = () => {
     setOpenSearch(!openSearch);
+  };
+
+  // !! Test..
+  const [displayFullSearch, setDisplayFullSearch] = useState(false);
+
+  const openFullForm = () => {
+    setDisplayFullSearch(true);
   };
 
   // ==============
@@ -92,6 +97,8 @@ const App = () => {
           openSearch: openSearch,
           openForm: openForm,
           closeSearchButton: closeSearchButton,
+          displayFullSearch: displayFullSearch,
+          openFullForm: openFullForm,
         }}
       >
         <Router>

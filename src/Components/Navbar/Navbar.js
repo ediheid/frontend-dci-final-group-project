@@ -8,6 +8,7 @@ import styles from "../Navbar/Navbar.module.scss";
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
 import Search from "../Search/Form";
+import Form from "../Search/Form";
 
 const Navbar = (props) => {
   const SearchContext = useContext(AppContext);
@@ -60,7 +61,8 @@ const Navbar = (props) => {
 
           <div
             className={styles.icon}
-            onClick={SearchContext.openSearch}
+            // !! Try to show full Form on click of magnifier
+            onClick={SearchContext.openForm}
             onClick={SearchContext.closeSearchButton}
           >
             <i class="fas fa-search"></i>
@@ -89,14 +91,15 @@ const Navbar = (props) => {
         </div>
       </div>
 
+      {/* <Form
+        onClick={SearchContext.openFullForm}
+
+        // !! HIDE FULL FORM INCLUDING SEARCH BAR
+      /> */}
+
       {/* // !!! Match bg colour styling! AND Hide search bar on close */}
       {/*  // !!! Maybe make new function to display full Search Field and form */}
       {/*  // !!! Hide when magnifier is not clicked */}
-      <Search
-        open={SearchContext.openForm}
-        openSearch={SearchContext.openSearch}
-        closeSearchButton={SearchContext.closeSearchButton}
-      />
     </>
   );
 };

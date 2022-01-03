@@ -14,7 +14,7 @@ const AboutUs = () => {
   return (
     <>
       <Navbar />
-      {/* // ! Search will also open when magnifying glass is clicked */}
+      {/* // ! Search should open when magnifying glass is clicked */}
       {/* <Search /> */}
       <div className={styles["main-container"]}>
         {/* <div className={styles["content-container"]}></div> */}

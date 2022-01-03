@@ -20,7 +20,7 @@ const Search = () => {
         }`}
       >
         <Form
-          open={SearchContext.openForm}
+          // open={SearchContext.openForm}
           openSearch={SearchContext.openSearch}
           closeSearchButton={SearchContext.closeSearchButton}
         />
