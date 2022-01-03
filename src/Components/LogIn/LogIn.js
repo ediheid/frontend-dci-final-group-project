@@ -37,7 +37,7 @@ const LogIn = (props) => {
                                     placeholder="E-Mail"
                                     name="email"
                                     onChange={props.collectLoginData}
-                                    value={props.loginData.email}
+                                    value={props.loginData}
                                 />
                                 <input
                                     className={styles["input-login"]}

@@ -57,9 +57,9 @@ const App = () => {
         setSignupData({...signupData, [event.target.name]: event.target.value })
     }
 
-    useEffect(() => {
-      signup(signupData)
-    }, [signupData])
+    // useEffect(() => {
+    //   signup(signupData)
+    // }, [signupData])
     
     const signup = event => {
       event.preventDefault();

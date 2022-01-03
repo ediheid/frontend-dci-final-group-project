@@ -36,7 +36,7 @@ const SignUp = (props) => {
                         <div className={styles.title}>Sign up</div>
                     </div>
                     <div className={styles.body}>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={props.signupFetch}>
                             <div className={styles["form-container"]}>
                                 <input
                                     className={styles["input-signup"]}
