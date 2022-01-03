@@ -1,88 +1,96 @@
-import React from "react";
+import React, { useContext } from "react";
+// !!! Add useContext to React and import AppContext below
+import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "../SignUp/SignUp.module.scss";
 
 const SignUp = (props) => {
-    // Signup Modal is not visible
-    if (!props.showSignup) {
-        return null;
-    }
+  // !!! This is where we define Context from App to use in current Component
+  const signUpContext = useContext(AppContext);
 
-    const stop = (event) => {
-        event.stopPropagation();
-    };
+  // Signup Modal is not visible
+  if (!props.showSignup) {
+    return null;
+  }
 
-    return (
-        <>
-            <div
-                className={styles["signup-modal-container"]}
-                onClick={props.closeSignup}
-            >
-                {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
-                <div className={styles.content} onClick={stop}>
-                    <div className={styles.header}>
-                        <div onClick={props.closeSignup}>X</div>
+  const stop = (event) => {
+    event.stopPropagation();
+  };
 
-                        <div className={styles.title}>Sign up</div>
-                    </div>
-                    <div className={styles.body}>
-                        <form>
-                            <div className={styles["form-container"]}>
-                                <input
-                                    className={styles["input-signup"]}
-                                    type="text"
-                                    placeholder="First Name"
-                                    name="firstname"
-                                />
-                                <input
-                                    className={styles["input-signup"]}
-                                    type="text"
-                                    placeholder="Last Name"
-                                    name="lastname"
-                                />
-                                <input
-                                    className={styles["input-signup"]}
-                                    type="text"
-                                    placeholder="E-Mail"
-                                    name="email"
-                                />
+  return (
+    <>
+      <div
+        className={styles["signup-modal-container"]}
+        onClick={props.closeSignup}
+      >
+        {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
+        <div className={styles.content} onClick={stop}>
+          <div className={styles.header}>
+            <div onClick={props.closeSignup}>X</div>
 
-                                <input
-                                    className={styles["input-signup"]}
-                                    type="password"
-                                    placeholder="Password"
-                                    name="password"
-                                />
+            <div className={styles.title}>Sign up</div>
+          </div>
+          <div className={styles.body}>
+            <form>
+              <div className={styles["form-container"]}>
+                <input
+                  onChange={signUpContext.collectSignupData}
+                  className={styles["input-signup"]}
+                  type="text"
+                  placeholder="First Name"
+                  name="firstname"
+                />
+                <input
+                  onChange={signUpContext.collectSignupData}
+                  className={styles["input-signup"]}
+                  type="text"
+                  placeholder="Last Name"
+                  name="lastname"
+                />
+                <input
+                  onChange={signUpContext.collectSignupData}
+                  className={styles["input-signup"]}
+                  type="text"
+                  placeholder="E-Mail"
+                  name="email"
+                />
 
-                                <input
-                                    className={styles["input-signup"]}
-                                    type="password"
-                                    placeholder="Repeat Password"
-                                    name="confirmedPassword"
-                                />
+                <input
+                  onChange={signUpContext.collectSignupData}
+                  className={styles["input-signup"]}
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                />
 
-                                <input
-                                    className={styles["input-signup-button"]}
-                                    type="submit"
-                                    value="Log In"
-                                />
-                                <div className={styles["modal-footer"]}>
-                                    <div>Already have a Freshbnb account?</div>
-                                    <div
-                                        onClick={props.openLogin}
-                                        className={styles.link}
-                                    >
-                                        Log in
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                <input
+                  onChange={signUpContext.collectSignupData}
+                  className={styles["input-signup"]}
+                  type="password"
+                  placeholder="Repeat Password"
+                  name="confirmedPassword"
+                />
+
+                <input
+                  onChange={signUpContext.collectSignupData}
+                  className={styles["input-signup-button"]}
+                  type="submit"
+                  value="Log In"
+                />
+                <div className={styles["modal-footer"]}>
+                  <div>Already have a Freshbnb account?</div>
+                  <div onClick={props.openLogin} className={styles.link}>
+                    Log in
+                  </div>
                 </div>
-            </div>
-        </>
-    );
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default SignUp;
