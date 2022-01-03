@@ -24,7 +24,11 @@ const Search = () => {
 
   return (
     <>
-      <Navbar open={open} openSearch={openSearch} />
+      <Navbar
+        open={open}
+        openSearch={openSearch}
+        closeSearchButton={closeSearchButton}
+      />
       <header
         className={`${styles["search-main-container"]} ${
           open ? styles["bgChange"] : styles["search-main-container"]

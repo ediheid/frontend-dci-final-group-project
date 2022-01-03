@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, createContext } from "react";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -21,6 +22,9 @@ import Navbar from "./Components/Navbar/Navbar";
 
 // ? Imported fetch requests
 import { signup } from "./Services/createNewUser.js";
+
+// !! createContext variable
+export const AppContext = createContext();
 
 const App = () => {
    const [signupData, setSignupData] = useState({
@@ -57,6 +61,9 @@ const App = () => {
         setSignupData({...signupData, [event.target.name]: event.target.value })
     }
 
+    const collectLoginData = event => { 
+      setSignupData({...loginData, [event.target.name]: event.target.value })
+  }
     // useEffect(() => {
     //   signup(signupData)
     // }, [signupData])
@@ -188,6 +195,13 @@ const App = () => {
     console.log("loginData", loginData)
   return (
     <div>
+      {/* // !!! This is where our context lives */}
+      <AppContext.Provider
+        value={{
+          collectSignupData: collectSignupData,
+          collectLoginData: collectLoginData,
+        }}
+      >
       <Router>
         <Navbar 
           // collectLoginData={collectLoginData}
@@ -202,24 +216,28 @@ const App = () => {
         {/* // todo Fix Navbar to bottom of the screen on small devices - kick in from 100vh (just below the landing page main image - Scroll Event Listener?)  */}
         {/* <Search /> */}
         {/* // !! Note: Search is commented out here as we currently only need the search Component to display up the top on the Landing page so it is brought in there  */}
+  console.log("!!!!!!!", loginData);
 
-        {/* // todo - Open the form Component on click of search icon in the Navbar for all other pages */}
+  console.log("??????", signupData);
 
-        <main>
-          <Switch>
-            {/* // ? Template/placeholder for how to setup paths with components.. */}
-            <Route path="/" exact component={LandingPage} />
-            {/* // ? About us overview */}
-            <Route path="/about-us" exact component={AboutUs} />
-            <Route path="/verify-email" exact component={Verification} />
+          {/* // todo - Open the form Component on click of search icon in the Navbar for all other pages */}
 
-            {/* // ? Url redirect to landing page on unknown path */}
-            <Redirect to="/" exact />
-          </Switch>
-        </main>
-        {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-        <Footer />
-      </Router>
+          <main>
+            <Switch>
+              {/* // ? Template/placeholder for how to setup paths with components.. */}
+              <Route path="/" exact component={LandingPage} />
+              {/* // ? About us overview */}
+              <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/verify-email" exact component={Verification} />
+
+              {/* // ? Url redirect to landing page on unknown path */}
+              <Redirect to="/" exact />
+            </Switch>
+          </main>
+          {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
+          <Footer />
+        </Router>
+      </AppContext.Provider>
     </div>
   );
 };

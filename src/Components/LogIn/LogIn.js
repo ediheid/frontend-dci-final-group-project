@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useContext } from "react";
+// !!! Add useContext to React and import AppContext below
+import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "../LogIn/LogIn.module.scss";
 
-
-
 const LogIn = (props) => {
+    const loginContext = useContext(AppContext);    
+
     // Login Modal is not visible
     if (!props.showLogin) {
         return null;
@@ -19,7 +21,7 @@ const LogIn = (props) => {
         <>
             <div
                 className={styles["login-modal-container"]}
-                onClick={props.closeModal} ref={props.ref}
+                onClick={props.closeLogin}
             >
                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
                 <div className={styles.content} onClick={stop}>
@@ -36,7 +38,7 @@ const LogIn = (props) => {
                                     type="text"
                                     placeholder="E-Mail"
                                     name="email"
-                                    onChange={props.collectLoginData}
+                                    onChange={loginContext.collectLoginData}
                                     value={props.loginData}
                                 />
                                 <input
@@ -44,8 +46,8 @@ const LogIn = (props) => {
                                     type="password"
                                     placeholder="Password"
                                     name="password"
-                                    onChange={props.collectLoginData}
-                                    value={props.loginData.password}
+                                    onChange={loginContext.collectLoginData}
+                                    value={props.loginData}
                                 />
 
                                 <input
@@ -69,9 +71,9 @@ const LogIn = (props) => {
                         </form>
                     </div>
                 </div>
-            </div>
-        </>
-    );
+              </div>
+    </>
+  );
 };
 
 export default LogIn;

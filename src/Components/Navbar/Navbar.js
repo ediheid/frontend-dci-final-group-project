@@ -11,9 +11,15 @@ const Navbar = (props) => {
     const [showSignupModal, setShowSignupModal] = useState(false);
 
 
-    const openLoginModal = () => setShowLoginModal(true);
+    const openLoginModal = (event) => {
+        
+        setShowLoginModal(true);
+    }
 
-    const closeLoginModal = () => setShowLoginModal(false);
+    const closeLoginModal = (event) => {
+        event.stopPropagation();
+        setShowLoginModal(false);
+    }
 
     const openLoginFromSignup = () => {
         setShowSignupModal(false);
@@ -25,8 +31,10 @@ const Navbar = (props) => {
         setShowLoginModal(false);
     };
 
-    const closeSignupModal = () => setShowSignupModal(false);
-
+    const closeSignupModal = (event) => {
+        event.stopPropagation();
+        setShowSignupModal(false);
+    }
     // const ref = useRef();
 
     // const closeModal = event => {

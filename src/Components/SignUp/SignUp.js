@@ -1,4 +1,7 @@
-import React, { useCallback } from "react";
+import React, { useContext } from "react";
+
+// !!! Add useContext to React and import AppContext below
+import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "../SignUp/SignUp.module.scss";
@@ -6,6 +9,8 @@ import styles from "../SignUp/SignUp.module.scss";
 import { signup } from "../../Services/createNewUser.js";
 
 const SignUp = (props) => {
+    const signUpContext = useContext(AppContext);
+
     // Signup Modal is not visible
     if (!props.showSignup) {
         return null;
@@ -15,6 +20,9 @@ const SignUp = (props) => {
         event.stopPropagation();
     };
 
+    const handleSubmit = () => {
+        signup(props.signupData)
+    }
 
     // const handleSubmit = useCallback((event) => {
     //     event.preventDefault()
@@ -36,31 +44,31 @@ const SignUp = (props) => {
                         <div className={styles.title}>Sign up</div>
                     </div>
                     <div className={styles.body}>
-                        <form onSubmit={props.signupFetch}>
+                        <form onSubmit={handleSubmit}>
                             <div className={styles["form-container"]}>
                                 <input
                                     className={styles["input-signup"]}
                                     type="text"
                                     placeholder="First Name"
                                     name="firstname"
-                                    onChange={props.collectSignupData}
-                                    value={props.signupData.firstname}
+                                    onChange={signUpContext.collectSignupData}
+                                    value={props.signupData}
                                 />
                                 <input
                                     className={styles["input-signup"]}
                                     type="text"
                                     placeholder="Last Name"
                                     name="lastname"
-                                    onChange={props.collectSignupData}
-                                    value={props.signupData.lastname}
+                                    onChange={signUpContext.collectSignupData}
+                                    value={props.signupData}
                                 />
                                 <input
                                     className={styles["input-signup"]}
                                     type="text"
                                     placeholder="E-Mail"
                                     name="email"
-                                    onChange={props.collectSignupData}
-                                    value={props.signupData.email}
+                                    onChange={signUpContext.collectSignupData}
+                                    value={props.signupData}
                                 />
 
                                 <input
@@ -68,8 +76,8 @@ const SignUp = (props) => {
                                     type="password"
                                     placeholder="Password"
                                     name="password"
-                                    onChange={props.collectSignupData}
-                                    value={props.signupData.password}
+                                    onChange={signUpContext.collectSignupData}
+                                    value={props.signupData}
                                 />
 
                                 <input
@@ -77,8 +85,8 @@ const SignUp = (props) => {
                                     type="password"
                                     placeholder="Repeat Password"
                                     name="confirmedPassword"
-                                    onChange={props.collectSignupData}
-                                    value={props.signupData.confirmedPassword}
+                                    onChange={signUpContext.collectSignupData}
+                                    value={props.signupData}
                                 />
 
                                 <input
@@ -99,9 +107,9 @@ const SignUp = (props) => {
                         </form>
                     </div>
                 </div>
-            </div>
+              </div>
         </>
-    );
+  );
 };
 
 export default SignUp;
