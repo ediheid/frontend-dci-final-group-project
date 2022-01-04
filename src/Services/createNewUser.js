@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 export const signup = (hookData, sethookData) => {
    
@@ -44,6 +44,7 @@ export const signup = (hookData, sethookData) => {
     })
     .then(data => {
         console.log(data) // setCurrentUser(data)
+        // return data.json()// 
         sethookData({
             firstname: "",
             lastname: "",
@@ -52,6 +53,7 @@ export const signup = (hookData, sethookData) => {
             confirmedPassword: ""
         })
     })
+    // .then(data => data)
     .catch(err => {
         alert(err.message)
     })
