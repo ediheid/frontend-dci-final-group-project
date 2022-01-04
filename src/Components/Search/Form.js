@@ -1,4 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
+
+import { AppContext } from "../../App";
 
 //  Styles
 import styles from "../Search/search.module.scss";
@@ -17,6 +19,8 @@ import { BsArrowsCollapse } from "react-icons/bs";
 
 // ? Form Component
 const Form = (props) => {
+  const SearchContext = useContext(AppContext);
+
   // todo Dropdown - Ready to take in data - see docs:
   // https://www.npmjs.com/package/react-dropdown
   const options = ["one", "two", "three"];
@@ -49,16 +53,16 @@ const Form = (props) => {
           <input
             className={styles["search-input"]}
             placeholder="Dream about Schwarzwald?"
-            onClick={props.openSearch}
+            onClick={SearchContext.openForm}
           ></input>
 
           {/* // ? This is the dropdown area with all other search fields in the form */}
-          <Expand open={props.open}>
+          <Expand open={SearchContext.openSearch}>
             <div className={styles["form-dropdown-container"]}>
               {/* //? Close button - state passed down from Search Component */}
               <button
                 className={styles["close-button"]}
-                onClick={props.closeSearchButton}
+                onClick={SearchContext.closeSearchButton}
               >
                 <BsArrowsCollapse />
               </button>

@@ -19,7 +19,25 @@ import Verification from "./Components/Verification/Verification";
 // !! createContext variable
 export const AppContext = createContext();
 
+// export const SearchContext = createContext();
+
 const App = () => {
+  // ? Search and Navbar functionality to pass down via Provider
+  //  State hooks
+  // Passed down to Form.js - is used to to openSearch but also to change bg opacity
+  const [openSearch, setOpenSearch] = useState(false);
+
+  //  Open Search Form function
+  // Passed down to Form.js
+  const openForm = () => {
+    setOpenSearch(true);
+  };
+
+  const closeSearchButton = () => {
+    setOpenSearch(!openSearch);
+  };
+
+  // ? user/login and signup context
   const [signupData, setSignupData] = useState({
     firstname: "",
     lastname: "",
@@ -56,9 +74,9 @@ const App = () => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
-  console.log("!!!!!!!", loginData);
+  // console.log("!!!!!!!", loginData);
 
-  console.log("??????", signupData);
+  // console.log("??????", signupData);
 
   return (
     <div>
@@ -67,16 +85,15 @@ const App = () => {
         value={{
           collectSignupData: collectSignupData,
           collectLoginData: collectLoginData,
+          // ? Search Context to pass down to Search and Navbar..
+          openSearch: openSearch,
+          openForm: openForm,
+          closeSearchButton: closeSearchButton,
         }}
       >
         <Router>
-          {/* <Navbar /> */}
-          {/* // !! Note: Navbar is now passed through individual page components - for the landing page it sits INSIDE the Search.js Component to be able to take over the open of search state */}
-
-          {/* <Search /> */}
-          {/* // !! Note: Search is commented out here as we currently only need the search Component to display up the top on the Landing page so it is brought in there  */}
-
-          {/* // todo - Open the form Component on click of search icon in the Navbar for all other pages */}
+          {/* // !! NOTE: Navbar Component is nested in individual View Components */}
+          {/* // !! NOTE: Search Component lives permanently in LandingPage Component and then has a conditional render on pages where it should not be permanently displayed. Code to copy:    {SearchContext.openSearch ? <Search /> : null} */}
 
           <main>
             <Switch>
