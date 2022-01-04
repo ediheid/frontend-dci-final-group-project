@@ -6,81 +6,85 @@ import { AppContext } from "../../App";
 import styles from "../LogIn/LogIn.module.scss";
 
 const LogIn = (props) => {
-  // !!! This is where we define Context from App to use in current Component
-  const loginContext = useContext(AppContext);
+    // !!! This is where we define Context from App to use in current Component
+    const loginContext = useContext(AppContext);
 
-  // Login Modal is not visible
-  if (!props.showLogin) {
-    return null;
-  }
+    // Login Modal is not visible
+    if (!props.showLogin) {
+        return null;
+    }
 
-  const stop = (event) => {
-    event.stopPropagation();
-  };
+    const stop = (event) => {
+        event.stopPropagation();
+    };
 
-  // const ref = useRef();
+    // const ref = useRef();
 
-  // useEffect(() => {
-  //     const checkIfClickedOutside = (e) => {
-  //         if (props.showLogin && ref.current && !ref.current.contains(e.target)) {
-  //             props.closeLogin()
-  //         }
-  //     }
-  // }, [props.showLogin])
+    // useEffect(() => {
+    //     const checkIfClickedOutside = (e) => {
+    //         if (props.showLogin && ref.current && !ref.current.contains(e.target)) {
+    //             props.closeLogin()
+    //         }
+    //     }
+    // }, [props.showLogin])
 
-  return (
-    <>
-      <div
-        className={styles["login-modal-container"]}
-        onClick={props.closeLogin}
-      >
-        {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
-        <div className={styles.content} onClick={stop}>
-          <div className={styles.header}>
-            <div onClick={props.closeLogin}>X</div>
+    return (
+        <>
+            <div
+                className={styles["login-modal-container"]}
+                onClick={props.closeLogin}
+            >
+                {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
+                <div className={styles.content} onClick={stop}>
+                    <div className={styles.header}>
+                        <div onClick={props.closeLogin}>X</div>
 
-            <div className={styles.title}>Log in</div>
-          </div>
-          <div className={styles.body}>
-            <form>
-              <div className={styles["form-container"]}>
-                <input
-                  // !!! This is how we reference Context
-                  onChange={loginContext.collectLoginData}
-                  className={styles["input-login"]}
-                  type="text"
-                  placeholder="E-Mail"
-                  name="email"
-                />
-                <input
-                  onChange={loginContext.collectLoginData}
-                  className={styles["input-login"]}
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                />
+                        <div className={styles.title}>Log in</div>
+                    </div>
+                    <div className={styles.body}>
+                        <form>
+                            <div className={styles["form-container"]}>
+                                <input
+                                    // !!! This is how we reference Context
+                                    onChange={loginContext.collectLoginData}
+                                    className={styles["input-login"]}
+                                    type="text"
+                                    placeholder="E-Mail"
+                                    name="email"
+                                />
+                                <input
+                                    onChange={loginContext.collectLoginData}
+                                    className={styles["input-login"]}
+                                    type="password"
+                                    placeholder="Password"
+                                    name="password"
+                                />
 
-                <input
-                  className={styles["input-login-button"]}
-                  type="submit"
-                  value="Log In"
-                />
-                <div className={styles["modal-footer"]}>
-                  <div>Forgot your password?</div>
-                  <div>
-                    Not a member yet?
-                    <span onClick={props.openSignup} className={styles.link}>
-                      Sign up
-                    </span>
-                  </div>
+                                <input
+                                    className={styles["input-login-button"]}
+                                    type="submit"
+                                    value="Log In"
+                                />
+                                <div className={styles["modal-footer"]}>
+                                    <div>Forgot your password?</div>
+                                    <div>
+                                        Not a member yet?
+                                        <span
+                                            onClick={props.openSignup}
+                                            className={styles.link}
+                                        >
+                                            {" "}
+                                            Sign up
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+            </div>
+        </>
+    );
 };
 
 export default LogIn;
