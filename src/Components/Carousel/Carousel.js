@@ -21,65 +21,72 @@ import beach from "./static/pexels-alasdair-braxton-1992889.jpg";
 
 const Carousel = () => {
     const settings = {
-        // className: "center",
-        centerMode: true,
-        dots: true,
-        infinite: true,
-        centerPadding: "70vw",
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        swipeToSlide: true,
-        // arrows: true,
         // centerMode: true,
-        // responsive: [
-        //     {
-        //         breakpoint: 576,
-        //         settings: {
-        //             slidesToShow: 3,
-        //             slidesToScroll: 3,
-        //             infinite: true,
-        //             dots: true,
-        //         },
-        //     },
-        //     {
-        //         breakpoint: 768,
-        //         settings: {
-        //             slidesToShow: 2,
-        //             slidesToScroll: 2,
-        //         },
-        //     },
-        //     {
-        //         breakpoint: 992,
-        //         settings: {
-        //             slidesToShow: 1,
-        //             slidesToScroll: 1,
-        //         },
-        //     },
-        //     {
-        //         breakpoint: 1200,
-        //         settings: {
-        //             slidesToShow: 2,
-        //             slidesToScroll: 2,
-        //         },
-        //     },
-        //     {
-        //         breakpoint: 1399,
-        //         settings: {
-        //             slidesToShow: 2,
-        //             slidesToScroll: 2,
-        //         },
-        //     },
-        //     {
-        //         breakpoint: 1400,
-        //         settings: {
-        //             slidesToShow: 2,
-        //             slidesToScroll: 2,
-        //         },
-        //     },
-        //     // You can unslick at a given breakpoint now by adding:
-        //     // settings: "unslick"
-        //     // instead of a settings object
-        // ],
+        dots: true,
+        autoplay: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+
+        // // className: "center",
+        // // centerMode: true,
+        // dots: true,
+        // infinite: true,
+        // centerPadding: "50vw",
+        // slidesToShow: 1,
+        // slidesToScroll: 1,
+        // swipeToSlide: true,
+        // // arrows: true,
+        // // centerMode: true,
+        // // responsive: [
+        // //     {
+        // //         breakpoint: 576,
+        // //         settings: {
+        // //             slidesToShow: 3,
+        // //             slidesToScroll: 3,
+        // //             infinite: true,
+        // //             dots: true,
+        // //         },
+        // //     },
+        // //     {
+        // //         breakpoint: 768,
+        // //         settings: {
+        // //             slidesToShow: 2,
+        // //             slidesToScroll: 2,
+        // //         },
+        // //     },
+        // //     {
+        // //         breakpoint: 992,
+        // //         settings: {
+        // //             slidesToShow: 1,
+        // //             slidesToScroll: 1,
+        // //         },
+        // //     },
+        // //     {
+        // //         breakpoint: 1200,
+        // //         settings: {
+        // //             slidesToShow: 2,
+        // //             slidesToScroll: 2,
+        // //         },
+        // //     },
+        // //     {
+        // //         breakpoint: 1399,
+        // //         settings: {
+        // //             slidesToShow: 2,
+        // //             slidesToScroll: 2,
+        // //         },
+        // //     },
+        // //     {
+        // //         breakpoint: 1400,
+        // //         settings: {
+        // //             slidesToShow: 2,
+        // //             slidesToScroll: 2,
+        // //         },
+        // //     },
+        // //     // You can unslick at a given breakpoint now by adding:
+        // //     // settings: "unslick"
+        // //     // instead of a settings object
+        // // ],
     };
 
     return (
@@ -92,31 +99,25 @@ const Carousel = () => {
                 </div>
                 <Slider {...settings}>
                     <div>
-                        <h3>
-                            <img
-                                className={styles.image}
-                                src={middleOfNowhere}
-                                alt="Camper by Devries from Pexels"
-                            />
-                        </h3>
+                        <img
+                            className={styles.image}
+                            src={middleOfNowhere}
+                            alt="Camper by Devries from Pexels"
+                        />
                     </div>
                     <div>
-                        <h3>
-                            <img
-                                className={styles.image}
-                                src={forrest}
-                                alt="Camper by Devries from Pexels"
-                            />
-                        </h3>
+                        <img
+                            className={styles.image}
+                            src={forrest}
+                            alt="Camper by Devries from Pexels"
+                        />
                     </div>
                     <div>
-                        <h3>
-                            <img
-                                className={styles.image}
-                                src={cozyCamper}
-                                alt="Camper by Devries from Pexels"
-                            />
-                        </h3>
+                        <img
+                            className={styles.image}
+                            src={cozyCamper}
+                            alt="Camper by Devries from Pexels"
+                        />
                     </div>
                     <div>
                         <img
@@ -141,6 +142,54 @@ const Carousel = () => {
                     </div>
                 </Slider>
             </div>
+
+            {/* SHOW GHASSAN*/}
+            {/* <div className={styles.container}>
+                <Slider {...settings}>
+                    <div>
+                        <img
+                            className={styles.image}
+                            src={middleOfNowhere}
+                            alt="Credit to Joshua Earle on Unsplash"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            className={styles.image}
+                            src={middleOfNowhere}
+                            alt="Credit to Alisa Anton on Unsplash"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            className={styles.image}
+                            src={middleOfNowhere}
+                            alt="Credit to Igor Ovsyannykov on Unsplash"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            className={styles.image}
+                            src={middleOfNowhere}
+                            alt="Credit to Pierre Châtel-Innocenti on Unsplash"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            className={styles.image}
+                            src={middleOfNowhere}
+                            alt="Credit to Richard Nolan on Unsplash"
+                        />
+                    </div>
+                    <div>
+                        <img
+                            className={styles.image}
+                            src={middleOfNowhere}
+                            alt="Credit to Cristina Gottardi on Unsplash"
+                        />
+                    </div>
+                </Slider>
+            </div> */}
         </>
     );
 };
