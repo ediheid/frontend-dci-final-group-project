@@ -15,6 +15,7 @@ import LandingPage from "./Views/LandingPage/LandingPage";
 import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
 import Verification from "./Components/Verification/Verification";
+import LocationCards from "./Components/LocationCards/LocationCards.js";
 
 
 const App = () => {
@@ -54,6 +55,7 @@ const App = () => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
+  //import LocationCards
   return (
     <div>
       <Router>
@@ -73,6 +75,7 @@ const App = () => {
             <Route path="/about-us" exact component={AboutUs} />
             <Route path="/verify-email" exact component={Verification} />
 
+            <Route path="/location-cards" exact component={LocationCards} />
             {/* // ? Url redirect to landing page on unknown path */}
             <Redirect to="/" exact />
           </Switch>

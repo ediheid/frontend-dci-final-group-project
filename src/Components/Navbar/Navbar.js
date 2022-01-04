@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // ? Stylesheet
-import styles from "../Navbar/Navbar.module.scss";
+import styles from "./navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
@@ -40,10 +40,9 @@ const Navbar = (props) => {
         <>
             {/* // !! Conditional styling passed down from  Search.js Component - to change the colour of Navbar when search field is open - to match search full opacity background  */}
             <div
-                className={`${styles["navbar-container"]} ${
-                    props.open ? styles["bgChange"] : styles["navbar-container"]
-                }`}
-                //   className={styles["navbar-container"]}
+                className={`${styles["navbar-container"]} ${props.open ? styles["bgChange"] : styles["navbar-container"]
+                    }`}
+            //   className={styles["navbar-container"]}
             >
                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
                 <div className={styles["icon-container"]}>
