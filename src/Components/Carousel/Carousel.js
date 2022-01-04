@@ -81,7 +81,7 @@ const Carousel = () => {
                     </div>
 
                     <div className={styles.test} style={{ background: "red" }}>
-                        <div className={styles.slide_2}></div>
+                        <div className={styles.slide_2}> </div>
                     </div>
                     <div className={styles.test} style={{ background: "red" }}>
                         <div className={styles.slide_3}></div>
