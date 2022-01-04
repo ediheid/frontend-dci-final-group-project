@@ -44,8 +44,7 @@ const App = () => {
     setDisplayFullSearch(true);
   };
 
-  // ==============
-
+  // ? user/login and signup context
   const [signupData, setSignupData] = useState({
     firstname: "",
     lastname: "",

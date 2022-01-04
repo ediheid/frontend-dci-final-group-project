@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import { AppContext } from "../../App";
+
 // ? Stylesheet
 import styles from "../AboutUs/AboutUs.module.scss";
 
@@ -11,11 +13,13 @@ import Navbar from "../../Components/Navbar/Navbar";
 import title from "../AboutUs/static/pexels-roman-odintsov-4553618.jpg";
 
 const AboutUs = () => {
+  const SearchContext = useContext(AppContext);
+
   return (
     <>
       <Navbar />
       {/* // ! Search should open when magnifying glass is clicked */}
-      {/* <Search /> */}
+      {SearchContext.openSearch ? <Search /> : null}
       <div className={styles["main-container"]}>
         {/* <div className={styles["content-container"]}></div> */}
 

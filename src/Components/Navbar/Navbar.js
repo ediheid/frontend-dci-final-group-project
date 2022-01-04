@@ -91,11 +91,17 @@ const Navbar = (props) => {
         </div>
       </div>
 
-      {/* <Form
-        onClick={SearchContext.openFullForm}
+      {/* <div
+        className={`${styles["hide-search"]}
+        `}
+
+        // onClick={SearchContext.openForm}
+      >
+        <Search
 
         // !! HIDE FULL FORM INCLUDING SEARCH BAR
-      /> */}
+        />
+      </div> */}
 
       {/* // !!! Match bg colour styling! AND Hide search bar on close */}
       {/*  // !!! Maybe make new function to display full Search Field and form */}
@@ -105,65 +111,3 @@ const Navbar = (props) => {
 };
 
 export default Navbar;
-
-///////////////////////////////////////////////////////////////////
-// import React, { useState } from "react";
-
-// // ? Stylesheet
-// import styles from "../Navbar/Navbar.module.scss";
-
-// // ? All Component and View imports
-// import LogIn from "../../Components/LogIn/LogIn";
-// import SignUp from "../../Components/SignUp/SignUp";
-
-// const Navbar = () => {
-//     const [showLogIn, setShowLogIn] = useState(false);
-
-//     const openLogIn = (event) => {
-//         event.preventDefault();
-//         setShowLogIn(true);
-//     };
-
-//     const closeLogIn = (event) => {
-//         event.preventDefault();
-//         setShowLogIn(false);
-//         console.log("background was clicked close log in");
-//     };
-
-//     return (
-//         <>
-//             <div className={styles["navbar-container"]}>
-//                 <LogIn
-//                     onCloseLogin={closeLogIn}
-//                     showLogin={showLogIn}
-//                     // setShowLogIn={setShowLogIn}
-//                 />
-
-//                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
-//                 <div className={styles["icon-container"]}>
-//                     <div className={styles.icon}>
-//                         <i class="fas fa-caravan"></i>
-//                     </div>
-
-//                     <div className={styles.icon}>
-//                         <i class="fas fa-search"></i>
-//                     </div>
-
-//                     <div className={styles.icon}>
-//                         <i class="far fa-heart"></i>
-//                     </div>
-
-//                     <div className={styles.icon}>
-//                         <i class="far fa-comment"></i>
-//                     </div>
-
-//                     <div className={styles.icon} onClick={openLogIn}>
-//                         <i class="far fa-user-circle"></i>
-//                     </div>
-//                 </div>
-//             </div>
-//         </>
-//     );
-// };
-
-// export default Navbar;
