@@ -7,8 +7,6 @@ import styles from "../Navbar/Navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
-import Search from "../Search/Form";
-import Form from "../Search/Form";
 
 const Navbar = (props) => {
   const SearchContext = useContext(AppContext);
@@ -61,7 +59,7 @@ const Navbar = (props) => {
 
           <div
             className={styles.icon}
-            // !! Try to show full Form on click of magnifier
+            // !! Search Form and/or Search Component will open on click of the magnifier - ternary operator to Display on all pages that only have the NavBar permanently on display..
             onClick={SearchContext.openForm}
             onClick={SearchContext.closeSearchButton}
           >
@@ -90,22 +88,6 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
-
-      {/* <div
-        className={`${styles["hide-search"]}
-        `}
-
-        // onClick={SearchContext.openForm}
-      >
-        <Search
-
-        // !! HIDE FULL FORM INCLUDING SEARCH BAR
-        />
-      </div> */}
-
-      {/* // !!! Match bg colour styling! AND Hide search bar on close */}
-      {/*  // !!! Maybe make new function to display full Search Field and form */}
-      {/*  // !!! Hide when magnifier is not clicked */}
     </>
   );
 };

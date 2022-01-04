@@ -18,8 +18,10 @@ const AboutUs = () => {
   return (
     <>
       <Navbar />
-      {/* // ! Search should open when magnifying glass is clicked */}
+      {/* // !!! NOTE: Search bar is conditionally rendered onClick of magnifying glass in Navbar.js !!! */}
       {SearchContext.openSearch ? <Search /> : null}
+      {/* // !! */}
+
       <div className={styles["main-container"]}>
         {/* <div className={styles["content-container"]}></div> */}
 
