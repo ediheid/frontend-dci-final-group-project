@@ -1,14 +1,13 @@
-import React, { useState, useContext } from "react";
-
-import { AppContext } from "../../App";
+import React, { useState } from "react";
 
 // ? Stylesheet
-import styles from "../Navbar/Navbar.module.scss";
+import styles from "./navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
 
 const Navbar = (props) => {
+
   const SearchContext = useContext(AppContext);
 
   const [showLoginModal, setShowLoginModal] = useState(false);
