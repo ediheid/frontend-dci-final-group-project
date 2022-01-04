@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -15,6 +15,66 @@ import LandingPage from "./Views/LandingPage/LandingPage";
 import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
 import Verification from "./Components/Verification/Verification";
+import LocationCards from "./Components/LocationCards/LocationCards.js";
+
+// !! createContext variable
+export const AppContext = createContext();
+
+// export const SearchContext = createContext();
+
+const App = () => {
+  // ? Search and Navbar functionality to pass down via Provider
+  //  State hooks
+  // Passed down to Form.js - is used to to openSearch but also to change bg opacity
+  const [openSearch, setOpenSearch] = useState(false);
+
+  //  Open Search Form function
+  // Passed down to Form.js
+  const openForm = () => {
+    setOpenSearch(true);
+  };
+
+  const closeSearchButton = () => {
+    setOpenSearch(!openSearch);
+  };
+
+  // ? user/login and signup context
+  const [signupData, setSignupData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmedPassword: "",
+  });
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+  const [currentUser, setCurrentUser] = useState({
+    _id: "",
+    firstname: "",
+    lastname: "",
+    email: "",
+    adress: {
+      street: "",
+      number: "",
+      city: "",
+      postcode: "",
+    },
+    birthday: "",
+    locations: [],
+    bookings: [],
+    verified: false,
+  });
+
+  const collectSignupData = (event) => {
+    setSignupData({ ...signupData, [event.target.name]: event.target.value });
+  };
+
+  const collectLoginData = (event) => {
+    setLoginData({ ...loginData, [event.target.name]: event.target.value });
+  };
+
 import LocationCards from "./Components/LocationCards/LocationCards.js";
 
 
@@ -88,3 +148,4 @@ const App = () => {
 };
 
 export default App;
+
