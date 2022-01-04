@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
+
 // !!! Add useContext to React and import AppContext below
 import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "../LogIn/LogIn.module.scss";
+
+// importing fetch request from services
+import { login } from "../../Services/getLoggedUser.js";
 
 const LogIn = (props) => {
     const loginContext = useContext(AppContext);    
@@ -16,6 +20,12 @@ const LogIn = (props) => {
     const stop = (event) => {
         event.stopPropagation();
     };
+
+    const handleSubmit = event => {
+        event.preventDefault();
+
+        login(loginContext.loginData)
+    }
 
     return (
         <>
@@ -31,7 +41,7 @@ const LogIn = (props) => {
                         <div className={styles.title}>Log in</div>
                     </div>
                     <div className={styles.body}>
-                        <form onSubmit={props.loginFetch}>
+                        <form onSubmit={handleSubmit}>
                             <div className={styles["form-container"]}>
                                 <input
                                     className={styles["input-login"]}

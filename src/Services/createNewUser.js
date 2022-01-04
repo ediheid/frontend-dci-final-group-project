@@ -1,6 +1,7 @@
 import React from "react";
 
-export const signup = hookData => {
+export const signup = (hookData, sethookData) => {
+   
 
     const userData = {
         firstname: hookData.firstname,
@@ -42,7 +43,14 @@ export const signup = hookData => {
         }
     })
     .then(data => {
-        console.log(data)// setCurrentUser(data)
+        console.log(data) // setCurrentUser(data)
+        sethookData({
+            firstname: "",
+            lastname: "",
+            email: "",
+            password: "", 
+            confirmedPassword: ""
+        })
     })
     .catch(err => {
         alert(err.message)

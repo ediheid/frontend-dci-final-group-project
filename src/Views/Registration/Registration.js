@@ -41,6 +41,7 @@ const Registration = (props) => {
                     collectSignupData={props.collectSignupData}
                     signupFetch={props.signupFetch}
                     signupData={props.signupData}
+                    
                     // onCloseSignup={closeSignupModal}
                     // showSignup={showSignupModal}
                 />

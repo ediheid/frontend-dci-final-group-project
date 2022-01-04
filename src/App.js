@@ -55,8 +55,9 @@ const App = () => {
         verified: false,
     });
 
-    // const collectData = create;
-
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showSignupModal, setShowSignupModal] = useState(false);
+    
     const collectSignupData = event => { 
         setSignupData({...signupData, [event.target.name]: event.target.value })
     }
@@ -64,9 +65,6 @@ const App = () => {
     const collectLoginData = event => { 
       setSignupData({...loginData, [event.target.name]: event.target.value })
   }
-    // useEffect(() => {
-    //   signup(signupData)
-    // }, [signupData])
     
     const signup = event => {
       event.preventDefault();
@@ -195,11 +193,16 @@ const App = () => {
     console.log("loginData", loginData)
   return (
     <div>
-      {/* // !!! This is where our context lives */}
+      {/* !!! This is where our context lives */ }
       <AppContext.Provider
         value={{
           collectSignupData: collectSignupData,
           collectLoginData: collectLoginData,
+          signupData: signupData,
+          setSignupData: setSignupData,
+          loginData: loginData,
+          showLoginModal: showLoginModal,
+          showSignupModal: showSignupModal
         }}
       >
       <Router>

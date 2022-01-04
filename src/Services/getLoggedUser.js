@@ -1,53 +1,53 @@
 import React from "react";
 
-const signup = event => {
-    event.preventDefault();
+export const login = hookData => {
 
-    const userData = {
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        password: password,
-        confirmedPassword: confirmedPassword
-    } 
-
-    const settings = {
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: {
-            "Content-Type": "application/json"
-        }
+    const currloginData = {
+      email: hookData.email,
+      password: hookData.password
     }
 
-    fetch("http://localhost:3001/user/:userId", settings)
-    .then((response) => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            switch(response.status) {
-                case 400:
-                    return response.json().then(err => {
-                        throw new Error(err.message)
-                    })
-                case 401: 
-                    return response.json().then(err => {
-                        throw new Error(err.message)
-                    })
-                case 406: 
-                    return response.json().then(err => {
-                        throw new Error(err.message)
-                    })
-                default:
-                    throw new Error("Internal Server Error!")
-            }
+    const settings = {
+      method: "POST",
+      body: JSON.stringify(currloginData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+
+    fetch("http://localhost:3001/user/login", settings)
+    .then(response => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        switch(response.status) {
+          case 401: 
+              return response.json().then(err => {
+                  throw new Error(err.message)
+              })
+          default:
+              throw new Error("Internal Server Error!")
         }
+      }
     })
     .then(data => {
-        setCurrentUser(data)
+      console.log(data);
+    //   const loginSuccessful = () => {
+    //     toast("Login successful!! Taking you to your dashboard!", {
+    //       position: "top-center",
+    //       autoClose: 2000,
+    //       draggable: false
+    //     });
+    //   };
+
+    //   setLoginData({
+    //     email: "",
+    //     password: ""
+    //   })
+
+    //   loginSuccessful();
     })
     .catch(err => {
-        alert(err.message)
+      alert(err.message)
     })
-} 
-
-export default signup;
+  }
