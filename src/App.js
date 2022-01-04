@@ -19,6 +19,7 @@ import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
 import Verification from "./Components/Verification/Verification";
 import Navbar from "./Components/Navbar/Navbar";
+import CheckMail from "./Components/CheckMail/CheckMail";
 
 // ? Imported fetch requests
 import { signup } from "./Services/createNewUser.js";
@@ -189,7 +190,15 @@ const App = () => {
   //   })
   // }
 
-
+const resetSignup = () => {
+  setSignupData({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "", 
+    confirmedPassword: ""
+  })
+}
 
     console.log("signUpData", signupData)
     console.log("loginData", loginData)
@@ -203,7 +212,8 @@ const App = () => {
           showLoginModal: showLoginModal,
           signupData: signupData,
           setSignupData: setSignupData,
-          showSignupModal: showSignupModal
+          showSignupModal: showSignupModal,
+          resetSignup: resetSignup
         }}
       >
       <Router>
@@ -236,6 +246,7 @@ const App = () => {
               <Route path="/" exact component={LandingPage} />
               {/* // ? About us overview */}
               <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/user-signed-up" exact component={CheckMail} />
               <Route path="/verify-email" exact component={Verification} />
 
               {/* // ? Url redirect to landing page on unknown path */}

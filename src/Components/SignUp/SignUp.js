@@ -34,6 +34,7 @@ const SignUp = props => {
     //     confirmedPassword: ""
     // }));
 
+
   };
 
   // const handleSubmit = useCallback((event) => {
@@ -64,7 +65,7 @@ const SignUp = props => {
                   placeholder="First Name"
                   name="firstname"
                   onChange={signUpContext.collectSignupData}
-                  value={props.signupData}
+                  value={signUpContext.signupData.firstname}
                 />
                 <input
                   className={styles["input-signup"]}
@@ -72,7 +73,7 @@ const SignUp = props => {
                   placeholder="Last Name"
                   name="lastname"
                   onChange={signUpContext.collectSignupData}
-                  value={props.signupData}
+                  value={signUpContext.signupData.lastname}
                 />
                 <input
                   className={styles["input-signup"]}
@@ -80,7 +81,7 @@ const SignUp = props => {
                   placeholder="E-Mail"
                   name="email"
                   onChange={signUpContext.collectSignupData}
-                  value={props.signupData}
+                  value={signUpContext.signupData.email}
                 />
 
                 <input
@@ -89,7 +90,7 @@ const SignUp = props => {
                   placeholder="Password"
                   name="password"
                   onChange={signUpContext.collectSignupData}
-                  value={props.signupData}
+                  value={signUpContext.signupData.password}
                 />
 
                 <input
@@ -98,7 +99,7 @@ const SignUp = props => {
                   placeholder="Repeat Password"
                   name="confirmedPassword"
                   onChange={signUpContext.collectSignupData}
-                  value={props.signupData}
+                  value={signUpContext.signupData.confirmedPassword}
                 />
 
                 <input

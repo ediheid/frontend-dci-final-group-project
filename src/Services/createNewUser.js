@@ -1,8 +1,11 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
-export const signup = (hookData, sethookData) => {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
+
+export const signup = async (hookData, sethookData) => {
    
-
     const userData = {
         firstname: hookData.firstname,
         lastname: hookData.lastname,
@@ -16,6 +19,7 @@ export const signup = (hookData, sethookData) => {
         body: JSON.stringify(userData),
         headers: {
             "Content-Type": "application/json"
+            // "Access-Control-Allow-Origin": "*"
         }
     }
 
@@ -43,8 +47,15 @@ export const signup = (hookData, sethookData) => {
         }
     })
     .then(data => {
-        console.log(data) // setCurrentUser(data)
-        // return data.json()// 
+        console.log(data) // setCurrentUser(data) 
+        const loginSuccessful = () => {
+            toast("Login successful!! Taking you to your dashboard!", {
+            position: "top-center",
+            autoClose: 2000,
+            draggable: false
+            });
+        }
+
         sethookData({
             firstname: "",
             lastname: "",
@@ -52,6 +63,8 @@ export const signup = (hookData, sethookData) => {
             password: "", 
             confirmedPassword: ""
         })
+
+        loginSuccessful();
     })
     // .then(data => data)
     .catch(err => {
