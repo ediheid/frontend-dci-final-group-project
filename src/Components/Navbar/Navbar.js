@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AppContext } from '../../App.js';
 
 // ? Stylesheet
-import styles from "./Navbar.module.scss";
+import styles from "../Navbar/navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
