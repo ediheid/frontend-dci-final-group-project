@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "../AboutUs/AboutUs.module.scss";
 
 // ? All Component and View imports
 import Search from "../../Components/Search/Search";
+import Navbar from "../../Components/Navbar/Navbar";
 
 // ? All Images
 import title from "../AboutUs/static/pexels-roman-odintsov-4553618.jpg";
 
 const AboutUs = () => {
+  const SearchContext = useContext(AppContext);
+
   return (
     <>
-      {/* // ! Search will also open when magnifying glass is clicked */}
-      <Search />
+      <Navbar />
+      {/* // !!! NOTE: Search bar is conditionally rendered onClick of magnifying glass in Navbar.js !!! */}
+      {SearchContext.openSearch ? <Search /> : null}
+      {/* // !! */}
+
       <div className={styles["main-container"]}>
         {/* <div className={styles["content-container"]}></div> */}
 

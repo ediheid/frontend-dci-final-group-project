@@ -27,7 +27,6 @@ const Registration = (props) => {
                     showLogin={props.showLogin}
                     showSignup={props.showSignup}
                     openSignup={props.openSignup}
-                    ref={props.ref}
                     closeModal={props.closeModal}
                     loginFetch={props.loginFetch}
                     collectLoginData={props.collectLoginData}

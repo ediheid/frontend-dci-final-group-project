@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./Verification.module.scss";
 import Button from "../../UI/Button/Button.js";
 import { Link } from "react-router-dom";
@@ -12,13 +12,11 @@ const useQuery = () => {
 const Verification = () => {
   const query = useQuery();
 
-
   const verificationContext = useContext(AppContext);
 
   const showLoginModal = () => {    
     verificationContext.setShowLoginModal(true);
   };
-
 
   const changeContent = () => {
     if (
@@ -26,8 +24,8 @@ const Verification = () => {
       query === "User has already been verified. Please login!"
     ) {
       return (
-        <Link to="/">
-          <Button onClick={showLoginModal}>Login</Button>
+        <Link to="/" onClick={showLoginModal}>
+          <Button>Login</Button>
         </Link>
       );
     } else if (

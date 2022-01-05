@@ -29,7 +29,24 @@ export const AppContext = createContext();
 // export const LoginContext = createContext();
 // export const SignupContext = createContext()
 
+// export const SearchContext = createContext();
+
 const App = () => {
+    // ? Search and Navbar functionality to pass down via Provider
+    //  State hooks
+    // Passed down to Form.js - is used to to openSearch but also to change bg opacity
+    const [openSearch, setOpenSearch] = useState(false);
+
+    //  Open Search Form function
+    // Passed down to Form.js
+    const openForm = () => {
+      setOpenSearch(true);
+    };
+
+    const closeSearchButton = () => {
+      setOpenSearch(!openSearch);
+    };
+
    const [signupData, setSignupData] = useState({
         firstname: "",
         lastname: "",
@@ -88,7 +105,10 @@ const App = () => {
           showLoginModal: showLoginModal,
           showSignupModal: showSignupModal,
           setShowSignupModal: setShowSignupModal,
-          setShowLoginModal: setShowLoginModal
+          setShowLoginModal: setShowLoginModal,
+          openSearch: openSearch,
+          openForm: openForm,
+          closeSearchButton: closeSearchButton,
         }}
       >
       <Router>

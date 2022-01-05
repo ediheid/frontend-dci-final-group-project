@@ -3,25 +3,15 @@
 @import "../../Styling/fonts.module";
 @import "../../Styling/reset.module";
 
+* {
+    box-sizing: border-box;
+}
 // ? Universal styling
 
-// .carousel-container {
-//     background-color: pink;
-//     width: 100vw;
-// }
-
 .carousel-container {
-    // display:flex;
-    // flex-direction: row;
-    // flex-wrap: nowrap;
-    // justify-content: center;
-    // align-items: center;
-
     width: 100vw;
-    height: auto;
-    // background-color: pink;
-    // padding-left: 50px;
-    // padding-right: 50px;
+    height: 90vh;
+    // border: 1px solid blue;
 }
 
 .carousel-heading {
@@ -33,23 +23,61 @@
     padding-bottom: 2vh;
     padding-left: 5vw;
 }
+.slide {
+    // background: red;
+    padding: 1vw;
+    // border: 1px solid green;
+}
 
-
-.image {
+.slide_1,
+.slide_2,
+.slide_3,
+.slide_4,
+.slide_5,
+.slide_6 {
+    margin: 1vw;
+    height: 60vh;
     width: auto;
-    max-height: 60vh;
-    object-fit: cover;
+    background-size: cover;
     border-radius: 20px;
-    background-color: pink;
-    // margin-left: -45vw;
-}
-.beach {
-    object-position: 80% 100%;
+    // border: 1px solid red;
 }
 
-.mountains {
-    object-position: 80% 100%;
+.slide_1 {
+    background-image: url("./static/pexels-arthouse-studio-4579021.jpg");
 }
+
+.slide_2 {
+    background-image: url("./static/pexels-taryn-elliott-6861137.jpg");
+}
+
+.slide_3 {
+    background-image: url("./static/pexels-pnw-production-9354781.jpg");
+}
+
+.slide_4 {
+    background-image: url("./static/pexels-matheus-bertelli-1906155.jpg");
+}
+
+.slide_5 {
+    // mountains
+    background-position: 80% 100%;
+    background-image: url("./static/pexels-toth-photos-10539693.jpg");
+}
+
+.slide_6 {
+    // beach
+    background-position: 80% 100%;
+    background-image: url("./static/pexels-alasdair-braxton-1992889.jpg");
+}
+
+// .beach {
+//     object-position: 80% 100%;
+// }
+
+// .mountains {
+//     object-position: 80% 100%;
+// }
 
 // ? Media Queries
 // Based on Bootstrap breakpoints
