@@ -76,23 +76,23 @@ const Carousel = () => {
                     adventure
                 </div>
                 <Slider {...settings}>
-                    <div className={styles.test} style={{ background: "red" }}>
+                    <div className={styles.slide} style={{ background: "red" }}>
                         <div className={styles.slide_1}></div>
                     </div>
 
-                    <div className={styles.test} style={{ background: "red" }}>
+                    <div className={styles.slide} style={{ background: "red" }}>
                         <div className={styles.slide_2}> </div>
                     </div>
-                    <div className={styles.test} style={{ background: "red" }}>
+                    <div className={styles.slide} style={{ background: "red" }}>
                         <div className={styles.slide_3}></div>
                     </div>
-                    <div className={styles.test} style={{ background: "red" }}>
+                    <div className={styles.slide} style={{ background: "red" }}>
                         <div className={styles.slide_4}></div>
                     </div>
-                    <div className={styles.test} style={{ background: "red" }}>
+                    <div className={styles.slide} style={{ background: "red" }}>
                         <div className={styles.slide_5}></div>
                     </div>
-                    <div className={styles.test} style={{ background: "red" }}>
+                    <div className={styles.slide} style={{ background: "red" }}>
                         <div className={styles.slide_6}></div>
                     </div>
 
@@ -133,54 +133,6 @@ const Carousel = () => {
                     </div> */}
                 </Slider>
             </div>
-
-            {/* SHOW GHASSAN*/}
-            {/* <div className={styles.container}>
-                <Slider {...settings}>
-                    <div>
-                        <img
-                            className={styles.image}
-                            src={middleOfNowhere}
-                            alt="Credit to Joshua Earle on Unsplash"
-                        />
-                    </div>
-                    <div>
-                        <img
-                            className={styles.image}
-                            src={middleOfNowhere}
-                            alt="Credit to Alisa Anton on Unsplash"
-                        />
-                    </div>
-                    <div>
-                        <img
-                            className={styles.image}
-                            src={middleOfNowhere}
-                            alt="Credit to Igor Ovsyannykov on Unsplash"
-                        />
-                    </div>
-                    <div>
-                        <img
-                            className={styles.image}
-                            src={middleOfNowhere}
-                            alt="Credit to Pierre Châtel-Innocenti on Unsplash"
-                        />
-                    </div>
-                    <div>
-                        <img
-                            className={styles.image}
-                            src={middleOfNowhere}
-                            alt="Credit to Richard Nolan on Unsplash"
-                        />
-                    </div>
-                    <div>
-                        <img
-                            className={styles.image}
-                            src={middleOfNowhere}
-                            alt="Credit to Cristina Gottardi on Unsplash"
-                        />
-                    </div>
-                </Slider>
-            </div> */}
         </>
     );
 };
