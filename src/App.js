@@ -38,7 +38,7 @@ const App = () => {
     setOpenSearch(!openSearch);
   };
 
-  // !! TEST: to display or hide map
+  // ? Display and Hide map functionality
   const [openMap, setOpenMap] = useState(false);
 
   const mapView = (event) => {
