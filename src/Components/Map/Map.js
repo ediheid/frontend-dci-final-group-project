@@ -18,10 +18,10 @@ const Map = () => {
       <div className={styles["map-container"]}>
         <GoogleMapReact
           className={styles["map-component"]}
-          bootstrapURLKeys={{
-            key: MAP_API,
-            language: "en",
-          }}
+          // bootstrapURLKeys={{
+          //   key: MAP_API,
+          //   language: "en",
+          // }}
           defaultCenter={defaultProps.center}
           center={defaultProps.center}
           defaultZoom={defaultProps.zoom}

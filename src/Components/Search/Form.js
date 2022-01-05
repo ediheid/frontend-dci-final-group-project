@@ -109,6 +109,7 @@ const Form = (props) => {
                   <input
                     className={styles["dropdown-section-input"]}
                     placeholder="e.g. 1"
+                    type="number"
                   ></input>
                 </div>
 
