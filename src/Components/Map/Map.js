@@ -4,6 +4,8 @@ import GoogleMapReact from "google-map-react";
 import styles from "../Map/Map.module.scss";
 
 const Map = () => {
+  const MAP_API = process.env.REACT_APP_MAP_API;
+
   const defaultProps = {
     center: { lat: 52.52, lng: 13.405 },
     zoom: 12,
@@ -13,7 +15,7 @@ const Map = () => {
     <div className={styles["map-container"]}>
       <GoogleMapReact
         bootstrapURLKeys={{
-          key: "AIzaSyAYC-5rh7I_Z9zgclSOQ5JA_p53gFV4Xo8",
+          key: MAP_API,
           language: "en",
         }}
         defaultCenter={defaultProps.center}
