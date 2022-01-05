@@ -1,0 +1,11 @@
+@import "../../Styling/variables.module";
+@import "../../Styling/mixins.module";
+@import "../../Styling/fonts.module";
+@import "../../Styling/reset.module";
+
+.map-container {
+  padding-top: 8rem;
+  height: 80vh;
+  width: 100%;
+  max-width: 50rem;
+}

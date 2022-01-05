@@ -4,6 +4,8 @@ import { AppContext } from "../../App";
 
 import Form from "./Form";
 
+import Map from "../Map/Map";
+
 import styles from "../Search/search.module.scss";
 
 const Search = () => {
@@ -25,6 +27,8 @@ const Search = () => {
           closeSearchButton={SearchContext.closeSearchButton}
         />
       </header>
+
+      <Map />
     </>
   );
 };
