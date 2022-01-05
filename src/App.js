@@ -42,7 +42,10 @@ const App = () => {
   const [openMap, setOpenMap] = useState(false);
 
   const mapView = (event) => {
+    event.preventDefault();
     setOpenMap(true);
+    // console.log("Successful Submit");
+    // Todo: Once data collection is setup decide if we want the form to keep information so user can update or not?
   };
 
   // ? user/login and signup context
@@ -105,6 +108,7 @@ const App = () => {
 
           // ? Map Context
           mapView: mapView,
+          openMap: openMap,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,

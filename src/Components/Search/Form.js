@@ -45,88 +45,90 @@ const Form = (props) => {
   console.log(endDate);
 
   return (
-    <div className={styles["form-container"]}>
-      {/* //? Expand sits WITHIN the <form> so everything can be submitted at once (onSubmit) */}
-      {/* // todo - when setting up data collection add error handling of not ALL fields are filled out */}
+    <>
+      <div className={styles["form-container"]}>
+        {/* //? Expand sits WITHIN the <form> so everything can be submitted at once (onSubmit) */}
+        {/* // todo - when setting up data collection add error handling of not ALL fields are filled out */}
 
-      <Fragment>
-        <form
-          className={styles.form}
-          // ! Note: onSubmit placeholder for collection data in future
-          // todo - future function will reset form AND setOpen to FALSE
-          onSubmit={MapContext.mapView}
-        >
-          {/* // ? Search bar - when clicked will open all search fields */}
-          <input
-            className={styles["search-input"]}
-            placeholder="Dream about Schwarzwald?"
-            onClick={SearchContext.openForm}
-          ></input>
+        <Fragment>
+          <form
+            className={styles.form}
+            // ! Note: onSubmit placeholder for collection data in future
+            // todo - future function will reset form AND setOpen to FALSE
+            onSubmit={MapContext.mapView}
+          >
+            {/* // ? Search bar - when clicked will open all search fields */}
+            <input
+              className={styles["search-input"]}
+              placeholder="Dream about Schwarzwald?"
+              onClick={SearchContext.openForm}
+            ></input>
 
-          {/* // ? This is the dropdown area with all other search fields in the form */}
-          <Expand open={SearchContext.openSearch}>
-            <div className={styles["form-dropdown-container"]}>
-              {/* //? Close button - state passed down from Search Component */}
-              <button
-                className={styles["close-button"]}
-                onClick={SearchContext.closeSearchButton}
-              >
-                <BsArrowsCollapse />
-              </button>
+            {/* // ? This is the dropdown area with all other search fields in the form */}
+            <Expand open={SearchContext.openSearch}>
+              <div className={styles["form-dropdown-container"]}>
+                {/* //? Close button - state passed down from Search Component */}
+                <button
+                  className={styles["close-button"]}
+                  onClick={SearchContext.closeSearchButton}
+                >
+                  <BsArrowsCollapse />
+                </button>
 
-              {/* // ? Check in */}
-              <div className={styles["search-item"]}>
-                <label className={styles["search-labels"]}>Check in</label>
+                {/* // ? Check in */}
+                <div className={styles["search-item"]}>
+                  <label className={styles["search-labels"]}>Check in</label>
 
-                <DatePicker
-                  minDate={new Date()}
-                  placeholderText="Add dates"
-                  dateFormat="dd/MM/yyyy"
-                  className={styles["dropdown-section-input"]}
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date)}
-                />
-                {/* // todo: Original to match */}
+                  <DatePicker
+                    minDate={new Date()}
+                    placeholderText="Add dates"
+                    dateFormat="dd/MM/yyyy"
+                    className={styles["dropdown-section-input"]}
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                  />
+                  {/* // todo: Original to match */}
+                </div>
+
+                {/* // ? Check out */}
+                <div className={styles["search-item"]}>
+                  <label className={styles["search-labels"]}>Check out</label>
+                  <DatePicker
+                    minDate={new Date()}
+                    placeholderText="Add dates"
+                    dateFormat="dd/MM/yyyy"
+                    className={styles["dropdown-section-input"]}
+                    selected={endDate}
+                    onChange={(date) => setEndDate(date)}
+                  />
+                </div>
+
+                {/* // ? Number of Campervans */}
+                <div className={styles["search-item"]}>
+                  <label className={styles["search-labels"]}>Campervans</label>
+                  <input
+                    className={styles["dropdown-section-input"]}
+                    placeholder="e.g. 1"
+                  ></input>
+                </div>
+
+                {/* // ? Dropdown for amenities */}
+                <div className={styles["search-item"]}>
+                  <label className={styles["search-labels"]}>Extras</label>
+                  <Dropdown
+                    // * Styled in "../Search/dropdown-styling.css" - from node modules default styles;
+                    options={options}
+                    // onChange={this._onSelect} // todo: Look into docs
+                  />
+                </div>
               </div>
-
-              {/* // ? Check out */}
-              <div className={styles["search-item"]}>
-                <label className={styles["search-labels"]}>Check out</label>
-                <DatePicker
-                  minDate={new Date()}
-                  placeholderText="Add dates"
-                  dateFormat="dd/MM/yyyy"
-                  className={styles["dropdown-section-input"]}
-                  selected={endDate}
-                  onChange={(date) => setEndDate(date)}
-                />
-              </div>
-
-              {/* // ? Number of Campervans */}
-              <div className={styles["search-item"]}>
-                <label className={styles["search-labels"]}>Campervans</label>
-                <input
-                  className={styles["dropdown-section-input"]}
-                  placeholder="e.g. 1"
-                ></input>
-              </div>
-
-              {/* // ? Dropdown for amenities */}
-              <div className={styles["search-item"]}>
-                <label className={styles["search-labels"]}>Extras</label>
-                <Dropdown
-                  // * Styled in "../Search/dropdown-styling.css" - from node modules default styles;
-                  options={options}
-                  // onChange={this._onSelect} // todo: Look into docs
-                />
-              </div>
-            </div>
-          </Expand>
-        </form>
-      </Fragment>
-
-      {/* {MapContext.mapView && <Map />} */}
-    </div>
+            </Expand>
+          </form>
+        </Fragment>
+      </div>
+      {/* // ! Conditional rendering - Map only opens on a successful submit via onSubmit in form */}
+      {MapContext.openMap && <Map />}
+    </>
   );
 };
 
