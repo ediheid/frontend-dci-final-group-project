@@ -1,47 +1,40 @@
 import React, { useState, useContext } from "react";
 
-import { AppContext } from "../../App";
-
 // ? Stylesheet
 import styles from "../Navbar/Navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
+import { AppContext } from "../../App";
 
 const Navbar = (props) => {
+  const modalContext = useContext(AppContext);
   const SearchContext = useContext(AppContext);
+  // const [showLoginModal, setShowLoginModal] = useState(false);
+  // const [showSignupModal, setShowSignupModal] = useState(false);
 
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showSignupModal, setShowSignupModal] = useState(false);
-
-  const openLoginModal = (event) => {
-    event.preventDefault();
-    setShowLoginModal(true);
-  };
-
-  const openLoginFromSignup = () => {
-    setShowSignupModal(false);
-    setShowLoginModal(true);
+  const openLoginModal = () => {
+    modalContext.setShowLoginModal(true);
   };
 
   const closeLoginModal = (event) => {
     event.stopPropagation();
-
-    event.preventDefault();
-    setShowLoginModal(false);
+    modalContext.setShowLoginModal(false);
   };
 
-  const openSignupModal = (event) => {
-    event.preventDefault();
-    setShowSignupModal(true);
-    setShowLoginModal(false);
+  const openLoginFromSignup = () => {
+    modalContext.setShowSignupModal(false);
+    modalContext.setShowLoginModal(true);
+  };
+
+  const openSignupModal = () => {
+    modalContext.setShowSignupModal(true);
+    modalContext.setShowLoginModal(false);
   };
 
   const closeSignupModal = (event) => {
     event.stopPropagation();
-
-    event.preventDefault();
-    setShowSignupModal(false);
+    modalContext.setShowSignupModal(false);
   };
 
   return (
@@ -53,12 +46,12 @@ const Navbar = (props) => {
             ? styles["bgChange"]
             : styles["navbar-container"]
         }`}
-        //   className={styles["navbar-container"]}
+        //   className={styles[“navbar-container”]}
       >
         {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
         <div className={styles["icon-container"]}>
           <div className={styles.icon}>
-            <i class="fas fa-caravan"></i>
+            <i className="fas fa-caravan"></i>
           </div>
 
           <div
@@ -71,22 +64,29 @@ const Navbar = (props) => {
           </div>
 
           <div className={styles.icon}>
-            <i class="far fa-heart"></i>
+            <i className="far fa-heart"></i>
           </div>
 
           <div className={styles.icon}>
-            <i class="far fa-comment"></i>
+            <i className="far fa-comment"></i>
           </div>
 
           <div className={styles.icon}>
-            <i class="far fa-user-circle" onClick={openLoginModal}>
+            <i className="far fa-user-circle" onClick={openLoginModal}>
               <Registration
-                showLogin={showLoginModal}
+                showLogin={modalContext.showLoginModal}
                 closeLogin={closeLoginModal}
-                showSignup={showSignupModal}
+                showSignup={modalContext.showSignupModal}
                 openSignup={openSignupModal}
                 closeSignup={closeSignupModal}
                 openLogin={openLoginFromSignup}
+
+                // signupFetch={props.signupFetch}
+                // loginFetch={props.loginFetch}
+                // collectLoginData={props.collectLoginData}
+                // collectSignupData={props.collectSignupData}
+                // signupData={props.signupData}
+                // loginData={props.loginData}
               />
             </i>
           </div>
