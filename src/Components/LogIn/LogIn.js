@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+// !!! Add useContext to React and import AppContext below
+import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "../LogIn/LogIn.module.scss";
 
-
-
 const LogIn = (props) => {
+    // !!! This is where we define Context from App to use in current Component
+    const loginContext = useContext(AppContext);
+
     // Login Modal is not visible
     if (!props.showLogin) {
         return null;
@@ -34,7 +37,7 @@ const LogIn = (props) => {
                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
                 <div className={styles.content} onClick={stop}>
                     <div className={styles.header}>
-                        <div onClick={props.closeLogin} >X</div>
+                        <div onClick={props.closeLogin}>X</div>
 
                         <div className={styles.title}>Log in</div>
                     </div>
@@ -42,12 +45,15 @@ const LogIn = (props) => {
                         <form>
                             <div className={styles["form-container"]}>
                                 <input
+                                    // !!! This is how we reference Context
+                                    onChange={loginContext.collectLoginData}
                                     className={styles["input-login"]}
                                     type="text"
                                     placeholder="E-Mail"
                                     name="email"
                                 />
                                 <input
+                                    onChange={loginContext.collectLoginData}
                                     className={styles["input-login"]}
                                     type="password"
                                     placeholder="Password"
@@ -67,6 +73,7 @@ const LogIn = (props) => {
                                             onClick={props.openSignup}
                                             className={styles.link}
                                         >
+                                            {" "}
                                             Sign up
                                         </span>
                                     </div>
