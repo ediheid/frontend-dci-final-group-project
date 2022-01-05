@@ -11,6 +11,7 @@ import styles from "../Search/search.module.scss";
 const Search = () => {
   // ? From AppContext
   const SearchContext = useContext(AppContext);
+  const MapContext = useContext(AppContext);
 
   return (
     <>
@@ -28,7 +29,8 @@ const Search = () => {
         />
 
         {/* // !! Setup conditional rendering that map will only display onSubmit of form! */}
-        <Map />
+        {/* {MapContext.mapView ? <Map /> : null} */}
+        {/* <Map /> */}
       </header>
     </>
   );

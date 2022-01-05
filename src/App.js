@@ -38,6 +38,13 @@ const App = () => {
     setOpenSearch(!openSearch);
   };
 
+  // !! TEST: to display or hide map
+  const [openMap, setOpenMap] = useState(false);
+
+  const mapView = (event) => {
+    setOpenMap(true);
+  };
+
   // ? user/login and signup context
   const [signupData, setSignupData] = useState({
     firstname: "",
@@ -87,13 +94,19 @@ const App = () => {
       {/* // !!! This is where our context lives */}
       <AppContext.Provider
         value={{
+          // ? Collect signup and login data context
           collectSignupData: collectSignupData,
           collectLoginData: collectLoginData,
+
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
           openForm: openForm,
           closeSearchButton: closeSearchButton,
 
+          // ? Map Context
+          mapView: mapView,
+
+          // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
           setShowLoginModal: setShowLoginModal,
           showLoginModal: showLoginModal,
@@ -131,4 +144,3 @@ const App = () => {
 };
 
 export default App;
-

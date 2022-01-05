@@ -9,6 +9,9 @@ import "../Search/Datepicker-Styling/datepicker-override.scss";
 // Dropdown override styles
 import "../Search/Dropdown-Styling/dropdown-styling.css";
 
+// Components
+import Map from "../Map/Map";
+
 // Libraries
 import Expand from "react-expand-animated";
 import Dropdown from "react-dropdown";
@@ -19,7 +22,9 @@ import { BsArrowsCollapse } from "react-icons/bs";
 
 // ? Form Component
 const Form = (props) => {
+  // ? Context Variables
   const SearchContext = useContext(AppContext);
+  const MapContext = useContext(AppContext);
 
   // todo Dropdown - Ready to take in data - see docs:
   // https://www.npmjs.com/package/react-dropdown
@@ -45,10 +50,12 @@ const Form = (props) => {
       {/* // todo - when setting up data collection add error handling of not ALL fields are filled out */}
 
       <Fragment>
-        {/* // ! Note: onSubmit placeholder for collection data in future */}
-        {/* // todo - future function will reset form AND setOpen to FALSE */}
-        
-        <form className={styles.form}>
+        <form
+          className={styles.form}
+          // ! Note: onSubmit placeholder for collection data in future
+          // todo - future function will reset form AND setOpen to FALSE
+          onSubmit={MapContext.mapView}
+        >
           {/* // ? Search bar - when clicked will open all search fields */}
           <input
             className={styles["search-input"]}
@@ -117,6 +124,8 @@ const Form = (props) => {
           </Expand>
         </form>
       </Fragment>
+
+      {/* {MapContext.mapView && <Map />} */}
     </div>
   );
 };
