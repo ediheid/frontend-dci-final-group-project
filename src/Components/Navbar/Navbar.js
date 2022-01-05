@@ -25,6 +25,8 @@ const Navbar = (props) => {
   };
 
   const closeLoginModal = (event) => {
+    event.stopPropagation();
+
     event.preventDefault();
     setShowLoginModal(false);
   };
@@ -36,6 +38,8 @@ const Navbar = (props) => {
   };
 
   const closeSignupModal = (event) => {
+    event.stopPropagation();
+
     event.preventDefault();
     setShowSignupModal(false);
   };
