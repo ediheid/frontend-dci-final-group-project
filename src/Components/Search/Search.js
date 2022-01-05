@@ -26,9 +26,10 @@ const Search = () => {
           openSearch={SearchContext.openSearch}
           closeSearchButton={SearchContext.closeSearchButton}
         />
-      </header>
 
-      <Map />
+        {/* // !! Setup conditional rendering that map will only display onSubmit of form! */}
+        <Map />
+      </header>
     </>
   );
 };

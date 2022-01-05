@@ -12,16 +12,21 @@ const Map = () => {
   };
 
   return (
-    <div className={styles["map-container"]}>
-      <GoogleMapReact
-        bootstrapURLKeys={{
-          key: MAP_API,
-          language: "en",
-        }}
-        defaultCenter={defaultProps.center}
-        center={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-      />
+    // !! Setup conditional rendering that map will only display onSubmit of form!
+
+    <div className={styles["all-map-content-container"]}>
+      <div className={styles["map-container"]}>
+        <GoogleMapReact
+          className={styles["map-component"]}
+          bootstrapURLKeys={{
+            key: MAP_API,
+            language: "en",
+          }}
+          defaultCenter={defaultProps.center}
+          center={defaultProps.center}
+          defaultZoom={defaultProps.zoom}
+        />
+      </div>
     </div>
   );
 };

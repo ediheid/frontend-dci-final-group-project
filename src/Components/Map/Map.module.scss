@@ -3,9 +3,21 @@
 @import "../../Styling/fonts.module";
 @import "../../Styling/reset.module";
 
+// .all-map-content-container {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100vw;
+// }
+
 .map-container {
-  padding-top: 8rem;
+  //   position: relative;
+
   height: 80vh;
   width: 100%;
-  max-width: 50rem;
+  //   max-width: 60rem;
 }
+
+// .map-component {
+// }
