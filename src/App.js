@@ -75,6 +75,9 @@ const App = () => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+
   // console.log("!!!!!!!", loginData);
 
   // console.log("??????", signupData);
@@ -90,6 +93,16 @@ const App = () => {
           openSearch: openSearch,
           openForm: openForm,
           closeSearchButton: closeSearchButton,
+
+          setShowSignupModal: setShowSignupModal,
+          setShowLoginModal: setShowLoginModal,
+          showLoginModal: showLoginModal,
+          showSignupModal: showSignupModal,
+
+          signupData: signupData,
+          setSignupData: setSignupData,
+          loginData: loginData,
+          setLoginData: setLoginData,
         }}
       >
         <Router>

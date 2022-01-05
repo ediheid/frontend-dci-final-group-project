@@ -47,8 +47,8 @@ const Form = (props) => {
       <Fragment>
         {/* // ! Note: onSubmit placeholder for collection data in future */}
         {/* // todo - future function will reset form AND setOpen to FALSE */}
-
-        <form onSubmit="" className={styles.form}>
+        
+        <form className={styles.form}>
           {/* // ? Search bar - when clicked will open all search fields */}
           <input
             className={styles["search-input"]}

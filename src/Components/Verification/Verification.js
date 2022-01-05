@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./Verification.module.scss";
 import Button from "../../UI/Button/Button.js";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import { AppContext } from "../../App";
 
 const useQuery = () => {
   return new URLSearchParams(window.location.search).get("message");
@@ -11,13 +12,19 @@ const useQuery = () => {
 const Verification = () => {
   const query = useQuery();
 
+  const verificationContext = useContext(AppContext);
+
+  const showLoginModal = () => {    
+    verificationContext.setShowLoginModal(true);
+  };
+
   const changeContent = () => {
     if (
       query === "Your account has been successfully activated!" ||
       query === "User has already been verified. Please login!"
     ) {
       return (
-        <Link to="/landingpage">
+        <Link to="/" onClick={showLoginModal}>
           <Button>Login</Button>
         </Link>
       );

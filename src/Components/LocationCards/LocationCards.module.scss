@@ -4,19 +4,6 @@
 @import "../../Styling/reset.module";
 
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    font-family: "Roboto Italic";
-    margin: 2rem;
-}
-
 .wrapper{
     padding: 1%;
     display: grid;
