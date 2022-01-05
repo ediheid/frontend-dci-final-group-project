@@ -76,23 +76,23 @@ const Navbar = (props) => {
 
                     <div className={styles.icon}>
                         
-                            <i className="far fa-user-circle" onClick={openLoginModal}> 
-                                <Registration 
-                                showLogin={modalContext.showLoginModal} 
-                                closeLogin={closeLoginModal}
-                                showSignup={modalContext.showSignupModal}
-                                openSignup={openSignupModal}
-                                closeSignup={closeSignupModal}
-                                openLogin={openLoginFromSignup}
-                                
-                                // signupFetch={props.signupFetch}
-                                // loginFetch={props.loginFetch}
-                                // collectLoginData={props.collectLoginData}
-                                // collectSignupData={props.collectSignupData}
-                                // signupData={props.signupData}
-                                // loginData={props.loginData}
-                                 />
-                            </i>
+                        <i className="far fa-user-circle" onClick={openLoginModal}> 
+                            <Registration 
+                            showLogin={modalContext.showLoginModal} 
+                            closeLogin={closeLoginModal}
+                            showSignup={modalContext.showSignupModal}
+                            openSignup={openSignupModal}
+                            closeSignup={closeSignupModal}
+                            openLogin={openLoginFromSignup}
+                            
+                            // signupFetch={props.signupFetch}
+                            // loginFetch={props.loginFetch}
+                            // collectLoginData={props.collectLoginData}
+                            // collectSignupData={props.collectSignupData}
+                            // signupData={props.signupData}
+                            // loginData={props.loginData}
+                                />
+                        </i>
                                            
                     </div>
                 </div>    
