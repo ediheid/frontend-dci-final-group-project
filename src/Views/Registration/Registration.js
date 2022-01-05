@@ -8,15 +8,15 @@ import LogIn from "../../Components/LogIn/LogIn";
 import SignUp from "../../Components/SignUp/SignUp";
 
 const Registration = (props) => {
-    const ref = useRef();
+    // const ref = useRef();
 
-useEffect(() => {
-    const checkIfClickedOutside = (e) => {
-        if (props.showLogin && ref.current && !ref.current.contains(e.target)) {
-            props.closeLogin()
-        }
-    }
-}, [props.showLogin])
+// useEffect(() => {
+//     const checkIfClickedOutside = (e) => {
+//         if (props.showLogin && ref.current && !ref.current.contains(e.target)) {
+//             props.closeLogin()
+//         }
+//     }
+// }, [props.showLogin])
     
 
     return (
@@ -27,13 +27,20 @@ useEffect(() => {
                     showLogin={props.showLogin}
                     showSignup={props.showSignup}
                     openSignup={props.openSignup}
-
+                    closeModal={props.closeModal}
+                    loginFetch={props.loginFetch}
+                    collectLoginData={props.collectLoginData}
+                    loginData={props.loginData}
                 />
                 <SignUp
                     showSignup={props.showSignup}
                     closeSignup={props.closeSignup}
                     showLogin={props.showLogin}
                     openLogin={props.openLogin}
+                    collectSignupData={props.collectSignupData}
+                    signupFetch={props.signupFetch}
+                    signupData={props.signupData}
+                    
                     // onCloseSignup={closeSignupModal}
                     // showSignup={showSignupModal}
                 />

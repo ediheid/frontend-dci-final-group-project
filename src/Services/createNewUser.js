@@ -1,14 +1,15 @@
-import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
-const signup = event => {
-    event.preventDefault();
-
+export const signup = async (hookData, sethookData) => {
+   
     const userData = {
-        // firstname: firstname,
-        // lastname: lastname,
-        // email: email,
-        // password: password,
-        // confirmedPassword: confirmedPassword
+        firstname: hookData.firstname,
+        lastname: hookData.lastname,
+        email: hookData.email,
+        password: hookData.password,
+        confirmedPassword: hookData.confirmedPassword
     } 
 
     const settings = {
@@ -43,11 +44,35 @@ const signup = event => {
         }
     })
     .then(data => {
-        // setCurrentUser(data)
+        console.log(data) // setCurrentUser(data) 
+        const loginSuccessful = () => {
+            toast("Your User data has been received!", {
+            position: "top-center",
+            autoClose: 2000,
+            draggable: false,
+            onClose: () => window.location.replace(`/user-signed-up?message=${data.message}`)
+            });
+        }
+
+        sethookData({
+            firstname: "",
+            lastname: "",
+            email: "",
+            password: "", 
+            confirmedPassword: ""
+        })
+
+        loginSuccessful();
     })
     .catch(err => {
-        alert(err.message)
+        const signUpFailed = () => {
+            toast.error(`Error: ${err.message}`, {
+              position: "top-center",
+              draggable: false,
+              autoClose: 2000,
+            });
+          };
+  
+          signUpFailed();
     })
 } 
-
-export default signup;
