@@ -23,18 +23,10 @@ const SignUp = props => {
     event.stopPropagation();
   };
 
+  // Fetch request for signing up
   const handleSubmit = event => {
     event.preventDefault();
     signup(signUpContext.signupData, signUpContext.setSignupData)
-    // .then(signUpContext.setSignupData({
-    //     firstname: "",
-    //     lastname: "",
-    //     email: "",
-    //     password: "", 
-    //     confirmedPassword: ""
-    // }));
-
-
   };
 
   // const handleSubmit = useCallback((event) => {

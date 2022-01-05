@@ -23,8 +23,7 @@ const LogIn = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-
-        login(loginContext.loginData)
+        login(loginContext.loginData, loginContext.setLoginData)
     }
 
     return (
@@ -49,7 +48,7 @@ const LogIn = (props) => {
                                     placeholder="E-Mail"
                                     name="email"
                                     onChange={loginContext.collectLoginData}
-                                    value={props.loginData}
+                                    value={loginContext.loginData.email}
                                 />
                                 <input
                                     className={styles["input-login"]}
@@ -57,7 +56,7 @@ const LogIn = (props) => {
                                     placeholder="Password"
                                     name="password"
                                     onChange={loginContext.collectLoginData}
-                                    value={props.loginData}
+                                    value={loginContext.loginData.password}
                                 />
 
                                 <input

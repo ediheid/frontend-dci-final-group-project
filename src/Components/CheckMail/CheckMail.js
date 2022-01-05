@@ -20,7 +20,7 @@ const CheckMail = () => {
             {query}
             </h1>
             <Link to="/">
-                <a href="#">resend confirmation mail</a>
+                <Button>Back to Home</Button>
             </Link>
         </div>
       </main>

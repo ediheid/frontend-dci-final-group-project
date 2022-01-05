@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
@@ -19,7 +17,6 @@ export const signup = async (hookData, sethookData) => {
         body: JSON.stringify(userData),
         headers: {
             "Content-Type": "application/json"
-            // "Access-Control-Allow-Origin": "*"
         }
     }
 
@@ -49,10 +46,11 @@ export const signup = async (hookData, sethookData) => {
     .then(data => {
         console.log(data) // setCurrentUser(data) 
         const loginSuccessful = () => {
-            toast("Login successful!! Taking you to your dashboard!", {
+            toast("Your User data has been received!", {
             position: "top-center",
             autoClose: 2000,
-            draggable: false
+            draggable: false,
+            onClose: () => window.location.replace(`/user-signed-up?message=${data.message}`)
             });
         }
 
@@ -66,8 +64,15 @@ export const signup = async (hookData, sethookData) => {
 
         loginSuccessful();
     })
-    // .then(data => data)
     .catch(err => {
-        alert(err.message)
+        const signUpFailed = () => {
+            toast.error(`Error: ${err.message}`, {
+              position: "top-center",
+              draggable: false,
+              autoClose: 2000,
+            });
+          };
+  
+          signUpFailed();
     })
 } 

@@ -1,6 +1,8 @@
-import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
-export const login = hookData => {
+export const login = async (hookData, sethookData) => {
 
     const currloginData = {
       email: hookData.email,
@@ -32,22 +34,30 @@ export const login = hookData => {
     })
     .then(data => {
       console.log(data);
-    //   const loginSuccessful = () => {
-    //     toast("Login successful!! Taking you to your dashboard!", {
-    //       position: "top-center",
-    //       autoClose: 2000,
-    //       draggable: false
-    //     });
-    //   };
+      const loginSuccessful = () => {
+        toast("Login successful!! Taking you to your dashboard!", {
+          position: "top-center",
+          autoClose: 2000,
+          draggable: false
+        });
+      };
 
-    //   setLoginData({
-    //     email: "",
-    //     password: ""
-    //   })
+      sethookData({
+        email: "",
+        password: ""
+      })
 
-    //   loginSuccessful();
+      loginSuccessful();
     })
     .catch(err => {
-      alert(err.message)
+      const loginFailed = () => {
+        toast.error(`Error: ${err.message}`, {
+          position: "top-center",
+          draggable: false,
+          autoClose: 2000,
+        });
+      };
+
+      loginFailed();
     })
   }

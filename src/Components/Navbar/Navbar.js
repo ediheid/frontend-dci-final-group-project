@@ -5,35 +5,35 @@ import styles from "../Navbar/navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
+import { AppContext } from "../../App";
 
 const Navbar = (props) => {
-    const [showLoginModal, setShowLoginModal] = useState(false);
-    const [showSignupModal, setShowSignupModal] = useState(false);
 
+    const modalContext = useContext(AppContext)
+    // const [showLoginModal, setShowLoginModal] = useState(false);
+    // const [showSignupModal, setShowSignupModal] = useState(false);
 
-    const openLoginModal = (event) => {
+    const openLoginModal = () => {
         
-        setShowLoginModal(true);
+        modalContext.setShowLoginModal(true);
     }
 
-    const closeLoginModal = (event) => {
-        event.stopPropagation();
-        setShowLoginModal(false);
+    const closeLoginModal = () => {
+        modalContext.setShowLoginModal(false);
     }
 
     const openLoginFromSignup = () => {
-        setShowSignupModal(false);
-        setShowLoginModal(true)
+        modalContext.setShowSignupModal(false);
+        modalContext.setShowLoginModal(true)
     };
 
     const openSignupModal = () => {
-        setShowSignupModal(true);
-        setShowLoginModal(false);
+        modalContext.setShowSignupModal(true);
+        modalContext.setShowLoginModal(false);
     };
 
-    const closeSignupModal = (event) => {
-        event.stopPropagation();
-        setShowSignupModal(false);
+    const closeSignupModal = () => {
+        modalContext.setShowSignupModal(false);
     }
     // const ref = useRef();
 
@@ -44,9 +44,9 @@ const Navbar = (props) => {
     // }
 
     useEffect (() => {
-        console.log("login", showLoginModal)
-        console.log("signup", showSignupModal)
-    }, [showLoginModal, showSignupModal])
+        console.log("login", modalContext.showLoginModal)
+        console.log("signup", modalContext.showSignupModal)
+    }, [modalContext.showLoginModal, modalContext.showSignupModal])
     
     return (
         <>
@@ -78,8 +78,8 @@ const Navbar = (props) => {
                     <div className={styles.icon}>
                         
                             <i className="far fa-user-circle" onClick={openLoginModal}> 
-                                <Registration showLogin={showLoginModal} closeLogin={closeLoginModal}
-                                showSignup={showSignupModal}
+                                <Registration showLogin={modalContext.showLoginModal} closeLogin={closeLoginModal}
+                                showSignup={modalContext.showSignupModal}
                                 openSignup={openSignupModal}
                                 closeSignup={closeSignupModal}
                                 openLogin={openLoginFromSignup}

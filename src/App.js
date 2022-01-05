@@ -26,8 +26,8 @@ import { signup } from "./Services/createNewUser.js";
 
 // !! createContext variable
 export const AppContext = createContext();
-export const LoginContext = createContext();
-export const SignupContext = createContext()
+// export const LoginContext = createContext();
+// export const SignupContext = createContext()
 
 const App = () => {
    const [signupData, setSignupData] = useState({
@@ -61,144 +61,16 @@ const App = () => {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
     
+
+    console.log(showLoginModal)
+
     const collectSignupData = event => { 
         setSignupData({...signupData, [event.target.name]: event.target.value })
     }
 
     const collectLoginData = event => { 
-      setSignupData({...loginData, [event.target.name]: event.target.value })
+      setLoginData({...loginData, [event.target.name]: event.target.value })
   }
-    
-  //   const signup = event => {
-  //     event.preventDefault();
-  
-  //     const userData = {
-  //         firstname: signupData.firstname,
-  //         lastname: signupData.lastname,
-  //         email: signupData.email,
-  //         password: signupData.password,
-  //         confirmedPassword: signupData.confirmedPassword
-  //     } 
-  
-  //     const settings = {
-  //         method: "POST",
-  //         body: JSON.stringify(userData),
-  //         headers: {
-  //             "Content-Type": "application/json"
-  //         }
-  //     }
-  
-  //     fetch("http://localhost:3001/user", settings)
-  //     .then((response) => {
-  //         if (response.ok) {
-  //             return response.json();
-  //         } else {
-  //             switch(response.status) {
-  //                 case 400:
-  //                     return response.json().then(err => {
-  //                         throw new Error(err.message)
-  //                     })
-  //                 case 401: 
-  //                     return response.json().then(err => {
-  //                         throw new Error(err.message)
-  //                     })
-  //                 case 406: 
-  //                     return response.json().then(err => {
-  //                         throw new Error(err.message)
-  //                     })
-  //                 default:
-  //                     throw new Error("Internal Server Error!")
-  //             }
-  //         }
-  //     })
-  //     .then(data => {
-  //         console.log(data)// setCurrentUser(data)
-  //         const signUpSuccessful = () => {
-  //           toast("Login successful!! Taking you to your dashboard!", {
-  //             position: "top-center",
-  //             autoClose: 2000,
-  //             draggable: false
-  //           });
-  //         };
-
-  //         setSignupData({
-  //           firstname: "",
-  //           lastname: "",
-  //           email: "",
-  //           password: "", 
-  //           confirmedPassword: ""
-  //         })
-
-  //         signUpSuccessful()
-  //     })
-  //     .catch(err => {
-  //         alert(err.message)
-  //     })
-  // } 
-
-
-  // const login = event => {
-  //   event.preventDefault();
-
-  //   const currloginData = {
-  //     email: loginData.email,
-  //     password: loginData.password
-  //   }
-
-  //   const settings = {
-  //     method: "POST",
-  //     body: JSON.stringify(currloginData),
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   }
-
-  //   fetch("http://localhost:3001/user/login", settings)
-  //   .then(response => {
-  //     if (response.ok) {
-  //       return response.json()
-  //     } else {
-  //       switch(response.status) {
-  //         case 401: 
-  //             return response.json().then(err => {
-  //                 throw new Error(err.message)
-  //             })
-  //         default:
-  //             throw new Error("Internal Server Error!")
-  //       }
-  //     }
-  //   })
-  //   .then(data => {
-  //     console.log(data);
-  //     const loginSuccessful = () => {
-  //       toast("Login successful!! Taking you to your dashboard!", {
-  //         position: "top-center",
-  //         autoClose: 2000,
-  //         draggable: false
-  //       });
-  //     };
-
-  //     setLoginData({
-  //       email: "",
-  //       password: ""
-  //     })
-
-  //     loginSuccessful();
-  //   })
-  //   .catch(err => {
-  //     alert(err.message)
-  //   })
-  // }
-
-const resetSignup = () => {
-  setSignupData({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "", 
-    confirmedPassword: ""
-  })
-}
 
     console.log("signUpData", signupData)
     console.log("loginData", loginData)
@@ -209,24 +81,20 @@ const resetSignup = () => {
         value={{
           collectSignupData: collectSignupData,
           collectLoginData: collectLoginData,
-          showLoginModal: showLoginModal,
           signupData: signupData,
           setSignupData: setSignupData,
+          loginData: loginData,
+          setLoginData: setLoginData,
+          showLoginModal: showLoginModal,
           showSignupModal: showSignupModal,
-          resetSignup: resetSignup
+          setShowSignupModal: setShowSignupModal,
+          setShowLoginModal: setShowLoginModal
         }}
       >
       <Router>
       {/* <SignupContext.Provider value={[signupData, setSignupData]}>
       <LoginContext.Provider value={[loginData, setLoginData]}> */}
-        <Navbar 
-          // collectLoginData={collectLoginData}
-          // collectSignupData={collectSignupData}
-          // signupFetch={signup}
-          // loginFetch={login}
-          // signupData={signupData}
-          // loginData={loginData}
-        />
+        <Navbar />
         {/* </LoginContext.Provider>
         </SignupContext.Provider> */}
         {/* // ? NavBar Component could live here */}
@@ -234,9 +102,6 @@ const resetSignup = () => {
         {/* // todo Fix Navbar to bottom of the screen on small devices - kick in from 100vh (just below the landing page main image - Scroll Event Listener?)  */}
         {/* <Search /> */}
         {/* // !! Note: Search is commented out here as we currently only need the search Component to display up the top on the Landing page so it is brought in there  */}
-  console.log("!!!!!!!", loginData);
-
-  console.log("??????", signupData);
 
           {/* // todo - Open the form Component on click of search icon in the Navbar for all other pages */}
 
@@ -244,6 +109,7 @@ const resetSignup = () => {
             <Switch>
               {/* // ? Template/placeholder for how to setup paths with components.. */}
               <Route path="/" exact component={LandingPage} />
+
               {/* // ? About us overview */}
               <Route path="/about-us" exact component={AboutUs} />
               <Route path="/user-signed-up" exact component={CheckMail} />
