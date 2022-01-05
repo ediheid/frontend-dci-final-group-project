@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -17,8 +17,28 @@ import Footer from "./Components/Footer/Footer";
 import Verification from "./Components/Verification/Verification";
 import LocationCards from "./Components/LocationCards/LocationCards.js";
 
+// !! createContext variable
+export const AppContext = createContext();
+
+// export const SearchContext = createContext();
 
 const App = () => {
+  // ? Search and Navbar functionality to pass down via Provider
+  //  State hooks
+  // Passed down to Form.js - is used to to openSearch but also to change bg opacity
+  const [openSearch, setOpenSearch] = useState(false);
+
+  //  Open Search Form function
+  // Passed down to Form.js
+  const openForm = () => {
+    setOpenSearch(true);
+  };
+
+  const closeSearchButton = () => {
+    setOpenSearch(!openSearch);
+  };
+
+  // ? user/login and signup context
   const [signupData, setSignupData] = useState({
     firstname: "",
     lastname: "",
@@ -55,34 +75,44 @@ const App = () => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
-  //import LocationCards
+  // console.log("!!!!!!!", loginData);
+
+  // console.log("??????", signupData);
+
   return (
     <div>
-      <Router>
-        {/* <Navbar /> */}
-        {/* // !! Note: Navbar is now passed through individual page components - for the landing page it sits INSIDE the Search.js Component to be able to take over the open of search state */}
+      {/* // !!! This is where our context lives */}
+      <AppContext.Provider
+        value={{
+          collectSignupData: collectSignupData,
+          collectLoginData: collectLoginData,
+          // ? Search Context to pass down to Search and Navbar..
+          openSearch: openSearch,
+          openForm: openForm,
+          closeSearchButton: closeSearchButton,
+        }}
+      >
+        <Router>
+          {/* // !! NOTE: Navbar Component is nested in individual View Components */}
+          {/* // !! NOTE: Search Component lives permanently in LandingPage Component and then has a conditional render on pages where it should not be permanently displayed. Code to copy:    {SearchContext.openSearch ? <Search /> : null} */}
 
-        {/* <Search /> */}
-        {/* // !! Note: Search is commented out here as we currently only need the search Component to display up the top on the Landing page so it is brought in there  */}
+          <main>
+            <Switch>
+              {/* // ? Template/placeholder for how to setup paths with components.. */}
+              <Route path="/" exact component={LandingPage} />
+              {/* // ? About us overview */}
+              <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/verify-email" exact component={Verification} />
+              <Route path="/location-cards" exact component={LocationCards} />
 
-        {/* // todo - Open the form Component on click of search icon in the Navbar for all other pages */}
-
-        <main>
-          <Switch>
-            {/* // ? Template/placeholder for how to setup paths with components.. */}
-            <Route path="/" exact component={LandingPage} />
-            {/* // ? About us overview */}
-            <Route path="/about-us" exact component={AboutUs} />
-            <Route path="/verify-email" exact component={Verification} />
-
-            <Route path="/location-cards" exact component={LocationCards} />
-            {/* // ? Url redirect to landing page on unknown path */}
-            <Redirect to="/" exact />
-          </Switch>
-        </main>
-        {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-        <Footer />
-      </Router>
+              {/* // ? Url redirect to landing page on unknown path */}
+              <Redirect to="/" exact />
+            </Switch>
+          </main>
+          {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
+          <Footer />
+        </Router>
+      </AppContext.Provider>
     </div>
   );
 };

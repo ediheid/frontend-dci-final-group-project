@@ -1,145 +1,94 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { AppContext } from "../../App";
 
 // ? Stylesheet
-import styles from "./navbar.module.scss";
+import styles from "./Navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
 
 const Navbar = (props) => {
-    const [showLoginModal, setShowLoginModal] = useState(false);
-    const [showSignupModal, setShowSignupModal] = useState(false);
+  const SearchContext = useContext(AppContext);
 
-    const openLoginModal = (event) => {
-        event.preventDefault();
-        setShowLoginModal(true);
-    };
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
 
-    const openLoginFromSignup = () => {
-        setShowSignupModal(false);
-        setShowLoginModal(true);
-    };
+  const openLoginModal = (event) => {
+    event.preventDefault();
+    setShowLoginModal(true);
+  };
 
-    const closeLoginModal = (event) => {
-        event.preventDefault();
-        setShowLoginModal(false);
-    };
+  const openLoginFromSignup = () => {
+    setShowSignupModal(false);
+    setShowLoginModal(true);
+  };
 
-    const openSignupModal = (event) => {
-        event.preventDefault();
-        setShowSignupModal(true);
-        setShowLoginModal(false);
-    };
+  const closeLoginModal = (event) => {
+    event.preventDefault();
+    setShowLoginModal(false);
+  };
 
-    const closeSignupModal = (event) => {
-        event.preventDefault();
-        setShowSignupModal(false);
-    };
+  const openSignupModal = (event) => {
+    event.preventDefault();
+    setShowSignupModal(true);
+    setShowLoginModal(false);
+  };
 
-    return (
-        <>
-            {/* // !! Conditional styling passed down from  Search.js Component - to change the colour of Navbar when search field is open - to match search full opacity background  */}
-            <div
-                className={`${styles["navbar-container"]} ${props.open ? styles["bgChange"] : styles["navbar-container"]
-                    }`}
-            //   className={styles["navbar-container"]}
-            >
-                {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
-                <div className={styles["icon-container"]}>
-                    <div className={styles.icon}>
-                        <i class="fas fa-caravan"></i>
-                    </div>
+  const closeSignupModal = (event) => {
+    event.preventDefault();
+    setShowSignupModal(false);
+  };
 
-                    <div className={styles.icon}>
-                        <i class="fas fa-search"></i>
-                    </div>
+  return (
+    <>
+      {/* // !! Conditional styling passed down from  Search.js Component - to change the colour of Navbar when search field is open - to match search full opacity background  */}
+      <div
+        className={`${styles["navbar-container"]} ${SearchContext.openSearch
+          ? styles["bgChange"]
+          : styles["navbar-container"]
+          }`}
+      //   className={styles["navbar-container"]}
+      >
+        {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
+        <div className={styles["icon-container"]}>
+          <div className={styles.icon}>
+            <i class="fas fa-caravan"></i>
+          </div>
 
-                    <div className={styles.icon}>
-                        <i class="far fa-heart"></i>
-                    </div>
+          <div
+            className={styles.icon}
+            // !! Search Form and/or Search Component will open on click of the magnifier - ternary operator to Display on all pages that only have the NavBar permanently on display..
+            onClick={SearchContext.openForm}
+            onClick={SearchContext.closeSearchButton}
+          >
+            <i class="fas fa-search"></i>
+          </div>
 
-                    <div className={styles.icon}>
-                        <i class="far fa-comment"></i>
-                    </div>
+          <div className={styles.icon}>
+            <i class="far fa-heart"></i>
+          </div>
 
-                    <div className={styles.icon}>
-                        <i class="far fa-user-circle" onClick={openLoginModal}>
-                            <Registration
-                                showLogin={showLoginModal}
-                                closeLogin={closeLoginModal}
-                                showSignup={showSignupModal}
-                                openSignup={openSignupModal}
-                                closeSignup={closeSignupModal}
-                                openLogin={openLoginFromSignup}
-                            />
-                        </i>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+          <div className={styles.icon}>
+            <i class="far fa-comment"></i>
+          </div>
+
+          <div className={styles.icon}>
+            <i class="far fa-user-circle" onClick={openLoginModal}>
+              <Registration
+                showLogin={showLoginModal}
+                closeLogin={closeLoginModal}
+                showSignup={showSignupModal}
+                openSignup={openSignupModal}
+                closeSignup={closeSignupModal}
+                openLogin={openLoginFromSignup}
+              />
+            </i>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Navbar;
-
-///////////////////////////////////////////////////////////////////
-// import React, { useState } from "react";
-
-// // ? Stylesheet
-// import styles from "../Navbar/Navbar.module.scss";
-
-// // ? All Component and View imports
-// import LogIn from "../../Components/LogIn/LogIn";
-// import SignUp from "../../Components/SignUp/SignUp";
-
-// const Navbar = () => {
-//     const [showLogIn, setShowLogIn] = useState(false);
-
-//     const openLogIn = (event) => {
-//         event.preventDefault();
-//         setShowLogIn(true);
-//     };
-
-//     const closeLogIn = (event) => {
-//         event.preventDefault();
-//         setShowLogIn(false);
-//         console.log("background was clicked close log in");
-//     };
-
-//     return (
-//         <>
-//             <div className={styles["navbar-container"]}>
-//                 <LogIn
-//                     onCloseLogin={closeLogIn}
-//                     showLogin={showLogIn}
-//                     // setShowLogIn={setShowLogIn}
-//                 />
-
-//                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
-//                 <div className={styles["icon-container"]}>
-//                     <div className={styles.icon}>
-//                         <i class="fas fa-caravan"></i>
-//                     </div>
-
-//                     <div className={styles.icon}>
-//                         <i class="fas fa-search"></i>
-//                     </div>
-
-//                     <div className={styles.icon}>
-//                         <i class="far fa-heart"></i>
-//                     </div>
-
-//                     <div className={styles.icon}>
-//                         <i class="far fa-comment"></i>
-//                     </div>
-
-//                     <div className={styles.icon} onClick={openLogIn}>
-//                         <i class="far fa-user-circle"></i>
-//                     </div>
-//                 </div>
-//             </div>
-//         </>
-//     );
-// };
-
-// export default Navbar;
