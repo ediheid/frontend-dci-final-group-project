@@ -30,10 +30,10 @@ const Welcome = () => {
     };
 
     // hour >= 02 && hour < 6
-    const early = "Hello, you little night bird, ";
+    const early = ", you are a little night bird, ";
 
     // hour >= 06 && hour < 12
-    const morning = "Good morning username, ";
+    const morning = "Good morning, ";
 
     // hour >= 12 && hour < 18
     const afternoon = "Good afternoon, ";
@@ -61,7 +61,7 @@ const Welcome = () => {
             <div className={styles["main-container"]}>
                 <div className={styles["content-container"]}>
                     <div className={styles["personalized-message"]}>
-                        {hour >= 2 && hour < 6 ? `${early}` : ""}
+                        {hour >= 2 && hour < 6 ? `${username}${early}` : ""}
                         {hour >= 6 && hour < 12 ? `${morning} ${username}` : ""}
                         {hour >= 12 && hour < 18
                             ? `${afternoon} ${username}`
