@@ -59,5 +59,10 @@ export const login = async (hookData, sethookData) => {
       };
 
       loginFailed();
+
+      sethookData({
+        email: "",
+        password: ""
+      })
     })
   }

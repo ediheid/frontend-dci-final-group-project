@@ -74,5 +74,13 @@ export const signup = async (hookData, sethookData) => {
           };
   
           signUpFailed();
+
+          sethookData({
+            firstname: "",
+            lastname: "",
+            email: "",
+            password: "", 
+            confirmedPassword: ""
+        })
     })
 } 
