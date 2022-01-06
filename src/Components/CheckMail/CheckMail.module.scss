@@ -9,29 +9,28 @@
 // // }
 
 .main {
-    height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $dusty-pink;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dusty-pink;
 }
 
 .msgbox {
-    margin-top: 12vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-    width: 50vw;
-    padding: 2rem;
-    background: $dark-green;
-    border-radius: 2rem;
+  //   margin-top: 12vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  width: 50vw;
+  padding: 2rem;
+  background: $dark-green;
+  border-radius: 2rem;
 }
 
 .heading {
-    font-family: $sub-heading-font-family;
-    text-align: center;
-    color: $main-font-colour-light;
-    
+  font-family: $sub-heading-font-family;
+  text-align: center;
+  color: $main-font-colour-light;
 }
