@@ -167,6 +167,8 @@ const App = () => {
           // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
           mapLoading: mapLoading,
           mapEventData: mapEventData,
+
+          events: events,
         }}
       >
         <Router>
