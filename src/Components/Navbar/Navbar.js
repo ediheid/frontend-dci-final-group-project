@@ -1,9 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../../App.js";
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
-=======
->>>>>>> 2e60869a1332c1341f6ff08c81e36b3c7feb0245
 
 // ? Stylesheet
 import styles from "../Navbar/Navbar.module.scss";

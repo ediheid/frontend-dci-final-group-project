@@ -35,7 +35,8 @@ const App = () => {
     setOpenSearch(true);
   };
 
-  const closeSearchButton = () => {
+  const closeSearchButton = (event) => {
+    // event.preventDefault();
     setOpenSearch(!openSearch);
   };
 
@@ -124,9 +125,7 @@ const App = () => {
         }}
       >
         <Router>
-          {/* // !! NOTE: Navbar Component is nested in individual View Components */}
-          {/* // !! NOTE: Search Component lives permanently in LandingPage Component and then has a conditional render on pages where it should not be permanently displayed. Code to copy:    {SearchContext.openSearch ? <Search /> : null} */}
-
+          {/* NAVBAR and Search Components live in respective View Components */}
           <main>
             <Switch>
               {/* // ? Template/placeholder for how to setup paths with components.. */}

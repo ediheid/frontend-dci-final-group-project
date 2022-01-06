@@ -20,7 +20,8 @@ const CheckMail = () => {
     <>
       <Navbar />
       {/* // !!! NOTE: Search bar is conditionally rendered onClick of magnifying glass in Navbar.js !!! */}
-      {SearchContext.openSearch ? <Search /> : null}
+      {/* {SearchContext.openSearch ? <Search /> : null} */}
+      <Search />
 
       <main className={styles.main}>
         <div className={styles.msgbox}>

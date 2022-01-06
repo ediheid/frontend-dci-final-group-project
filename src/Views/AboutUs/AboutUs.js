@@ -19,8 +19,9 @@ const AboutUs = () => {
     <>
       <Navbar />
       {/* // !!! NOTE: Search bar is conditionally rendered onClick of magnifying glass in Navbar.js !!! */}
-      {SearchContext.openSearch ? <Search /> : null}
+      {/* {SearchContext.openSearch ? <Search /> : null} */}
       {/* // !! */}
+      <Search />
 
       <div className={styles["main-container"]}>
         {/* <div className={styles["content-container"]}></div> */}
