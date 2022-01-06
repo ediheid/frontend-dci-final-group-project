@@ -5,6 +5,7 @@ import LocationInfoBox from "./LocationInfoBox";
 
 // ! Testing Image for location box
 import property1 from "./Static/property1.png";
+import property2 from "./Static/property2.png";
 
 import { AppContext } from "../../App";
 
@@ -18,13 +19,14 @@ const events = [
     type: "point",
     coordinates: [48.277486, 8.185997],
     // todo: find a way to add image..
-    // img: { property1 },
+    img: property1,
   },
   {
     id: 2,
     title: "property-2",
     type: "point",
     coordinates: [48.006, 8.255999],
+    img: property2,
   },
 ];
 
@@ -78,7 +80,13 @@ const Map = ({ center, zoom }) => {
           lng={events[1].coordinates[1]}
           // ? To look into with Kathi
           // !! Testing location Info..
-          onClick={() => setLocationInfo({ id: event.id, title: event.title })}
+          onClick={() =>
+            setLocationInfo({
+              id: event.id,
+              title: event.title,
+              img: event.img,
+            })
+          }
           // ? ======
         />
       );
