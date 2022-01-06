@@ -14,6 +14,8 @@
 // ? Map
 
 .map-container {
+  display: flex;
+
   // position: relative;
   // !! Probably 80vh for tablet +
   // height: 87vh;
@@ -42,15 +44,19 @@
 
 .location-box {
   position: absolute;
+
   top: 20rem;
   right: 5rem;
 
-  // width: 40rem;
+  width: 20rem;
   min-height: 20rem;
 
   padding: 2rem;
-  background-color: $cream;
+  background-color: $white;
   border-radius: 2rem;
+}
+
+.inner-location-box {
 }
 
 .img-container {
@@ -62,15 +68,29 @@
 
 // ? Media Queries..
 
+@include x-small {
+  .location-box {
+    top: 12rem;
+  }
+}
+
 @include small {
   .map-container {
     padding-bottom: 10rem;
+  }
+
+  .location-box {
+    top: 16rem;
   }
 }
 
 @include medium {
   .map-container {
     padding-bottom: 10rem;
+  }
+
+  .location-box {
+    top: 16rem;
   }
 }
 
@@ -79,17 +99,29 @@
     height: 78vh;
     padding-bottom: 8rem;
   }
+
+  .location-box {
+    top: 22rem;
+  }
 }
 
 @include extra-large {
   .map-container {
     height: 80vh;
   }
+
+  .location-box {
+    top: 14rem;
+  }
 }
 
 @include extra-extra-large {
   .map-container {
     height: 80vh;
+  }
+
+  .location-box {
+    top: 18rem;
   }
 }
 
