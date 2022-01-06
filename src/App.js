@@ -24,8 +24,8 @@ export const AppContext = createContext();
 // export const SearchContext = createContext();
 
 const App = () => {
+  // ? Map / Location data collection
   // !!! Testing map marker..
-
   const [mapEventData, setMapEventData] = useState([]);
   // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
   const [mapLoading, setMapLoading] = useState(false);
@@ -42,7 +42,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchLocationEvents = async () => {
-      setMapLoading(true);
+      // setMapLoading(true);
       // !!! Dummy for location data linked from backend
       // !! Events will equal an array of objects
       // const res = await fetch("location data link from backend will go here");
@@ -50,7 +50,7 @@ const App = () => {
 
       setMapEventData(events);
       // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
-      setMapLoading(false);
+      // setMapLoading(false);
 
       // console.log(events);
     };
@@ -60,7 +60,7 @@ const App = () => {
     // console.log(mapEventData);
   }, []);
 
-  console.log(mapEventData);
+  // console.log(mapEventData);
 
   // !!! =================
 
@@ -165,10 +165,9 @@ const App = () => {
 
           // !!! Map test..
           // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
-          mapLoading: mapLoading,
-          mapEventData: mapEventData,
-
-          events: events,
+          // mapLoading: mapLoading,
+          // mapEventData: mapEventData,
+          // events: events,
         }}
       >
         <Router>

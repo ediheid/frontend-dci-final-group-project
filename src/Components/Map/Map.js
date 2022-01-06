@@ -1,6 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
+import LocationInfoBox from "./LocationInfoBox";
+
+// ! Testing Image for location box
+import property1 from "./Static/property1.png";
 
 import { AppContext } from "../../App";
 
@@ -10,13 +14,15 @@ import styles from "../Map/Map.module.scss";
 const events = [
   {
     id: 1,
-    title: "property",
+    title: "property-1",
     type: "point",
     coordinates: [48.277486, 8.185997],
+    // todo: find a way to add image..
+    // img: { property1 },
   },
   {
     id: 2,
-    title: "property",
+    title: "property-2",
     type: "point",
     coordinates: [48.006, 8.255999],
   },
@@ -31,6 +37,11 @@ const Map = ({ center, zoom }) => {
   // console.log("??", events[0].id);
   // console.log("##", events[0].coordinates[0]);
 
+  // ? To look into with Kathi
+  // !! Testing location Info..
+  const [locationInfo, setLocationInfo] = useState(null);
+  // ? ======
+
   // !! Dummy code to run through 'mapEventData'
   const markers = events.map((event) => {
     if (event.id === 1) {
@@ -42,6 +53,16 @@ const Map = ({ center, zoom }) => {
         <LocationMarker
           lat={events[0].coordinates[0]}
           lng={events[0].coordinates[1]}
+          // ? To look into with Kathi
+          // !! Testing location Info..
+          onClick={() =>
+            setLocationInfo({
+              id: event.id,
+              title: event.title,
+              img: event.img,
+            })
+          }
+          // ? ======
         />
       );
     }
@@ -55,6 +76,10 @@ const Map = ({ center, zoom }) => {
         <LocationMarker
           lat={events[1].coordinates[0]}
           lng={events[1].coordinates[1]}
+          // ? To look into with Kathi
+          // !! Testing location Info..
+          onClick={() => setLocationInfo({ id: event.id, title: event.title })}
+          // ? ======
         />
       );
     }
@@ -80,6 +105,10 @@ const Map = ({ center, zoom }) => {
         {markers}
         {/* <LocationMarker lat={center.lat} lng={center.lng} /> */}
       </GoogleMapReact>
+      {/*   // ? To look into with Kathi
+            // !! Testing location Info.. */}
+      {locationInfo && <LocationInfoBox info={locationInfo} />}
+      {/*  // ? ====== */}
     </div>
   );
 };

@@ -12,16 +12,36 @@
 // }
 
 .map-container {
-  position: relative;
+  // position: relative;
   height: 80vh;
   width: 100%;
   //   max-width: 60rem;
 }
 
 .location-marker {
+  position: relative;
   color: $google-pin-colour;
 
   font-size: 3rem;
+}
+
+// todo Style like the calendar dropdown (white outer box and cream inner with styled text etc
+.location-box {
+  position: absolute;
+  top: 20rem;
+  right: 5rem;
+
+  width: 40rem;
+  min-height: 20rem;
+
+  padding: 2rem;
+  background-color: $cream;
+  border-radius: 2rem;
+}
+
+.img-container {
+  width: 10rem;
+  height: 10rem;
 }
 
 // .map-component {
