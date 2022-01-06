@@ -6,11 +6,11 @@ import styles from "../LocationCards/LocationCards.module.scss";
 // ? All Images -> import images from static
 //import middleOfNowhere from "./static/pexels-arthouse-studio-4579021.jpg";
 import BlackForestCamping from "./static/BlackForestCampingAlisehof.001.jpg";
-import CampingMunstertal from "./static/CampingMünstertal.001.jpg";
-import CampingSchonenbuchen from "./static/CampingSchönenbuchen.001.jpg";
+import CampingMunstertal from "./static/CampingMünstertal.001.jpg";
+import CampingSchonenbuchen from "./static/CampingSchönenbuchen.001.jpg";
 import Daheim from "./static/Daheim.001.jpg";
-import FerienparadiesSchwarzwälderHof from "./static/FerienparadiesSchwarzwälderHof.001.jpg";
-import HöhencampingKönigskanzel from "./static/HöhencampingKönigskanzel.001.jpg";
+import FerienparadiesSchwarzwälderHof from "./static/FerienparadiesSchwarzwälderHof.001.jpg";
+import HöhencampingKönigskanzel from "./static/HöhencampingKönigskanzel.001.jpg";
 import LynxCamp from "./static/LynxCamp.001.jpg";
 import MarionandHanspeterWiesler from "./static/MarionandHanspeterWiesler.001.jpg";
 import MeadowbedHilserhof from "./static/MeadowbedHilserhof.001.jpg";
