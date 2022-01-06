@@ -12,6 +12,8 @@ import Navbar from "../../Components/Navbar/Navbar";
 const Welcome = () => {
     const SearchContext = useContext(AppContext);
 
+    const username = "Paula";
+
     const [hour, setHour] = useState(null);
     const [minute, setMinute] = useState(null);
 
@@ -28,22 +30,22 @@ const Welcome = () => {
     };
 
     // hour >= 02 && hour < 6
-    const early = "Hello, you little night bird!";
+    const early = "Hello, you little night bird, ";
 
     // hour >= 06 && hour < 12
-    const morning = "Good morning username!";
+    const morning = "Good morning username, ";
 
     // hour >= 12 && hour < 18
-    const afternoon = "Good afternoon!";
+    const afternoon = "Good afternoon, ";
 
     // hour >= 18 && hour < 22
-    const evening = "Good evening!";
+    const evening = "Good evening, ";
 
     // hour >= 22 && hour <= 24
-    const late = "Whoa, browsing late!";
+    const late = "Whoa, browsing late, ";
 
     // hour >= 0 && hour < 2
-    const late2 = "Whoa, browsing late!";
+    const superLate = "Whoa, browsing late, ";
 
     // if (hour === 20) {
     //     return morning;
@@ -59,16 +61,18 @@ const Welcome = () => {
             <div className={styles["main-container"]}>
                 <div className={styles["content-container"]}>
                     <div className={styles["personalized-message"]}>
-                        <div>{hour > 0 && hour < 2 ? `${late}` : "ciao"}</div>
-                        <div>
-                            {hour >= 18 && hour < 22
-                                ? `Good Morning username`
-                                : `Good evening username`}
-                        </div>
-                        <br />
-                        <br />
-                        <br />
-                        It is {hour}:{minute}
+                        {hour >= 2 && hour < 6 ? `${early}` : ""}
+                        {hour >= 6 && hour < 12 ? `${morning} ${username}` : ""}
+                        {hour >= 12 && hour < 18
+                            ? `${afternoon} ${username}`
+                            : ""}
+                        {hour >= 18 && hour < 22
+                            ? `${evening} ${username}`
+                            : ""}
+                        {hour >= 22 && hour < 24 ? `${late} ${username}` : ""}
+                        {hour >= 0 && hour < 2
+                            ? `${superLate} ${username}`
+                            : ""}
                     </div>
                 </div>
             </div>
