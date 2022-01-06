@@ -12,11 +12,16 @@
 // }
 
 .map-container {
-  //   position: relative;
-
+  position: relative;
   height: 80vh;
   width: 100%;
   //   max-width: 60rem;
+}
+
+.location-marker {
+  color: $google-pin-colour;
+
+  font-size: 3rem;
 }
 
 // .map-component {

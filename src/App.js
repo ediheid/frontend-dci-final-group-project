@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -24,6 +24,46 @@ export const AppContext = createContext();
 // export const SearchContext = createContext();
 
 const App = () => {
+  // !!! Testing map marker..
+
+  const [mapEventData, setMapEventData] = useState([]);
+  // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
+  const [mapLoading, setMapLoading] = useState(false);
+
+  // !! Hardcoded location data..
+  const events = [
+    {
+      id: 1,
+      title: "property",
+      type: "point",
+      coordinates: [48.277486, 8.185997],
+    },
+  ];
+
+  useEffect(() => {
+    const fetchLocationEvents = async () => {
+      setMapLoading(true);
+      // !!! Dummy for location data linked from backend
+      // !! Events will equal an array of objects
+      // const res = await fetch("location data link from backend will go here");
+      // const { events } = await res.json();
+
+      setMapEventData(events);
+      // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
+      setMapLoading(false);
+
+      // console.log(events);
+    };
+
+    fetchLocationEvents();
+
+    // console.log(mapEventData);
+  }, []);
+
+  console.log(mapEventData);
+
+  // !!! =================
+
   // ? Search and Navbar functionality to pass down via Provider
   //  State hooks
   // Passed down to Form.js - is used to to openSearch but also to change bg opacity
@@ -122,6 +162,11 @@ const App = () => {
           setSignupData: setSignupData,
           loginData: loginData,
           setLoginData: setLoginData,
+
+          // !!! Map test..
+          // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
+          mapLoading: mapLoading,
+          mapEventData: mapEventData,
         }}
       >
         <Router>
