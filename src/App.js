@@ -18,6 +18,7 @@ import Verification from "./Components/Verification/Verification";
 import CheckMail from "./Components/CheckMail/CheckMail.js";
 import LocationCards from "./Components/LocationCards/LocationCards.js";
 
+
 // !! createContext variable
 export const AppContext = createContext();
 
