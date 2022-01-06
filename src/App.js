@@ -17,6 +17,7 @@ import Footer from "./Components/Footer/Footer";
 import Verification from "./Components/Verification/Verification";
 import CheckMail from "./Components/CheckMail/CheckMail.js";
 import LocationCards from "./Components/LocationCards/LocationCards.js";
+import Welcome from "./Views/Welcome/Welcome";
 
 // !! createContext variable
 export const AppContext = createContext();
@@ -133,6 +134,12 @@ const App = () => {
                                 path="/location-cards"
                                 exact
                                 component={LocationCards}
+                            />
+
+                            <Route
+                                path="/user-welcome"
+                                exact
+                                component={Welcome}
                             />
 
                             {/* // ? Url redirect to landing page on unknown path */}
