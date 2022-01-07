@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -24,6 +24,46 @@ export const AppContext = createContext();
 // export const SearchContext = createContext();
 
 const App = () => {
+  // ? Map / Location data collection
+  // !!! Testing map marker..
+  const [mapEventData, setMapEventData] = useState([]);
+  // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
+  const [mapLoading, setMapLoading] = useState(false);
+
+  // !! Hardcoded location data..
+  const events = [
+    {
+      id: 1,
+      title: "property",
+      type: "point",
+      coordinates: [48.277486, 8.185997],
+    },
+  ];
+
+  useEffect(() => {
+    const fetchLocationEvents = async () => {
+      // setMapLoading(true);
+      // !!! Dummy for location data linked from backend
+      // !! Events will equal an array of objects
+      // const res = await fetch("location data link from backend will go here");
+      // const { events } = await res.json();
+
+      setMapEventData(events);
+      // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
+      // setMapLoading(false);
+
+      // console.log(events);
+    };
+
+    fetchLocationEvents();
+
+    // console.log(mapEventData);
+  }, []);
+
+  // console.log(mapEventData);
+
+  // !!! =================
+
   // ? Search and Navbar functionality to pass down via Provider
   //  State hooks
   // Passed down to Form.js - is used to to openSearch but also to change bg opacity
@@ -35,8 +75,19 @@ const App = () => {
     setOpenSearch(true);
   };
 
-  const closeSearchButton = () => {
+  const closeSearchButton = (event) => {
+    // event.preventDefault();
     setOpenSearch(!openSearch);
+  };
+
+  // ? Display and Hide map functionality
+  const [openMap, setOpenMap] = useState(false);
+
+  const mapView = (event) => {
+    event.preventDefault();
+    setOpenMap(true);
+    // console.log("Successful Submit");
+    // Todo: Once data collection is setup decide if we want the form to keep information so user can update or not?
   };
 
   // ? user/login and signup context
@@ -88,13 +139,20 @@ const App = () => {
       {/* // !!! This is where our context lives */}
       <AppContext.Provider
         value={{
+          // ? Collect signup and login data context
           collectSignupData: collectSignupData,
           collectLoginData: collectLoginData,
+
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
           openForm: openForm,
           closeSearchButton: closeSearchButton,
 
+          // ? Map Context
+          mapView: mapView,
+          openMap: openMap,
+
+          // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
           setShowLoginModal: setShowLoginModal,
           showLoginModal: showLoginModal,
@@ -104,12 +162,16 @@ const App = () => {
           setSignupData: setSignupData,
           loginData: loginData,
           setLoginData: setLoginData,
+
+          // !!! Map test..
+          // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
+          // mapLoading: mapLoading,
+          // mapEventData: mapEventData,
+          // events: events,
         }}
       >
         <Router>
-          {/* // !! NOTE: Navbar Component is nested in individual View Components */}
-          {/* // !! NOTE: Search Component lives permanently in LandingPage Component and then has a conditional render on pages where it should not be permanently displayed. Code to copy:    {SearchContext.openSearch ? <Search /> : null} */}
-
+          {/* NAVBAR and Search Components live in respective View Components */}
           <main>
             <Switch>
               {/* // ? Template/placeholder for how to setup paths with components.. */}
@@ -133,4 +195,3 @@ const App = () => {
 };
 
 export default App;
-
