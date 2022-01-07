@@ -62,16 +62,17 @@ const Welcome = () => {
                 <div className={styles["content-container"]}>
                     <div className={styles["personalized-message"]}>
                         {hour >= 2 && hour < 6 ? `${username}${early}` : ""}
-                        {hour >= 6 && hour < 12 ? `${morning} ${username}` : ""}
-                        {hour >= 12 && hour < 18
-                            ? `${afternoon} ${username}`
-                            : ""}
-                        {hour >= 18 && hour < 22
-                            ? `${evening} ${username}`
-                            : ""}
-                        {hour >= 22 && hour < 24 ? `${late} ${username}` : ""}
-                        {hour >= 0 && hour < 2
-                            ? `${superLate} ${username}`
+
+                        {hour >= 6 && hour < 12
+                            ? `${morning} \n ${username}`
+                            : "" || (hour >= 12 && hour < 18)
+                            ? `${afternoon} \n ${username}`
+                            : "" || (hour >= 18 && hour < 22)
+                            ? `${evening} \n ${username}`
+                            : "" || (hour >= 22 && hour < 24)
+                            ? `${late} \n ${username}`
+                            : "" || (hour >= 0 && hour < 2)
+                            ? `${superLate} \n ${username}`
                             : ""}
                     </div>
                 </div>
