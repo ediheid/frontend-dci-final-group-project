@@ -24,6 +24,10 @@ const LocationInfoBox = ({ info }) => {
           {/* // todo: Pass Property Town into events */}
           <h3 className={styles["location-address"]}>{info.address}</h3>
           {/* Property link */}
+
+          <i className="far fa-heart "></i>
+          {/* <i className="fas fa-heart"></i> */}
+
           <a
             className={styles["property-link"]}
             href={info.link}
