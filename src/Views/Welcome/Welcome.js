@@ -12,10 +12,18 @@ import Navbar from "../../Components/Navbar/Navbar";
 const Welcome = () => {
     const SearchContext = useContext(AppContext);
 
+    // Redirect automatily to landig page
+    // const navigate = useNavigate();
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         navigate.push("/");
+    //     }, 2000);
+    // }, []);
+
     const username = "Paula";
 
     const [hour, setHour] = useState(null);
-    const [minute, setMinute] = useState(null);
+    // const [minute, setMinute] = useState(null);
 
     useEffect(() => {
         getHour();
@@ -24,9 +32,9 @@ const Welcome = () => {
     const getHour = () => {
         const date = new Date();
         const hour = date.getHours();
-        const minute = date.getMinutes();
+        // const minute = date.getMinutes();
         setHour(hour);
-        setMinute(minute);
+        // setMinute(minute);
     };
 
     // hour >= 02 && hour < 6
@@ -46,10 +54,6 @@ const Welcome = () => {
 
     // hour >= 0 && hour < 2
     const superLate = "Whoa, browsing late, ";
-
-    // if (hour === 20) {
-    //     return morning;
-    // }
 
     return (
         <>
