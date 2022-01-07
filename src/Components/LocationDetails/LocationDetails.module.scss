@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     width: 90vw;
-    height: 200vh;
+    height: auto;
     font-family: $main-font-font-family;
     // text-align: justify;
     font-size: 1rem;
@@ -45,6 +45,7 @@
     margin-bottom: 1.5vh;
     color: red;
 }
+
 .heading {
     font-size: 2.5rem;
     padding-right: 15vw;
@@ -67,7 +68,8 @@
     justify-content: space-between;
     // flex-wrap: nowrap;
 }
-.intro {
+
+.heading {
     font-size: 2rem;
     // background-color: pink;
 }
@@ -86,6 +88,53 @@
 
 .intro-details div {
     padding-right: 2vw;
+    font-size: 1.2rem;
+}
+
+.bonus-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    // background-color: pink;
+
+    margin-right: 5vw;
+    font-size: 2.5rem;
+}
+
+.bonus-description :nth-child(1) {
+    margin-top: 2vh;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    padding-bottom: 0.3vh;
+    // color: red;
+}
+
+.bonus-description :nth-child(2) {
+    font-size: 1.2rem;
+    padding-bottom: 1.5vh;
+    // color: blue;
+}
+
+.detailed-description {
+    // hyphens: auto;
+    text-align: justify;
+    text-align-last: none;
+
+    font-size: 1.5rem;
+}
+
+.modal-description-link {
+    margin-top: 1vh;
+    cursor: pointer;
 }
 
 // .heading-title {
