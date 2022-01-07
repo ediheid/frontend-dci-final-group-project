@@ -1,0 +1,160 @@
+@import "../../Styling/variables.module";
+@import "../../Styling/mixins.module";
+@import "../../Styling/fonts.module";
+@import "../../Styling/reset.module";
+
+// ? Universal styling
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    color: $army-green;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 200vh;
+    font-family: $main-font-font-family;
+    // text-align: justify;
+    font-size: 1rem;
+    // background-color: green;
+}
+
+.title-image {
+    margin-left: -5vw;
+    margin-top: -10vh;
+    width: 100vw;
+    height: 50vh;
+    // height: auto;
+    object-fit: cover;
+    object-position: 80% 100%;
+    // to do
+    // object-position:
+    // border-radius: $border-radius;
+}
+
+.hr {
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    color: red;
+}
+.heading {
+    font-size: 2.5rem;
+    padding-right: 15vw;
+    padding-top: 2vh;
+    // margin-bottom: 2vh;
+}
+
+.location {
+    padding-top: 0.5vh;
+}
+
+.info {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.intro-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // flex-wrap: nowrap;
+}
+.intro {
+    font-size: 2rem;
+    // background-color: pink;
+}
+
+.host-image {
+    height: 15vw;
+    width: 15vw;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.intro-details {
+    display: flex;
+    flex-direction: row;
+}
+
+.intro-details div {
+    padding-right: 2vw;
+}
+
+// .heading-title {
+//     position: absolute;
+//     color: $off-white;
+//     transform: translate(40%, 70%);
+//     text-shadow: 1px 1px $army-green;
+//     font-size: 4rem;
+//     text-align: left;
+// }
+
+// ? Media Queries
+// Based on Bootstrap breakpoints
+
+// * X-Small = Less than 576px - small mobile devices
+@include x-small {
+}
+
+// * Small = Less than 768px - mobile devices
+@include small {
+}
+
+// * Medium = Less than 992px - tablets
+@include medium {
+    .content-container {
+        max-width: 80vw;
+    }
+
+    .title-image {
+        margin-top: 0vh;
+        max-width: 90vw;
+        height: 60vh;
+    }
+}
+
+// * Large = Less than 1200px - small desktops
+@include large {
+    .content-container {
+        max-width: 70vw;
+    }
+
+    .title-image {
+        margin-top: 0vh;
+        max-width: 80vw;
+        height: 60vh;
+    }
+}
+
+// * Extra Large = Less than 1399px - medium desktops
+@include extra-large {
+    .content-container {
+        max-width: 60vw;
+    }
+
+    .title-image {
+        margin-top: 0vh;
+        max-width: 70vw;
+        height: 60vh;
+    }
+}
+
+// * Extra EXTRA Large = More than 1400px - medium desktops
+@include extra-extra-large {
+    .content-container {
+        max-width: 50vw;
+    }
+
+    .title-image {
+        margin-top: 0vh;
+        max-width: 60vw;
+    }
+}
