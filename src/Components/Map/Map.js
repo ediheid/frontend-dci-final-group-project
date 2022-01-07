@@ -4,7 +4,7 @@ import LocationMarker from "./LocationMarker";
 import LocationInfoBox from "./LocationInfoBox";
 
 // ! Testing Image for location box
-import property1 from "./Static/property1.png";
+import property1 from "./Static/image1.png";
 import property2 from "./Static/property2.png";
 
 import { AppContext } from "../../App";
@@ -20,7 +20,7 @@ const events = [
     coordinates: [48.277486, 8.185997],
     // todo: find a way to add image..
     img: property1,
-    // !! Page Link will go here with parameter of which property it is..
+    // !! Page Link will go here with hardcoded property Link Component
     link: "http://localhost:3000/location-cards",
   },
   {
@@ -29,7 +29,7 @@ const events = [
     type: "point",
     coordinates: [48.006, 8.255999],
     img: property2,
-    // !! Page Link will go here with parameter of which property it is..
+    // !! Page Link will go here with hardcoded property Link Component
     link: "http://localhost:3000/location-cards",
   },
 ];
@@ -108,10 +108,10 @@ const Map = ({ center, zoom }) => {
         className={styles["map-component"]}
         // !!! API key lives in .env file - when commented out Map runs in dev mode
         // !!! Use like this so we don't use up the API
-        // bootstrapURLKeys={{
-        //   key: MAP_API,
-        //   language: "en",
-        // }}
+        bootstrapURLKeys={{
+          key: MAP_API,
+          language: "en",
+        }}
         defaultCenter={center}
         center={center}
         defaultZoom={zoom}
