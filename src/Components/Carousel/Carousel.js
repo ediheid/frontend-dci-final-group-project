@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Slider from "react-slick";
 
@@ -23,7 +24,7 @@ const Carousel = () => {
     const settings = {
         // centerMode: true,
         dots: true,
-        autoplay: true,
+        // autoplay: true,
         infinite: true,
         slidesToShow: 2,
         slidesToScroll: 1,
@@ -77,23 +78,39 @@ const Carousel = () => {
                 </div>
                 <Slider {...settings}>
                     <div className={styles.slide} style={{ background: "red" }}>
-                        <div className={styles.slide_1}></div>
+                        <Link to="location-details">
+                            <div className={styles.slide_1}></div>
+                        </Link>
                     </div>
 
                     <div className={styles.slide} style={{ background: "red" }}>
-                        <div className={styles.slide_2}> </div>
+                        <Link to="location-details">
+                            <div className={styles.slide_2}> </div>
+                        </Link>
                     </div>
+
                     <div className={styles.slide} style={{ background: "red" }}>
-                        <div className={styles.slide_3}></div>
+                        <Link to="location-details">
+                            <div className={styles.slide_3}></div>
+                        </Link>
                     </div>
+
                     <div className={styles.slide} style={{ background: "red" }}>
-                        <div className={styles.slide_4}></div>
+                        <Link to="location-details">
+                            <div className={styles.slide_4}></div>
+                        </Link>
                     </div>
+
                     <div className={styles.slide} style={{ background: "red" }}>
-                        <div className={styles.slide_5}></div>
+                        <Link to="location-details">
+                            <div className={styles.slide_5}></div>
+                        </Link>
                     </div>
+
                     <div className={styles.slide} style={{ background: "red" }}>
-                        <div className={styles.slide_6}></div>
+                        <Link to="location-details">
+                            <div className={styles.slide_6}></div>
+                        </Link>
                     </div>
 
                     {/* <div className={styles.test}>

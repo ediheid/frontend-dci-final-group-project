@@ -50,10 +50,10 @@ const Welcome = () => {
     const evening = "Good evening, ";
 
     // hour >= 22 && hour <= 24
-    const late = "Whoa, browsing late, ";
+    const late = "Whoa! Browsing late, ";
 
     // hour >= 0 && hour < 2
-    const superLate = "Whoa, browsing late, ";
+    const superLate = "Whoa! Browsing late, ";
 
     return (
         <>
@@ -72,7 +72,7 @@ const Welcome = () => {
                             : "" || (hour >= 12 && hour < 18)
                             ? `${afternoon} \n ${username}`
                             : "" || (hour >= 18 && hour < 22)
-                            ? `${evening} \n ${username}`
+                            ? `${late} \n ${username}`
                             : "" || (hour >= 22 && hour < 24)
                             ? `${late} \n ${username}`
                             : "" || (hour >= 0 && hour < 2)
