@@ -268,7 +268,7 @@ const LocationDetails = () => {
                     <div className={styles["price-container"]}>
                         {/* // !! More info */}
                         <div className={styles["price-info"]}>
-                            €85 / night
+                            €85 / <span className={styles.span}>night</span>
                             {/* <br /> */}
                             <div>02 May - 09 May</div>
                         </div>
