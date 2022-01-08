@@ -9,6 +9,7 @@ import styles from "../LocationDetails/LocationDetails.module.scss";
 import Search from "../Search/Search";
 import Navbar from "../Navbar/Navbar";
 import Button from "../../UI/Button/Button";
+import Map from "../Map/Map";
 
 // ? All Images
 import mainImage from "../LocationDetails/static/pexels-mali-maeder-109679.jpg";
@@ -16,6 +17,11 @@ import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
 
 const LocationDetails = () => {
     const SearchContext = useContext(AppContext);
+
+    let title = "Lonely place in the middle of black forest";
+    const address = "Feldberg, Baden-Würtemberg, Germany";
+    const nameOfPlace = "Lonely place";
+    const hostName = "Florian";
 
     return (
         <>
@@ -34,23 +40,21 @@ const LocationDetails = () => {
 "
                     />
                     {/* // !! Title of location */}
-                    <div className={styles.heading}>
-                        Lonely place in the middle of black forest
-                    </div>
-                    {/* // !! Address */}
-                    <div className={styles.location}>
-                        Feldberg, Baden-Würtemberg, Germany
-                    </div>
+                    <div className={styles["heading-title"]}>{title}</div>
+                    {/* // !! Address under title of location */}
+                    <div className={styles["title-location"]}>{address}</div>
                     <hr className={styles.hr} />
-                    {/* // !! Info */}
-                    <div className={styles.info}>
+                    {/* // !! Catching info */}
+                    <div className={styles["catching-info"]}>
                         This is a rare find. Lucky you!
                     </div>
                     <hr className={styles.hr} />
                     <div className={styles["intro-container"]}>
                         {/* // !! Title + host + intro */}
-                        <div className={styles.heading}>
-                            Lonely place <br /> hosted by Florian
+                        <div className={styles["heading-title"]}>
+                            {nameOfPlace} <br /> hosted by {hostName}
+                            {/* <div>Joined in December 2020</div>
+                            <Button>Contact host</Button> */}
                         </div>
 
                         <div>
@@ -70,7 +74,6 @@ const LocationDetails = () => {
                         <div>animals allowed</div>
                     </div>
                     <hr className={styles.hr} />
-
                     {/* // !! Nice to have */}
                     <div className={styles["bonus-container"]}>
                         <div className={styles.icon}>
@@ -81,7 +84,6 @@ const LocationDetails = () => {
                             <div>You'll have the place to yourself.</div>
                         </div>
                     </div>
-
                     <div className={styles["bonus-container"]}>
                         <div className={styles.icon}>
                             <i class="fas fa-door-closed"></i>
@@ -91,17 +93,15 @@ const LocationDetails = () => {
                             <div>Check yourself in.</div>
                         </div>
                     </div>
-
                     <div className={styles["bonus-container"]}>
                         <div className={styles.icon}>
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <div className={styles["bonus-description"]}>
                             <div>Great communication experience</div>
-                            <div>The host replays in less then 1 hour.</div>
+                            <div>The host answers in less than an hour.</div>
                         </div>
                     </div>
-
                     <div className={styles["bonus-container"]}>
                         <div className={styles.icon}>
                             <i class="far fa-calendar-times"></i>
@@ -111,9 +111,7 @@ const LocationDetails = () => {
                             <div>{""}</div>
                         </div>
                     </div>
-
                     <hr className={styles.hr} />
-
                     <div className={styles["detailed-description"]}>
                         Lemon drops candy canes marshmallow cake apple pie.
                         Toffee wafer bear claw jujubes liquorice chupa chups
@@ -127,11 +125,10 @@ const LocationDetails = () => {
                             Show more >
                         </div>
                     </div>
-
                     <hr className={styles.hr} />
-
-                    <div className={styles.heading}>What this place offers</div>
-
+                    <div className={styles["heading-section"]}>
+                        What this place offers
+                    </div>
                     <div className={styles["bonus-container"]}>
                         <div className={styles.icon}>
                             <i class="fas fa-tree"></i>{" "}
@@ -141,7 +138,6 @@ const LocationDetails = () => {
                             <div>{""}</div>
                         </div>
                     </div>
-
                     <div className={styles["bonus-container"]}>
                         <div className={styles.icon}>
                             <i class="fas fa-box-open"></i>
@@ -151,7 +147,6 @@ const LocationDetails = () => {
                             <div>{""}</div>
                         </div>
                     </div>
-
                     <div className={styles["bonus-container"]}>
                         <div className={styles.icon}>
                             <i class="fas fa-campground"></i>{" "}
@@ -162,10 +157,129 @@ const LocationDetails = () => {
                         </div>
                     </div>
                     <Button>Show all amenities</Button>
+                    <hr className={styles.hr} />
+                    <div className={styles["map-container"]}>
+                        <div className={styles["heading-section"]}>
+                            Where you'll be
+                        </div>
+                        <div className={styles.map}>
+                            <Map />
+                        </div>
+                        <div>
+                            <div className={styles["location-description"]}>
+                                <div>{address}</div>
+                                <div>
+                                    The black forest is Biscuit sesame snaps
+                                    jelly fruitcake dragée chocolate cake
+                                    tiramisu topping. Carrot cake lollipop
+                                    shortbread apple pie fruitcake. Shortbread
+                                    marshmallow chocolate bar gummi bears carrot
+                                    cake tootsie roll cookie. Biscuit bear claw
+                                    dessert chocolate cake liquorice.
+                                </div>
+                            </div>
+                            <div className={styles["map-description-link"]}>
+                                Show more >
+                            </div>
+                        </div>
+                    </div>
+                    <hr className={styles.hr} />
+                    <div className={styles["host-details-container"]}>
+                        {/* // !! Title + host + intro */}
+                        <div className={styles["heading-title"]}>
+                            Hosted by {hostName}
+                            {/* <br /> */}
+                            <div className={styles["member-since"]}>
+                                Joined in December 2020
+                            </div>
+                            <div>
+                                <i class="fas fa-user-check"></i>
+                                Identity verified
+                            </div>
+                            <div>
+                                <i class="fas fa-clipboard-check"></i>12 reviews
+                            </div>
+                        </div>
+
+                        <div>
+                            <img
+                                className={styles["host-image"]}
+                                src={florian}
+                                alt="Blond man with yellow flowers"
+                            />
+                        </div>
+                    </div>
+                    <Button>Contact host</Button>
+                    <div className={styles["payment-info"]}>
+                        To protect your payment, never transfer money or
+                        communicate outside of the Freshbnb website or app.
+                    </div>
 
                     <hr className={styles.hr} />
 
-                    <div className={styles.heading}>Where you'll be</div>
+                    <div className={styles["booking-info-container"]}>
+                        {/* // !! More info */}
+                        <div className={styles["heading-booking-info"]}>
+                            Availabilty
+                            {/* <br /> */}
+                            <div>May 02 - May 09</div>
+                        </div>
+
+                        <div>
+                            {/* TEST */}
+                            <i class="fas fa-greater-than"></i>
+                        </div>
+                    </div>
+
+                    <hr className={styles.hr} />
+
+                    <div className={styles["booking-info-container"]}>
+                        {/* // !! More info */}
+                        <div className={styles["heading-booking-info"]}>
+                            House rules
+                            {/* <br /> */}
+                            <div>Check-in: 1 pm</div>
+                        </div>
+
+                        <div>
+                            {/* TEST */}
+                            <i class="fas fa-greater-than"></i>
+                        </div>
+                    </div>
+
+                    <hr className={styles.hr} />
+
+                    <div className={styles["booking-info-container"]}>
+                        {/* // !! More info */}
+                        <div className={styles["heading-booking-info"]}>
+                            Cancellation policy
+                            {/* <br /> */}
+                            <div>Free cancellation for 48 hours</div>
+                        </div>
+
+                        <div>
+                            {/* TEST */}
+                            <i class="fas fa-greater-than"></i>
+                        </div>
+                    </div>
+
+                    <hr className={styles.hr} />
+
+                    <div className={styles["price-container"]}>
+                        {/* // !! More info */}
+                        <div className={styles["price-info"]}>
+                            €85 / night
+                            {/* <br /> */}
+                            <div>02 May - 09 May</div>
+                        </div>
+
+                        <div>
+                            {/* TEST */}
+                            <Button>Reserve</Button>
+                        </div>
+                    </div>
+
+                    {/* <hr className={styles.hr} /> */}
                 </div>
             </div>
         </>
