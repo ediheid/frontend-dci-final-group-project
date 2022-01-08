@@ -20,7 +20,7 @@ const Welcome = () => {
     //     }, 2000);
     // }, []);
 
-    const username = "Paula";
+    const username = SearchContext.currentUser.firstname;
 
     const [hour, setHour] = useState(null);
     // const [minute, setMinute] = useState(null);

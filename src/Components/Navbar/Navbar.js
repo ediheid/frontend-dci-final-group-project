@@ -3,7 +3,7 @@ import { AppContext } from "../../App.js";
 import { Link } from "react-router-dom";
 
 // ? Stylesheet
-import styles from "../Navbar/Navbar.module.scss";
+import styles from "../Navbar/navbar.module.scss";
 
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
@@ -65,7 +65,7 @@ const Navbar = (props) => {
             onClick={SearchContext.openForm}
             onClick={SearchContext.closeSearchButton}
           >
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
           </div>
 
           <div className={styles.icon}>
