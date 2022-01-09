@@ -20,7 +20,6 @@
     display: flex;
     flex-direction: column;
     width: 90vw;
-    // height: 500vh;
     font-family: $main-font-font-family;
     font-size: 1rem;
     padding-bottom: 2.5vh;
@@ -33,10 +32,6 @@
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    // object-position: 80% 100%;
-    // to do
-    // object-position:
-    // border-radius: $border-radius;
 }
 
 .heading {
@@ -44,7 +39,6 @@
     top: 76%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // border: 1px solid green;
 }
 
 .text-container {
@@ -56,23 +50,19 @@
     font-family: $sub-heading-font-family;
     font-size: 2rem;
     color: $main-font-colour-light;
-    // border: 2px solid yellow;
 }
 
 .info-host {
-    // padding-top: 12vh;
-
     position: relative;
     text-align: center;
     border-radius: $border-radius;
+    // border: 2px solid blue;
 }
 
 .host-image {
     width: 100%;
     height: 80vh;
     object-fit: cover;
-    // to do
-    // object-position:
     border-radius: $border-radius;
 }
 
@@ -110,8 +100,8 @@
 
     .title-image {
         margin-top: -10vh;
-        max-width: 90vw;
-        // height: auto;
+        width: 100vw;
+        margin-left: -10vw;
     }
 
     .heading {
@@ -119,7 +109,6 @@
         top: 82%;
         left: 50%;
         transform: translate(-50%, -50%);
-        // border: 1px solid green;
     }
 
     .heading-host {
@@ -136,8 +125,8 @@
 
     .title-image {
         margin-top: -10vh;
-        max-width: 80vw;
-        // height: 60vh;
+        width: 100vw;
+        margin-left: -15vw;
     }
 
     .heading {
@@ -145,7 +134,6 @@
         top: 82%;
         left: 50%;
         transform: translate(-50%, -50%);
-        // border: 1px solid green;
     }
 
     .heading-host {
@@ -162,8 +150,8 @@
 
     .title-image {
         margin-top: -10vh;
-        max-width: 70vw;
-        // height: 60vh;
+        width: 100vw;
+        margin-left: -20vw;
     }
 
     .heading {
@@ -171,7 +159,6 @@
         top: 82%;
         left: 50%;
         transform: translate(-50%, -50%);
-        // border: 1px solid green;
     }
 
     .heading-host {
@@ -188,7 +175,8 @@
 
     .title-image {
         margin-top: -10vh;
-        max-width: 60vw;
+        width: 100vw;
+        margin-left: -25vw;
     }
 
     .heading {
@@ -196,12 +184,10 @@
         top: 82%;
         left: 50%;
         transform: translate(-50%, -50%);
-        // border: 1px solid green;
     }
 
     .heading-host {
         top: 12%;
         left: 15%;
-        // border: 1px solid blue;
     }
 }
