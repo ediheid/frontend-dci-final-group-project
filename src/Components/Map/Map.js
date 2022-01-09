@@ -4,34 +4,36 @@ import LocationMarker from "./LocationMarker";
 import LocationInfoBox from "./LocationInfoBox";
 
 // ! Testing Image for location box
-import property1 from "./Static/image1.png";
-import property2 from "./Static/property2.png";
+import property1 from "./Static/property-1.png";
+import property2 from "./Static/property-2.png";
 
 import { AppContext } from "../../App";
 
 import styles from "../Map/Map.module.scss";
 
-// !! Hardcoded location data..
+// !! Hardcoded location data.. (will live in backend)
 const events = [
-    {
-        id: 1,
-        title: "By the Lake",
-        type: "point",
-        coordinates: [48.277486, 8.185997],
-        // todo: find a way to add image..
-        img: property1,
-        // !! Page Link will go here with hardcoded property Link Component
-        link: "http://localhost:3000/location-details",
-    },
-    {
-        id: 2,
-        title: "Cherry Manor",
-        type: "point",
-        coordinates: [48.006, 8.255999],
-        img: property2,
-        // !! Page Link will go here with hardcoded property Link Component
-        link: "http://localhost:3000/location-details",
-    },
+  {
+    id: 1,
+    title: "By the Lake",
+    type: "point",
+    address: "An der Gutach 1, 78098 Triberg, Germany",
+    coordinates: [48.132592, 8.232933],
+    // todo: find a way to add image..
+    img: property1,
+    // !! Page Link will go here with hardcoded property Link Component
+    link: "http://localhost:3000/location-cards",
+  },
+  {
+    id: 2,
+    title: "Cherry Manor",
+    type: "point",
+    address: "Kleinenzhof 1, 7532 Bad Wildbad, Germany",
+    coordinates: [48.735805, 8.574254],
+    img: property2,
+    // !! Page Link will go here with hardcoded property Link Component
+    link: "http://localhost:3000/location-cards",
+  },
 ];
 
 // Default props passed in to set below Component
@@ -65,6 +67,7 @@ const Map = ({ center, zoom }) => {
             setLocationInfo({
               id: event.id,
               title: event.title,
+              address: event.address,
               img: event.img,
               link: event.link,
             })
@@ -89,6 +92,7 @@ const Map = ({ center, zoom }) => {
             setLocationInfo({
               id: event.id,
               title: event.title,
+              address: event.address,
               img: event.img,
               link: event.link,
             })
