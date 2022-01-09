@@ -18,6 +18,7 @@ import Verification from "./Components/Verification/Verification";
 import CheckMail from "./Components/CheckMail/CheckMail.js";
 import LocationCards from "./Components/LocationCards/LocationCards.js";
 import Welcome from "./Views/Welcome/Welcome";
+import LocationDetails from "./Components/LocationDetails/LocationDetails";
 
 // !! createContext variable
 export const AppContext = createContext();
@@ -201,6 +202,11 @@ const App = () => {
                                 path="/welcome-page"
                                 exact
                                 component={Welcome}
+                            />
+                            <Route
+                                path="/location-details"
+                                exact
+                                component={LocationDetails}
                             />
 
                             {/* // ? Url redirect to landing page on unknown path */}

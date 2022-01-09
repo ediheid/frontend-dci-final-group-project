@@ -18,82 +18,66 @@ import guestImage from "./static/pexels-taryn-elliott-5581736.jpg";
 import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
 
 const LandingPage = () => {
-  // const [showLogIn, setShowLogIn] = useState(false);
+    // const [showLogIn, setShowLogIn] = useState(false);
 
-  // const openLogIn = (event) => {
-  //     event.preventDefault();
-  //     setShowLogIn(true);
-  // };
+    // const openLogIn = (event) => {
+    //     event.preventDefault();
+    //     setShowLogIn(true);
+    // };
 
-  // const closeLogIn = (event) => {
-  //     event.preventDefault();
-  //     setShowLogIn(false);
-  //     console.log("background was clicked close log in");
-  // };
+    // const closeLogIn = (event) => {
+    //     event.preventDefault();
+    //     setShowLogIn(false);
+    //     console.log("background was clicked close log in");
+    // };
+    return (
+        <>
+            <Navbar />
+            <Search />
+            <div className={styles["main-container"]}>
+                <div className={styles["content-container"]}>
+                    <img
+                        className={styles["title-image"]}
+                        src={backgroundImage}
+                        alt="Forest by mali maeder from Pexels
+"
+                    />
+                    <div className={styles.heading}>
+                        <div className={styles["text-container"]}>
+                            Don't know who <br />
+                            we are? <br />
+                            No problem.
+                            <Link to="/about-us">
+                                {/* // ? Button */}
+                                <div>
+                                    <Button>About Us</Button>
+                                </div>
+                            </Link>
+                        </div>
+                        {/* <div onClick={openLogIn}>Test log in</div> */}
+                    </div>
+                    {/* // ?  Carousel Component */}
+                    <Carousel />
 
-  return (
-    <>
-      <Navbar />
-      <Search />
-      <div className={styles["main-container"]}>
-        {/* <LogIn onCloseLogin={closeLogIn} showLogin={showLogIn} /> */}
-        {/* //  Welcome Image Component */}
-        <div className={styles["image-container"]}>
-          <img
-            className={styles["background-image"]}
-            src={backgroundImage}
-            alt="Camper by Devries from Pexels"
-          />
-          <div className={styles.heading}>
-            Don't know who
-            <br />
-            we are?
-            <br />
-            No problem.
-            <Link to="/about-us">
-              {/* // ? Button */}
-              <div>
-                <Button>About Us</Button>
-              </div>
-            </Link>
-            {/* <div onClick={openLogIn}>Test log in</div> */}
-          </div>
-        </div>
+                    {/* // ? Info Component */}
 
-        {/* // ?  Carousel Component */}
-        <Carousel />
-
-        <div className={styles["content-container"]}>
-          {/* // ? Info Component */}
-          <div className={styles.info}>
-            <div className={styles["info-guest"]}>
-              <img
-                className={styles["guest-image"]}
-                src={guestImage}
-                alt="Camper by Devries from Pexels"
-              />
-              <div className={styles["heading-guest"]}>
-                Become
-                <br />a guest
-              </div>
+                    <div className={styles["info-host"]}>
+                        <img
+                            className={styles["host-image"]}
+                            src={hostImage}
+                            alt="Camper by Devries from Pexels"
+                        />
+                        <div className={styles["heading-host"]}>
+                            Become
+                            <br />a host
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div className={styles["info-host"]}>
-              <img
-                className={styles["host-image"]}
-                src={hostImage}
-                alt="Camper by Devries from Pexels"
-              />
-              <div className={styles["heading-host"]}>
-                Become
-                <br />a host
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
+    
 };
 
 export default LandingPage;
+
