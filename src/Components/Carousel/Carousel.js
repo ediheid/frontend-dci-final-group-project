@@ -39,7 +39,7 @@ const Carousel = () => {
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 3,
                 },
             },
             {
@@ -72,9 +72,7 @@ const Carousel = () => {
         <>
             <div className={styles["carousel-container"]}>
                 <div className={styles["carousel-heading"]}>
-                    Find your next
-                    <br />
-                    adventure
+                    Find your next adventure
                 </div>
                 <Slider {...settings}>
                     <div className={styles.slide} style={{ background: "red" }}>

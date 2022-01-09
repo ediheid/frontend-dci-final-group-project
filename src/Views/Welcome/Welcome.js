@@ -72,7 +72,7 @@ const Welcome = () => {
                             : "" || (hour >= 12 && hour < 18)
                             ? `${afternoon} \n ${username}`
                             : "" || (hour >= 18 && hour < 22)
-                            ? `${late} \n ${username}`
+                            ? `${evening} \n ${username}`
                             : "" || (hour >= 22 && hour < 24)
                             ? `${late} \n ${username}`
                             : "" || (hour >= 0 && hour < 2)

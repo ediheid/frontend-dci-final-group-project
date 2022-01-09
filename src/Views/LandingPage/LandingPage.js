@@ -30,70 +30,54 @@ const LandingPage = () => {
     //     setShowLogIn(false);
     //     console.log("background was clicked close log in");
     // };
-
     return (
         <>
             <Navbar />
             <Search />
             <div className={styles["main-container"]}>
-                {/* <LogIn onCloseLogin={closeLogIn} showLogin={showLogIn} /> */}
-                {/* //  Welcome Image Component */}
-                <div className={styles["image-container"]}>
+                <div className={styles["content-container"]}>
                     <img
-                        className={styles["background-image"]}
+                        className={styles["title-image"]}
                         src={backgroundImage}
-                        alt="Camper by Devries from Pexels"
+                        alt="Forest by mali maeder from Pexels
+"
                     />
                     <div className={styles.heading}>
-                        Don't know who
-                        <br />
-                        we are?
-                        <br />
-                        No problem.
-                        <Link to="/about-us">
-                            {/* // ? Button */}
-                            <div>
-                                <Button>About Us</Button>
-                            </div>
-                        </Link>
+                        <div className={styles["text-container"]}>
+                            Don't know who <br />
+                            we are? <br />
+                            No problem.
+                            <Link to="/about-us">
+                                {/* // ? Button */}
+                                <div>
+                                    <Button>About Us</Button>
+                                </div>
+                            </Link>
+                        </div>
                         {/* <div onClick={openLogIn}>Test log in</div> */}
                     </div>
-                </div>
+                    {/* // ?  Carousel Component */}
+                    <Carousel />
 
-                {/* // ?  Carousel Component */}
-                <Carousel />
-
-                <div className={styles["content-container"]}>
                     {/* // ? Info Component */}
-                    <div className={styles.info}>
-                        {/* <div className={styles["info-guest"]}>
-              <img
-                className={styles["guest-image"]}
-                src={guestImage}
-                alt="Camper by Devries from Pexels"
-              />
-              <div className={styles["heading-guest"]}>
-                Become
-                <br />a guest
-              </div>
-            </div> */}
 
-                        <div className={styles["info-host"]}>
-                            <img
-                                className={styles["host-image"]}
-                                src={hostImage}
-                                alt="Camper by Devries from Pexels"
-                            />
-                            <div className={styles["heading-host"]}>
-                                Become
-                                <br />a host
-                            </div>
+                    <div className={styles["info-host"]}>
+                        <img
+                            className={styles["host-image"]}
+                            src={hostImage}
+                            alt="Camper by Devries from Pexels"
+                        />
+                        <div className={styles["heading-host"]}>
+                            Become
+                            <br />a host
                         </div>
                     </div>
                 </div>
             </div>
         </>
     );
+    
 };
 
 export default LandingPage;
+

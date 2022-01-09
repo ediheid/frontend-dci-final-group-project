@@ -9,7 +9,7 @@
 // ? Universal styling
 
 .carousel-container {
-    width: 100vw;
+    width: 90vw;
     height: 90vh;
     // border: 1px solid blue;
 }
@@ -19,8 +19,8 @@
     // font-family: $sub-heading-font-family;
     font-size: 3.5rem;
     color: $main-font-colour;
-    margin-top: 10vh;
-    padding-bottom: 2vh;
+    margin-top: 3vh;
+    // margin-bottom: 3vh;
     padding-left: 5vw;
 }
 .slide {
@@ -94,16 +94,32 @@
 
 // * Medium = Less than 992px - tablets
 @include medium {
+    .carousel-container {
+        max-width: 90vw;
+        margin-left: -5vw;
+    }
 }
 
 // * Large = Less than 1200px - small desktops
 @include large {
+    .carousel-container {
+        max-width: 80vw;
+        margin-left: -5vw;
+    }
 }
 
 // * Extra Large = Less than 1399px - medium desktops
 @include extra-large {
+    .carousel-container {
+        max-width: 70vw;
+        margin-left: -5vw;
+    }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
 @include extra-extra-large {
+    .carousel-container {
+        max-width: 60vw;
+        margin-left: -5vw;
+    }
 }
