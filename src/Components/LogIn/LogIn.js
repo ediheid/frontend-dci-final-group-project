@@ -22,10 +22,10 @@ const LogIn = (props) => {
         event.stopPropagation();
     };
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        login(loginContext.loginData, loginContext.setLoginData)
-    }
+        login(loginContext.loginData, loginContext.setLoginData);
+    };
 
     return (
         <>
@@ -36,7 +36,7 @@ const LogIn = (props) => {
                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
                 <div className={styles.content} onClick={stop}>
                     <div className={styles.header}>
-                        <div onClick={props.closeLogin} >X</div>
+                        <div onClick={props.closeLogin}>X</div>
 
                         <div className={styles.title}>Log in</div>
                     </div>
@@ -68,7 +68,7 @@ const LogIn = (props) => {
                                 <div className={styles["modal-footer"]}>
                                     <div>Forgot your password?</div>
                                     <div>
-                                        Not a member yet?
+                                        Not a member yet? {""}
                                         <span
                                             onClick={props.openSignup}
                                             className={styles.link}
@@ -81,9 +81,9 @@ const LogIn = (props) => {
                         </form>
                     </div>
                 </div>
-              </div>
-    </>
-  );
+            </div>
+        </>
+    );
 };
 
 export default LogIn;
