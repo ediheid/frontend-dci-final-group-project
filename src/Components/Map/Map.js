@@ -13,25 +13,25 @@ import styles from "../Map/Map.module.scss";
 
 // !! Hardcoded location data..
 const events = [
-  {
-    id: 1,
-    title: "By the Lake",
-    type: "point",
-    coordinates: [48.277486, 8.185997],
-    // todo: find a way to add image..
-    img: property1,
-    // !! Page Link will go here with hardcoded property Link Component
-    link: "http://localhost:3000/location-cards",
-  },
-  {
-    id: 2,
-    title: "Cherry Manor",
-    type: "point",
-    coordinates: [48.006, 8.255999],
-    img: property2,
-    // !! Page Link will go here with hardcoded property Link Component
-    link: "http://localhost:3000/location-cards",
-  },
+    {
+        id: 1,
+        title: "By the Lake",
+        type: "point",
+        coordinates: [48.277486, 8.185997],
+        // todo: find a way to add image..
+        img: property1,
+        // !! Page Link will go here with hardcoded property Link Component
+        link: "http://localhost:3000/location-details",
+    },
+    {
+        id: 2,
+        title: "Cherry Manor",
+        type: "point",
+        coordinates: [48.006, 8.255999],
+        img: property2,
+        // !! Page Link will go here with hardcoded property Link Component
+        link: "http://localhost:3000/location-details",
+    },
 ];
 
 // Default props passed in to set below Component
