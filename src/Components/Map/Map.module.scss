@@ -93,6 +93,23 @@
   text-align: right;
 }
 
+.liked-and-link-container {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  width: 80%;
+  padding: 1rem;
+}
+
+.liked-container {
+  padding-top: 1rem;
+  padding-left: 1rem;
+
+  font-size: 1.5rem;
+}
+
 .property-link {
   font-size: 1.1rem;
   letter-spacing: 0.5px;
@@ -130,11 +147,19 @@
   .map-container {
     padding-bottom: 10rem;
   }
+
+  .liked-and-link-container {
+    width: 60%;
+  }
 }
 
 @include medium {
   .map-container {
     padding-bottom: 10rem;
+  }
+
+  .liked-and-link-container {
+    width: 60%;
   }
 }
 
@@ -143,17 +168,29 @@
     height: 78vh;
     padding-bottom: 8rem;
   }
+
+  .liked-and-link-container {
+    width: 60%;
+  }
 }
 
 @include extra-large {
   .map-container {
     height: 80vh;
   }
+
+  .liked-and-link-container {
+    width: 60%;
+  }
 }
 
 @include extra-extra-large {
   .map-container {
     height: 80vh;
+  }
+
+  .liked-and-link-container {
+    width: 60%;
   }
 }
 

@@ -18,7 +18,7 @@ const events = [
     title: "By the Lake",
     type: "point",
     address: "An der Gutach 1, 78098 Triberg, Germany",
-    coordinates: [48.277486, 8.185997],
+    coordinates: [48.132592, 8.232933],
     // todo: find a way to add image..
     img: property1,
     // !! Page Link will go here with hardcoded property Link Component
@@ -29,7 +29,7 @@ const events = [
     title: "Cherry Manor",
     type: "point",
     address: "Kleinenzhof 1, 7532 Bad Wildbad, Germany",
-    coordinates: [48.006, 8.255999],
+    coordinates: [48.735805, 8.574254],
     img: property2,
     // !! Page Link will go here with hardcoded property Link Component
     link: "http://localhost:3000/location-cards",
