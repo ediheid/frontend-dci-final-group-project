@@ -92,7 +92,7 @@ const App = () => {
     // }
   };
 
-  // !!! =================
+  // =================
 
   // ? Search and Navbar functionality to pass down via Provider
   //  State hooks
@@ -105,8 +105,15 @@ const App = () => {
     setOpenSearch(true);
   };
 
+  // !! Bug fix why map re-renders on close...
   const closeSearchButton = (event) => {
+    // ! If I use preventDefault it stops the onSubmit altogether..
     // event.preventDefault();
+    // ! This does not seem to work either..
+    // setOpenMap(false);
+    console.log("Hello");
+
+    // ? Actual part of functionality
     setOpenSearch(!openSearch);
   };
 

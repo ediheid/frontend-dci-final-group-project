@@ -17,22 +17,28 @@ const events = [
     id: 1,
     title: "By the Lake",
     type: "point",
+    // todo:
+    addressForUser: "Only the town will display",
+    // ! Only use full address for the coordnitaes
     address: "An der Gutach 1, 78098 Triberg, Germany",
     coordinates: [48.132592, 8.232933],
     // todo: find a way to add image..
     img: property1,
     // !! Page Link will go here with hardcoded property Link Component
-    link: "http://localhost:3000/location-cards",
+    link: "http://localhost:3000/location-details",
   },
   {
     id: 2,
     title: "Cherry Manor",
     type: "point",
+    // todo:
+    addressForUser: "Only the town will display",
+    // ! Only use full address for the coordnitaes
     address: "Kleinenzhof 1, 7532 Bad Wildbad, Germany",
     coordinates: [48.735805, 8.574254],
     img: property2,
     // !! Page Link will go here with hardcoded property Link Component
-    link: "http://localhost:3000/location-cards",
+    link: "http://localhost:3000/location-details",
   },
 ];
 
