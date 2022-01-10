@@ -9,6 +9,10 @@
 // ? Universal styling
 
 .carousel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 90vw;
     height: 90vh;
     // border: 1px solid blue;
@@ -22,6 +26,11 @@
     margin-top: 3vh;
     // margin-bottom: 3vh;
     padding-left: 5vw;
+}
+
+.carousel {
+    // border: 1px solid green;
+    width: 90vw;
 }
 .slide {
     // background: red;
@@ -98,6 +107,10 @@
         max-width: 90vw;
         margin-left: -5vw;
     }
+    .carousel {
+        // border: 1px solid green;
+        max-width: 80vw;
+    }
 }
 
 // * Large = Less than 1200px - small desktops
@@ -105,6 +118,10 @@
     .carousel-container {
         max-width: 80vw;
         margin-left: -5vw;
+    }
+    .carousel {
+        // border: 1px solid green;
+        max-width: 70vw;
     }
 }
 
@@ -114,6 +131,10 @@
         max-width: 70vw;
         margin-left: -5vw;
     }
+    .carousel {
+        // border: 1px solid green;
+        max-width: 60vw;
+    }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
@@ -121,5 +142,10 @@
     .carousel-container {
         max-width: 60vw;
         margin-left: -5vw;
+    }
+
+    .carousel {
+        // border: 1px solid green;
+        max-width: 50vw;
     }
 }
