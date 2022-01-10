@@ -71,7 +71,7 @@ const App = () => {
 
   // todo: update to one function called ('toggle search dropdown')
   // !! Bug fix why map re-renders on close...
-  const closeSearchButton = (event) => {
+  const toggleSearchDropdown = (event) => {
     event.preventDefault();
     setOpenSearch(!openSearch);
   };
@@ -162,7 +162,7 @@ const App = () => {
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
           openForm: openForm,
-          closeSearchButton: closeSearchButton,
+          toggleSearchDropdown: toggleSearchDropdown,
 
           // ? Map Context
           mapView: mapView,

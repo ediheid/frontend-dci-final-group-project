@@ -117,7 +117,7 @@ const Form = (props) => {
                 {/* //? Close button - state passed down from Search Component */}
                 <button
                   className={styles["close-button"]}
-                  onClick={SearchContext.closeSearchButton}
+                  onClick={SearchContext.toggleSearchDropdown}
                 >
                   <BsArrowsCollapse />
                 </button>

@@ -63,7 +63,7 @@ const Navbar = (props) => {
             className={styles.icon}
             //  Search Form and/or Search Component will open on click of the magnifier - ternary operator to Display on all pages that only have the NavBar permanently on display..
             // onClick={SearchContext.openForm}
-            onClick={SearchContext.closeSearchButton}
+            onClick={SearchContext.toggleSearchDropdown}
           >
             <i class="fas fa-search"></i>
           </div>
