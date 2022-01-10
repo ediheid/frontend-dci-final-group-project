@@ -79,7 +79,7 @@
   height: auto;
   width: 100vw;
 
-  padding: 3rem 0 10rem 0;
+  padding: 3rem 0 14rem 0;
 
   background-color: $cream;
 
@@ -90,7 +90,7 @@
 // Close button
 .close-button {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2.5rem;
 
   border: none;
   background: none;
@@ -103,8 +103,10 @@
 
 .form-search-button {
   position: absolute;
-  bottom: 3rem;
-  right: 6rem;
+  bottom: 8rem;
+  // right: 6rem;
+
+  // right: 10%;
 
   font-family: $main-font-font-family;
   font-size: 1.5rem;
