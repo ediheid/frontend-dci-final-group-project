@@ -111,7 +111,7 @@ const App = () => {
   // !! Bug fix why map re-renders on close...
   const closeSearchButton = (event) => {
     // ! If I use preventDefault it stops the onSubmit altogether..
-    // event.preventDefault();
+    event.preventDefault();
     // ! This does not seem to work either..
     // setOpenMap(false);
     // console.log("Hello");
