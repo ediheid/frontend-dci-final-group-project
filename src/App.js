@@ -30,10 +30,40 @@ export const AppContext = createContext();
 
 const App = () => {
   // ? Map / Location data collection
-  // !!! Testing map marker..
+  //  !! Will be used im fetch request
   const [mapEventData, setMapEventData] = useState([]);
-  // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
+  // todo: Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
   const [mapLoading, setMapLoading] = useState(false);
+
+  // ? Display and Hide map functionality
+  const [openMap, setOpenMap] = useState(false);
+  //  State hooks
+  // Passed down to Form.js - is used to to openSearch but also to change bg opacity
+  const [openSearch, setOpenSearch] = useState(false);
+
+  const mapView = (event) => {
+    event.preventDefault();
+    setOpenMap(true);
+    // console.log("Successful Submit");
+    // ! Note for Jamie: Fixed the problem
+    setOpenSearch(false);
+    // Todo: Once data collection is setup decide if we want the form to keep information so user can update or not?
+  };
+
+  const closeMap = () => {
+    setOpenMap(false);
+  };
+
+  const returnHome = () => {
+    setOpenMap(false);
+    setOpenSearch(false);
+  };
+
+  // useEffect(() => {
+  //   if (!openSearch) {
+  //     setOpenMap(false);
+  //   }
+  // }, [openSearch]);
 
   // !! Hardcoded location data and dummy code for fetch request of property data - see more in Map.js
   // const events = [
@@ -81,12 +111,9 @@ const App = () => {
     // }
   };
 
-  // !!! =================
+  // =================
 
   // ? Search and Navbar functionality to pass down via Provider
-  //  State hooks
-  // Passed down to Form.js - is used to to openSearch but also to change bg opacity
-  const [openSearch, setOpenSearch] = useState(false);
 
   //  Open Search Form function
   // Passed down to Form.js
@@ -94,19 +121,10 @@ const App = () => {
     setOpenSearch(true);
   };
 
+  // !! Bug fix why map re-renders on close...
   const closeSearchButton = (event) => {
-    // event.preventDefault();
-    setOpenSearch(!openSearch);
-  };
-
-  // ? Display and Hide map functionality
-  const [openMap, setOpenMap] = useState(false);
-
-  const mapView = (event) => {
     event.preventDefault();
-    setOpenMap(true);
-    // console.log("Successful Submit");
-    // Todo: Once data collection is setup decide if we want the form to keep information so user can update or not?
+    setOpenSearch(!openSearch);
   };
 
   // ? user/login and signup context
@@ -173,6 +191,7 @@ const App = () => {
           // ? Map Context
           mapView: mapView,
           openMap: openMap,
+          closeMap: closeMap,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
@@ -203,6 +222,9 @@ const App = () => {
           // ? Liked/Saved property
           like: like,
           toggleLike: toggleLike,
+
+          // ! Test
+          returnHome: returnHome,
         }}
       >
         <Router>

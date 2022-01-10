@@ -54,8 +54,7 @@ const LocationCards = () => {
           <p className={styles["card__description"]}>
             <ul>
               <li>
-                <span>Address: </span>Kleinenzhof Harter KG Kleinenzhof 1, 75323
-                Bad Wildbad, Germany
+                <span>Address: </span>Kleinenzhof 1, 75323 Bad Wildbad, Germany
               </li>
               <li>
                 <span>Price per night:</span> €26

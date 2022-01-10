@@ -28,6 +28,7 @@ const Carousel = () => {
         infinite: true,
         slidesToShow: 2,
         slidesToScroll: 1,
+        arrows: false,
 
         responsive: [
             {
@@ -74,44 +75,63 @@ const Carousel = () => {
                 <div className={styles["carousel-heading"]}>
                     Find your next adventure
                 </div>
-                <Slider {...settings}>
-                    <div className={styles.slide} style={{ background: "red" }}>
-                        <Link to="location-details">
-                            <div className={styles.slide_1}></div>
-                        </Link>
-                    </div>
+                <div className={styles.carousel}>
+                    <Slider {...settings}>
+                        <div
+                            className={styles.slide}
+                            style={{ background: "red" }}
+                        >
+                            <Link to="location-details">
+                                <div className={styles.slide_1}></div>
+                            </Link>
+                        </div>
 
-                    <div className={styles.slide} style={{ background: "red" }}>
-                        <Link to="location-details">
-                            <div className={styles.slide_2}> </div>
-                        </Link>
-                    </div>
+                        <div
+                            className={styles.slide}
+                            style={{ background: "red" }}
+                        >
+                            <Link to="location-details">
+                                <div className={styles.slide_2}> </div>
+                            </Link>
+                        </div>
 
-                    <div className={styles.slide} style={{ background: "red" }}>
-                        <Link to="location-details">
-                            <div className={styles.slide_3}></div>
-                        </Link>
-                    </div>
+                        <div
+                            className={styles.slide}
+                            style={{ background: "red" }}
+                        >
+                            <Link to="location-details">
+                                <div className={styles.slide_3}></div>
+                            </Link>
+                        </div>
 
-                    <div className={styles.slide} style={{ background: "red" }}>
-                        <Link to="location-details">
-                            <div className={styles.slide_4}></div>
-                        </Link>
-                    </div>
+                        <div
+                            className={styles.slide}
+                            style={{ background: "red" }}
+                        >
+                            <Link to="location-details">
+                                <div className={styles.slide_4}></div>
+                            </Link>
+                        </div>
 
-                    <div className={styles.slide} style={{ background: "red" }}>
-                        <Link to="location-details">
-                            <div className={styles.slide_5}></div>
-                        </Link>
-                    </div>
+                        <div
+                            className={styles.slide}
+                            style={{ background: "red" }}
+                        >
+                            <Link to="location-details">
+                                <div className={styles.slide_5}></div>
+                            </Link>
+                        </div>
 
-                    <div className={styles.slide} style={{ background: "red" }}>
-                        <Link to="location-details">
-                            <div className={styles.slide_6}></div>
-                        </Link>
-                    </div>
+                        <div
+                            className={styles.slide}
+                            style={{ background: "red" }}
+                        >
+                            <Link to="location-details">
+                                <div className={styles.slide_6}></div>
+                            </Link>
+                        </div>
 
-                    {/* <div className={styles.test}>
+                        {/* <div className={styles.test}>
                         <img
                             className={styles.image}
                             src={forrest}
@@ -146,7 +166,8 @@ const Carousel = () => {
                             alt="Camper by Devries from Pexels"
                         />
                     </div> */}
-                </Slider>
+                    </Slider>
+                </div>
             </div>
         </>
     );

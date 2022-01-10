@@ -17,22 +17,28 @@ const events = [
     id: 1,
     title: "By the Lake",
     type: "point",
+    // todo:
+    addressForUser: "Only the town will display",
+    // ! Only use full address for the coordnitaes
     address: "An der Gutach 1, 78098 Triberg, Germany",
     coordinates: [48.132592, 8.232933],
     // todo: find a way to add image..
     img: property1,
     // !! Page Link will go here with hardcoded property Link Component
-    link: "http://localhost:3000/location-cards",
+    link: "http://localhost:3000/location-details",
   },
   {
     id: 2,
     title: "Cherry Manor",
     type: "point",
+    // todo:
+    addressForUser: "Only the town will display",
+    // ! Only use full address for the coordnitaes
     address: "Kleinenzhof 1, 7532 Bad Wildbad, Germany",
     coordinates: [48.735805, 8.574254],
     img: property2,
     // !! Page Link will go here with hardcoded property Link Component
-    link: "http://localhost:3000/location-cards",
+    link: "http://localhost:3000/location-details",
   },
 ];
 
@@ -40,6 +46,8 @@ const events = [
 const Map = ({ center, zoom }) => {
   // Google Map API
   const MAP_API = process.env.REACT_APP_MAP_API;
+
+  const mapContext = useContext(AppContext);
 
   // console.log("!!!!!", events);
   // console.log("??", events[0].id);
@@ -108,6 +116,13 @@ const Map = ({ center, zoom }) => {
     // Conditionally rendered - will only display onSubmit of form!
 
     <div className={styles["map-container"]}>
+      <button
+        className={styles["close-map-button"]}
+        onClick={mapContext.closeMap}
+      >
+        X
+      </button>
+
       <GoogleMapReact
         className={styles["map-component"]}
         // !!! API key lives in .env file - when commented out Map runs in dev mode
