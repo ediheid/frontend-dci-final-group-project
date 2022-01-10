@@ -12,8 +12,6 @@ import Logout from "../../Components/Logout/Logout.js";
 const Registration = (props) => {
     const RegistrationContext = useContext(AppContext);
 
-    console.log("Registration", RegistrationContext)
-
     const content = (RegistrationContext.cookies.UserCookie === "null") ?
     (
         <div className={styles.module}>

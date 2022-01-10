@@ -39,7 +39,11 @@ const Navbar = (props) => {
     modalContext.setShowSignupModal(false);
   };
 
-  const content = modalContext.currentUser.firstname.length > 0 ? 
+  // modalContext.cookies.UserCookie === null
+
+  console.log(modalContext.currentUser.firstname)
+
+  const content = !modalContext.currentUser.firstname.length > 0 ? 
   (
     <div className={styles["icon-container"]}>
     <Link onClick={SearchContext.returnHome} to="/">
@@ -54,7 +58,7 @@ const Navbar = (props) => {
       // onClick={SearchContext.openForm}
       onClick={SearchContext.closeSearchButton}
     >
-      <i class="fas fa-search"></i>
+      <i className="fas fa-search"></i>
     </div>
 
     <div className={styles.icon}>
@@ -65,7 +69,7 @@ const Navbar = (props) => {
       <i className="far fa-comment"></i>
     </div>
 
-    <div className={styles.icon}>
+    <div className={styles.icon} >
       <i className="far fa-user-circle" onClick={openLoginModal}>
         <Registration
           showLogin={modalContext.showLoginModal}
@@ -101,11 +105,11 @@ const Navbar = (props) => {
       // onClick={SearchContext.openForm}
       onClick={SearchContext.closeSearchButton}
     >
-      <i class="fas fa-search"></i>
+      <i className="fas fa-search"></i>
     </div>
   
-  <div className={styles.icon}>
-      <i className="far fa-user-circle" onClick={openLoginModal}>
+  <div className={styles.logged} onClick={openLoginModal}>
+        {modalContext.currentUser.firstname.charAt(0) + modalContext.currentUser.lastname.charAt(0)}
         <Registration
           showLogin={modalContext.showLoginModal}
           closeLogin={closeLoginModal}
@@ -121,7 +125,6 @@ const Navbar = (props) => {
           // signupData={props.signupData}
           // loginData={props.loginData}
         />
-      </i>
     </div>
   </div>
   );
