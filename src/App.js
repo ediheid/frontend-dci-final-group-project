@@ -6,6 +6,8 @@ import {
   Switch,
 } from "react-router-dom";
 import signup from "./Services/createNewUser.js";
+import Cookies from "js-cookie";
+import { useCookies } from "react-cookie";
 
 // ? Main scss
 import styles from "./Styling/app.module.scss";
@@ -126,18 +128,18 @@ const App = () => {
     _id: "",
     firstname: "",
     lastname: "",
-    email: "",
-    adress: {
-      street: "",
-      number: "",
-      city: "",
-      postcode: "",
-    },
-    birthday: "",
     locations: [],
     bookings: [],
-    verified: false,
+    // adress: {
+    //     street: "",
+    //     number: "",
+    //     city: "",
+    //     postcode: "",
+    // },
+    // birthday: ""
   });
+
+  const [cookies, setCookie] = useCookies(["UserCookie"]);
 
   const collectSignupData = (event) => {
     setSignupData({
@@ -180,6 +182,14 @@ const App = () => {
           loginData: loginData,
           setLoginData: setLoginData,
 
+          // ? Set currentUser Data after Login
+          currentUser: currentUser,
+          setCurrentUser: setCurrentUser,
+
+          // ? pass down cookies
+          cookies: cookies,
+          setCookie: setCookie,
+
           // !!! Map test..
           // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
           // mapLoading: mapLoading,
@@ -199,7 +209,15 @@ const App = () => {
           <main>
             <Switch>
               {/* // ? Template/placeholder for how to setup paths with components.. */}
-              <Route path="/" exact component={LandingPage} />
+              {/* <Route path="/" exact component={LandingPage} /> */}
+              <Route exact path="/">
+                {currentUser.firstname.length > 0 ? (
+                  <Redirect to="/welcome-page" />
+                ) : (
+                  <LandingPage />
+                )}
+              </Route>
+
               {/* // ? About us overview */}
               <Route path="/about-us" exact component={AboutUs} />
               <Route path="/verify-email" exact component={Verification} />
