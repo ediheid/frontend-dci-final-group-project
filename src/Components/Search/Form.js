@@ -55,7 +55,7 @@ const Form = (props) => {
             className={styles.form}
             // ! Note: onSubmit placeholder for collection data in future
             // todo - future function will reset form AND setOpen to FALSE
-            onSubmit={MapContext.mapView}
+            // onSubmit={MapContext.mapView}
           >
             {/* // ? Search bar - when clicked will open all search fields */}
             <input
@@ -123,6 +123,13 @@ const Form = (props) => {
                   />
                 </div>
               </div>
+
+              {/* <button type="submit" onSubmit={MapContext.mapView}>
+                Search
+              </button> */}
+              <button type="submit" onClick={MapContext.mapView}>
+                Search
+              </button>
             </Expand>
           </form>
         </Fragment>

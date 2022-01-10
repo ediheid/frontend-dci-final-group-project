@@ -39,6 +39,9 @@ const App = () => {
     event.preventDefault();
     setOpenMap(true);
     // console.log("Successful Submit");
+
+    // ! Note for Jamie: Fixed the problem
+    setOpenSearch(false);
     // Todo: Once data collection is setup decide if we want the form to keep information so user can update or not?
   };
 
@@ -111,7 +114,7 @@ const App = () => {
     // event.preventDefault();
     // ! This does not seem to work either..
     // setOpenMap(false);
-    console.log("Hello");
+    // console.log("Hello");
 
     // ? Actual part of functionality
     setOpenSearch(!openSearch);
