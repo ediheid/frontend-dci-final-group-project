@@ -41,6 +41,8 @@ const Map = ({ center, zoom }) => {
   // Google Map API
   const MAP_API = process.env.REACT_APP_MAP_API;
 
+  const mapContext = useContext(AppContext);
+
   // console.log("!!!!!", events);
   // console.log("??", events[0].id);
   // console.log("##", events[0].coordinates[0]);
@@ -108,6 +110,13 @@ const Map = ({ center, zoom }) => {
     // Conditionally rendered - will only display onSubmit of form!
 
     <div className={styles["map-container"]}>
+      <button
+        className={styles["close-map-button"]}
+        onClick={mapContext.closeMap}
+      >
+        X
+      </button>
+
       <GoogleMapReact
         className={styles["map-component"]}
         // !!! API key lives in .env file - when commented out Map runs in dev mode

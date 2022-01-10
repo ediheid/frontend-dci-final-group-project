@@ -16,6 +16,32 @@
   background-color: white;
 }
 
+// ? Map close button
+
+.close-map-button {
+  position: absolute;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+  width: 4.2rem;
+  height: 4.2rem;
+
+  top: 4rem;
+  left: 4rem;
+
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+
+  color: $main-font-colour;
+  font-size: 1.6rem;
+  background-color: $white;
+}
+
 // ? Map Markers
 
 .location-marker {
@@ -101,6 +127,8 @@
 
   width: 80%;
   padding: 1rem;
+
+  color: $main-font-colour;
 }
 
 .liked-container {

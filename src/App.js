@@ -32,6 +32,20 @@ const App = () => {
   // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
   const [mapLoading, setMapLoading] = useState(false);
 
+  // ? Display and Hide map functionality
+  const [openMap, setOpenMap] = useState(false);
+
+  const mapView = (event) => {
+    event.preventDefault();
+    setOpenMap(true);
+    // console.log("Successful Submit");
+    // Todo: Once data collection is setup decide if we want the form to keep information so user can update or not?
+  };
+
+  const closeMap = () => {
+    setOpenMap(false);
+  };
+
   // !! Hardcoded location data and dummy code for fetch request of property data - see more in Map.js
   // const events = [
   //     {
@@ -94,16 +108,6 @@ const App = () => {
   const closeSearchButton = (event) => {
     // event.preventDefault();
     setOpenSearch(!openSearch);
-  };
-
-  // ? Display and Hide map functionality
-  const [openMap, setOpenMap] = useState(false);
-
-  const mapView = (event) => {
-    event.preventDefault();
-    setOpenMap(true);
-    // console.log("Successful Submit");
-    // Todo: Once data collection is setup decide if we want the form to keep information so user can update or not?
   };
 
   // ? user/login and signup context
@@ -170,6 +174,7 @@ const App = () => {
           // ? Map Context
           mapView: mapView,
           openMap: openMap,
+          closeMap: closeMap,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
