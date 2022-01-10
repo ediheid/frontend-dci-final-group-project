@@ -101,6 +101,10 @@
   // background-color: red;
 }
 
+.form-search-button {
+  background-color: red;
+}
+
 .search-item {
   display: flex;
   flex-direction: column;
@@ -140,7 +144,7 @@
   }
 }
 
-// !! Dropdown Component is styled in "../Search/dropdown-styling.css" - from node modules default styles; - still need to refactor to SASS with correct units
+// !! Amenities Dropdown Component is styled in "../Search/dropdown-styling.css" - from node modules default styles; - still need to refactor to SASS with correct units
 
 // ? x-small
 

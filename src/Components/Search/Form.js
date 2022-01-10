@@ -53,8 +53,7 @@ const Form = (props) => {
         <Fragment>
           <form
             className={styles.form}
-            // ! Note: onSubmit placeholder for collection data in future
-            // todo - future function will reset form AND setOpen to FALSE
+            // ! Note: submit functionality now sits on the button and has fixed the dropdown bug
             // onSubmit={MapContext.mapView}
           >
             {/* // ? Search bar - when clicked will open all search fields */}
@@ -67,14 +66,6 @@ const Form = (props) => {
             {/* // ? This is the dropdown area with all other search fields in the form */}
             <Expand open={SearchContext.openSearch}>
               <div className={styles["form-dropdown-container"]}>
-                {/* //? Close button - state passed down from Search Component */}
-                <button
-                  className={styles["close-button"]}
-                  onClick={SearchContext.closeSearchButton}
-                >
-                  <BsArrowsCollapse />
-                </button>
-
                 {/* // ? Check in */}
                 <div className={styles["search-item"]}>
                   <label className={styles["search-labels"]}>Check in</label>
@@ -122,14 +113,24 @@ const Form = (props) => {
                     // onChange={this._onSelect} // todo: Look into docs
                   />
                 </div>
-              </div>
 
-              {/* <button type="submit" onSubmit={MapContext.mapView}>
-                Search
-              </button> */}
-              <button type="submit" onClick={MapContext.mapView}>
-                Search
-              </button>
+                {/* //? Close button - state passed down from Search Component */}
+                <button
+                  className={styles["close-button"]}
+                  onClick={SearchContext.closeSearchButton}
+                >
+                  <BsArrowsCollapse />
+                </button>
+
+                {/*  */}
+                <button
+                  className={styles["form-search-button"]}
+                  type="submit"
+                  onClick={MapContext.mapView}
+                >
+                  Search
+                </button>
+              </div>
             </Expand>
           </form>
         </Fragment>
