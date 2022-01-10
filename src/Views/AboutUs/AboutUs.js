@@ -73,32 +73,3 @@ const AboutUs = () => {
 
 export default AboutUs;
 
-// import React from "react";
-
-// // ? All Component and View imports
-// // import Search from "../../Components/Search/Search";
-// import Navbar from "../../Components/Navbar/Navbar";
-// import Search from "../../Components/Search/Search";
-
-// // ? Stylesheet
-// import styles from "../AboutUs/AboutUs.module.scss";
-
-// const AboutUs = () => {
-//     return (
-//         <>
-//             <Search />
-//             {/* <Navbar /> */}
-//             {/* <div className={styles.header}></div> */}
-//             <div className={styles["main-container"]}>
-//                 <div className={styles["content-container"]}>
-//                     <div className={styles.heading}>About us</div>
-//                     <div></div>
-//                     <div></div>
-//                     <div></div>
-//                 </div>
-//             </div>
-//         </>
-//     );
-// };
-
-// export default AboutUs;

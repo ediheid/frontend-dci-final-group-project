@@ -1,8 +1,10 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 toast.configure();
 
-export const login = async (hookData, sethookData, setUserData, setShowLoginModal) => {
+
+export const login = async (hookData, sethookData, setUserData, setShowLoginModal, setCookie) => {
 
     const currloginData = {
       email: hookData.email,
@@ -33,7 +35,10 @@ export const login = async (hookData, sethookData, setUserData, setShowLoginModa
       }
     })
     .then(data => {
-      console.log(data);
+      console.log("showData from backend:", data);
+
+      setCookie("UserCookie", data.token)
+      
       const loginSuccessful = () => {
         toast("Login successful!! Taking you to your dashboard!", {
           position: "top-center",

@@ -50,10 +50,10 @@ const Welcome = () => {
     const evening = "Good evening, ";
 
     // hour >= 22 && hour <= 24
-    const late = "Whoa, browsing late, ";
+    const late = "Whoa! Browsing late, ";
 
     // hour >= 0 && hour < 2
-    const superLate = "Whoa, browsing late, ";
+    const superLate = "Whoa! Browsing late, ";
 
     return (
         <>
