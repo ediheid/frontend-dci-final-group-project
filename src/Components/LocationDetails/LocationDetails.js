@@ -18,7 +18,7 @@ import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
 const LocationDetails = () => {
     const SearchContext = useContext(AppContext);
 
-    let title = "Lonely place in the middle of black forest";
+    const title = "Lonely place in the middle of black forest";
     const address = "Feldberg, Baden-Würtemberg, Germany";
     const nameOfPlace = "Lonely place";
     const hostName = "Florian";
