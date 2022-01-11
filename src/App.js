@@ -4,7 +4,7 @@ import {
   Route,
   Redirect,
   Switch,
-  useHistory
+  useHistory,
 } from "react-router-dom";
 import signup from "./Services/createNewUser.js";
 import Cookies from "js-cookie";
@@ -166,7 +166,7 @@ const App = () => {
     // birthday: ""
   });
 
-  const [cookies, setCookie, removeCookie] = useCookies(['UserCookie']); 
+  const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
   // useEffect(() => {
   //   setCurrentUser(JSON.parse(window.localStorage.getItem('currentUser')));
@@ -241,39 +241,35 @@ const App = () => {
           returnHome: returnHome,
 
           // ? useHistory
-          history: history
+          history: history,
         }}
       >
-          {/* NAVBAR and Search Components live in respective View Components */}
-          <main>
-            <Switch>
-              {/* // ? Template/placeholder for how to setup paths with components.. */}
-              {/* <Route path="/" exact component={LandingPage} /> */}
-            <Route exact path="/" component={LandingPage} /> 
-                {/* {cookies.UserCookie !== "null" ?
+        {/* NAVBAR and Search Components live in respective View Components */}
+        <main>
+          <Switch>
+            {/* // ? Template/placeholder for how to setup paths with components.. */}
+            {/* <Route path="/" exact component={LandingPage} /> */}
+            <Route exact path="/" component={LandingPage} />
+            {/* {cookies.UserCookie !== "null" ?
                 <Redirect to="/welcome-page" />  */}
-                {/* :  */}
-                {/* <LandingPage />
+            {/* :  */}
+            {/* <LandingPage />
             </Route> */}
 
-              {/* // ? About us overview */}
-              <Route path="/about-us" exact component={AboutUs} />
-              <Route path="/verify-email" exact component={Verification} />
-              <Route path="/user-signed-up" exact component={CheckMail} />
-              <Route path="/location-cards" exact component={LocationCards} />
-              <Route path="/welcome-page" exact component={Welcome} />
+            {/* // ? About us overview */}
+            <Route path="/about-us" exact component={AboutUs} />
+            <Route path="/verify-email" exact component={Verification} />
+            <Route path="/user-signed-up" exact component={CheckMail} />
+            <Route path="/location-cards" exact component={LocationCards} />
+            <Route path="/welcome-page" exact component={Welcome} />
 
-              <Route
-                path="/location-details"
-                exact
-                component={LocationDetails}
-              />
-              {/* // ? Url redirect to landing page on unknown path */}
-              <Redirect to="/" exact />
-            </Switch>
-          </main>
-          {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-          <Footer />
+            <Route path="/location-details" exact component={LocationDetails} />
+            {/* // ? Url redirect to landing page on unknown path */}
+            <Redirect to="/" exact />
+          </Switch>
+        </main>
+        {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
+        <Footer />
       </AppContext.Provider>
     </div>
   );
