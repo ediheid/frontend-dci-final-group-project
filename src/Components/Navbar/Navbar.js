@@ -72,13 +72,13 @@ const Navbar = (props) => {
         <i className="fas fa-search"></i>
       </div>
 
-      <div className={styles.icon}>
+      {/* <div className={styles.icon}>
         <i className="far fa-heart"></i>
-      </div>
+      </div> */}
 
-      <div className={styles.icon}>
+      {/* <div className={styles.icon}>
         <i className="far fa-comment"></i>
-      </div>
+      </div> */}
 
       <div className={styles.icon}>
         <i className="far fa-user-circle" onClick={openLoginModal}>
@@ -104,23 +104,7 @@ const Navbar = (props) => {
     <div className={styles["icon-container"]}>
       <Link onClick={SearchContext.returnHome} to="/">
         <div className={styles.icon}>
-          <i className="far fa-user-circle" onClick={openLoginModal}>
-            <Registration
-              showLogin={modalContext.showLoginModal}
-              closeLogin={closeLoginModal}
-              showSignup={modalContext.showSignupModal}
-              openSignup={openSignupModal}
-              closeSignup={closeSignupModal}
-              openLogin={openLoginFromSignup}
-
-              // signupFetch={props.signupFetch}
-              // loginFetch={props.loginFetch}
-              // collectLoginData={props.collectLoginData}
-              // collectSignupData={props.collectSignupData}
-              // signupData={props.signupData}
-              // loginData={props.loginData}
-            />
-          </i>
+          <i className="fas fa-caravan"></i>
         </div>
       </Link>
 
@@ -131,6 +115,14 @@ const Navbar = (props) => {
         onClick={SearchContext.toggleSearchDropdown}
       >
         <i className="fas fa-search"></i>
+      </div>
+
+      <div className={styles.icon}>
+        <i className="far fa-heart"></i>
+      </div>
+
+      <div className={styles.icon}>
+        <i className="far fa-comment"></i>
       </div>
 
       <div className={styles.logged} onClick={openLoginModal}>

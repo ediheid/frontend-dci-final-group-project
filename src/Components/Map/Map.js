@@ -11,7 +11,7 @@ import { AppContext } from "../../App";
 
 import styles from "../Map/Map.module.scss";
 
-// !! Hardcoded location data.. (will live in backend)
+// ? Hardcoded location data.. (will live in backend)
 // const events = [
 //   {
 //     id: 1,
@@ -53,11 +53,6 @@ const Map = ({ center, zoom }) => {
   // console.log("??", events[0].id);
   // console.log("##", events[0].coordinates[0]);
 
-  // ? To look into with Kathi
-  // !! Testing location Info..
-  const [locationInfo, setLocationInfo] = useState(null);
-  // ? ======
-
   console.log("#####", mapContext.mapEventData);
 
   // !!!
@@ -78,7 +73,7 @@ const Map = ({ center, zoom }) => {
           // ? To look into with Kathi
           // !! Testing location Info..
           onClick={() =>
-            setLocationInfo({
+            mapContext.setLocationInfo({
               id: event.id,
               title: event.title,
               address: event.address,
@@ -103,7 +98,7 @@ const Map = ({ center, zoom }) => {
           // ? To look into with Kathi
           // !! Testing location Info..
           onClick={() =>
-            setLocationInfo({
+            mapContext.setLocationInfo({
               id: event.id,
               title: event.title,
               address: event.address,
@@ -146,7 +141,9 @@ const Map = ({ center, zoom }) => {
       </GoogleMapReact>
       {/*   // ? To look into with Kathi
             // !! Testing location Info.. */}
-      {locationInfo && <LocationInfoBox info={locationInfo} />}
+      {mapContext.locationInfo && (
+        <LocationInfoBox info={mapContext.locationInfo} />
+      )}
       {/*  // ? ====== */}
     </div>
   );

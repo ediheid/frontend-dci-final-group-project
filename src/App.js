@@ -32,12 +32,16 @@ const App = () => {
   // ?  State hooks
   // ?  State passed into fetch request for our database locations
   const [mapEventData, setMapEventData] = useState([]);
+  // ? To look into with Kathi
+  // !! Testing location Info..
+  const [locationInfo, setLocationInfo] = useState(false);
   // ? Display and Hide map functionality
   const [openMap, setOpenMap] = useState(false);
   // ? Passed down to Form.js - is used to to openSearch but also to change bg opacity
   const [openSearch, setOpenSearch] = useState(false);
   // ? Saved/Liked property..
   const [like, setLike] = useState(false);
+
   // ? login/signup state
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
@@ -153,6 +157,8 @@ const App = () => {
           openMap: openMap,
           closeMap: closeMap,
           mapEventData: mapEventData,
+          locationInfo: locationInfo,
+          setLocationInfo: setLocationInfo,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
