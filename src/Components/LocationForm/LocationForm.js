@@ -15,13 +15,22 @@ import Map from "../Map/Map";
 // ? All Images
 import mainImage from "../LocationForm/static/pexels-uriel-mont-6271625.jpg";
 
-const green = document.querySelector(".numeric-input-btn-up");
-green.style.display = "none";
+// const green = document.querySelector(".numeric-input-btn-up");
+// green.style.display = "none";
 
 const LocationForm = () => {
     const SearchContext = useContext(AppContext);
-    NumericInput.style.input.color = "red";
-    // NumericInput.style["numeric-input-btn-up"] = "green";
+    NumericInput.style.btn.backgroundColor = " rgba(242, 235, 220, 0.8)";
+    NumericInput.style["btn:hover"].backgroundColor = "#d3d3d3";
+    NumericInput.style["btn:active"].backgroundColor = "pink";
+
+    // NumericInput.style.input.borderColor = "green";
+    // NumericInput.style["input:focus"].backgroundColor = "d3d3d3";
+
+    // const btnUp = document.querySelector("btnUp");
+    // btnUp.style.backgroundColor = "pink";
+
+    // NumericInput.style.input.color = "red";
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -55,7 +64,7 @@ const LocationForm = () => {
                     <div className={styles["form-container"]}>
                         <form onSubmit={submitHandler}>
                             <div className={styles.heading}>
-                                What kind of place will you host?
+                                What kind of property will you host?
                             </div>
 
                             <label className={styles.container}>
@@ -100,7 +109,7 @@ const LocationForm = () => {
                                 What kind of space will your guests have?
                             </div>
                             <label className={styles.container}>
-                                An entire place
+                                An entire property
                                 <input
                                     className={styles.input}
                                     type="radio"
@@ -112,7 +121,7 @@ const LocationForm = () => {
                                 ></span>
                             </label>
                             <label className={styles.container}>
-                                A shared place
+                                A shared property
                                 <input
                                     className={styles.input}
                                     type="radio"
@@ -128,10 +137,13 @@ const LocationForm = () => {
                             <div className={styles["column-container"]}>
                                 <div className={styles.heading}>
                                     <label className={styles["heading-input"]}>
-                                        Where's your place located?
+                                        Where's your property located?
                                     </label>
 
-                                    <input className={styles["input-field"]} />
+                                    <input
+                                        placeholder="Search"
+                                        className={styles["input-field"]}
+                                    />
                                 </div>
                                 <Map />
 
@@ -143,16 +155,7 @@ const LocationForm = () => {
                                         welcome?
                                     </label>
 
-                                    <NumericInput
-                                        // style={{
-                                        //     input: {
-                                        //         color: "red",
-                                        //     },
-                                        // }}
-                                        min={0}
-                                        max={10}
-                                        value={1}
-                                    />
+                                    <NumericInput min={0} max={10} value={1} />
 
                                     {/* <div className={styles.number}>
                                         <span className={styles.minus}>-</span>
@@ -162,96 +165,255 @@ const LocationForm = () => {
 
                                     {/* <input className={styles["input-field"]} /> */}
                                 </div>
-                            </div>
-                            {/* 
+                                <hr className={styles.hr} />
+
                                 <div className={styles.heading}>
-                                    <label className={styles["heading-input"]}>
-                                        Tell us something about the surrounding
-                                        area
-                                    </label>
-
-                                    <input className={styles["input-field"]} />
+                                    Dou you have any standout amenities?
                                 </div>
-                            </div>
 
-                            <hr className={styles.hr} /> */}
-
-                            {/*
-
-
-                            <div className={styles.test}>
-                                <label className={styles["heading-input"]}>
-                                    Property rules
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
                                 </label>
 
-                                <input className={styles.input} />
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    bla
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <hr className={styles.hr} />
+
+                                <div className={styles.heading}>
+                                    What about these guestst favourites?
+                                </div>
+
+                                <label className={styles.container}>
+                                    Water
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    Shower
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+
+                                <label className={styles.container}>
+                                    Toilette
+                                    <input
+                                        className={styles.input}
+                                        type="checkbox"
+                                    />
+                                    <span className={styles.checkmark}></span>
+                                </label>
                             </div>
 
                             <hr className={styles.hr} />
 
-                            <div className={styles.test}>
+                            <div className={styles.heading}>
                                 <label className={styles["heading-input"]}>
-                                    Cancellation Policy
+                                    Title
                                 </label>
 
-                                <input className={styles.input} />
+                                <input className={styles["input-field"]} />
                             </div>
 
-                            <hr className={styles.hr} /> */}
+                            <hr className={styles.hr} />
 
-                            {/* <input
-                                className={styles["input-signup"]}
-                                type="text"
-                                placeholder="Name of your property"
-                                name="propertyName"
-                                // onChange={signUpContext.collectSignupData}
-                                // value={signUpContext.signupData.firstname}
-                            />
-                            <input
-                                className={styles["input-signup"]}
-                                type="text"
-                                placeholder="Last Name"
-                                name="lastname"
-                                // onChange={signUpContext.collectSignupData}
-                                // value={signUpContext.signupData.lastname}
-                            />
-                            <input
-                                className={styles["input-signup"]}
-                                type="text"
-                                placeholder="E-Mail"
-                                name="email"
-                                // onChange={signUpContext.collectSignupData}
-                                // value={signUpContext.signupData.email}
-                            />
+                            <div className={styles.heading}>
+                                <div className={styles["heading-input"]}>
+                                    Description
+                                </div>
 
-                            <input
-                                className={styles["input-signup"]}
-                                type="password"
-                                placeholder="Password"
-                                name="password"
-                                // onChange={signUpContext.collectSignupData}
-                                // value={signUpContext.signupData.password}
-                            />
+                                <label className={styles["property-details"]}>
+                                    Give guests a sense of what it's like to
+                                    stay at your property, including why the'll
+                                    love staying there.
+                                </label>
+                                <textarea
+                                    type="text"
+                                    // resize="none"
+                                    className={`${styles["input-field"]} ${styles.textarea}`}
+                                />
+                            </div>
 
-                            <input
-                                className={styles["input-signup"]}
-                                type="password"
-                                placeholder="Repeat Password"
-                                name="confirmedPassword"
-                                // onChange={signUpContext.collectSignupData}
-                                // value={
-                                //     signUpContext.signupData
-                                //         .confirmedPassword
-                                // }
-                            />
+                            <hr className={styles.hr} />
 
-                            {/* <input
-                                className={styles["input-signup-button"]}
-                                type="submit"
-                                value="Signup"
-                            /> */}
+                            <div className={styles.heading}>
+                                <div div className={styles["heading-input"]}>
+                                    Your property
+                                </div>
+                                <label className={styles["property-details"]}>
+                                    Provide a general description of what the
+                                    property and rooms are like so guestts know
+                                    what to expect.
+                                </label>
 
-                            {/* <Button>Add property</Button> */}
+                                <textarea
+                                    type="text"
+                                    // resize="none"
+                                    className={`${styles["input-field"]} ${styles.textarea}`}
+                                />
+                                <label className={styles["property-details"]}>
+                                    Let guests know how they can get around the
+                                    neighbourhood.
+                                </label>
+                                <textarea
+                                    type="text"
+                                    // resize="none"
+                                    className={`${styles["input-field"]} ${styles.textarea}`}
+                                />
+
+                                <label className={styles["property-details"]}>
+                                    Tell guests if you'll be available to offer
+                                    help throughout thei stay and how you'll
+                                    keep in touch with them.
+                                </label>
+                                <textarea
+                                    type="text"
+                                    // resize="none"
+                                    className={`${styles["input-field"]} ${styles.textarea}`}
+                                />
+
+                                <label className={styles["property-details"]}>
+                                    Include any special info you want potential
+                                    guests to know before booking that isn't
+                                    covered in other settings.
+                                </label>
+                                <textarea
+                                    type="text"
+                                    // resize="none"
+                                    className={`${styles["input-field"]} ${styles.textarea}`}
+                                />
+                            </div>
+                            <hr className={styles.hr} />
+
+                            <div className={styles.heading}>
+                                <div div className={styles["heading-input"]}>
+                                    Your neighbourhood
+                                </div>
+                                <label className={styles["property-details"]}>
+                                    Share some highlights about the
+                                    neighbourhood.
+                                </label>
+
+                                <textarea
+                                    type="text"
+                                    // resize="none"
+                                    className={`${styles["input-field"]} ${styles.textarea}`}
+                                />
+                            </div>
+
+                            <hr className={styles.hr} />
+                            {/* <hr className={styles.hr} /> */}
+
+                            <div className={styles.heading}>
+                                Next, let's add some photos of your property
+                            </div>
+                            <div>
+                                <Button>
+                                    <i class="fas fa-arrow-up"></i>Upload photos
+                                </Button>
+                            </div>
+                            <hr className={styles.hr} />
+
+                            <Button>Add property</Button>
                         </form>
                     </div>
                 </div>

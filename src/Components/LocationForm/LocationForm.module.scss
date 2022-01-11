@@ -55,19 +55,6 @@
     margin-bottom: 2.5vh;
 }
 
-// .form-container {
-//     // // font-size: 1rem;
-//     // // background-color: pink;
-//     // display: flex;
-//     // flex-direction: column;
-//     // // width: 90vw;
-//     // // flex-direction: column;
-//     // flex-wrap: nowrap;
-//     // justify-content: flex-start;
-//     // align-items: flex-start;
-//     // align-content: flex-start;
-// }
-
 .heading {
     font-size: 2rem;
     padding-right: 15vw;
@@ -75,12 +62,6 @@
     // background-color: pink;
     margin-bottom: 2vh;
 }
-
-// .test {
-//     display: flex;
-//     flex-direction: column;
-//     font-size: 1.5rem;
-// }
 
 /* The container */
 .container {
@@ -201,24 +182,36 @@
     margin-top: 0.5vh;
     margin-bottom: 2vh;
     border-radius: 10px;
-    border: 0.5px solid $main-font-colour;
+    border: 2px solid rgba(242, 235, 220, 20);
     width: 90vw;
     height: 5vh;
     // border: 2px solid blue;
 }
 
-.react-numeric-input input {
-    color: red !important;
+.input-field:focus {
+    outline: none;
+    border: 2px solid $orange;
 }
 
-.numeric-input-btn-up {
-    color: orange;
+.property-details {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    // border: 1px solid blue;
+    // width: 90vw;
 }
-// .section-container {
-//     display: flex;
-//     flex-direction: column;
-//     // border: 1px solid blue;
-// }
+
+.textarea {
+    height: 25vh;
+    resize: none;
+    border: 2px solid rgba(242, 235, 220);
+    // border: 2px solid $main-font-colour;
+}
+
+.textarea:focus {
+    outline: none;
+    border: 2px solid $orange;
+}
 
 // ? Media Queries
 // Based on Bootstrap breakpoints
@@ -246,6 +239,10 @@
     .input-field {
         width: 80vw;
     }
+
+    .property-details {
+        width: 80vw;
+    }
 }
 
 // * Large = Less than 1200px - small desktops
@@ -261,6 +258,10 @@
     }
 
     .input-field {
+        width: 70vw;
+    }
+
+    .property-details {
         width: 70vw;
     }
 }
@@ -280,6 +281,10 @@
     .input-field {
         width: 60vw;
     }
+
+    .property-details {
+        width: 60vw;
+    }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
@@ -294,6 +299,10 @@
     }
 
     .input-field {
+        width: 50vw;
+    }
+
+    .property-details {
         width: 50vw;
     }
 }
