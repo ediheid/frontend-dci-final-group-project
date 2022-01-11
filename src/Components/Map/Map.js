@@ -11,7 +11,7 @@ import { AppContext } from "../../App";
 
 import styles from "../Map/Map.module.scss";
 
-// !! Hardcoded location data.. (will live in backend)
+// ? Hardcoded location data.. (will live in backend)
 // const events = [
 //   {
 //     id: 1,
@@ -53,11 +53,6 @@ const Map = ({ center, zoom }) => {
   // console.log("??", events[0].id);
   // console.log("##", events[0].coordinates[0]);
 
-  // ? To look into with Kathi
-  // !! Testing location Info..
-  const [locationInfo, setLocationInfo] = useState(null);
-  // ? ======
-
   console.log("#####", mapContext.mapEventData);
 
   // !!!
@@ -78,10 +73,13 @@ const Map = ({ center, zoom }) => {
           // ? To look into with Kathi
           // !! Testing location Info..
           onClick={() =>
-            setLocationInfo({
+            mapContext.setLocationInfo({
               id: event.id,
               title: event.title,
               address: event.address,
+              // !!
+              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+              // town: event.town,
               img: event.img,
               link: event.link,
             })
@@ -103,10 +101,13 @@ const Map = ({ center, zoom }) => {
           // ? To look into with Kathi
           // !! Testing location Info..
           onClick={() =>
-            setLocationInfo({
+            mapContext.setLocationInfo({
               id: event.id,
               title: event.title,
               address: event.address,
+              // !!
+              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+              town: event.town,
               img: event.img,
               link: event.link,
             })
@@ -130,6 +131,8 @@ const Map = ({ center, zoom }) => {
       </button>
 
       <GoogleMapReact
+        // ? Added close location box on map so - this works on map but user can still click on a Marker and it will open!
+        onClick={mapContext.closeLocationInfoBox}
         className={styles["map-component"]}
         // !!! API key lives in .env file - when commented out Map runs in dev mode
         // !!! Use like this so we don't use up the API
@@ -146,7 +149,9 @@ const Map = ({ center, zoom }) => {
       </GoogleMapReact>
       {/*   // ? To look into with Kathi
             // !! Testing location Info.. */}
-      {locationInfo && <LocationInfoBox info={locationInfo} />}
+      {mapContext.locationInfo && (
+        <LocationInfoBox info={mapContext.locationInfo} />
+      )}
       {/*  // ? ====== */}
     </div>
   );

@@ -15,13 +15,13 @@ const Navbar = (props) => {
 
   useEffect(() => {
     const token = modalContext?.cookies?.UserCookie;
-    
+
     if (token && typeof token === "string") {
-      const userData = jwt_decode(token)
-      console.log("decoded Data from Cookie", userData)
-      modalContext.setCurrentUser(userData)
+      const userData = jwt_decode(token);
+      console.log("decoded Data from Cookie", userData);
+      modalContext.setCurrentUser(userData);
     }
-  }, [])
+  }, []);
 
   // const [showLoginModal, setShowLoginModal] = useState(false);
   // const [showSignupModal, setShowSignupModal] = useState(false);
@@ -53,91 +53,81 @@ const Navbar = (props) => {
   // !modalContext.currentUser.firstname.length > 0
   // modalContext.cookies.UserCookie === null
 
-  console.log(typeof modalContext.cookies.UserCookie)
+  console.log(typeof modalContext.cookies.UserCookie);
 
-  const content = (!modalContext.cookies.UserCookie) ? 
-  (
-    <div className={styles["icon-container"]}>
-    <Link onClick={SearchContext.returnHome} to="/">
-      <div className={styles.icon}>
-        <i className="fas fa-caravan"></i>
-      </div>
-    </Link>
-
-    <div
-      className={styles.icon}
-      //  Search Form and/or Search Component will open on click of the magnifier - ternary operator to Display on all pages that only have the NavBar permanently on display..
-      // onClick={SearchContext.openForm}
-      onClick={SearchContext.closeSearchButton}
-    >
-      <i className="fas fa-search"></i>
-    </div>
-
-    <div className={styles.icon}>
-      <i className="far fa-heart"></i>
-    </div>
-
-    <div className={styles.icon}>
-      <i className="far fa-comment"></i>
-    </div>
-
-    <div className={styles.icon} >
-      <i className="far fa-user-circle" onClick={openLoginModal}>
-        <Registration
-          showLogin={modalContext.showLoginModal}
-          closeLogin={closeLoginModal}
-          showSignup={modalContext.showSignupModal}
-          openSignup={openSignupModal}
-          closeSignup={closeSignupModal}
-          openLogin={openLoginFromSignup}
-
-          // signupFetch={props.signupFetch}
-          // loginFetch={props.loginFetch}
-          // collectLoginData={props.collectLoginData}
-          // collectSignupData={props.collectSignupData}
-          // signupData={props.signupData}
-          // loginData={props.loginData}
-        />
-      </i>
-    </div>
-  </div>
-  )
-  : 
-  (
+  const content = !modalContext.cookies.UserCookie ? (
     <div className={styles["icon-container"]}>
       <Link onClick={SearchContext.returnHome} to="/">
         <div className={styles.icon}>
-          <i className="far fa-user-circle" onClick={openLoginModal}>
-            <Registration
-              showLogin={modalContext.showLoginModal}
-              closeLogin={closeLoginModal}
-              showSignup={modalContext.showSignupModal}
-              openSignup={openSignupModal}
-              closeSignup={closeSignupModal}
-              openLogin={openLoginFromSignup}
-
-              // signupFetch={props.signupFetch}
-              // loginFetch={props.loginFetch}
-              // collectLoginData={props.collectLoginData}
-              // collectSignupData={props.collectSignupData}
-              // signupData={props.signupData}
-              // loginData={props.loginData}
-            />
-          </i>
+          <i className="fas fa-caravan"></i>
         </div>
       </Link>
 
-    <div
-      className={styles.icon}
-      //  Search Form and/or Search Component will open on click of the magnifier - ternary operator to Display on all pages that only have the NavBar permanently on display..
-      // onClick={SearchContext.openForm}
-      onClick={SearchContext.closeSearchButton}
-    >
-      <i className="fas fa-search"></i>
+      <div
+        className={styles.icon}
+        //  Search Form and/or Search Component will open on click of the magnifier - ternary operator to Display on all pages that only have the NavBar permanently on display..
+        // onClick={SearchContext.openForm}
+        onClick={SearchContext.toggleSearchDropdown}
+      >
+        <i className="fas fa-search"></i>
+      </div>
+
+      {/* <div className={styles.icon}>
+        <i className="far fa-heart"></i>
+      </div> */}
+
+      {/* <div className={styles.icon}>
+        <i className="far fa-comment"></i>
+      </div> */}
+
+      <div className={styles.icon}>
+        <i className="far fa-user-circle" onClick={openLoginModal}>
+          <Registration
+            showLogin={modalContext.showLoginModal}
+            closeLogin={closeLoginModal}
+            showSignup={modalContext.showSignupModal}
+            openSignup={openSignupModal}
+            closeSignup={closeSignupModal}
+            openLogin={openLoginFromSignup}
+
+            // signupFetch={props.signupFetch}
+            // loginFetch={props.loginFetch}
+            // collectLoginData={props.collectLoginData}
+            // collectSignupData={props.collectSignupData}
+            // signupData={props.signupData}
+            // loginData={props.loginData}
+          />
+        </i>
+      </div>
     </div>
-  
-  <div className={styles.logged} onClick={openLoginModal}>
-        {modalContext.currentUser.firstname.charAt(0) + modalContext.currentUser.lastname.charAt(0)}
+  ) : (
+    <div className={styles["icon-container"]}>
+      <Link onClick={SearchContext.returnHome} to="/">
+        <div className={styles.icon}>
+          <i className="fas fa-caravan"></i>
+        </div>
+      </Link>
+
+      <div
+        className={styles.icon}
+        //  Search Form and/or Search Component will open on click of the magnifier - ternary operator to Display on all pages that only have the NavBar permanently on display..
+        // onClick={SearchContext.openForm}
+        onClick={SearchContext.toggleSearchDropdown}
+      >
+        <i className="fas fa-search"></i>
+      </div>
+
+      <div className={styles.icon}>
+        <i className="far fa-heart"></i>
+      </div>
+
+      <div className={styles.icon}>
+        <i className="far fa-comment"></i>
+      </div>
+
+      <div className={styles.logged} onClick={openLoginModal}>
+        {modalContext.currentUser.firstname.charAt(0) +
+          modalContext.currentUser.lastname.charAt(0)}
         <Registration
           showLogin={modalContext.showLoginModal}
           closeLogin={closeLoginModal}
@@ -153,8 +143,8 @@ const Navbar = (props) => {
           // signupData={props.signupData}
           // loginData={props.loginData}
         />
+      </div>
     </div>
-  </div>
   );
 
   return (
