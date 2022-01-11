@@ -62,22 +62,22 @@ const LandingPage = () => {
                     {/* // ? Info Component */}
 
                     <div className={styles["info-host"]}>
-                        <img
-                            className={styles["host-image"]}
-                            src={hostImage}
-                            alt="Camper by Devries from Pexels"
-                        />
-                        <div className={styles["heading-host"]}>
-                            Become
-                            <br />a host
-                        </div>
+                        <Link to="/location-form">
+                            <img
+                                className={styles["host-image"]}
+                                src={hostImage}
+                                alt="Camper by Devries from Pexels"
+                            />
+                            <div className={styles["heading-host"]}>
+                                Become
+                                <br />a host
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
         </>
     );
-    
 };
 
 export default LandingPage;
-
