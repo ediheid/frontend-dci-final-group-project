@@ -6,6 +6,8 @@ import {
   Switch,
 } from "react-router-dom";
 import signup from "./Services/createNewUser.js";
+import Cookies from "js-cookie";
+import { useCookies } from "react-cookie";
 
 // ? Main scss
 import styles from "./Styling/app.module.scss";
@@ -20,49 +22,63 @@ import LocationCards from "./Components/LocationCards/LocationCards.js";
 import Welcome from "./Views/Welcome/Welcome";
 import LocationDetails from "./Components/LocationDetails/LocationDetails";
 
-// !! createContext variable
+// ? createContext variable
 export const AppContext = createContext();
 
-// export const SearchContext = createContext();
-
 const App = () => {
-  // ? Map / Location data collection
+  //  State hooks
   //  !! Will be used im fetch request
   const [mapEventData, setMapEventData] = useState([]);
   // todo: Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
   const [mapLoading, setMapLoading] = useState(false);
-
-  // ? Display and Hide map functionality
+  //  Display and Hide map functionality
   const [openMap, setOpenMap] = useState(false);
-  //  State hooks
   // Passed down to Form.js - is used to to openSearch but also to change bg opacity
   const [openSearch, setOpenSearch] = useState(false);
+  //  Saved/Liked property..
+  const [like, setLike] = useState(false);
 
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+
+  // ? opens map view - And closes search dropdown so user can see the full map
   const mapView = (event) => {
     event.preventDefault();
     setOpenMap(true);
     // console.log("Successful Submit");
     // ! Note for Jamie: Fixed the problem
     setOpenSearch(false);
-    // Todo: Once data collection is setup decide if we want the form to keep information so user can update or not?
   };
 
+  // ? Close map for close map button
   const closeMap = () => {
     setOpenMap(false);
   };
 
+  // ? Allows user to click on Caravan(home) button without re-rendering the page but will close both map and search without state conflicts
   const returnHome = () => {
     setOpenMap(false);
     setOpenSearch(false);
   };
 
-  // useEffect(() => {
-  //   if (!openSearch) {
-  //     setOpenMap(false);
-  //   }
-  // }, [openSearch]);
+  // ? User can like and unlike a property (heart on location info boxes)
+  const toggleLike = () => {
+    setLike(!like);
+  };
 
-  // !! Hardcoded location data and dummy code for fetch request of property data - see more in Map.js
+  // ? Open Search Form function
+  const openForm = () => {
+    setOpenSearch(true);
+  };
+
+  // todo: update to one function called ('toggle search dropdown')
+  // !! Bug fix why map re-renders on close...
+  const toggleSearchDropdown = (event) => {
+    event.preventDefault();
+    setOpenSearch(!openSearch);
+  };
+
+  // ! Hardcoded location data and dummy code for fetch request of property data - see more in Map.js
   // const events = [
   //     {
   //         id: 1,
@@ -94,35 +110,7 @@ const App = () => {
 
   // console.log(mapEventData);
 
-  // ? Saved/Liked property..
-  const [like, setLike] = useState(false);
-
-  const toggleLike = () => {
-    setLike(!like);
-    // *  Testing for state to pass to backend
-    // if (like === false) {
-    //   console.log("Liked!");
-    // }
-    // if (like !== false) {
-    //   console.log("Un-liked!");
-    // }
-  };
-
   // =================
-
-  // ? Search and Navbar functionality to pass down via Provider
-
-  //  Open Search Form function
-  // Passed down to Form.js
-  const openForm = () => {
-    setOpenSearch(true);
-  };
-
-  // !! Bug fix why map re-renders on close...
-  const closeSearchButton = (event) => {
-    event.preventDefault();
-    setOpenSearch(!openSearch);
-  };
 
   // ? user/login and signup context
   const [signupData, setSignupData] = useState({
@@ -140,18 +128,18 @@ const App = () => {
     _id: "",
     firstname: "",
     lastname: "",
-    email: "",
-    adress: {
-      street: "",
-      number: "",
-      city: "",
-      postcode: "",
-    },
-    birthday: "",
     locations: [],
     bookings: [],
-    verified: false,
+    // adress: {
+    //     street: "",
+    //     number: "",
+    //     city: "",
+    //     postcode: "",
+    // },
+    // birthday: ""
   });
+
+  const [cookies, setCookie] = useCookies(["UserCookie"]);
 
   const collectSignupData = (event) => {
     setSignupData({
@@ -163,13 +151,6 @@ const App = () => {
   const collectLoginData = (event) => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
-
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showSignupModal, setShowSignupModal] = useState(false);
-
-  // console.log("!!!!!!!", loginData);
-
-  // console.log("??????", signupData);
 
   return (
     <div>
@@ -183,7 +164,7 @@ const App = () => {
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
           openForm: openForm,
-          closeSearchButton: closeSearchButton,
+          toggleSearchDropdown: toggleSearchDropdown,
 
           // ? Map Context
           mapView: mapView,
@@ -201,6 +182,14 @@ const App = () => {
           loginData: loginData,
           setLoginData: setLoginData,
 
+          // ? Set currentUser Data after Login
+          currentUser: currentUser,
+          setCurrentUser: setCurrentUser,
+
+          // ? pass down cookies
+          cookies: cookies,
+          setCookie: setCookie,
+
           // !!! Map test..
           // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
           // mapLoading: mapLoading,
@@ -211,7 +200,7 @@ const App = () => {
           like: like,
           toggleLike: toggleLike,
 
-          // ! Test
+          // ? Return home without re-rendering page but also closing map and search dropdown..
           returnHome: returnHome,
         }}
       >
@@ -220,7 +209,15 @@ const App = () => {
           <main>
             <Switch>
               {/* // ? Template/placeholder for how to setup paths with components.. */}
-              <Route path="/" exact component={LandingPage} />
+              {/* <Route path="/" exact component={LandingPage} /> */}
+              <Route exact path="/">
+                {currentUser.firstname.length > 0 ? (
+                  <Redirect to="/welcome-page" />
+                ) : (
+                  <LandingPage />
+                )}
+              </Route>
+
               {/* // ? About us overview */}
               <Route path="/about-us" exact component={AboutUs} />
               <Route path="/verify-email" exact component={Verification} />
