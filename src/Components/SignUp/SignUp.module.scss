@@ -44,6 +44,10 @@
     // font-size: 1.5rem;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .title {
     display: flex;
     align-items: center;
@@ -74,6 +78,7 @@
     padding: 2vw;
     width: 50vw;
     color: $main-font-colour;
+    cursor: pointer;
 }
 
 .input-signup-button {
@@ -100,10 +105,12 @@
 
 .modal-footer div:nth-child(2) {
     color: $orange;
+    cursor: pointer;
 }
 
 .modal-footer div:nth-child(2) {
     margin-top: 0.5vw;
+    cursor: pointer;
 }
 
 .link {

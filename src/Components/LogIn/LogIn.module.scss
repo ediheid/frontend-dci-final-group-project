@@ -44,6 +44,10 @@
     // font-size: 1.5rem;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .title {
     display: flex;
     align-items: center;
@@ -74,6 +78,7 @@
     padding: 2vw;
     width: 50vw;
     color: $main-font-colour;
+    cursor: pointer;
 }
 
 .input-login-button {
@@ -100,6 +105,7 @@
 
 .modal-footer div:nth-child(1) {
     color: $orange;
+    cursor: pointer;
 }
 
 .modal-footer div:nth-child(2) {
@@ -109,6 +115,7 @@
 .link {
     text-decoration: none;
     color: $orange;
+    cursor: pointer;
 }
 
 // ? Media Queries
