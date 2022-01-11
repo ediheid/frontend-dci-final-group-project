@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AppContext } from "../../App.js";
 import { Link } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 // ? Stylesheet
 import styles from "../Navbar/Navbar.module.scss";
@@ -11,6 +12,16 @@ import Registration from "../../Views/Registration/Registration";
 const Navbar = (props) => {
   const modalContext = useContext(AppContext);
   const SearchContext = useContext(AppContext);
+
+  useEffect(() => {
+    const token = modalContext?.cookies?.UserCookie;
+    
+    if (token && typeof token === "string") {
+      const userData = jwt_decode(token)
+      console.log("decoded Data from Cookie", userData)
+      modalContext.setCurrentUser(userData)
+    }
+  }, [])
 
   // const [showLoginModal, setShowLoginModal] = useState(false);
   // const [showSignupModal, setShowSignupModal] = useState(false);
@@ -39,11 +50,12 @@ const Navbar = (props) => {
     modalContext.setShowSignupModal(false);
   };
 
+  // !modalContext.currentUser.firstname.length > 0
   // modalContext.cookies.UserCookie === null
 
-  console.log(modalContext.currentUser.firstname)
+  console.log(typeof modalContext.cookies.UserCookie)
 
-  const content = !modalContext.currentUser.firstname.length > 0 ? 
+  const content = (!modalContext.cookies.UserCookie) ? 
   (
     <div className={styles["icon-container"]}>
     <Link onClick={SearchContext.returnHome} to="/">

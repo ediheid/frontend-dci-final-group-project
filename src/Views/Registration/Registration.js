@@ -12,7 +12,7 @@ import Logout from "../../Components/Logout/Logout.js";
 const Registration = (props) => {
     const RegistrationContext = useContext(AppContext);
 
-    const content = (RegistrationContext.cookies.UserCookie === "null") ?
+    const content = (!RegistrationContext.cookies.UserCookie) ?
     (
         <div className={styles.module}>
                 <LogIn

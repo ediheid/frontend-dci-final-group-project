@@ -27,8 +27,8 @@ const Logout = (props) => {
     // }
 
     const handleLogout = event => {
-        logoutContext.setCookie("UserCookie", null);
-
+        // logoutContext.setCookie("UserCookie", "");
+        logoutContext.removeCookie("UserCookie")
         props.closeLogin(event);
 
         //! Change URL to ENV.Provess.Location
