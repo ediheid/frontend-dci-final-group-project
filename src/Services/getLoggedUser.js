@@ -1,10 +1,12 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import { useHistory } from "react-router-dom"
 
 toast.configure();
 
 
-export const login = async (hookData, sethookData, setUserData, setShowLoginModal, setCookie) => {
+export const login = async (hookData, sethookData, setUserData, setShowLoginModal, setCookie, history) => {
+    // let history = useHistory();
 
     const currloginData = {
       email: hookData.email,
@@ -46,6 +48,9 @@ export const login = async (hookData, sethookData, setUserData, setShowLoginModa
           draggable: false
         });
       };
+
+      history.push("/welcome-page");
+      // window.location.replace("/welcome-page");
 
       sethookData({
         email: "",
