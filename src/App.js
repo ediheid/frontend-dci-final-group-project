@@ -22,6 +22,8 @@ import LocationCards from "./Components/LocationCards/LocationCards.js";
 import Welcome from "./Views/Welcome/Welcome";
 import LocationDetails from "./Components/LocationDetails/LocationDetails";
 
+import { locations } from "./Services/getLocationData.js";
+
 // ? createContext variable
 export const AppContext = createContext();
 
@@ -80,35 +82,22 @@ const App = () => {
 
   // ! Hardcoded location data and dummy code for fetch request of property data - see more in Map.js
   // const events = [
-  //     {
-  //         id: 1,
-  //         title: "property",
-  //         type: "point",
-  //         coordinates: [48.277486, 8.185997],
-  //     },
+  //   {
+  //     id: 1,
+  //     title: "property",
+  //     type: "point",
+  //     address: "",
+  //     coordinates: [48.277486, 8.185997],
+  //     // img: // will go here
+  //     // link: will go here
+  //   },
   // ];
 
-  // useEffect(() => {
-  //     const fetchLocationEvents = async () => {
-  //         // setMapLoading(true);
-  //         // !!! Dummy for location data linked from backend
-  //         // !! Events will equal an array of objects
-  //         // const res = await fetch("location data link from backend will go here");
-  //         // const { events } = await res.json();
+  useEffect(() => {
+    locations(setMapEventData);
+  }, []);
 
-  //         setMapEventData(events);
-  //         // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
-  //         // setMapLoading(false);
-
-  //         // console.log(events);
-  //     };
-
-  //     fetchLocationEvents();
-
-  //     // console.log(mapEventData);
-  // }, []);
-
-  // console.log(mapEventData);
+  console.log("!!!!!MAPEVENT", mapEventData);
 
   // =================
 
@@ -170,6 +159,7 @@ const App = () => {
           mapView: mapView,
           openMap: openMap,
           closeMap: closeMap,
+          mapEventData: mapEventData,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
