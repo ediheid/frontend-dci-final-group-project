@@ -114,15 +114,15 @@ const Form = (props) => {
                   />
                 </div>
 
-                {/* //? Close button - state passed down from Search Component */}
+                {/* //? Close button  */}
                 <button
                   className={styles["close-button"]}
-                  onClick={SearchContext.closeSearchButton}
+                  onClick={SearchContext.toggleSearchDropdown}
                 >
                   <BsArrowsCollapse />
                 </button>
 
-                {/*  */}
+                {/* // ? Search/Submit button - will then render mapView on successful submit! */}
                 <button
                   className={styles["form-search-button"]}
                   type="submit"

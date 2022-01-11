@@ -107,7 +107,23 @@ const Navbar = (props) => {
     <div className={styles["icon-container"]}>
       <Link onClick={SearchContext.returnHome} to="/">
         <div className={styles.icon}>
-          <i className="fas fa-caravan"></i>
+          <i className="far fa-user-circle" onClick={openLoginModal}>
+            <Registration
+              showLogin={modalContext.showLoginModal}
+              closeLogin={closeLoginModal}
+              showSignup={modalContext.showSignupModal}
+              openSignup={openSignupModal}
+              closeSignup={closeSignupModal}
+              openLogin={openLoginFromSignup}
+
+              // signupFetch={props.signupFetch}
+              // loginFetch={props.loginFetch}
+              // collectLoginData={props.collectLoginData}
+              // collectSignupData={props.collectSignupData}
+              // signupData={props.signupData}
+              // loginData={props.loginData}
+            />
+          </i>
         </div>
       </Link>
 
@@ -154,7 +170,6 @@ const Navbar = (props) => {
       >
         {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
         {content}
-        
       </div>
     </>
   );
