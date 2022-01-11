@@ -77,6 +77,9 @@ const Map = ({ center, zoom }) => {
               id: event.id,
               title: event.title,
               address: event.address,
+              // !!
+              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+              // town: event.town,
               img: event.img,
               link: event.link,
             })
@@ -102,6 +105,9 @@ const Map = ({ center, zoom }) => {
               id: event.id,
               title: event.title,
               address: event.address,
+              // !!
+              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+              town: event.town,
               img: event.img,
               link: event.link,
             })
@@ -125,6 +131,8 @@ const Map = ({ center, zoom }) => {
       </button>
 
       <GoogleMapReact
+        // ? Added close location box on map so - this works on map but user can still click on a Marker and it will open!
+        onClick={mapContext.closeLocationInfoBox}
         className={styles["map-component"]}
         // !!! API key lives in .env file - when commented out Map runs in dev mode
         // !!! Use like this so we don't use up the API

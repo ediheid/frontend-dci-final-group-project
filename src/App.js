@@ -75,6 +75,11 @@ const App = () => {
     setLike(!like);
   };
 
+  // ? Close locationInfo box
+  const closeLocationInfoBox = () => {
+    setLocationInfo(false);
+  };
+
   // ? Open Search Form function
   const openForm = () => {
     setOpenSearch(true);
@@ -159,6 +164,7 @@ const App = () => {
           mapEventData: mapEventData,
           locationInfo: locationInfo,
           setLocationInfo: setLocationInfo,
+          closeLocationInfoBox: closeLocationInfoBox,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
