@@ -14,9 +14,10 @@ const Registration = (props) => {
 
     console.log("Registration", RegistrationContext)
 
+    //* point this out
     const content = (RegistrationContext.cookies.UserCookie === "null") ?
-    (
-        <div className={styles.module}>
+        (
+            <div className={styles.module}>
                 <LogIn
                     closeLogin={props.closeLogin}
                     showLogin={props.showLogin}
@@ -35,26 +36,27 @@ const Registration = (props) => {
                     collectSignupData={props.collectSignupData}
                     signupFetch={props.signupFetch}
                     signupData={props.signupData}
-                    
-                    // onCloseSignup={closeSignupModal}
-                    // showSignup={showSignupModal}
+
+                // onCloseSignup={closeSignupModal}
+                // showSignup={showSignupModal}
                 />
 
                 {/* <div onClick={openLoginModal}>OPEN LOG IN</div>
                 <div onClick={openSignupModal}>OPEN SIGN UP</div> */}
             </div>
-    )
-    :
-    (
-        <div className={styles.module}>
+        )
+        :
+        (
+            <div className={styles.module}>
                 <Logout
                     closeLogin={props.closeLogin}
                     showLogin={props.showLogin}
                     closeModal={props.closeModal}
                 />
             </div>
-    )   
+        )
 
+    console.log("!", RegistrationContext.cookies.UserCookie);
     return (
         <>
             {content}
