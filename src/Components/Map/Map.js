@@ -11,36 +11,36 @@ import { AppContext } from "../../App";
 
 import styles from "../Map/Map.module.scss";
 
-// !! Hardcoded location data.. (will live in backend)
-const events = [
-  {
-    id: 1,
-    title: "By the Lake",
-    type: "point",
-    // todo:
-    addressForUser: "Only the town will display",
-    // ! Only use full address for the coordnitaes
-    address: "An der Gutach 1, 78098 Triberg, Germany",
-    coordinates: [48.132592, 8.232933],
-    // todo: find a way to add image..
-    img: property1,
-    // !! Page Link will go here with hardcoded property Link Component
-    link: "http://localhost:3000/location-details",
-  },
-  {
-    id: 2,
-    title: "Cherry Manor",
-    type: "point",
-    // todo:
-    addressForUser: "Only the town will display",
-    // ! Only use full address for the coordnitaes
-    address: "Kleinenzhof 1, 7532 Bad Wildbad, Germany",
-    coordinates: [48.735805, 8.574254],
-    img: property2,
-    // !! Page Link will go here with hardcoded property Link Component
-    link: "http://localhost:3000/location-details",
-  },
-];
+// ? Hardcoded location data.. (will live in backend)
+// const events = [
+//   {
+//     id: 1,
+//     title: "By the Lake",
+//     type: "point",
+//     // todo:
+//     addressForUser: "Only the town will display",
+//     // ! Only use full address for the coordnitaes
+//     address: "An der Gutach 1, 78098 Triberg, Germany",
+//     coordinates: [48.132592, 8.232933],
+//     // todo: find a way to add image..
+//     img: property1,
+//     // !! Page Link will go here with hardcoded property Link Component
+//     link: "http://localhost:3000/location-details",
+//   },
+//   {
+//     id: 2,
+//     title: "Cherry Manor",
+//     type: "point",
+//     // todo:
+//     addressForUser: "Only the town will display",
+//     // ! Only use full address for the coordnitaes
+//     address: "Kleinenzhof 1, 7532 Bad Wildbad, Germany",
+//     coordinates: [48.735805, 8.574254],
+//     img: property2,
+//     // !! Page Link will go here with hardcoded property Link Component
+//     link: "http://localhost:3000/location-details",
+//   },
+// ];
 
 // Default props passed in to set below Component
 const Map = ({ center, zoom }) => {
@@ -53,29 +53,33 @@ const Map = ({ center, zoom }) => {
   // console.log("??", events[0].id);
   // console.log("##", events[0].coordinates[0]);
 
-  // ? To look into with Kathi
-  // !! Testing location Info..
-  const [locationInfo, setLocationInfo] = useState(null);
-  // ? ======
+  console.log("#####", mapContext.mapEventData);
 
-  // !! Dummy code to run through 'mapEventData'
-  const markers = events.map((event) => {
-    if (event.id === 1) {
+  // !!!
+  // Todo: Create a an extra loop to run through ids to the populate..
+
+  const markers = mapContext.mapEventData.map((event) => {
+    console.log("*****", event.coordinates[0]);
+
+    if (event.id === "1") {
       // console.log("YES", events);
       // console.log("LATITUDE", events[0].coordinates[0]);
       // console.log("LONGITUDE", events[0].coordinates[1]);
 
       return (
         <LocationMarker
-          lat={events[0].coordinates[0]}
-          lng={events[0].coordinates[1]}
+          lat={event.coordinates[1]}
+          lng={event.coordinates[0]}
           // ? To look into with Kathi
           // !! Testing location Info..
           onClick={() =>
-            setLocationInfo({
+            mapContext.setLocationInfo({
               id: event.id,
               title: event.title,
               address: event.address,
+              // !!
+              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+              // town: event.town,
               img: event.img,
               link: event.link,
             })
@@ -85,22 +89,25 @@ const Map = ({ center, zoom }) => {
       );
     }
 
-    if (event.id === 2) {
+    if (event.id === "2") {
       // console.log("Another", events);
       // console.log(" ID 2: LATITUDE", events[1].coordinates[0]);
       // console.log(" ID 2: LONGITUDE", events[1].coordinates[1]);
 
       return (
         <LocationMarker
-          lat={events[1].coordinates[0]}
-          lng={events[1].coordinates[1]}
+          lat={event.coordinates[1]}
+          lng={event.coordinates[0]}
           // ? To look into with Kathi
           // !! Testing location Info..
           onClick={() =>
-            setLocationInfo({
+            mapContext.setLocationInfo({
               id: event.id,
               title: event.title,
               address: event.address,
+              // !!
+              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+              town: event.town,
               img: event.img,
               link: event.link,
             })
@@ -124,6 +131,8 @@ const Map = ({ center, zoom }) => {
       </button>
 
       <GoogleMapReact
+        // ? Added close location box on map so - this works on map but user can still click on a Marker and it will open!
+        onClick={mapContext.closeLocationInfoBox}
         className={styles["map-component"]}
         // !!! API key lives in .env file - when commented out Map runs in dev mode
         // !!! Use like this so we don't use up the API
@@ -140,7 +149,9 @@ const Map = ({ center, zoom }) => {
       </GoogleMapReact>
       {/*   // ? To look into with Kathi
             // !! Testing location Info.. */}
-      {locationInfo && <LocationInfoBox info={locationInfo} />}
+      {mapContext.locationInfo && (
+        <LocationInfoBox info={mapContext.locationInfo} />
+      )}
       {/*  // ? ====== */}
     </div>
   );

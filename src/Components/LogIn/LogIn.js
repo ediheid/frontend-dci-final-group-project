@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useRef, useState } from "react";
 
 
@@ -28,8 +28,8 @@ const LogIn = (props) => {
     const passwordInputChangeHandler = (event) => {
         setEnteredPassword(event.target.value);
     }
-    const [enteredPasswordIsValid, setEnteredPasswordIsValid] = useState(true);
-    const [errorPasswordMessage, setErrorPasswordMessage] = useState('');
+
+
 
     // !!! This is where we define Context from App to use in current Component
     const loginContext = useContext(AppContext);
@@ -44,121 +44,111 @@ const LogIn = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        login(loginContext.loginData, loginContext.setLoginData);
+        login(loginContext.loginData, loginContext.setLoginData, loginContext.setCurrentUser, loginContext.setShowLoginModal, loginContext.setCookie, loginContext.history)
+    }
 
-        //check normalizeEmail -> expressvalidator
-        if (enteredEmail.trim() === '' || enteredEmail.length >= 50 || enteredEmail.normalizeEmail === true) {
-            if (enteredEmail.trim() === '') {
-                setEnteredEmailIsValid(false);
-                setErrorEmailMessage("Email is required")
-            };
-            if (enteredEmail.length >= 50) {
-                setEnteredEmailIsValid(false);
-                setErrorEmailMessage("'Email should not be longer than 50 characters'")
+
+
+    //useEffect password ->
+
+    /*
+        const checkForPasswordErrors = () => {
+            if (enteredPassword.trim() === '' || enteredPassword.length <= 16 || enteredPassword.match(/^(?=.*[A-Z])(?=.*[!@#$%^&*()\-__+.])(?=.*[0-9])(?=.*[a-z]).{8,}$/, "i") === true) {
+                if (enteredEmail.trim() === '') {
+                    setEnteredPasswordIsValid(false);
+                    setErrorPasswordMessage("Password is required")
+                };
+                if (enteredPassword.length <= 16) {
+                    setEnteredPasswordIsValid(false);
+                    setErrorPasswordMessage("Password should not be longer than 18 characters'")
+                }
+    
+                if (enteredPassword.match(/^(?=.*[A-Z])(?=.*[!@#$%^&*()\-__+.])(?=.*[0-9])(?=.*[a-z]).{8,}$/, "i") === true) {
+                    setEnteredPasswordIsValid(false);
+                    setErrorPasswordMessage("Password should be combination of at least one uppercase, one lower case, one special character and one number")
+                }
+    
+            } else {
+                console.log("Success!")
+                //display success -> 
             }
-
-            if (enteredEmail.normalizeEmail === true) {
-                setEnteredEmailIsValid(false);
-                setErrorEmailMessage("Should be a valid email")
-            }
-
-        } else {
-            console.log("Success!")
-            //display success -> 
-        }
+        }*/
 
 
-        if (enteredPassword.trim() === '' || enteredPassword.length <= 16 || enteredPassword.match(/^(?=.*[A-Z])(?=.*[!@#$%^&*()\-__+.])(?=.*[0-9])(?=.*[a-z]).{8,}$/, "i") === true) {
-            if (enteredEmail.trim() === '') {
-                setEnteredPasswordIsValid(false);
-                setErrorPasswordMessage("Password is required")
-            };
-            if (enteredPassword.length <= 16) {
-                setEnteredPasswordIsValid(false);
-                setErrorPasswordMessage("Password should not be longer than 18 characters'")
-            }
-
-            if (enteredPassword.match(/^(?=.*[A-Z])(?=.*[!@#$%^&*()\-__+.])(?=.*[0-9])(?=.*[a-z]).{8,}$/, "i") === true) {
-                setEnteredPasswordIsValid(false);
-                setErrorPasswordMessage("Password should be combination of at least one uppercase, one lower case, one special character and one number")
-            }
-
-        } else {
-            console.log("Success!")
-            //display success -> 
-        }
-
+    /*
         setEnteredEmailIsValid(true);
-        const enteredEmailValue = emailInputRef.current.value;
-        console.log(enteredEmailValue);
+        // const enteredEmailValue = emailInputRef.current.value;
+        // console.log(enteredEmailValue);
         setEnteredEmail('');
-
+    
         setEnteredPasswordIsValid(true);
-        const enteredPasswordValue = passwordInputRef.current.value;
-        console.log(enteredPasswordValue);
-        setEnteredPassword('');
+        // const enteredPasswordValue = passwordInputRef.current.value;
+        //console.log(enteredPasswordValue);
+        setEnteredPassword('');*/
 
 
-        return (
-            <>
-                <div
-                    className={styles["login-modal-container"]}
-                    onClick={props.closeLogin}>
-                    {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
-                    <div className={styles.content} onClick={stop}>
-                        <div className={styles.header}>
-                            <div onClick={props.closeLogin}>X</div>
 
-                            <div className={styles.title}>Log in</div>
-                        </div>
-                        <div className={styles.body}>
-                            <form onSubmit={handleSubmit}>
-                                <div className={styles["form-container"]}>
-                                    <input
-                                        className={styles["input-login"]}
-                                        type="text"
-                                        placeholder="E-Mail"
-                                        name="email"
-                                        onChange={loginContext.collectLoginData}
-                                        value={loginContext.loginData.email}
-                                    />
-                                    {!enteredEmailIsValid && <p className={styles["error-text"]}>{errorEmailMessage}</p>}
-                                    <input
-                                        className={styles["input-login"]}
-                                        type="password"
-                                        placeholder="Password"
-                                        name="password"
-                                        onChange={loginContext.collectLoginData}
-                                        value={loginContext.loginData.password}
-                                    />
-                                    {!enteredPasswordIsValid && <p className={styles["error-text"]}>{errorPasswordMessage}</p>}
+    return (
+        <>
+            <div
+                className={styles["login-modal-container"]}
+                onClick={props.closeLogin}>
+                {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
+                <div className={styles.content} onClick={stop}>
+                    <div className={styles.header}>
+                        <div onClick={props.closeLogin}>X</div>
 
-                                    <input
-                                        className={styles["input-login-button"]}
-                                        type="submit"
-                                        value="Log In"
-                                    />
-                                    <div className={styles["modal-footer"]}>
-                                        <div>Forgot your password?</div>
-                                        <div>
-                                            Not a member yet? {""}
-                                            <span
-                                                onClick={props.openSignup}
-                                                className={styles.link}
-                                            >
-                                                Sign up
-                                            </span>
-                                        </div>
+                        <div className={styles.title}>Log in</div>
+                    </div>
+                    <div className={styles.body}>
+                        <form onSubmit={handleSubmit}>
+                            <div className={styles["form-container"]}>
+                                <input
+                                    className={styles["input-login"]}
+                                    type="text"
+                                    placeholder="E-Mail"
+                                    name="email"
+                                    onChange={loginContext.collectLoginData}
+                                    value={loginContext.loginData.email}
+                                    ref={emailInputRef}
+                                />
+                                {!loginContext.loginEmailIsValid && <p className={styles["error-text"]}>{loginContext.loginEmailMessage}</p>}
+                                <input
+                                    className={styles["input-login"]}
+                                    type="password"
+                                    placeholder="Password"
+                                    name="password"
+                                    onChange={loginContext.collectLoginData}
+                                    value={loginContext.loginData.password}
+                                />
+                                {/*{!enteredPasswordIsValid && <p className={styles["error-text"]}>{errorPasswordMessage}</p>*/}
+
+                                <input
+                                    className={styles["input-login-button"]}
+                                    type="submit"
+                                    value="Log In"
+                                />
+                                <div className={styles["modal-footer"]}>
+                                    <div>Forgot your password?</div>
+                                    <div>
+                                        Not a member yet? {""}
+                                        <span
+                                            onClick={props.openSignup}
+                                            className={styles.link}
+                                        >
+                                            Sign up
+                                        </span>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </>
-        );
-    }
-};
+            </div>
+        </>
+    );
+}
+
 
 
 
