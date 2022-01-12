@@ -38,7 +38,7 @@ const Logout = (props) => {
     return (
         <>
             <div
-                className={styles["login-modal-container"]}
+                className={styles["logout-modal-container"]}
                 onClick={props.closeLogin}
             >
                 {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
@@ -48,7 +48,7 @@ const Logout = (props) => {
                 </div>
 
                 <input
-                    className={styles["input-login-button"]}
+                    className={styles["input-logout-button"]}
                     type="submit"
                     value="Logout"
                     onClick={handleLogout}
