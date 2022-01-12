@@ -41,6 +41,20 @@
     cursor: pointer;
 }
 
+.logged {
+  display: flex;;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  background-color: $dark-green;
+  border-radius: 50%;
+  font-family: "Roboto Regular";
+  font-size: 1.4rem;
+  color: $main-font-colour-light;
+  cursor: pointer;
+} 
+
 // ? Media Queries
 // Based on Bootstrap breakpoints
 

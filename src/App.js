@@ -4,8 +4,11 @@ import {
     Route,
     Redirect,
     Switch,
+    useHistory,
 } from "react-router-dom";
 import signup from "./Services/createNewUser.js";
+import Cookies from "js-cookie";
+import { useCookies } from "react-cookie";
 
 // ? Main scss
 import styles from "./Styling/app.module.scss";
@@ -19,93 +22,81 @@ import CheckMail from "./Components/CheckMail/CheckMail.js";
 import LocationCards from "./Components/LocationCards/LocationCards.js";
 import Welcome from "./Views/Welcome/Welcome";
 import LocationDetails from "./Components/LocationDetails/LocationDetails";
-import LocationForm from "./Components/LocationForm/LocationForm.js";
+import LocationForm from "./Components/LocationForm/LocationForm";
 
-// !! createContext variable
+import { locations } from "./Services/getLocationData.js";
+
+// ? createContext variable
 export const AppContext = createContext();
 
-// export const SearchContext = createContext();
-
 const App = () => {
-    // ? Map / Location data collection
-    // !!! Testing map marker..
+    // ?  State hooks
+    // ?  State passed into fetch request for our database locations
     const [mapEventData, setMapEventData] = useState([]);
-    // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
-    const [mapLoading, setMapLoading] = useState(false);
-
-    // !! Hardcoded location data and dummy code for fetch request of property data - see more in Map.js
-    // const events = [
-    //     {
-    //         id: 1,
-    //         title: "property",
-    //         type: "point",
-    //         coordinates: [48.277486, 8.185997],
-    //     },
-    // ];
-
-    // useEffect(() => {
-    //     const fetchLocationEvents = async () => {
-    //         // setMapLoading(true);
-    //         // !!! Dummy for location data linked from backend
-    //         // !! Events will equal an array of objects
-    //         // const res = await fetch("location data link from backend will go here");
-    //         // const { events } = await res.json();
-
-    //         setMapEventData(events);
-    //         // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
-    //         // setMapLoading(false);
-
-    //         // console.log(events);
-    //     };
-
-    //     fetchLocationEvents();
-
-    //     // console.log(mapEventData);
-    // }, []);
-
-    // console.log(mapEventData);
-
+    // ? To look into with Kathi
+    // !! Testing location Info..
+    const [locationInfo, setLocationInfo] = useState(false);
+    // ? Display and Hide map functionality
+    const [openMap, setOpenMap] = useState(false);
+    // ? Passed down to Form.js - is used to to openSearch but also to change bg opacity
+    const [openSearch, setOpenSearch] = useState(false);
     // ? Saved/Liked property..
     const [like, setLike] = useState(false);
 
-    const toggleLike = () => {
-        setLike(!like);
-        // *  Testing for state to pass to backend
-        // if (like === false) {
-        //   console.log("Liked!");
-        // }
-        // if (like !== false) {
-        //   console.log("Un-liked!");
-        // }
-    };
+    // ? login/signup state
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showSignupModal, setShowSignupModal] = useState(false);
+    // !! Moved cookie state hook to top to sit with all other state hooks
+    const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
-    // !!! =================
-
-    // ? Search and Navbar functionality to pass down via Provider
-    //  State hooks
-    // Passed down to Form.js - is used to to openSearch but also to change bg opacity
-    const [openSearch, setOpenSearch] = useState(false);
-
-    //  Open Search Form function
-    // Passed down to Form.js
-    const openForm = () => {
-        setOpenSearch(true);
-    };
-
-    const closeSearchButton = (event) => {
-        // event.preventDefault();
-        setOpenSearch(!openSearch);
-    };
-
-    // ? Display and Hide map functionality
-    const [openMap, setOpenMap] = useState(false);
-
+    // ? opens map view - And closes search dropdown so user can see the full map
     const mapView = (event) => {
         event.preventDefault();
         setOpenMap(true);
         // console.log("Successful Submit");
-        // Todo: Once data collection is setup decide if we want the form to keep information so user can update or not?
+        // ! Note for Jamie: Fixed the problem
+        setOpenSearch(false);
     };
+
+    // ? Close map for close map button
+    const closeMap = () => {
+        setOpenMap(false);
+    };
+
+    // ? Allows user to click on Caravan(home) button without re-rendering the page but will close both map and search without state conflicts
+    const returnHome = () => {
+        setOpenMap(false);
+        setOpenSearch(false);
+    };
+
+    let history = useHistory();
+
+    // ? User can like and unlike a property (heart on location info boxes)
+    const toggleLike = () => {
+        setLike(!like);
+    };
+
+    // ? Close locationInfo box
+    const closeLocationInfoBox = () => {
+        setLocationInfo(false);
+    };
+
+    // ? Open Search Form function
+    const openForm = () => {
+        setOpenSearch(true);
+    };
+
+    // ? Toggles the Search open and close for the buttons and NOT the search field
+    const toggleSearchDropdown = (event) => {
+        event.preventDefault();
+        setOpenSearch(!openSearch);
+    };
+
+    // ? useEffect to pass in location Data from fetch request
+    useEffect(() => {
+        locations(setMapEventData);
+    }, []);
+    // console.log("!!!!!MAPEVENT", mapEventData);
 
     // ? user/login and signup context
     const [signupData, setSignupData] = useState({
@@ -123,18 +114,24 @@ const App = () => {
         _id: "",
         firstname: "",
         lastname: "",
-        email: "",
-        adress: {
-            street: "",
-            number: "",
-            city: "",
-            postcode: "",
-        },
-        birthday: "",
         locations: [],
         bookings: [],
-        verified: false,
+        // adress: {
+        //     street: "",
+        //     number: "",
+        //     city: "",
+        //     postcode: "",
+        // },
+        // birthday: ""
     });
+
+    // useEffect(() => {
+    //   setCurrentUser(JSON.parse(window.localStorage.getItem('currentUser')));
+    // }, []);
+
+    // useEffect(() => {
+    //   window.localStorage.setItem('currentUser', currentUser);
+    // }, [currentUser]);
 
     const collectSignupData = (event) => {
         setSignupData({
@@ -146,13 +143,6 @@ const App = () => {
     const collectLoginData = (event) => {
         setLoginData({ ...loginData, [event.target.name]: event.target.value });
     };
-
-    const [showLoginModal, setShowLoginModal] = useState(false);
-    const [showSignupModal, setShowSignupModal] = useState(false);
-
-    // console.log("!!!!!!!", loginData);
-
-    // console.log("??????", signupData);
 
     return (
         <div>
@@ -166,11 +156,16 @@ const App = () => {
                     // ? Search Context to pass down to Search and Navbar..
                     openSearch: openSearch,
                     openForm: openForm,
-                    closeSearchButton: closeSearchButton,
+                    toggleSearchDropdown: toggleSearchDropdown,
 
                     // ? Map Context
                     mapView: mapView,
                     openMap: openMap,
+                    closeMap: closeMap,
+                    mapEventData: mapEventData,
+                    locationInfo: locationInfo,
+                    setLocationInfo: setLocationInfo,
+                    closeLocationInfoBox: closeLocationInfoBox,
 
                     // ? Sign up and login Context
                     setShowSignupModal: setShowSignupModal,
@@ -183,64 +178,73 @@ const App = () => {
                     loginData: loginData,
                     setLoginData: setLoginData,
 
-                    // !!! Map test..
-                    // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
-                    // mapLoading: mapLoading,
-                    // mapEventData: mapEventData,
-                    // events: events,
+                    // ? Set currentUser Data after Login
+                    currentUser: currentUser,
+                    setCurrentUser: setCurrentUser,
+
+                    // ? pass down cookies
+                    cookies: cookies,
+                    setCookie: setCookie,
+                    removeCookie: removeCookie,
 
                     // ? Liked/Saved property
                     like: like,
                     toggleLike: toggleLike,
+
+                    // ? Return home without re-rendering page but also closing map and search dropdown..
+                    returnHome: returnHome,
+
+                    // ? useHistory
+                    history: history,
                 }}
             >
-                <Router>
-                    {/* NAVBAR and Search Components live in respective View Components */}
-                    <main>
-                        <Switch>
-                            {/* // ? Template/placeholder for how to setup paths with components.. */}
-                            <Route path="/" exact component={LandingPage} />
-                            {/* // ? About us overview */}
-                            <Route path="/about-us" exact component={AboutUs} />
-                            <Route
-                                path="/verify-email"
-                                exact
-                                component={Verification}
-                            />
-                            <Route
-                                path="/user-signed-up"
-                                exact
-                                component={CheckMail}
-                            />
-                            <Route
-                                path="/location-cards"
-                                exact
-                                component={LocationCards}
-                            />
-                            <Route
-                                path="/welcome-page"
-                                exact
-                                component={Welcome}
-                            />
+                {/* NAVBAR and Search Components live in respective View Components */}
+                <main>
+                    <Switch>
+                        {/* // ? Template/placeholder for how to setup paths with components.. */}
+                        {/* <Route path="/" exact component={LandingPage} /> */}
+                        <Route exact path="/" component={LandingPage} />
+                        {/* {cookies.UserCookie !== "null" ?
+                <Redirect to="/welcome-page" />  */}
+                        {/* :  */}
+                        {/* <LandingPage />
+            </Route> */}
 
-                            <Route
-                                path="/location-details"
-                                exact
-                                component={LocationDetails}
-                            />
+                        {/* // ? About us overview */}
+                        <Route path="/about-us" exact component={AboutUs} />
+                        <Route
+                            path="/verify-email"
+                            exact
+                            component={Verification}
+                        />
+                        <Route
+                            path="/user-signed-up"
+                            exact
+                            component={CheckMail}
+                        />
+                        <Route
+                            path="/location-cards"
+                            exact
+                            component={LocationCards}
+                        />
+                        <Route path="/welcome-page" exact component={Welcome} />
 
-                            <Route
-                                path="/location-form"
-                                exact
-                                component={LocationForm}
-                            />
-                            {/* // ? Url redirect to landing page on unknown path */}
-                            <Redirect to="/" exact />
-                        </Switch>
-                    </main>
-                    {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-                    <Footer />
-                </Router>
+                        <Route
+                            path="/location-details"
+                            exact
+                            component={LocationDetails}
+                        />
+                        <Route
+                            path="/location-form"
+                            exact
+                            component={LocationForm}
+                        />
+                        {/* // ? Url redirect to landing page on unknown path */}
+                        <Redirect to="/" exact />
+                    </Switch>
+                </main>
+                {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
+                <Footer />
             </AppContext.Provider>
         </div>
     );

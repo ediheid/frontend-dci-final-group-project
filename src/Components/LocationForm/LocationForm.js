@@ -273,7 +273,7 @@ const LocationForm = () => {
                                 <hr className={styles.hr} />
 
                                 <div className={styles.heading}>
-                                    What about these guestst favourites?
+                                    What about these guests favourites?
                                 </div>
 
                                 <label className={styles.container}>

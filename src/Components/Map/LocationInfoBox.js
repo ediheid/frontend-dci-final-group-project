@@ -7,12 +7,21 @@ import styles from "../Map/Map.module.scss";
 const LocationInfoBox = ({ info }) => {
   // ? From AppContext
   const likedContext = useContext(AppContext);
+  const mapContext = useContext(AppContext);
 
   return (
     // Location Info Box
     <div className={styles["location-box"]}>
       {/* Inner Location box for styling */}
       <div className={styles["inner-location-box"]}>
+        {/* Close info box */}
+        <button
+          className={styles["close-info-box"]}
+          onClick={mapContext.closeLocationInfoBox}
+        >
+          Close
+        </button>
+
         {/* Property image */}
         <img
           className={styles["img-container"]}
@@ -20,13 +29,13 @@ const LocationInfoBox = ({ info }) => {
           src={info.img}
         ></img>
 
-        {/* // !! Text content container */}
+        {/* // ? Text content container */}
         <div className={styles["text-content-container"]}>
           {/* Property name/title/address */}
           <h2 className={styles["location-heading"]}>{info.title}</h2>
 
           {/* // !!! */}
-          {/* // todo: Pass Property Town into events */}
+          {/* // todo: Pass Property Town into events instead of full address? */}
           <h3 className={styles["location-address"]}>{info.address}</h3>
           {/* Property link */}
 

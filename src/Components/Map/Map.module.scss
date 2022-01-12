@@ -16,6 +16,32 @@
   background-color: white;
 }
 
+// ? Map close button
+
+.close-map-button {
+  position: absolute;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+  width: 4.2rem;
+  height: 4.2rem;
+
+  top: 4rem;
+  left: 4rem;
+
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+
+  color: $main-font-colour;
+  font-size: 1.6rem;
+  background-color: $white;
+}
+
 // ? Map Markers
 
 .location-marker {
@@ -41,13 +67,36 @@
 
   width: 80%;
   max-width: 40rem;
-  height: 14rem;
+  height: 18rem;
 
   padding: 1.3rem;
   border-radius: 1rem;
 
   background-color: $cream;
   font-family: $roboto-bold-font-family;
+}
+
+.close-info-box {
+  height: 3rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  font-family: $roboto-thin-font-family;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  color: $main-font-colour;
+
+  &:focus {
+    font-family: $roboto-medium-font-family;
+  }
+}
+
+@media (hover: hover) {
+  .close-info-box:hover {
+    font-family: $roboto-medium-font-family; /* solves sticky problem */
+  }
 }
 
 .img-container {
@@ -101,6 +150,8 @@
 
   width: 80%;
   padding: 1rem;
+
+  color: $main-font-colour;
 }
 
 .liked-container {
@@ -108,11 +159,15 @@
   padding-left: 1rem;
 
   font-size: 1.5rem;
+
+  cursor: pointer;
 }
 
 .property-link {
   font-size: 1.1rem;
   letter-spacing: 0.5px;
+
+  cursor: pointer;
 
   color: $main-font-colour;
 
@@ -199,155 +254,11 @@
 
 @include extra-extra-small {
   .map-container {
-    // padding: 0;
+    padding: 0;
+  }
+
+  .inner-location-box {
+    height: 22em;
+    width: 100%;
   }
 }
-
-// @import "../../Styling/variables.module";
-// @import "../../Styling/mixins.module";
-// @import "../../Styling/fonts.module";
-// @import "../../Styling/reset.module";
-
-// // ? Map
-
-// .map-container {
-//   position: relative;
-//   // !! Probably 80vh for tablet +
-//   // height: 87vh;
-//   height: 90vh;
-//   width: 100%;
-
-//   padding: 3rem 3rem 5rem 3rem;
-//   background-color: white;
-
-//   // todo: should it cover the entire width on desktop +
-//   //   max-width: 60rem;
-// }
-
-// // ? Map Markers
-
-// .location-marker {
-//   // position: relative;
-//   color: $google-pin-colour;
-
-//   font-size: 3rem;
-// }
-
-// // ? Location pop-up box
-
-// // todo Style like the calendar dropdown (white outer box and cream inner with styled text etc
-
-// .location-box {
-//   position: absolute;
-
-//   top: 6rem;
-//   left: 5rem;
-
-//   width: 20rem;
-//   height: 24rem;
-
-//   padding: 1.3rem;
-//   background-color: $cream;
-//   border-radius: 2rem;
-// }
-
-// .inner-location-box {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-
-//   background-color: $white;
-
-//   height: 100%;
-//   border-radius: 1rem;
-
-//   font-family: $roboto-bold-font-family;
-
-//   // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-//   // color: $main-font-colour;
-// }
-
-// .location-heading {
-//   color: $orange;
-
-//   margin-top: 1rem;
-
-//   font-size: 1.6rem;
-//   letter-spacing: 1px;
-
-//   padding: 0.5rem;
-// }
-
-// .img-container {
-//   width: 88%;
-//   height: auto;
-//   max-height: 10rem;
-
-//   border-radius: 0.6rem;
-// }
-
-// .property-link {
-//   font-size: 1.3rem;
-//   letter-spacing: 0.5px;
-
-//   color: $main-font-colour;
-
-//   margin-top: 1rem;
-//   text-decoration: none;
-
-//   padding: 0.5rem 1rem 0.5rem 1rem;
-//   border-radius: 1rem;
-
-//   background-color: $white;
-//   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
-//   &:hover {
-//     background-color: $cream;
-//   }
-// }
-
-// // ? Media Queries..
-
-// @include x-small {
-//   .location-box {
-//     top: 4.5rem;
-//   }
-// }
-
-// @include small {
-//   .map-container {
-//     padding-bottom: 10rem;
-//   }
-// }
-
-// @include medium {
-//   .map-container {
-//     padding-bottom: 10rem;
-//   }
-// }
-
-// @include large {
-//   .map-container {
-//     height: 78vh;
-//     padding-bottom: 8rem;
-//   }
-// }
-
-// @include extra-large {
-//   .map-container {
-//     height: 80vh;
-//   }
-// }
-
-// @include extra-extra-large {
-//   .map-container {
-//     height: 80vh;
-//   }
-// }
-
-// @include extra-extra-small {
-//   .map-container {
-//     padding: 0;
-//   }
-// }

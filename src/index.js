@@ -5,12 +5,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { CookiesProvider } from "react-cookie";
+import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
-    <React.StrictMode>
+  <React.StrictMode>
+    <CookiesProvider>
+      <Router>
         <App />
-    </React.StrictMode>,
-    document.getElementById("root")
+      </Router>
+    </CookiesProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

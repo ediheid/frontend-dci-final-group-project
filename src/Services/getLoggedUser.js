@@ -1,8 +1,12 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import { useHistory } from "react-router-dom"
+
 toast.configure();
 
-export const login = async (hookData, sethookData) => {
+
+export const login = async (hookData, sethookData, setUserData, setShowLoginModal, setCookie, history) => {
+    // let history = useHistory();
 
     const currloginData = {
       email: hookData.email,
@@ -33,7 +37,10 @@ export const login = async (hookData, sethookData) => {
       }
     })
     .then(data => {
-      console.log(data);
+      console.log("showData from backend:", data);
+
+      setCookie("UserCookie", data.token)
+      
       const loginSuccessful = () => {
         toast("Login successful!! Taking you to your dashboard!", {
           position: "top-center",
@@ -42,10 +49,23 @@ export const login = async (hookData, sethookData) => {
         });
       };
 
+      history.push("/welcome-page");
+      // window.location.replace("/welcome-page");
+
       sethookData({
         email: "",
         password: ""
       })
+
+      setUserData({
+        _id: data._id,
+        firstname: data.firstname,
+        lastname: data.lastname,
+        locations: data.locations,
+        bookings: data.bookings,
+      })
+
+      setShowLoginModal(false)
 
       loginSuccessful();
     })

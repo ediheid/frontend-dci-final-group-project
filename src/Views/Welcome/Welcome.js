@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-
+import { useHistory } from "react-router-dom";
 import { AppContext } from "../../App";
 
 // ? Stylesheet
@@ -11,16 +11,17 @@ import Navbar from "../../Components/Navbar/Navbar";
 
 const Welcome = () => {
     const SearchContext = useContext(AppContext);
+    let history = useHistory();
 
     // Redirect automatily to landig page
     // const navigate = useNavigate();
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         navigate.push("/");
-    //     }, 2000);
-    // }, []);
+    useEffect(() => {
+        setTimeout(() => {
+            history.push("/");
+        }, 4000);
+    }, []);
 
-    const username = "Paula";
+    const username = SearchContext.currentUser.firstname;
 
     const [hour, setHour] = useState(null);
     // const [minute, setMinute] = useState(null);
@@ -38,7 +39,7 @@ const Welcome = () => {
     };
 
     // hour >= 02 && hour < 6
-    const early = ", you are a little night bird, ";
+    const early = ", you are a little night bird.";
 
     // hour >= 06 && hour < 12
     const morning = "Good morning, ";
@@ -68,15 +69,15 @@ const Welcome = () => {
                         {hour >= 2 && hour < 6 ? `${username}${early}` : ""}
 
                         {hour >= 6 && hour < 12
-                            ? `${morning} \n ${username}`
+                            ? `${morning} \n ${username}!`
                             : "" || (hour >= 12 && hour < 18)
-                            ? `${afternoon} \n ${username}`
+                            ? `${afternoon} \n ${username}!`
                             : "" || (hour >= 18 && hour < 22)
-                            ? `${evening} \n ${username}`
+                            ? `${evening} \n ${username}!`
                             : "" || (hour >= 22 && hour < 24)
-                            ? `${late} \n ${username}`
+                            ? `${late} \n ${username}!`
                             : "" || (hour >= 0 && hour < 2)
-                            ? `${superLate} \n ${username}`
+                            ? `${superLate} \n ${username}!`
                             : ""}
                     </div>
                 </div>

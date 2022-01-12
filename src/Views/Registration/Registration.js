@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../App.js";
 
 // ? Stylesheet
 import styles from "../../Views/Registration/Registration.module.scss";
@@ -6,22 +7,14 @@ import styles from "../../Views/Registration/Registration.module.scss";
 // ? All Component and View imports
 import LogIn from "../../Components/LogIn/LogIn";
 import SignUp from "../../Components/SignUp/SignUp";
+import Logout from "../../Components/Logout/Logout.js";
 
 const Registration = (props) => {
-    // const ref = useRef();
+    const RegistrationContext = useContext(AppContext);
 
-// useEffect(() => {
-//     const checkIfClickedOutside = (e) => {
-//         if (props.showLogin && ref.current && !ref.current.contains(e.target)) {
-//             props.closeLogin()
-//         }
-//     }
-// }, [props.showLogin])
-    
-
-    return (
-        <>
-            <div className={styles.module}>
+    const content = (!RegistrationContext.cookies.UserCookie) ?
+    (
+        <div className={styles.module}>
                 <LogIn
                     closeLogin={props.closeLogin}
                     showLogin={props.showLogin}
@@ -48,6 +41,21 @@ const Registration = (props) => {
                 {/* <div onClick={openLoginModal}>OPEN LOG IN</div>
                 <div onClick={openSignupModal}>OPEN SIGN UP</div> */}
             </div>
+    )
+    :
+    (
+        <div className={styles.module}>
+                <Logout
+                    closeLogin={props.closeLogin}
+                    showLogin={props.showLogin}
+                    closeModal={props.closeModal}
+                />
+            </div>
+    )   
+
+    return (
+        <>
+            {content}
         </>
     );
 };

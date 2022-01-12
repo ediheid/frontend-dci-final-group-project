@@ -24,8 +24,8 @@ const LogIn = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        login(loginContext.loginData, loginContext.setLoginData);
-    };
+        login(loginContext.loginData, loginContext.setLoginData, loginContext.setCurrentUser, loginContext.setShowLoginModal, loginContext.setCookie, loginContext.history)
+    }
 
     return (
         <>
