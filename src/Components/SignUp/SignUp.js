@@ -44,7 +44,7 @@ const SignUp = props => {
         {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
         <div className={styles.content} onClick={stop}>
           <div className={styles.header}>
-            <div onClick={props.closeSignup}>X</div>
+            <div className={styles.pointer} onClick={props.closeSignup}>X</div>
 
             <div className={styles.title}>Sign up</div>
           </div>
