@@ -162,6 +162,7 @@ const Map = ({ center, zoom }) => {
 Map.defaultProps = {
   // Center coordinates set to Baden-Württemberg
   center: { lat: 48.758339, lng: 8.243008 },
+  defaultCenter: { lat: 48.758339, lng: 8.243008 },
   zoom: 8,
 };
 
