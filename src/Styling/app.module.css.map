@@ -8,7 +8,7 @@
         "_reset.module.scss",
         "_fonts.module.scss",
         "../Components/Footer/footer.module.scss",
-        "../Components/Navbar/navbar.module.scss",
+        "../Components/Navbar/Navbar.module.scss",
         "../Views/LandingPage/LandingPage.module.scss",
         "_variables.module.scss",
         "_mixins.module.scss",
