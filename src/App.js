@@ -55,8 +55,10 @@ const App = () => {
   const mapView = (event) => {
     event.preventDefault();
     setOpenMap(true);
-    // console.log("Successful Submit");
-    // ! Note for Jamie: Fixed the problem
+
+    // ! Set map location markers from fetch request (getLocationData.js)
+    locations(setMapEventData);
+
     setOpenSearch(false);
   };
 
@@ -93,12 +95,6 @@ const App = () => {
     event.preventDefault();
     setOpenSearch(!openSearch);
   };
-
-  // ? useEffect to pass in location Data from fetch request
-  useEffect(() => {
-    locations(setMapEventData);
-  }, []);
-  // console.log("!!!!!MAPEVENT", mapEventData);
 
   // ? user/login and signup context
   const [signupData, setSignupData] = useState({

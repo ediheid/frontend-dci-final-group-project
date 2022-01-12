@@ -11,7 +11,9 @@ import { AppContext } from "../../App";
 
 import styles from "../Map/Map.module.scss";
 
-// ? Hardcoded location data.. (will live in backend)
+import mapStyles from "./mapStyles";
+
+// ! Hardcoded location data.. (will live in backend)
 // const events = [
 //   {
 //     id: 1,
@@ -48,6 +50,8 @@ const Map = ({ center, zoom }) => {
   const MAP_API = process.env.REACT_APP_MAP_API;
 
   const mapContext = useContext(AppContext);
+
+  console.log(mapStyles);
 
   // console.log("!!!!!", events);
   // console.log("??", events[0].id);
@@ -131,15 +135,26 @@ const Map = ({ center, zoom }) => {
       </button>
 
       <GoogleMapReact
+        // styles={mapStyles.mapStyles}
+        // style={{  }}
+        // options={{ styles: mapStyles.styles }}
+        // styles={mapStyles.styles}
+        // styles={mapStyles.mapStyles}
+        // options={{ styles: mapStyles.mapStyles }}
+        // styles={styles.styles}
+        // styles={mapStyles}
+
+        options={{ styles: mapStyles }}
+        // !!!!
         // ? Added close location box on map so - this works on map but user can still click on a Marker and it will open!
         onClick={mapContext.closeLocationInfoBox}
         className={styles["map-component"]}
         // !!! API key lives in .env file - when commented out Map runs in dev mode
         // !!! Use like this so we don't use up the API
-        // bootstrapURLKeys={{
-        //   key: MAP_API,
-        //   language: "en",
-        // }}
+        bootstrapURLKeys={{
+          key: MAP_API,
+          language: "en",
+        }}
         defaultCenter={center}
         center={center}
         defaultZoom={zoom}
@@ -160,6 +175,11 @@ const Map = ({ center, zoom }) => {
 // !!! Map Component default props live here..
 
 Map.defaultProps = {
+  // styles: require("../../Styling/snazzy-map-avocado.json"),
+  //  styles={mapStyles.styles},
+  //  styles: {mapStyles.styles},
+  // styles:{ mapStyles.styles },
+
   // Center coordinates set to Baden-Württemberg
   center: { lat: 48.758339, lng: 8.243008 },
   defaultCenter: { lat: 48.758339, lng: 8.243008 },
