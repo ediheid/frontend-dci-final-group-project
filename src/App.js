@@ -44,6 +44,47 @@ const App = () => {
   const [openSearch, setOpenSearch] = useState(false);
   // ? Saved/Liked property..
   const [like, setLike] = useState(false);
+  // ? user/login and signup context
+  const [signupData, setSignupData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmedPassword: "",
+  });
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+  const [currentUser, setCurrentUser] = useState({
+    _id: "",
+    firstname: "",
+    lastname: "",
+    locations: [],
+    bookings: [],
+    // adress: {
+    //     street: "",
+    //     number: "",
+    //     city: "",
+    //     postcode: "",
+    // },
+    // birthday: ""
+  });
+  const [locationData, setLocationData] = useState({
+    title: "",
+    description: "",
+    address: "",
+    price: 0,
+    propertyType: {
+      field: false,
+    },
+    spaceType: "",
+    
+  });
+
+  useEffect(() => {
+    console.log(locationData);
+  }, [locationData]);
 
   // ? login/signup state
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -52,7 +93,7 @@ const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
   // ? opens map view - And closes search dropdown so user can see the full map
-  const mapView = (event) => {
+  const mapView = event => {
     event.preventDefault();
     setOpenMap(true);
     // console.log("Successful Submit");
@@ -89,61 +130,33 @@ const App = () => {
   };
 
   // ? Toggles the Search open and close for the buttons and NOT the search field
-  const toggleSearchDropdown = (event) => {
+  const toggleSearchDropdown = event => {
     event.preventDefault();
     setOpenSearch(!openSearch);
   };
 
   // ? useEffect to pass in location Data from fetch request
-  useEffect(() => {
-    locations(setMapEventData);
-  }, []);
+  // useEffect(() => {
+  //   locations(setMapEventData);
+  // }, []);
   // console.log("!!!!!MAPEVENT", mapEventData);
 
-  // ? user/login and signup context
-  const [signupData, setSignupData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    confirmedPassword: "",
-  });
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
-  const [currentUser, setCurrentUser] = useState({
-    _id: "",
-    firstname: "",
-    lastname: "",
-    locations: [],
-    bookings: [],
-    // adress: {
-    //     street: "",
-    //     number: "",
-    //     city: "",
-    //     postcode: "",
-    // },
-    // birthday: ""
-  });
-
-  // useEffect(() => {
-  //   setCurrentUser(JSON.parse(window.localStorage.getItem('currentUser')));
-  // }, []);
-
-  // useEffect(() => {
-  //   window.localStorage.setItem('currentUser', currentUser);
-  // }, [currentUser]);
-
-  const collectSignupData = (event) => {
+  const collectSignupData = event => {
     setSignupData({
       ...signupData,
       [event.target.name]: event.target.value,
     });
   };
 
-  const collectLoginData = (event) => {
+  const collectLoginData = event => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
+  };
+
+  const collectLocationData = event => {
+    setLocationData({
+      ...locationData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   return (
@@ -154,6 +167,11 @@ const App = () => {
           // ? Collect signup and login data context
           collectSignupData: collectSignupData,
           collectLoginData: collectLoginData,
+
+          // ? Collect locationData context
+          locationData,
+          setLocationData,
+          collectLocationData,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,

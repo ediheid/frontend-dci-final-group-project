@@ -35,31 +35,11 @@ const LocationForm = () => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        // const address = event.target.address.value;
-        // const title = event.target.title.value;
-        // const description = event.target.description.value;
-        // const data = { address, title, description }
-    
-        // console.log("submit", data)
+        const address = event.target.address.value;
+        const data = { address }
+
+        console.log("submit", data)
     };
-
-    const toggleState = () => {
-        SearchContext.setLocationdata({...SearchContext.locationData, })
-    }
-
-
-    // getInitialState: function() {
-    //     return {
-    //       isChecked: true
-    //     };
-    //   },
-    //   toggleChange: function() {
-    //     this.setState({
-    //       isChecked: !this.state.isChecked // flip boolean value
-    //     }, function() {
-    //       console.log(this.state);
-    //     }.bind(this));
-    //   },
 
     return (
         <>
@@ -97,9 +77,7 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="checkbox"
-                                    name="field"
-                                    onChange={SearchContext.collectLocationData}
-                                    checked={SearchContext.locationData.propertyType.field = true}
+            
                                 />
                                 <span className={styles.checkmark}></span>
                             </label>
@@ -109,9 +87,7 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="checkbox"
-                                    name="forest"
-                                    onChange={SearchContext.collectLocationData}
-                                
+    
                                 />
                                 <span className={styles.checkmark}></span>
                             </label>
@@ -121,9 +97,7 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="checkbox"
-                                    name="lake"
-                                    onChange={SearchContext.collectLocationData}
-                                    // checked={SearchContext.locationData.propertyType.lake === true}
+                            
                                 />
                                 <span className={styles.checkmark}></span>
                             </label>
@@ -133,9 +107,6 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="checkbox"
-                                    name="river"
-                                    onChange={SearchContext.collectLocationData}
-                                    checked={SearchContext.locationData.propertyType.river = true}
                                 />
                                 <span className={styles.checkmark}></span>
                             </label>
@@ -151,9 +122,7 @@ const LocationForm = () => {
                                     className={styles.input}
                                     type="radio"
                                     // checked="checked"
-                                    name="spaceType"
-                                    value={SearchContext.loginData.spaceType = "An entire property"}
-                                    onChange={SearchContext.collectLocationData}
+                                    name="radio"
                                 />
                                 <span
                                     className={styles["checkmark-radio"]}
@@ -164,9 +133,7 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="radio"
-                                    name="spaceType"
-                                    value={SearchContext.loginData.spaceType = "A shared property"}
-                                    onChange={SearchContext.collectLocationData}
+                                    name="radio"
                                 />
                                 <span
                                     className={styles["checkmark-radio"]}
@@ -182,13 +149,16 @@ const LocationForm = () => {
                                     </label>
 
                                     <input
-                                        placeholder="Search"
+                                        placeholder="Please insert your adress"
                                         className={styles["input-field"]}
-                                        onChange={SearchContext.collectLocationData}
                                         name="address"
+                                        
                                     />
+
+                                    <input className={styles["input-field"]}  name="capacity" />
+
                                 </div>
-                                <Map />
+                                {/* <Map /> */}
 
                                 <hr className={styles.hr} />
 
@@ -198,7 +168,8 @@ const LocationForm = () => {
                                         welcome?
                                     </label>
 
-                                    <NumericInput min={0} max={10} value={1} />
+                                    <input className={styles["input-field"]} type="text" name="capacity" />
+                                    {/* <NumericInput min={0} max={10} /> */}
 
                                     {/* <div className={styles.number}>
                                         <span className={styles.minus}>-</span>
@@ -215,7 +186,7 @@ const LocationForm = () => {
                                 </div>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Equipment
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -224,7 +195,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Barrier-free
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -233,7 +204,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Toilet
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -242,7 +213,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Electricity
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -251,7 +222,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Water connection
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -260,7 +231,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Showers
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -269,7 +240,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Animals allowed
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -278,7 +249,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Grey water disposal
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -287,7 +258,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Daily wast disposal
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -296,7 +267,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Sink
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -305,7 +276,7 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    WLAN
                                     <input
                                         className={styles.input}
                                         type="checkbox"
@@ -354,7 +325,7 @@ const LocationForm = () => {
                                     Title
                                 </label>
 
-                                <input className={styles["input-field"]} />
+                                <input className={styles["input-field"]} type="text"/>
                             </div>
 
                             <hr className={styles.hr} />
