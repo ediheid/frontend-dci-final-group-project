@@ -51,6 +51,8 @@ const Map = ({ center, zoom }) => {
 
   const mapContext = useContext(AppContext);
 
+  console.log(mapStyles);
+
   // console.log("!!!!!", events);
   // console.log("??", events[0].id);
   // console.log("##", events[0].coordinates[0]);
@@ -141,16 +143,18 @@ const Map = ({ center, zoom }) => {
         // options={{ styles: mapStyles.mapStyles }}
         // styles={styles.styles}
         // styles={mapStyles}
+
+        options={{ styles: mapStyles }}
         // !!!!
         // ? Added close location box on map so - this works on map but user can still click on a Marker and it will open!
         onClick={mapContext.closeLocationInfoBox}
         className={styles["map-component"]}
         // !!! API key lives in .env file - when commented out Map runs in dev mode
         // !!! Use like this so we don't use up the API
-        // bootstrapURLKeys={{
-        //   key: MAP_API,
-        //   language: "en",
-        // }}
+        bootstrapURLKeys={{
+          key: MAP_API,
+          language: "en",
+        }}
         defaultCenter={center}
         center={center}
         defaultZoom={zoom}

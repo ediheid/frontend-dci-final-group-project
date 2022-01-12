@@ -1,4 +1,6 @@
-let mapStyles = [
+import React from "react";
+
+const mapStyles = [
   {
     featureType: "water",
     elementType: "geometry",
