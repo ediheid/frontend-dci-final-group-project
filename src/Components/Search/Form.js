@@ -58,6 +58,11 @@ const Form = (props) => {
     "On a field",
     "In the woods",
     "Outdoor seating",
+    "Fireplace",
+    "Garden",
+    "Playground",
+    "Basic supplies available to purchase",
+    "Battery charging station",
   ];
   // * Default
 
