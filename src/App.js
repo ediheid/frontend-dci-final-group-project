@@ -1,11 +1,11 @@
 import React, { useState, createContext, useEffect } from "react";
 import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-  useHistory,
-  useLocation,
+    BrowserRouter as Router,
+    Route,
+    Redirect,
+    Switch,
+    useHistory,
+    useLocation,
 } from "react-router-dom";
 import signup from "./Services/createNewUser.js";
 import Cookies from "js-cookie";
@@ -25,6 +25,7 @@ import LocationCards from "./Components/LocationCards/LocationCards.js";
 import Welcome from "./Views/Welcome/Welcome";
 import LocationDetails from "./Components/LocationDetails/LocationDetails";
 import LocationForm from "./Components/LocationForm/LocationForm";
+import LoggedInLandingPage from "./Views/LoggedInLandingPage/LoggedInLandingPage";
 
 import { locations } from "./Services/getLocationData.js";
 
@@ -275,28 +276,60 @@ const App = () => {
             <Route exact path="/" component={LandingPage} />
             {/* {cookies.UserCookie !== "null" ?
                 <Redirect to="/welcome-page" />  */}
-            {/* :  */}
-            {/* <LandingPage />
+                        {/* :  */}
+                        {/* <LandingPage />
             </Route> */}
 
-            {/* // ? About us overview */}
-            <Route path="/about-us" exact component={AboutUs} />
-            <Route path="/verify-email" exact component={Verification} />
-            <Route path="/user-signed-up" exact component={CheckMail} />
-            <Route path="/location-cards" exact component={LocationCards} />
-            <Route path="/welcome-page" exact component={Welcome} />
+                        {/* // ? About us overview */}
+                        <Route path="/about-us" exact component={AboutUs} />
+                        <Route
+                            path="/verify-email"
+                            exact
+                            component={Verification}
+                        />
+                        <Route
+                            path="/user-signed-up"
+                            exact
+                            component={CheckMail}
+                        />
+                        <Route
+                            path="/location-cards"
+                            exact
+                            component={LocationCards}
+                        />
+                        <Route path="/welcome-page" exact component={Welcome} />
 
-            <Route path="/location-details" exact component={LocationDetails} />
-            <Route path="/location-form" exact component={LocationForm} />
-            {/* // ? Url redirect to landing page on unknown path */}
-            <Redirect to="/" exact />
-          </Switch>
-        </main>
-        {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-        <Footer />
-      </AppContext.Provider>
-    </div>
-  );
+                        <Route
+                            path="/location-details"
+                            exact
+                            component={LocationDetails}
+                        />
+                        <Route
+                            path="/location-form"
+                            exact
+                            component={LocationForm}
+                        />
+
+                        <Route
+                            path="/location-form"
+                            exact
+                            component={LocationForm}
+                        />
+
+                        <Route
+                            path="/logged-in"
+                            exact
+                            component={LoggedInLandingPage}
+                        />
+                        {/* // ? Url redirect to landing page on unknown path */}
+                        <Redirect to="/" exact />
+                    </Switch>
+                </main>
+                {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
+                <Footer />
+            </AppContext.Provider>
+        </div>
+    );
 };
 
 export default App;

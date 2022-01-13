@@ -46,130 +46,130 @@ import mapStyles from "./mapStyles";
 
 // Default props passed in to set below Component
 const Map = ({ center, zoom }) => {
-  // Google Map API
-  const MAP_API = process.env.REACT_APP_MAP_API;
+    // Google Map API
+    const MAP_API = process.env.REACT_APP_MAP_API;
 
-  const mapContext = useContext(AppContext);
+    const mapContext = useContext(AppContext);
 
-  console.log(mapStyles);
+    console.log(mapStyles);
 
-  // console.log("!!!!!", events);
-  // console.log("??", events[0].id);
-  // console.log("##", events[0].coordinates[0]);
+    // console.log("!!!!!", events);
+    // console.log("??", events[0].id);
+    // console.log("##", events[0].coordinates[0]);
 
-  console.log("#####", mapContext.mapEventData);
+    console.log("#####", mapContext.mapEventData);
 
-  // !!!
-  // Todo: Create a an extra loop to run through ids to the populate..
+    // !!!
+    // Todo: Create a an extra loop to run through ids to the populate..
 
-  const markers = mapContext.mapEventData.map((event) => {
-    console.log("*****", event.coordinates[0]);
+    const markers = mapContext.mapEventData.map((event) => {
+        console.log("*****", event.coordinates[0]);
 
-    if (event.id === "1") {
-      // console.log("YES", events);
-      // console.log("LATITUDE", events[0].coordinates[0]);
-      // console.log("LONGITUDE", events[0].coordinates[1]);
+        if (event.id === "1") {
+            // console.log("YES", events);
+            // console.log("LATITUDE", events[0].coordinates[0]);
+            // console.log("LONGITUDE", events[0].coordinates[1]);
 
-      return (
-        <LocationMarker
-          lat={event.coordinates[1]}
-          lng={event.coordinates[0]}
-          // ? To look into with Kathi
-          // !! Testing location Info..
-          onClick={() =>
-            mapContext.setLocationInfo({
-              id: event.id,
-              title: event.title,
-              address: event.address,
-              // !!
-              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
-              // town: event.town,
-              img: event.img,
-              link: event.link,
-            })
-          }
-          // ? ======
-        />
-      );
-    }
+            return (
+                <LocationMarker
+                    lat={event.coordinates[1]}
+                    lng={event.coordinates[0]}
+                    // ? To look into with Kathi
+                    // !! Testing location Info..
+                    onClick={() =>
+                        mapContext.setLocationInfo({
+                            id: event.id,
+                            title: event.title,
+                            address: event.address,
+                            // !!
+                            // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+                            // town: event.town,
+                            img: event.img,
+                            link: event.link,
+                        })
+                    }
+                    // ? ======
+                />
+            );
+        }
 
-    if (event.id === "2") {
-      // console.log("Another", events);
-      // console.log(" ID 2: LATITUDE", events[1].coordinates[0]);
-      // console.log(" ID 2: LONGITUDE", events[1].coordinates[1]);
+        if (event.id === "2") {
+            // console.log("Another", events);
+            // console.log(" ID 2: LATITUDE", events[1].coordinates[0]);
+            // console.log(" ID 2: LONGITUDE", events[1].coordinates[1]);
 
-      return (
-        <LocationMarker
-          lat={event.coordinates[1]}
-          lng={event.coordinates[0]}
-          // ? To look into with Kathi
-          // !! Testing location Info..
-          onClick={() =>
-            mapContext.setLocationInfo({
-              id: event.id,
-              title: event.title,
-              address: event.address,
-              // !!
-              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
-              town: event.town,
-              img: event.img,
-              link: event.link,
-            })
-          }
-          // ? ======
-        />
-      );
-    }
-    return null;
-  });
+            return (
+                <LocationMarker
+                    lat={event.coordinates[1]}
+                    lng={event.coordinates[0]}
+                    // ? To look into with Kathi
+                    // !! Testing location Info..
+                    onClick={() =>
+                        mapContext.setLocationInfo({
+                            id: event.id,
+                            title: event.title,
+                            address: event.address,
+                            // !!
+                            // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+                            town: event.town,
+                            img: event.img,
+                            link: event.link,
+                        })
+                    }
+                    // ? ======
+                />
+            );
+        }
+        return null;
+    });
 
-  return (
-    // Conditionally rendered - will only display onSubmit of form!
+    return (
+        // Conditionally rendered - will only display onSubmit of form!
 
-    <div className={styles["map-container"]}>
-      <button
-        className={styles["close-map-button"]}
-        onClick={mapContext.closeMap}
-      >
-        X
-      </button>
+        <div className={styles["map-container"]}>
+            <button
+                className={styles["close-map-button"]}
+                onClick={mapContext.closeMap}
+            >
+                X
+            </button>
 
-      <GoogleMapReact
-        // !!! - Snazzy Maps only works when API is called (not in dev mode)
-        options={{ styles: mapStyles }}
-        // ? Added close location box on map so - this works on map but user can still click on a Marker and it will open!
-        onClick={mapContext.closeLocationInfoBox}
-        className={styles["map-component"]}
-        // !!! API key lives in .env file - when commented out Map runs in dev mode
-        // !!! Use like this so we don't use up the API
-        // bootstrapURLKeys={{
-        //   key: MAP_API,
-        //   language: "en",
-        // }}
-        defaultCenter={center}
-        center={center}
-        defaultZoom={zoom}
-      >
-        {markers}
-        {/* <LocationMarker lat={center.lat} lng={center.lng} /> */}
-      </GoogleMapReact>
-      {/*   // ? To look into with Kathi
+            <GoogleMapReact
+                // !!! - Snazzy Maps only works when API is called (not in dev mode)
+                options={{ styles: mapStyles }}
+                // ? Added close location box on map so - this works on map but user can still click on a Marker and it will open!
+                onClick={mapContext.closeLocationInfoBox}
+                className={styles["map-component"]}
+                // !!! API key lives in .env file - when commented out Map runs in dev mode
+                // !!! Use like this so we don't use up the API
+                // bootstrapURLKeys={{
+                //   key: MAP_API,
+                //   language: "en",
+                // }}
+                defaultCenter={center}
+                center={center}
+                defaultZoom={zoom}
+            >
+                {markers}
+                {/* <LocationMarker lat={center.lat} lng={center.lng} /> */}
+            </GoogleMapReact>
+            {/*   // ? To look into with Kathi
             // !! Testing location Info.. */}
-      {mapContext.locationInfo && (
-        <LocationInfoBox info={mapContext.locationInfo} />
-      )}
-      {/*  // ? ====== */}
-    </div>
-  );
+            {mapContext.locationInfo && (
+                <LocationInfoBox info={mapContext.locationInfo} />
+            )}
+            {/*  // ? ====== */}
+        </div>
+    );
 };
 
 // !!! Map Component default props live here..
 
 Map.defaultProps = {
-  // Center coordinates set to Baden-Württemberg
-  center: { lat: 48.758339, lng: 8.243008 },
-  defaultCenter: { lat: 48.758339, lng: 8.243008 },
-  zoom: 8,
+    // Center coordinates set to Baden-Württemberg
+    center: { lat: 48.758339, lng: 8.243008 },
+    defaultCenter: { lat: 48.758339, lng: 8.243008 },
+    zoom: 8,
 };
 
 export default Map;
