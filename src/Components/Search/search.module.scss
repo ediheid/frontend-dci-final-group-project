@@ -67,6 +67,15 @@
 
 // ? Dropdown Search section
 
+// !!! Styling applied to dropdown section of form for when it is closed so clicking other elements isn't blocked - also stops the user from being able to click on form elements when closed
+
+.hidden-form-dropdown {
+  position: absolute;
+  margin-top: -100%;
+  // z-index: -1000;
+  padding: 0;
+}
+
 .form-dropdown-container {
   position: absolute;
   left: 0;
@@ -82,10 +91,6 @@
   padding: 3rem 0 14rem 0;
 
   background-color: $cream;
-
-  // ! Commented out z-index to test - make sure it does not disappear
-  // // !! Make sure z-index is higher than all other elements / Components o it does not disappear
-  // z-index: 3000;
 }
 
 // Close button
@@ -98,6 +103,8 @@
 
   font-size: 2.5rem;
   color: $main-font-colour;
+
+  cursor: pointer;
 }
 
 .form-search-button {
