@@ -155,7 +155,7 @@ const Map = ({ center, zoom }) => {
                     key: MAP_API,
                     language: "en",
                 }}
-                defaultCenter={center}
+                defaultCenter={center}git pull
                 center={center}
                 defaultZoom={zoom}
             >
