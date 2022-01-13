@@ -77,6 +77,9 @@ const App = () => {
     price: 0,
     propertyType: {
       field: false,
+      forest: false,
+      lake: false,
+      river: false
     },
     spaceType: "",
     
@@ -152,12 +155,20 @@ const App = () => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
-  const collectLocationData = event => {
-    setLocationData({
-      ...locationData,
-      [event.target.name]: event.target.value,
-    });
-  };
+  // const collectLocationData = event => {
+  //   if (event.target.name === "field" || event.target.name === "forest" || event.target.name === "lake" || event.target.name === "river") {
+  //         setLocationData({...locationData, propertyType: {
+  //           ...locationData.propertyType, [event.target.name]: event.target.checked}
+  //         }); 
+  //       } else if {
+    
+  //       }
+    
+  //   setLocationData({
+  //     ...locationData,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
 
   return (
     <div>
@@ -171,7 +182,7 @@ const App = () => {
           // ? Collect locationData context
           locationData,
           setLocationData,
-          collectLocationData,
+          // collectLocationData,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
