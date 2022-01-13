@@ -203,7 +203,6 @@ const App = () => {
             {/* // ? Template/placeholder for how to setup paths with components.. */}
             {/* <Route path="/" exact component={LandingPage} /> */}
             <Route exact path="/" component={LandingPage} />
-
             {/* {cookies.UserCookie !== "null" ?
                 <Redirect to="/welcome-page" />  */}
             {/* :  */}
