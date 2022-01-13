@@ -1,11 +1,10 @@
 import React, { useState, createContext, useEffect } from "react";
 import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Switch,
-    useHistory,
-    useLocation,
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+  useHistory,
 } from "react-router-dom";
 import signup from "./Services/createNewUser.js";
 import Cookies from "js-cookie";
@@ -81,7 +80,7 @@ const App = () => {
       field: false,
       forest: false,
       lake: false,
-      river: false
+      river: false,
     },
     spaceType: "",
     address: "",
@@ -93,17 +92,17 @@ const App = () => {
       wlan: false,
       sauna: false,
       washingMachine: false,
-      playground: false, 
+      playground: false,
       farmShop: false,
       fireplace: false,
       batteryCharger: false,
-      basin: false
+      basin: false,
     },
     essentialAmenities: {
       water: false,
       shower: false,
       toilet: false,
-    }
+    },
   });
 
   useEffect(() => {
@@ -117,7 +116,7 @@ const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
   // ? opens map view - And closes search dropdown so user can see the full map
-  const mapView = event => {
+  const mapView = (event) => {
     event.preventDefault();
     setOpenMap(true);
 
@@ -156,7 +155,7 @@ const App = () => {
   };
 
   // ? Toggles the Search open and close for the buttons and NOT the search field
-  const toggleSearchDropdown = event => {
+  const toggleSearchDropdown = (event) => {
     event.preventDefault();
     setOpenSearch(!openSearch);
   };
@@ -167,45 +166,75 @@ const App = () => {
   // }, []);
   // console.log("!!!!!MAPEVENT", mapEventData);
 
-  const collectSignupData = event => {
+  const collectSignupData = (event) => {
     setSignupData({
       ...signupData,
       [event.target.name]: event.target.value,
     });
   };
 
-  const collectLoginData = event => {
+  const collectLoginData = (event) => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
-  const collectLocationData = event => {
-    console.log([event.target.name])
-    if (event.target.name === "field" || event.target.name === "forest" || event.target.name === "lake" || event.target.name === "river") {
-          setLocationData({...locationData, propertyType: {
-            ...locationData.propertyType, [event.target.name]: event.target.checked}
-          }); 
-        } else if (event.target.name === "lavatory" || event.target.name === "barrierFree" || event.target.name === "electricity" || event.target.name === "wlan" || event.target.name === "sauna" || event.target.name === "washingMachine" || event.target.name === "playground" || event.target.name === "farmShop" || event.target.name === "fireplace" || event.target.name === "batteryCharger" || event.target.name === "basin") {
-          setLocationData({...locationData, amenities: {
-            ...locationData.amenities, [event.target.name]: event.target.checked
-          }
-        })
-        } else if (event.target.name === "water" || event.target.name === "shower" || event.target.name === "toilet") {
-          setLocationData({...locationData, essentialAmenities: {
-            ...locationData.essentialAmenities, [event.target.name]: event.target.checked
-          }
-        })
-        } else {
-          
-          setLocationData({
-            ...locationData,
-            [event.target.name]: event.target.value,
-          });
-        }
+  const collectLocationData = (event) => {
+    console.log([event.target.name]);
+    if (
+      event.target.name === "field" ||
+      event.target.name === "forest" ||
+      event.target.name === "lake" ||
+      event.target.name === "river"
+    ) {
+      setLocationData({
+        ...locationData,
+        propertyType: {
+          ...locationData.propertyType,
+          [event.target.name]: event.target.checked,
+        },
+      });
+    } else if (
+      event.target.name === "lavatory" ||
+      event.target.name === "barrierFree" ||
+      event.target.name === "electricity" ||
+      event.target.name === "wlan" ||
+      event.target.name === "sauna" ||
+      event.target.name === "washingMachine" ||
+      event.target.name === "playground" ||
+      event.target.name === "farmShop" ||
+      event.target.name === "fireplace" ||
+      event.target.name === "batteryCharger" ||
+      event.target.name === "basin"
+    ) {
+      setLocationData({
+        ...locationData,
+        amenities: {
+          ...locationData.amenities,
+          [event.target.name]: event.target.checked,
+        },
+      });
+    } else if (
+      event.target.name === "water" ||
+      event.target.name === "shower" ||
+      event.target.name === "toilet"
+    ) {
+      setLocationData({
+        ...locationData,
+        essentialAmenities: {
+          ...locationData.essentialAmenities,
+          [event.target.name]: event.target.checked,
+        },
+      });
+    } else {
+      setLocationData({
+        ...locationData,
+        [event.target.name]: event.target.value,
+      });
+    }
   };
 
-  const setCapacity = val => {
-    setLocationData({...locationData, maxCapacity: val})
-  }
+  const setCapacity = (val) => {
+    setLocationData({ ...locationData, maxCapacity: val });
+  };
 
   return (
     <div>
@@ -276,60 +305,32 @@ const App = () => {
             <Route exact path="/" component={LandingPage} />
             {/* {cookies.UserCookie !== "null" ?
                 <Redirect to="/welcome-page" />  */}
-                        {/* :  */}
-                        {/* <LandingPage />
+            {/* :  */}
+            {/* <LandingPage />
             </Route> */}
 
-                        {/* // ? About us overview */}
-                        <Route path="/about-us" exact component={AboutUs} />
-                        <Route
-                            path="/verify-email"
-                            exact
-                            component={Verification}
-                        />
-                        <Route
-                            path="/user-signed-up"
-                            exact
-                            component={CheckMail}
-                        />
-                        <Route
-                            path="/location-cards"
-                            exact
-                            component={LocationCards}
-                        />
-                        <Route path="/welcome-page" exact component={Welcome} />
+            {/* // ? About us overview */}
+            <Route path="/about-us" exact component={AboutUs} />
+            <Route path="/verify-email" exact component={Verification} />
+            <Route path="/user-signed-up" exact component={CheckMail} />
+            <Route path="/location-cards" exact component={LocationCards} />
+            <Route path="/welcome-page" exact component={Welcome} />
 
-                        <Route
-                            path="/location-details"
-                            exact
-                            component={LocationDetails}
-                        />
-                        <Route
-                            path="/location-form"
-                            exact
-                            component={LocationForm}
-                        />
+            <Route path="/location-details" exact component={LocationDetails} />
+            <Route path="/location-form" exact component={LocationForm} />
 
-                        <Route
-                            path="/location-form"
-                            exact
-                            component={LocationForm}
-                        />
+            <Route path="/location-form" exact component={LocationForm} />
 
-                        <Route
-                            path="/logged-in"
-                            exact
-                            component={LoggedInLandingPage}
-                        />
-                        {/* // ? Url redirect to landing page on unknown path */}
-                        <Redirect to="/" exact />
-                    </Switch>
-                </main>
-                {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-                <Footer />
-            </AppContext.Provider>
-        </div>
-    );
+            <Route path="/logged-in" exact component={LoggedInLandingPage} />
+            {/* // ? Url redirect to landing page on unknown path */}
+            <Redirect to="/" exact />
+          </Switch>
+        </main>
+        {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
+        <Footer />
+      </AppContext.Provider>
+    </div>
+  );
 };
 
 export default App;

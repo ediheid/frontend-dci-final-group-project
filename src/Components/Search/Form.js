@@ -14,7 +14,8 @@ import Map from "../Map/Map";
 
 // Libraries
 import Expand from "react-expand-animated";
-import Dropdown from "react-dropdown";
+// import Dropdown from "react-dropdown";
+
 import DatePicker from "react-datepicker";
 
 // Icons
@@ -35,35 +36,63 @@ const Form = (props) => {
 
   // todo Dropdown - Ready to take in data - see docs:
   // https://www.npmjs.com/package/react-dropdown
-  const options = [
-    "Barrier-free",
-    "Lavatory",
-    "Electricity supply",
-    "Water supply",
-    "Showers",
-    "Animals welcome",
-    "Grey water disposal",
-    "Daily waste disposal",
-    "Basin",
-    "WiFi",
-    "Sauna",
-    "Whirlpool",
-    "Swimming pool",
-    "Washing machine",
-    "On a private path",
-    "In a courtyard",
-    "By a body of water",
-    "By a pond",
-    "By a river",
-    "On a field",
-    "In the woods",
-    "Outdoor seating",
-    "Fireplace",
-    "Garden",
-    "Playground",
-    "Basic supplies available to purchase",
-    "Battery charging station",
-  ];
+  // const options = [
+  //   "Barrier-free",
+  //   "Lavatory",
+  //   "Electricity supply",
+  //   "Water supply",
+  //   "Showers",
+  //   "Animals welcome",
+  //   "Grey water disposal",
+  //   "Daily waste disposal",
+  //   "Basin",
+  //   "WiFi",
+  //   "Sauna",
+  //   "Whirlpool",
+  //   "Swimming pool",
+  //   "Washing machine",
+  //   "On a private path",
+  //   "In a courtyard",
+  //   "By a body of water",
+  //   "By a pond",
+  //   "By a river",
+  //   "On a field",
+  //   "In the woods",
+  //   "Outdoor seating",
+  //   "Fireplace",
+  //   "Garden",
+  //   "Playground",
+  //   "Basic supplies available to purchase",
+  //   "Battery charging station",
+  // ];
+
+  // const options = [
+  //   {
+  //     type: "group",
+  //     name: "Equipment",
+  //     items: [
+  //       { value: "three", label: "Three", className: "myOptionClassName" },
+  //       { value: "four", label: "Four" },
+  //     ],
+  //   },
+  //   {
+  //     type: "group",
+  //     name: "Extras",
+  //     items: [
+  //       { value: "five", label: "Five" },
+  //       { value: "six", label: "Six" },
+  //     ],
+  //   },
+  //   {
+  //     type: "group",
+  //     name: "group2",
+  //     items: [
+  //       { value: "five", label: "Five" },
+  //       { value: "six", label: "Six" },
+  //     ],
+  //   },
+  // ];
+
   // * Default
 
   // todo Calendar - work on functionality and data collection
@@ -151,12 +180,14 @@ const Form = (props) => {
 
                 {/* // ? Dropdown for amenities */}
                 <div className={styles["search-item"]}>
-                  <label className={styles["search-labels"]}>Extras</label>
-                  <Dropdown
+                  <label className={styles["search-labels"]}>Amenities</label>
+
+                  {/* <Dropdown
                     // * Styled in "../Search/dropdown-styling.css" - from node modules default styles;
                     options={options}
+                    multiple={true}
                     // onChange={this._onSelect} // todo: Look into docs
-                  />
+                  /> */}
                 </div>
 
                 {/* //? Close button  */}
