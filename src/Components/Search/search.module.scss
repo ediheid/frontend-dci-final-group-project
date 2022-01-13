@@ -83,8 +83,9 @@
 
   background-color: $cream;
 
-  // !! Make sure z-index is higher than all other elements / Components o it does not disappear
-  z-index: 3000;
+  // ! Commented out z-index to test - make sure it does not disappear
+  // // !! Make sure z-index is higher than all other elements / Components o it does not disappear
+  // z-index: 3000;
 }
 
 // Close button
