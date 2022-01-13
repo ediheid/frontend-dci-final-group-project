@@ -5,11 +5,21 @@
 
 // ? Map
 
+.test-container {
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .map-container {
   position: relative;
+
   // !! Probably 80vh for tablet +
   // height: 87vh;
-  height: 90vh;
+  height: 73vh;
+  // width: 88%;
   width: 100%;
 
   padding: 3rem 3rem 5rem 3rem;
@@ -196,6 +206,10 @@
 // ? Media Queries..
 
 @include x-small {
+  .map-container {
+    padding-bottom: 15rem;
+  }
+
   .location-box {
     top: 4.5rem;
   }
@@ -203,7 +217,7 @@
 
 @include small {
   .map-container {
-    padding-bottom: 10rem;
+    padding-bottom: 15rem;
   }
 
   .liked-and-link-container {
@@ -213,7 +227,7 @@
 
 @include medium {
   .map-container {
-    padding-bottom: 10rem;
+    padding-bottom: 15rem;
   }
 
   .liked-and-link-container {
@@ -223,7 +237,7 @@
 
 @include large {
   .map-container {
-    height: 78vh;
+    height: 70vh;
     padding-bottom: 8rem;
   }
 
@@ -234,7 +248,7 @@
 
 @include extra-large {
   .map-container {
-    height: 80vh;
+    height: 70vh;
   }
 
   .liked-and-link-container {
@@ -244,7 +258,7 @@
 
 @include extra-extra-large {
   .map-container {
-    height: 80vh;
+    height: 70vh;
   }
 
   .liked-and-link-container {
@@ -255,6 +269,8 @@
 @include extra-extra-small {
   .map-container {
     padding: 0;
+
+    height: 80vh;
   }
 
   .inner-location-box {
