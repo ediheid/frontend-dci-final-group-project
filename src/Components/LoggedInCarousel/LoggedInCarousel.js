@@ -25,59 +25,59 @@ const LoggedInCarousel = () => {
         // arrows: false,
     };
     return (
-        <div className={styles.container}>
-            <Slider {...settings}>
-                <div className={styles.imagecontainer}>
-                    <img
-                        className={styles.image}
-                        src={image1}
-                        alt="Credit to Joshua Earle on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image2}
-                        alt="Credit to Alisa Anton on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image3}
-                        alt="Credit to Igor Ovsyannykov on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image4}
-                        alt="Credit to Pierre Châtel-Innocenti on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image5}
-                        alt="Credit to Richard Nolan on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image6}
-                        alt="Credit to Cristina Gottardi on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image7}
-                        alt="Credit to Cristina Gottardi on Unsplash"
-                    />
-                </div>
-            </Slider>
-        </div>
+        // <div className={styles.container}>
+        <Slider {...settings}>
+            <div className={styles.imagecontainer}>
+                <img
+                    className={styles.image}
+                    src={image1}
+                    alt="Credit to Joshua Earle on Unsplash"
+                />
+            </div>
+            <div>
+                <img
+                    className={styles.image}
+                    src={image2}
+                    alt="Credit to Alisa Anton on Unsplash"
+                />
+            </div>
+            <div>
+                <img
+                    className={styles.image}
+                    src={image3}
+                    alt="Credit to Igor Ovsyannykov on Unsplash"
+                />
+            </div>
+            <div>
+                <img
+                    className={styles.image}
+                    src={image4}
+                    alt="Credit to Pierre Châtel-Innocenti on Unsplash"
+                />
+            </div>
+            <div>
+                <img
+                    className={styles.image}
+                    src={image5}
+                    alt="Credit to Richard Nolan on Unsplash"
+                />
+            </div>
+            <div>
+                <img
+                    className={styles.image}
+                    src={image6}
+                    alt="Credit to Cristina Gottardi on Unsplash"
+                />
+            </div>
+            <div>
+                <img
+                    className={styles.image}
+                    src={image7}
+                    alt="Credit to Cristina Gottardi on Unsplash"
+                />
+            </div>
+        </Slider>
+        // </div>
     );
 };
 
