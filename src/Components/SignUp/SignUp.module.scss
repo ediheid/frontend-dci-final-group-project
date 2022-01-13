@@ -23,11 +23,15 @@
 }
 
 .content {
-    min-width: 70vw;
-    min-height: 50vh;
+    width: 80vw;
+    height: auto;
     background-color: $cream;
     border-radius: 20px;
     padding: 5vw;
+    // border: 1px solid;
+    // padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .header {
@@ -42,6 +46,10 @@
     margin-left: auto;
     margin-right: auto;
     // font-size: 1.5rem;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .title {
@@ -66,24 +74,26 @@
     align-content: center;
 }
 
-.input-signup,
-.input-signup-button {
+.input-signup {
     border: transparent;
     border-radius: 20px;
     margin: 1vw;
     padding: 2vw;
-    width: 50vw;
+    width: 60vw;
     color: $main-font-colour;
+    cursor: pointer;
 }
 
 .input-signup-button {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5vw;
-    color: $main-font-colour-light;
+    font-family: $main-font-font-family;
+    color: $main-font-colour;
     background-color: $orange;
-    width: 30vw;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    margin-top: 2vh;
+    padding: 1vh 5vw 1vh 5vw;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
 }
 
 .modal-footer {
@@ -100,10 +110,12 @@
 
 .modal-footer div:nth-child(2) {
     color: $orange;
+    cursor: pointer;
 }
 
 .modal-footer div:nth-child(2) {
     margin-top: 0.5vw;
+    cursor: pointer;
 }
 
 .link {
@@ -111,29 +123,13 @@
     color: $orange;
 }
 
-.error-text {
-  color: #b40e0e;
+.error {
+    color: $google-pin-colour;
+    font-family: $roboto-italic-font-family;
+    font-size: 1.3rem;
 }
 
-.success-text {
-    color: rgb(25, 131, 25)
-}
-
-/*
-pre {
-  width: 70%;
-  color: #fff;
-  font-size: larger;
-}
-
-button {
-  background: #0563b4 !important;
-}
-p {
-  color: red;
-}
-*/
-// ? Media Queries
+/// ? Media Queries
 // Based on Bootstrap breakpoints
 
 // * X-Small = Less than 576px - small mobile devices
@@ -142,20 +138,77 @@ p {
 
 // * Small = Less than 768px - mobile devices
 @include small {
+    .content {
+        width: auto;
+        height: auto;
+        padding: 3vw;
+    }
+
+    .input-signup {
+        border-radius: 20px;
+        padding: 1vw;
+        width: 50vw;
+    }
 }
 
 // * Medium = Less than 992px - tablets
 @include medium {
+    .content {
+        width: auto;
+        height: auto;
+        padding: 3vw;
+    }
+
+    .input-signup {
+        border-radius: 20px;
+        padding: 1vw;
+        width: 50vw;
+    }
 }
 
 // * Large = Less than 1200px - small desktops
 @include large {
+    .content {
+        width: auto;
+        height: auto;
+        padding: 2vw;
+    }
+
+    .input-signup {
+        border-radius: 20px;
+        padding: 0.8vw;
+        width: 40vw;
+    }
 }
 
 // * Extra Large = Less than 1399px - medium desktops
 @include extra-large {
+    .content {
+        width: auto;
+        height: auto;
+        padding: 2vw;
+    }
+
+    .input-signup {
+        margin: 0.5vw;
+        border-radius: 20px;
+        padding: 0.5vw;
+        width: 30vw;
+    }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
 @include extra-extra-large {
+    .content {
+        width: auto;
+        height: auto;
+        padding: 2vw;
+    }
+
+    .input-signup {
+        margin: 0.5vw;
+        border-radius: 20px;
+        padding: 0.5vw;
+        width: 30vw;
+    }
 }

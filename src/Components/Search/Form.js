@@ -26,9 +26,44 @@ const Form = (props) => {
   const SearchContext = useContext(AppContext);
   const MapContext = useContext(AppContext);
 
+  // ! Debug why this useEffect stops the app from running unless the backend server is running
+  // ? useEffect to pass in location Data from fetch request
+  // useEffect(() => {
+  //   locations(MapContext.setMapEventData);
+  // }, []);
+  // // console.log("!!!!!MAPEVENT", mapEventData);
+
   // todo Dropdown - Ready to take in data - see docs:
   // https://www.npmjs.com/package/react-dropdown
-  const options = ["one", "two", "three"];
+  const options = [
+    "Barrier-free",
+    "Lavatory",
+    "Electricity supply",
+    "Water supply",
+    "Showers",
+    "Animals welcome",
+    "Grey water disposal",
+    "Daily waste disposal",
+    "Basin",
+    "WiFi",
+    "Sauna",
+    "Whirlpool",
+    "Swimming pool",
+    "Washing machine",
+    "On a private path",
+    "In a courtyard",
+    "By a body of water",
+    "By a pond",
+    "By a river",
+    "On a field",
+    "In the woods",
+    "Outdoor seating",
+    "Fireplace",
+    "Garden",
+    "Playground",
+    "Basic supplies available to purchase",
+    "Battery charging station",
+  ];
   // * Default
 
   // todo Calendar - work on functionality and data collection

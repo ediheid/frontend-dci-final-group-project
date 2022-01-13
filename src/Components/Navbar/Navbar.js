@@ -21,7 +21,7 @@ const Navbar = (props) => {
       console.log("decoded Data from Cookie", userData);
       modalContext.setCurrentUser(userData);
     }
-  }, []); //modalContext (?)
+  }, []);
 
   // const [showLoginModal, setShowLoginModal] = useState(false);
   // const [showSignupModal, setShowSignupModal] = useState(false);
@@ -90,12 +90,12 @@ const Navbar = (props) => {
             closeSignup={closeSignupModal}
             openLogin={openLoginFromSignup}
 
-          // signupFetch={props.signupFetch}
-          // loginFetch={props.loginFetch}
-          // collectLoginData={props.collectLoginData}
-          // collectSignupData={props.collectSignupData}
-          // signupData={props.signupData}
-          // loginData={props.loginData}
+            // signupFetch={props.signupFetch}
+            // loginFetch={props.loginFetch}
+            // collectLoginData={props.collectLoginData}
+            // collectSignupData={props.collectSignupData}
+            // signupData={props.signupData}
+            // loginData={props.loginData}
           />
         </i>
       </div>
@@ -136,12 +136,12 @@ const Navbar = (props) => {
           closeSignup={closeSignupModal}
           openLogin={openLoginFromSignup}
 
-        // signupFetch={props.signupFetch}
-        // loginFetch={props.loginFetch}
-        // collectLoginData={props.collectLoginData}
-        // collectSignupData={props.collectSignupData}
-        // signupData={props.signupData}
-        // loginData={props.loginData}
+          // signupFetch={props.signupFetch}
+          // loginFetch={props.loginFetch}
+          // collectLoginData={props.collectLoginData}
+          // collectSignupData={props.collectSignupData}
+          // signupData={props.signupData}
+          // loginData={props.loginData}
         />
       </div>
     </div>
@@ -151,11 +151,12 @@ const Navbar = (props) => {
     <>
       {/* // !! Conditional styling passed down from  Search.js Component - to change the colour of Navbar when search field is open - to match search full opacity background  */}
       <div
-        className={`${styles["navbar-container"]} ${SearchContext.openSearch
-          ? styles["bgChange"]
-          : styles["navbar-container"]
-          }`}
-      //   className={styles["navbar-container"]}
+        className={`${styles["navbar-container"]} ${
+          SearchContext.openSearch
+            ? styles["bgChange"]
+            : styles["navbar-container"]
+        }`}
+        //   className={styles["navbar-container"]}
       >
         {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
         {content}

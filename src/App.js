@@ -1,10 +1,11 @@
 import React, { useState, createContext, useEffect } from "react";
 import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-  useHistory,
+    BrowserRouter as Router,
+    Route,
+    Redirect,
+    Switch,
+    useHistory,
+    useLocation,
 } from "react-router-dom";
 import signup from "./Services/createNewUser.js";
 import Cookies from "js-cookie";
@@ -14,6 +15,7 @@ import { useCookies } from "react-cookie";
 import styles from "./Styling/app.module.scss";
 
 // ? All Component and View imports
+import ScrollToTop from "./Components/ScrollToTop.js";
 import LandingPage from "./Views/LandingPage/LandingPage";
 import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
@@ -22,6 +24,8 @@ import CheckMail from "./Components/CheckMail/CheckMail.js";
 import LocationCards from "./Components/LocationCards/LocationCards.js";
 import Welcome from "./Views/Welcome/Welcome";
 import LocationDetails from "./Components/LocationDetails/LocationDetails";
+import LocationForm from "./Components/LocationForm/LocationForm";
+import LoggedInLandingPage from "./Views/LoggedInLandingPage/LoggedInLandingPage";
 
 import { locations } from "./Services/getLocationData.js";
 
@@ -41,6 +45,70 @@ const App = () => {
   const [openSearch, setOpenSearch] = useState(false);
   // ? Saved/Liked property..
   const [like, setLike] = useState(false);
+  // ? user/login and signup context
+  const [signupData, setSignupData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmedPassword: "",
+  });
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+  const [currentUser, setCurrentUser] = useState({
+    _id: "",
+    firstname: "",
+    lastname: "",
+    locations: [],
+    bookings: [],
+    // adress: {
+    //     street: "",
+    //     number: "",
+    //     city: "",
+    //     postcode: "",
+    // },
+    // birthday: ""
+  });
+
+  const [locationData, setLocationData] = useState({
+    title: "",
+    description: "",
+    address: "",
+    price: 0,
+    propertyType: {
+      field: false,
+      forest: false,
+      lake: false,
+      river: false
+    },
+    spaceType: "",
+    address: "",
+    maxCapacity: 0,
+    amenities: {
+      lavatory: false,
+      barrierFree: false,
+      electricity: false,
+      wlan: false,
+      sauna: false,
+      washingMachine: false,
+      playground: false, 
+      farmShop: false,
+      fireplace: false,
+      batteryCharger: false,
+      basin: false
+    },
+    essentialAmenities: {
+      water: false,
+      shower: false,
+      toilet: false,
+    }
+  });
+
+  useEffect(() => {
+    console.log(locationData);
+  }, [locationData]);
 
   // ? login/signup state
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -49,11 +117,13 @@ const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
   // ? opens map view - And closes search dropdown so user can see the full map
-  const mapView = (event) => {
+  const mapView = event => {
     event.preventDefault();
     setOpenMap(true);
-    // console.log("Successful Submit");
-    // ! Note for Jamie: Fixed the problem
+
+    // ! Set map location markers from fetch request (getLocationData.js)
+    locations(setMapEventData);
+
     setOpenSearch(false);
   };
 
@@ -80,105 +150,62 @@ const App = () => {
     setLocationInfo(false);
   };
 
-
   // ? Open Search Form function
   const openForm = () => {
     setOpenSearch(true);
   };
 
   // ? Toggles the Search open and close for the buttons and NOT the search field
-  const toggleSearchDropdown = (event) => {
+  const toggleSearchDropdown = event => {
     event.preventDefault();
     setOpenSearch(!openSearch);
   };
 
   // ? useEffect to pass in location Data from fetch request
-  useEffect(() => {
-    locations(setMapEventData);
-  }, []);
+  // useEffect(() => {
+  //   locations(setMapEventData);
+  // }, []);
   // console.log("!!!!!MAPEVENT", mapEventData);
 
-  // ? user/login and signup context
-  const [signupData, setSignupData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    confirmedPassword: "",
-  });
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-  });
-
-
-  const [loginEmailIsValid, setLoginEmailIsValid] = useState(false)
-  const [loginEmailMessage, setLoginEmailMessage] = useState('');
-
-  const [loginPasswordIsValid, setLoginPasswordIsValid] = useState(false)
-  const [loginPasswordMessage, setLoginPasswordMessage] = useState('');
-
-  const [currentUser, setCurrentUser] = useState({
-    _id: "",
-    firstname: "",
-    lastname: "",
-    locations: [],
-    bookings: [],
-    // adress: {
-    //     street: "",
-    //     number: "",
-    //     city: "",
-    //     postcode: "",
-    // },
-    // birthday: ""
-  });
-
-  // useEffect(() => {
-  //   setCurrentUser(JSON.parse(window.localStorage.getItem('currentUser')));
-  // }, []);
-
-  // useEffect(() => {
-  //   window.localStorage.setItem('currentUser', currentUser);
-  // }, [currentUser]);
-
-  const collectSignupData = (event) => {
+  const collectSignupData = event => {
     setSignupData({
       ...signupData,
       [event.target.name]: event.target.value,
     });
   };
 
-  const collectLoginData = (event) => {
+  const collectLoginData = event => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
+  const collectLocationData = event => {
+    console.log([event.target.name])
+    if (event.target.name === "field" || event.target.name === "forest" || event.target.name === "lake" || event.target.name === "river") {
+          setLocationData({...locationData, propertyType: {
+            ...locationData.propertyType, [event.target.name]: event.target.checked}
+          }); 
+        } else if (event.target.name === "lavatory" || event.target.name === "barrierFree" || event.target.name === "electricity" || event.target.name === "wlan" || event.target.name === "sauna" || event.target.name === "washingMachine" || event.target.name === "playground" || event.target.name === "farmShop" || event.target.name === "fireplace" || event.target.name === "batteryCharger" || event.target.name === "basin") {
+          setLocationData({...locationData, amenities: {
+            ...locationData.amenities, [event.target.name]: event.target.checked
+          }
+        })
+        } else if (event.target.name === "water" || event.target.name === "shower" || event.target.name === "toilet") {
+          setLocationData({...locationData, essentialAmenities: {
+            ...locationData.essentialAmenities, [event.target.name]: event.target.checked
+          }
+        })
+        } else {
+          
+          setLocationData({
+            ...locationData,
+            [event.target.name]: event.target.value,
+          });
+        }
+  };
 
-  useEffect(() => {
-    console.log("changed");
-    const enteredEmail = loginData.email
-    console.log("TEST", enteredEmail);
-    if (enteredEmail.trim() === '' || enteredEmail.length >= 50 || !(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(enteredEmail))) {
-      if (enteredEmail.trim() === '') {
-        // console.log("Hello")
-        setLoginEmailIsValid(false);
-        setLoginEmailMessage("Email is required")
-      };
-      if (enteredEmail.length >= 50) {
-        setLoginEmailIsValid(false);
-        setLoginEmailMessage("'Email should not be longer than 50 characters'")
-      }
-
-      if (!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(enteredEmail))) {
-        setLoginEmailIsValid(false);
-        setLoginEmailMessage("Should be a valid email")
-      }
-
-
-    } else {
-      setLoginEmailIsValid(true);
-      setLoginEmailMessage("");
-    }
-  }, [loginData])
+  const setCapacity = val => {
+    setLocationData({...locationData, maxCapacity: val})
+  }
 
   return (
     <div>
@@ -188,6 +215,12 @@ const App = () => {
           // ? Collect signup and login data context
           collectSignupData: collectSignupData,
           collectLoginData: collectLoginData,
+
+          // ? Collect locationData context
+          locationData,
+          setLocationData,
+          collectLocationData,
+          setCapacity,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
@@ -214,9 +247,6 @@ const App = () => {
           loginData: loginData,
           setLoginData: setLoginData,
 
-          loginEmailIsValid: loginEmailIsValid,
-          loginEmailMessage: loginEmailMessage,
-
           // ? Set currentUser Data after Login
           currentUser: currentUser,
           setCurrentUser: setCurrentUser,
@@ -239,135 +269,67 @@ const App = () => {
       >
         {/* NAVBAR and Search Components live in respective View Components */}
         <main>
+          <ScrollToTop />
           <Switch>
             {/* // ? Template/placeholder for how to setup paths with components.. */}
             {/* <Route path="/" exact component={LandingPage} /> */}
             <Route exact path="/" component={LandingPage} />
             {/* {cookies.UserCookie !== "null" ?
                 <Redirect to="/welcome-page" />  */}
-            {/* :  */}
-            {/* <LandingPage />
+                        {/* :  */}
+                        {/* <LandingPage />
             </Route> */}
 
-            {/* // ? About us overview */}
-            <Route path="/about-us" exact component={AboutUs} />
-            <Route path="/verify-email" exact component={Verification} />
-            <Route path="/user-signed-up" exact component={CheckMail} />
-            <Route path="/location-cards" exact component={LocationCards} />
-            <Route path="/welcome-page" exact component={Welcome} />
+                        {/* // ? About us overview */}
+                        <Route path="/about-us" exact component={AboutUs} />
+                        <Route
+                            path="/verify-email"
+                            exact
+                            component={Verification}
+                        />
+                        <Route
+                            path="/user-signed-up"
+                            exact
+                            component={CheckMail}
+                        />
+                        <Route
+                            path="/location-cards"
+                            exact
+                            component={LocationCards}
+                        />
+                        <Route path="/welcome-page" exact component={Welcome} />
 
-            <Route path="/location-details" exact component={LocationDetails} />
-            {/* // ? Url redirect to landing page on unknown path */}
-            <Redirect to="/" exact />
-          </Switch>
-        </main>
-        {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-        <Footer />
-      </AppContext.Provider>
-    </div>
-  );
-  //   const [loginData, setLoginData] = useState({
-  //     email: "",
-  //     password: "",
-  //   });
-  //   const [currentUser, setCurrentUser] = useState({
-  //     _id: "",
-  //     firstname: "",
-  //     lastname: "",
-  //     email: "",
-  //     adress: {
-  //       street: "",
-  //       number: "",
-  //       city: "",
-  //       postcode: "",
-  //     },
-  //     birthday: "",
-  //     locations: [],
-  //     bookings: [],
-  //     verified: false,
-  //   });
+                        <Route
+                            path="/location-details"
+                            exact
+                            component={LocationDetails}
+                        />
+                        <Route
+                            path="/location-form"
+                            exact
+                            component={LocationForm}
+                        />
 
-  //   const collectSignupData = (event) => {
-  //     setSignupData({
-  //       ...signupData,
-  //       [event.target.name]: event.target.value,
-  //     });
-  //   };
+                        <Route
+                            path="/location-form"
+                            exact
+                            component={LocationForm}
+                        />
 
-  //   const collectLoginData = (event) => {
-  //     setLoginData({ ...loginData, [event.target.name]: event.target.value });
-  //   };
-
-  //   const [showLoginModal, setShowLoginModal] = useState(false);
-  //   const [showSignupModal, setShowSignupModal] = useState(false);
-
-  //   // console.log("!!!!!!!", loginData);
-
-  //   // console.log("??????", signupData);
-
-  //   return (
-  //     <div>
-  //       {/* // !!! This is where our context lives */}
-  //       <AppContext.Provider
-  //         value={{
-  //           // ? Collect signup and login data context
-  //           collectSignupData: collectSignupData,
-  //           collectLoginData: collectLoginData,
-
-  //           // ? Search Context to pass down to Search and Navbar..
-  //           openSearch: openSearch,
-  //           openForm: openForm,
-  //           closeSearchButton: closeSearchButton,
-
-  //           // ? Map Context
-  //           mapView: mapView,
-  //           openMap: openMap,
-
-  //           // ? Sign up and login Context
-  //           setShowSignupModal: setShowSignupModal,
-  //           setShowLoginModal: setShowLoginModal,
-  //           showLoginModal: showLoginModal,
-  //           showSignupModal: showSignupModal,
-
-  //           signupData: signupData,
-  //           setSignupData: setSignupData,
-  //           loginData: loginData,
-  //           setLoginData: setLoginData,
-
-  //           // !!! Map test..
-  //           // ! Not sure if we will use loader or not? as it may interfere with already existing conditional rendering on the map from Form
-  //           // mapLoading: mapLoading,
-  //           // mapEventData: mapEventData,
-  //           // events: events,
-  //         }}
-  //       >
-  //         <Router>
-  //           {/* NAVBAR and Search Components live in respective View Components */}
-  //           <main>
-  //             <Switch>
-  //               {/* // ? Template/placeholder for how to setup paths with components.. */}
-  //               <Route path="/" exact component={LandingPage} />
-  //               {/* // ? About us overview */}
-  //               <Route path="/about-us" exact component={AboutUs} />
-  //               <Route path="/verify-email" exact component={Verification} />
-  //               <Route path="/user-signed-up" exact component={CheckMail} />
-  //               <Route path="/location-cards" exact component={LocationCards} />
-  //               <Route path="/welcome-page" exact component={Welcome} />
-  //               <Route
-  //                 path="/location-details"
-  //                 exact
-  //                 component={LocationDetails}
-  //               />
-
-  //               {/* // ? Url redirect to landing page on unknown path */}
-  //               <Redirect to="/" exact />
-  //             </Switch>
-  //           </main>
-  //           {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-  //           <Footer />
-  //         </Router>
-  //       </AppContext.Provider>
-  //     </div>
+                        <Route
+                            path="/logged-in"
+                            exact
+                            component={LoggedInLandingPage}
+                        />
+                        {/* // ? Url redirect to landing page on unknown path */}
+                        <Redirect to="/" exact />
+                    </Switch>
+                </main>
+                {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
+                <Footer />
+            </AppContext.Provider>
+        </div>
+    );
 };
 
 export default App;
