@@ -202,6 +202,10 @@ const App = () => {
         }
   };
 
+  const setCapacity = val => {
+    setLocationData({...locationData, maxCapacity: val})
+  }
+
   return (
     <div>
       {/* // !!! This is where our context lives */}
@@ -215,6 +219,7 @@ const App = () => {
           locationData,
           setLocationData,
           collectLocationData,
+          setCapacity,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,

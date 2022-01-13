@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import NumericInput from "react-numeric-input";
 
+// ? importing AppContext
 import { AppContext } from "../../App";
+// ? importing fetch request
+import { createLocation } from "../../Services/createLocationData.js";
 
 // ? Stylesheet
 import styles from "../LocationForm/LocationForm.module.scss";
@@ -32,34 +35,13 @@ const LocationForm = () => {
 
     // NumericInput.style.input.color = "red";
 
-    const submitHandler = (event) => {
+    const submitHandler = event => {
         event.preventDefault();
 
-        // const address = event.target.address.value;
-        // const title = event.target.title.value;
-        // const description = event.target.description.value;
-        // const data = { address, title, description }
-    
-        // console.log("submit", data)
+        createLocation(SearchContext.locationData)
     };
 
-    const toggleState = () => {
-        SearchContext.setLocationdata({...SearchContext.locationData, })
-    }
-
-
-    // getInitialState: function() {
-    //     return {
-    //       isChecked: true
-    //     };
-    //   },
-    //   toggleChange: function() {
-    //     this.setState({
-    //       isChecked: !this.state.isChecked // flip boolean value
-    //     }, function() {
-    //       console.log(this.state);
-    //     }.bind(this));
-    //   },
+    
 
     return (
         <>
@@ -199,7 +181,7 @@ const LocationForm = () => {
                                         welcome?
                                     </label>
 
-                                    <NumericInput min={0} max={10} value={1} name="maxCapacity" onChange={SearchContext.collectLocationData}/>
+                                    <NumericInput min={1} max={20} defaultValue={1} onChange={(val) => SearchContext.setCapacity(val)} />
 
                                     {/* <div className={styles.number}>
                                         <span className={styles.minus}>-</span>
@@ -494,7 +476,7 @@ const LocationForm = () => {
                             </div>
                             <div>
                                 <Button>
-                                    <i class="fas fa-arrow-up"></i>Upload photos
+                                    <i className="fas fa-arrow-up"></i>Upload photos
                                 </Button>
                             </div>
                             <hr className={styles.hr} />
