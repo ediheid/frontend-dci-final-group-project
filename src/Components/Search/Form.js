@@ -93,14 +93,24 @@ const Form = (props) => {
           >
             {/* // ? Search bar - when clicked will open all search fields */}
             <input
+              onClick={SearchContext.openForm}
               className={styles["search-input"]}
               placeholder="Dream about Schwarzwald?"
-              onClick={SearchContext.openForm}
             ></input>
 
             {/* // ? This is the dropdown area with all other search fields in the form */}
             <Expand open={SearchContext.openSearch}>
-              <div className={styles["form-dropdown-container"]}>
+              {/* // !!! Testing display none and padding so height is only 10vh */}
+              <div
+                className={`${styles["form-dropdown-container"]}
+              ${
+                SearchContext.openSearch
+                  ? styles["form-dropdown-container"]
+                  : styles["hidden-form-dropdown"]
+              }
+
+              `}
+              >
                 {/* // ? Check in */}
                 <div className={styles["search-item"]}>
                   <label className={styles["search-labels"]}>Check in</label>
