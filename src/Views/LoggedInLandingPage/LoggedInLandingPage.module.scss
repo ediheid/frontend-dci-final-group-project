@@ -5,35 +5,42 @@
 
 // ? Universal styling
 
+.test-container {
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
 .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 80vh;
-    color: $army-green;
-    // background-color: green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //   width: 100%;
+  //   height: 100%;
+  color: $army-green;
+  // background-color: green;
 }
 
 .content-container {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-    height: auto;
-    font-family: $main-font-font-family;
-    font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  height: auto;
+  font-family: $main-font-font-family;
+  font-size: 1rem;
 
-    // padding-bottom: 2.5vh;
-    // margin-top: 20vh;
-    // background-color: pink;
+  // padding-bottom: 2.5vh;
+  // margin-top: 20vh;
+  // background-color: pink;
 }
 
 .heading {
-    padding-top: 5vh;
-    padding-bottom: 2vh;
-    display: flex;
-    justify-content: center;
-    font-size: 3rem;
+  padding-top: 5vh;
+  padding-bottom: 2vh;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
 }
 
 // ? Media Queries
@@ -49,28 +56,28 @@
 
 // * Medium = Less than 992px - tablets
 @include medium {
-    .content-container {
-        max-width: 80vw;
-    }
+  .content-container {
+    max-width: 80vw;
+  }
 }
 
 // * Large = Less than 1200px - small desktops
 @include large {
-    .content-container {
-        max-width: 70vw;
-    }
+  .content-container {
+    max-width: 70vw;
+  }
 }
 
 // * Extra Large = Less than 1399px - medium desktops
 @include extra-large {
-    .content-container {
-        max-width: 60vw;
-    }
+  .content-container {
+    max-width: 60vw;
+  }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
 @include extra-extra-large {
-    .content-container {
-        max-width: 50vw;
-    }
+  .content-container {
+    max-width: 50vw;
+  }
 }

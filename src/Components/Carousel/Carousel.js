@@ -15,62 +15,62 @@ import image6 from "./static/pexels-toth-photos-10539693.jpg";
 import image7 from "./static/pexels-alasdair-braxton-1992889.jpg";
 
 const Carousel = () => {
-    const settings = {
-        // dots: true,
-        autoplay: true,
-        infinite: true,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        arrows: false,
-    };
-    return (
-        <div className={styles.container}>
-            <Slider {...settings}>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image1}
-                        alt="Credit to Joshua Earle on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image2}
-                        alt="Credit to Alisa Anton on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image3}
-                        alt="Credit to Igor Ovsyannykov on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image4}
-                        alt="Credit to Pierre Châtel-Innocenti on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image5}
-                        alt="Credit to Richard Nolan on Unsplash"
-                    />
-                </div>
-                <div>
-                    <img
-                        className={styles.image}
-                        src={image6}
-                        alt="Credit to Cristina Gottardi on Unsplash"
-                    />
-                </div>
-            </Slider>
+  const settings = {
+    // dots: true,
+    autoplay: true,
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    arrows: false,
+  };
+  return (
+    <div className={styles.container}>
+      <Slider {...settings}>
+        <div>
+          <img
+            className={styles.image}
+            src={image1}
+            alt="Credit to Joshua Earle on Unsplash"
+          />
         </div>
-    );
+        <div>
+          <img
+            className={styles.image}
+            src={image2}
+            alt="Credit to Alisa Anton on Unsplash"
+          />
+        </div>
+        <div>
+          <img
+            className={styles.image}
+            src={image3}
+            alt="Credit to Igor Ovsyannykov on Unsplash"
+          />
+        </div>
+        <div>
+          <img
+            className={styles.image}
+            src={image4}
+            alt="Credit to Pierre Châtel-Innocenti on Unsplash"
+          />
+        </div>
+        <div>
+          <img
+            className={styles.image}
+            src={image5}
+            alt="Credit to Richard Nolan on Unsplash"
+          />
+        </div>
+        <div>
+          <img
+            className={styles.image}
+            src={image6}
+            alt="Credit to Cristina Gottardi on Unsplash"
+          />
+        </div>
+      </Slider>
+    </div>
+  );
 };
 
 export default Carousel;
