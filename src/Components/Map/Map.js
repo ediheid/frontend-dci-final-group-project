@@ -11,7 +11,9 @@ import { AppContext } from "../../App";
 
 import styles from "../Map/Map.module.scss";
 
-// ? Hardcoded location data.. (will live in backend)
+import mapStyles from "./mapStyles";
+
+// ! Hardcoded location data.. (will live in backend)
 // const events = [
 //   {
 //     id: 1,
@@ -48,6 +50,8 @@ const Map = ({ center, zoom }) => {
   const MAP_API = process.env.REACT_APP_MAP_API;
 
   const mapContext = useContext(AppContext);
+
+  console.log(mapStyles);
 
   // console.log("!!!!!", events);
   // console.log("??", events[0].id);
@@ -131,6 +135,8 @@ const Map = ({ center, zoom }) => {
       </button>
 
       <GoogleMapReact
+        // !!! - Snazzy Maps only works when API is called (not in dev mode)
+        options={{ styles: mapStyles }}
         // ? Added close location box on map so - this works on map but user can still click on a Marker and it will open!
         onClick={mapContext.closeLocationInfoBox}
         className={styles["map-component"]}

@@ -70,6 +70,7 @@ const App = () => {
     // },
     // birthday: ""
   });
+
   const [locationData, setLocationData] = useState({
     title: "",
     description: "",
@@ -82,7 +83,26 @@ const App = () => {
       river: false
     },
     spaceType: "",
-    
+    address: "",
+    maxCapacity: 0,
+    amenities: {
+      lavatory: false,
+      barrierFree: false,
+      electricity: false,
+      wlan: false,
+      sauna: false,
+      washingMachine: false,
+      playground: false, 
+      farmShop: false,
+      fireplace: false,
+      batteryCharger: false,
+      basin: false
+    },
+    essentialAmenities: {
+      water: false,
+      shower: false,
+      toilet: false,
+    }
   });
 
   useEffect(() => {
@@ -99,8 +119,10 @@ const App = () => {
   const mapView = event => {
     event.preventDefault();
     setOpenMap(true);
-    // console.log("Successful Submit");
-    // ! Note for Jamie: Fixed the problem
+
+    // ! Set map location markers from fetch request (getLocationData.js)
+    locations(setMapEventData);
+
     setOpenSearch(false);
   };
 
@@ -155,20 +177,30 @@ const App = () => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
-  // const collectLocationData = event => {
-  //   if (event.target.name === "field" || event.target.name === "forest" || event.target.name === "lake" || event.target.name === "river") {
-  //         setLocationData({...locationData, propertyType: {
-  //           ...locationData.propertyType, [event.target.name]: event.target.checked}
-  //         }); 
-  //       } else if {
-    
-  //       }
-    
-  //   setLocationData({
-  //     ...locationData,
-  //     [event.target.name]: event.target.value,
-  //   });
-  // };
+  const collectLocationData = event => {
+    console.log([event.target.name])
+    if (event.target.name === "field" || event.target.name === "forest" || event.target.name === "lake" || event.target.name === "river") {
+          setLocationData({...locationData, propertyType: {
+            ...locationData.propertyType, [event.target.name]: event.target.checked}
+          }); 
+        } else if (event.target.name === "lavatory" || event.target.name === "barrierFree" || event.target.name === "electricity" || event.target.name === "wlan" || event.target.name === "sauna" || event.target.name === "washingMachine" || event.target.name === "playground" || event.target.name === "farmShop" || event.target.name === "fireplace" || event.target.name === "batteryCharger" || event.target.name === "basin") {
+          setLocationData({...locationData, amenities: {
+            ...locationData.amenities, [event.target.name]: event.target.checked
+          }
+        })
+        } else if (event.target.name === "water" || event.target.name === "shower" || event.target.name === "toilet") {
+          setLocationData({...locationData, essentialAmenities: {
+            ...locationData.essentialAmenities, [event.target.name]: event.target.checked
+          }
+        })
+        } else {
+          
+          setLocationData({
+            ...locationData,
+            [event.target.name]: event.target.value,
+          });
+        }
+  };
 
   return (
     <div>
@@ -182,7 +214,7 @@ const App = () => {
           // ? Collect locationData context
           locationData,
           setLocationData,
-          // collectLocationData,
+          collectLocationData,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
@@ -236,7 +268,6 @@ const App = () => {
             {/* // ? Template/placeholder for how to setup paths with components.. */}
             {/* <Route path="/" exact component={LandingPage} /> */}
             <Route exact path="/" component={LandingPage} />
-
             {/* {cookies.UserCookie !== "null" ?
                 <Redirect to="/welcome-page" />  */}
             {/* :  */}
