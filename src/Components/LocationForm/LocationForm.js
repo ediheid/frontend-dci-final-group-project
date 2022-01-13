@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import NumericInput from "react-numeric-input";
 
+// ? importing AppContext
 import { AppContext } from "../../App";
+// ? importing fetch request
+import { createLocation } from "../../Services/createLocationData.js";
 
 // ? Stylesheet
 import styles from "../LocationForm/LocationForm.module.scss";
@@ -32,9 +35,13 @@ const LocationForm = () => {
 
     // NumericInput.style.input.color = "red";
 
-    const submitHandler = (event) => {
+    const submitHandler = event => {
         event.preventDefault();
+
+        createLocation(SearchContext.locationData)
     };
+
+    
 
     return (
         <>
@@ -72,6 +79,9 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="checkbox"
+                                    name="field"
+                                    onChange={SearchContext.collectLocationData}
+                                    checked={SearchContext.locationData.propertyType.field}
                                 />
                                 <span className={styles.checkmark}></span>
                             </label>
@@ -81,6 +91,10 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="checkbox"
+                                    name="forest"
+                                    onChange={SearchContext.collectLocationData}
+                                    checked={SearchContext.locationData.propertyType.forest}
+                                
                                 />
                                 <span className={styles.checkmark}></span>
                             </label>
@@ -90,6 +104,9 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="checkbox"
+                                    name="lake"
+                                    onChange={SearchContext.collectLocationData}
+                                    checked={SearchContext.locationData.propertyType.lake}
                                 />
                                 <span className={styles.checkmark}></span>
                             </label>
@@ -99,6 +116,9 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="checkbox"
+                                    name="river"
+                                    onChange={SearchContext.collectLocationData}
+                                    checked={SearchContext.locationData.propertyType.river}
                                 />
                                 <span className={styles.checkmark}></span>
                             </label>
@@ -114,7 +134,9 @@ const LocationForm = () => {
                                     className={styles.input}
                                     type="radio"
                                     // checked="checked"
-                                    name="radio"
+                                    name="spaceType"
+                                    value={SearchContext.loginData.spaceType = "An entire property"}
+                                    onChange={SearchContext.collectLocationData}
                                 />
                                 <span
                                     className={styles["checkmark-radio"]}
@@ -125,7 +147,9 @@ const LocationForm = () => {
                                 <input
                                     className={styles.input}
                                     type="radio"
-                                    name="radio"
+                                    name="spaceType"
+                                    value={SearchContext.loginData.spaceType = "A shared property"}
+                                    onChange={SearchContext.collectLocationData}
                                 />
                                 <span
                                     className={styles["checkmark-radio"]}
@@ -143,6 +167,8 @@ const LocationForm = () => {
                                     <input
                                         placeholder="Search"
                                         className={styles["input-field"]}
+                                        onChange={SearchContext.collectLocationData}
+                                        name="address"
                                     />
                                 </div>
                                 <Map />
@@ -155,7 +181,7 @@ const LocationForm = () => {
                                         welcome?
                                     </label>
 
-                                    <NumericInput min={0} max={10} value={1} />
+                                    <NumericInput min={1} max={20} defaultValue={1} onChange={(val) => SearchContext.setCapacity(val)} />
 
                                     {/* <div className={styles.number}>
                                         <span className={styles.minus}>-</span>
@@ -172,100 +198,133 @@ const LocationForm = () => {
                                 </div>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Lavatory
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="lavatory"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.lavatory}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Barrier-free
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="barrierFree"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.barrierFree}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Electricity
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="electricity"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.electricity}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    WLAN
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="wlan"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.wlan}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Sauna
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="sauna"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.sauna}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Washing machine
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="washingMachine"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.washingMachine}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Playground
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="playground"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.playground}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Farm shop
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="farmShop"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.farmShop}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Fireplace
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="fireplace"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.fireplace}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Battery charging station
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="batteryCharger"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.batteryCharger}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
 
                                 <label className={styles.container}>
-                                    bla
+                                    Basin
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="basin"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.amenities.basin}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
@@ -281,6 +340,9 @@ const LocationForm = () => {
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="water"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.essentialAmenities.water}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
@@ -290,6 +352,9 @@ const LocationForm = () => {
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="shower"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.essentialAmenities.shower}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
@@ -299,6 +364,9 @@ const LocationForm = () => {
                                     <input
                                         className={styles.input}
                                         type="checkbox"
+                                        name="toilet"
+                                        onChange={SearchContext.collectLocationData}
+                                        checked={SearchContext.locationData.essentialAmenities.toilet}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
@@ -408,7 +476,7 @@ const LocationForm = () => {
                             </div>
                             <div>
                                 <Button>
-                                    <i class="fas fa-arrow-up"></i>Upload photos
+                                    <i className="fas fa-arrow-up"></i>Upload photos
                                 </Button>
                             </div>
                             <hr className={styles.hr} />

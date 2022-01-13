@@ -33,178 +33,248 @@ import { locations } from "./Services/getLocationData.js";
 export const AppContext = createContext();
 
 const App = () => {
-    // ?  State hooks
-    // ?  State passed into fetch request for our database locations
-    const [mapEventData, setMapEventData] = useState([]);
-    // ? To look into with Kathi
-    // !! Testing location Info..
-    const [locationInfo, setLocationInfo] = useState(false);
-    // ? Display and Hide map functionality
-    const [openMap, setOpenMap] = useState(false);
-    // ? Passed down to Form.js - is used to to openSearch but also to change bg opacity
-    const [openSearch, setOpenSearch] = useState(false);
-    // ? Saved/Liked property..
-    const [like, setLike] = useState(false);
+  // ?  State hooks
+  // ?  State passed into fetch request for our database locations
+  const [mapEventData, setMapEventData] = useState([]);
+  // ? To look into with Kathi
+  // !! Testing location Info..
+  const [locationInfo, setLocationInfo] = useState(false);
+  // ? Display and Hide map functionality
+  const [openMap, setOpenMap] = useState(false);
+  // ? Passed down to Form.js - is used to to openSearch but also to change bg opacity
+  const [openSearch, setOpenSearch] = useState(false);
+  // ? Saved/Liked property..
+  const [like, setLike] = useState(false);
+  // ? user/login and signup context
+  const [signupData, setSignupData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmedPassword: "",
+  });
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+  const [currentUser, setCurrentUser] = useState({
+    _id: "",
+    firstname: "",
+    lastname: "",
+    locations: [],
+    bookings: [],
+    // adress: {
+    //     street: "",
+    //     number: "",
+    //     city: "",
+    //     postcode: "",
+    // },
+    // birthday: ""
+  });
 
-    // ? login/signup state
-    const [showLoginModal, setShowLoginModal] = useState(false);
-    const [showSignupModal, setShowSignupModal] = useState(false);
-    // !! Moved cookie state hook to top to sit with all other state hooks
-    const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
+  const [locationData, setLocationData] = useState({
+    title: "",
+    description: "",
+    address: "",
+    price: 0,
+    propertyType: {
+      field: false,
+      forest: false,
+      lake: false,
+      river: false
+    },
+    spaceType: "",
+    address: "",
+    maxCapacity: 0,
+    amenities: {
+      lavatory: false,
+      barrierFree: false,
+      electricity: false,
+      wlan: false,
+      sauna: false,
+      washingMachine: false,
+      playground: false, 
+      farmShop: false,
+      fireplace: false,
+      batteryCharger: false,
+      basin: false
+    },
+    essentialAmenities: {
+      water: false,
+      shower: false,
+      toilet: false,
+    }
+  });
 
-    // ? opens map view - And closes search dropdown so user can see the full map
-    const mapView = (event) => {
-        event.preventDefault();
-        setOpenMap(true);
+  useEffect(() => {
+    console.log(locationData);
+  }, [locationData]);
 
-        // ! Set map location markers from fetch request (getLocationData.js)
-        locations(setMapEventData);
+  // ? login/signup state
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+  // !! Moved cookie state hook to top to sit with all other state hooks
+  const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
-        setOpenSearch(false);
-    };
+  // ? opens map view - And closes search dropdown so user can see the full map
+  const mapView = event => {
+    event.preventDefault();
+    setOpenMap(true);
 
-    // ? Close map for close map button
-    const closeMap = () => {
-        setOpenMap(false);
-    };
+    // ! Set map location markers from fetch request (getLocationData.js)
+    locations(setMapEventData);
 
-    // ? Allows user to click on Caravan(home) button without re-rendering the page but will close both map and search without state conflicts
-    const returnHome = () => {
-        setOpenMap(false);
-        setOpenSearch(false);
-    };
+    setOpenSearch(false);
+  };
 
-    let history = useHistory();
+  // ? Close map for close map button
+  const closeMap = () => {
+    setOpenMap(false);
+  };
 
-    // ? User can like and unlike a property (heart on location info boxes)
-    const toggleLike = () => {
-        setLike(!like);
-    };
+  // ? Allows user to click on Caravan(home) button without re-rendering the page but will close both map and search without state conflicts
+  const returnHome = () => {
+    setOpenMap(false);
+    setOpenSearch(false);
+  };
 
-    // ? Close locationInfo box
-    const closeLocationInfoBox = () => {
-        setLocationInfo(false);
-    };
+  let history = useHistory();
 
-    // ? Open Search Form function
-    const openForm = () => {
-        setOpenSearch(true);
-    };
+  // ? User can like and unlike a property (heart on location info boxes)
+  const toggleLike = () => {
+    setLike(!like);
+  };
 
-    // ? Toggles the Search open and close for the buttons and NOT the search field
-    const toggleSearchDropdown = (event) => {
-        event.preventDefault();
-        setOpenSearch(!openSearch);
-    };
+  // ? Close locationInfo box
+  const closeLocationInfoBox = () => {
+    setLocationInfo(false);
+  };
 
-    // ? user/login and signup context
-    const [signupData, setSignupData] = useState({
-        firstname: "",
-        lastname: "",
-        email: "",
-        password: "",
-        confirmedPassword: "",
+  // ? Open Search Form function
+  const openForm = () => {
+    setOpenSearch(true);
+  };
+
+  // ? Toggles the Search open and close for the buttons and NOT the search field
+  const toggleSearchDropdown = event => {
+    event.preventDefault();
+    setOpenSearch(!openSearch);
+  };
+
+  // ? useEffect to pass in location Data from fetch request
+  // useEffect(() => {
+  //   locations(setMapEventData);
+  // }, []);
+  // console.log("!!!!!MAPEVENT", mapEventData);
+
+  const collectSignupData = event => {
+    setSignupData({
+      ...signupData,
+      [event.target.name]: event.target.value,
     });
-    const [loginData, setLoginData] = useState({
-        email: "",
-        password: "",
-    });
-    const [currentUser, setCurrentUser] = useState({
-        _id: "",
-        firstname: "",
-        lastname: "",
-        locations: [],
-        bookings: [],
-        // adress: {
-        //     street: "",
-        //     number: "",
-        //     city: "",
-        //     postcode: "",
-        // },
-        // birthday: ""
-    });
+  };
 
-    // useEffect(() => {
-    //   setCurrentUser(JSON.parse(window.localStorage.getItem('currentUser')));
-    // }, []);
+  const collectLoginData = event => {
+    setLoginData({ ...loginData, [event.target.name]: event.target.value });
+  };
 
-    // useEffect(() => {
-    //   window.localStorage.setItem('currentUser', currentUser);
-    // }, [currentUser]);
-
-    const collectSignupData = (event) => {
-        setSignupData({
-            ...signupData,
+  const collectLocationData = event => {
+    console.log([event.target.name])
+    if (event.target.name === "field" || event.target.name === "forest" || event.target.name === "lake" || event.target.name === "river") {
+          setLocationData({...locationData, propertyType: {
+            ...locationData.propertyType, [event.target.name]: event.target.checked}
+          }); 
+        } else if (event.target.name === "lavatory" || event.target.name === "barrierFree" || event.target.name === "electricity" || event.target.name === "wlan" || event.target.name === "sauna" || event.target.name === "washingMachine" || event.target.name === "playground" || event.target.name === "farmShop" || event.target.name === "fireplace" || event.target.name === "batteryCharger" || event.target.name === "basin") {
+          setLocationData({...locationData, amenities: {
+            ...locationData.amenities, [event.target.name]: event.target.checked
+          }
+        })
+        } else if (event.target.name === "water" || event.target.name === "shower" || event.target.name === "toilet") {
+          setLocationData({...locationData, essentialAmenities: {
+            ...locationData.essentialAmenities, [event.target.name]: event.target.checked
+          }
+        })
+        } else {
+          
+          setLocationData({
+            ...locationData,
             [event.target.name]: event.target.value,
-        });
-    };
+          });
+        }
+  };
 
-    const collectLoginData = (event) => {
-        setLoginData({ ...loginData, [event.target.name]: event.target.value });
-    };
+  const setCapacity = val => {
+    setLocationData({...locationData, maxCapacity: val})
+  }
 
-    return (
-        <div>
-            {/* // !!! This is where our context lives */}
-            <AppContext.Provider
-                value={{
-                    // ? Collect signup and login data context
-                    collectSignupData: collectSignupData,
-                    collectLoginData: collectLoginData,
+  return (
+    <div>
+      {/* // !!! This is where our context lives */}
+      <AppContext.Provider
+        value={{
+          // ? Collect signup and login data context
+          collectSignupData: collectSignupData,
+          collectLoginData: collectLoginData,
 
-                    // ? Search Context to pass down to Search and Navbar..
-                    openSearch: openSearch,
-                    openForm: openForm,
-                    toggleSearchDropdown: toggleSearchDropdown,
+          // ? Collect locationData context
+          locationData,
+          setLocationData,
+          collectLocationData,
+          setCapacity,
 
-                    // ? Map Context
-                    mapView: mapView,
-                    openMap: openMap,
-                    closeMap: closeMap,
-                    mapEventData: mapEventData,
-                    locationInfo: locationInfo,
-                    setLocationInfo: setLocationInfo,
-                    closeLocationInfoBox: closeLocationInfoBox,
+          // ? Search Context to pass down to Search and Navbar..
+          openSearch: openSearch,
+          openForm: openForm,
+          toggleSearchDropdown: toggleSearchDropdown,
 
-                    // ? Sign up and login Context
-                    setShowSignupModal: setShowSignupModal,
-                    setShowLoginModal: setShowLoginModal,
-                    showLoginModal: showLoginModal,
-                    showSignupModal: showSignupModal,
+          // ? Map Context
+          mapView: mapView,
+          openMap: openMap,
+          closeMap: closeMap,
+          mapEventData: mapEventData,
+          locationInfo: locationInfo,
+          setLocationInfo: setLocationInfo,
+          closeLocationInfoBox: closeLocationInfoBox,
 
-                    signupData: signupData,
-                    setSignupData: setSignupData,
-                    loginData: loginData,
-                    setLoginData: setLoginData,
+          // ? Sign up and login Context
+          setShowSignupModal: setShowSignupModal,
+          setShowLoginModal: setShowLoginModal,
+          showLoginModal: showLoginModal,
+          showSignupModal: showSignupModal,
 
-                    // ? Set currentUser Data after Login
-                    currentUser: currentUser,
-                    setCurrentUser: setCurrentUser,
+          signupData: signupData,
+          setSignupData: setSignupData,
+          loginData: loginData,
+          setLoginData: setLoginData,
 
-                    // ? pass down cookies
-                    cookies: cookies,
-                    setCookie: setCookie,
-                    removeCookie: removeCookie,
+          // ? Set currentUser Data after Login
+          currentUser: currentUser,
+          setCurrentUser: setCurrentUser,
 
-                    // ? Liked/Saved property
-                    like: like,
-                    toggleLike: toggleLike,
+          // ? pass down cookies
+          cookies: cookies,
+          setCookie: setCookie,
+          removeCookie: removeCookie,
 
-                    // ? Return home without re-rendering page but also closing map and search dropdown..
-                    returnHome: returnHome,
+          // ? Liked/Saved property
+          like: like,
+          toggleLike: toggleLike,
 
-                    // ? useHistory
-                    history: history,
-                }}
-            >
-                {/* NAVBAR and Search Components live in respective View Components */}
-                <main>
-                    <ScrollToTop />
-                    <Switch>
-                        {/* // ? Template/placeholder for how to setup paths with components.. */}
-                        {/* <Route path="/" exact component={LandingPage} /> */}
-                        <Route exact path="/" component={LandingPage} />
-                        {/* {cookies.UserCookie !== "null" ?
+          // ? Return home without re-rendering page but also closing map and search dropdown..
+          returnHome: returnHome,
+
+          // ? useHistory
+          history: history,
+        }}
+      >
+        {/* NAVBAR and Search Components live in respective View Components */}
+        <main>
+          <ScrollToTop />
+          <Switch>
+            {/* // ? Template/placeholder for how to setup paths with components.. */}
+            {/* <Route path="/" exact component={LandingPage} /> */}
+            <Route exact path="/" component={LandingPage} />
+            {/* {cookies.UserCookie !== "null" ?
                 <Redirect to="/welcome-page" />  */}
                         {/* :  */}
                         {/* <LandingPage />

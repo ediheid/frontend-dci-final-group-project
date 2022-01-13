@@ -8,7 +8,7 @@ import styles from "../LoggedInCarousel/LoggedInCarousel.module.scss";
 import image1 from "./static/pexels-alex-azabache-4171211.jpg";
 import image2 from "./static/pexels-baihaki-hine-4314203.jpg";
 import image3 from "./static/pexels-baptiste-valthier-803226.jpg";
-import image4 from "./static/pexels-gantas-vaičiulėnas-4484179.jpg";
+import image4 from "./static/pexels-gantas-vaičiulėnas-4484179.jpg";
 import image5 from "./static/pexels-george-desipris-3647675.jpg";
 import image6 from "./static/pexels-krivec-ales-558454.jpg";
 import image7 from "./static/pexels-nathan-moore-2603681.jpg";
