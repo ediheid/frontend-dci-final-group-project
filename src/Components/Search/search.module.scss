@@ -183,10 +183,14 @@
 
 // !!! Testing new dropdown..
 .dropdown-container {
+  position: relative;
   background-color: white;
 }
 
-.header-action {
+.dropdown-header-action {
+  position: absolute;
+  right: 1rem;
+  top: 0.8rem;
 }
 
 // !! Amenities Dropdown Component is styled in "../Search/dropdown-styling.css" - from node modules default styles; - still need to refactor to SASS with correct units
