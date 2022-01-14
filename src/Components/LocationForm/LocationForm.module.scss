@@ -9,8 +9,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+
+  // !!! Make sure we keep
+  // width: 100vw;
   height: auto;
+  overflow: hidden;
+
   padding-top: 10vh;
   padding-bottom: 10vh;
   color: $army-green;
@@ -233,7 +237,7 @@
   }
 
   .title-image {
-    margin-top: 0vh;
+    margin-top: 18vh;
     max-width: 90vw;
     height: 60vh;
   }
@@ -254,7 +258,7 @@
   }
 
   .title-image {
-    margin-top: 0vh;
+    margin-top: 18vh;
     max-width: 80vw;
     height: 65vh;
   }
@@ -275,7 +279,7 @@
   }
 
   .title-image {
-    margin-top: 0vh;
+    margin-top: 18vh;
     max-width: 70vw;
     height: 60vh;
   }
@@ -296,7 +300,7 @@
   }
 
   .title-image {
-    margin-top: 0vh;
+    margin-top: 18vh;
     max-width: 60vw;
   }
 
