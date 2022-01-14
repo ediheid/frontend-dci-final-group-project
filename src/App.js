@@ -76,7 +76,7 @@ const App = () => {
     title: "",
     description: "",
     address: "",
-    price: 0,
+    price: "",
     propertyType: {
       field: false,
       forest: false,
@@ -87,14 +87,14 @@ const App = () => {
     address: "",
     maxCapacity: 0,
     amenities: {
-      lavatory: false,
+      animalsWelcome: false,
       barrierFree: false,
       electricity: false,
-      wlan: false,
+      wifi: false,
       sauna: false,
       washingMachine: false,
       playground: false, 
-      farmShop: false,
+      kiosk: false,
       fireplace: false,
       batteryCharger: false,
       basin: false
@@ -102,7 +102,7 @@ const App = () => {
     essentialAmenities: {
       water: false,
       shower: false,
-      toilet: false,
+      lavatory: false
     }
   });
 
@@ -179,7 +179,6 @@ const App = () => {
   };
 
   const collectLocationData = event => {
-    console.log([event.target.name])
     if (event.target.name === "field" || event.target.name === "forest" || event.target.name === "lake" || event.target.name === "river") {
           setLocationData({...locationData, propertyType: {
             ...locationData.propertyType, [event.target.name]: event.target.checked}
@@ -195,7 +194,6 @@ const App = () => {
           }
         })
         } else {
-          
           setLocationData({
             ...locationData,
             [event.target.name]: event.target.value,
@@ -205,6 +203,10 @@ const App = () => {
 
   const setCapacity = val => {
     setLocationData({...locationData, maxCapacity: val})
+  }
+
+  const setPrice = val => {
+    setLocationData({...locationData, price: val})
   }
 
   return (
@@ -221,6 +223,7 @@ const App = () => {
           setLocationData,
           collectLocationData,
           setCapacity,
+          setPrice,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,

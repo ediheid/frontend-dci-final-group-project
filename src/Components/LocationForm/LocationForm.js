@@ -198,11 +198,11 @@ const LocationForm = () => {
                                 </div>
 
                                 <label className={styles.container}>
-                                    Lavatory
+                                    Animals welcome
                                     <input
                                         className={styles.input}
                                         type="checkbox"
-                                        name="lavatory"
+                                        name="animalsWelcome"
                                         onChange={SearchContext.collectLocationData}
                                         checked={SearchContext.locationData.amenities.lavatory}
                                     />
@@ -234,11 +234,11 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    WLAN
+                                    Wifi
                                     <input
                                         className={styles.input}
                                         type="checkbox"
-                                        name="wlan"
+                                        name="wifi"
                                         onChange={SearchContext.collectLocationData}
                                         checked={SearchContext.locationData.amenities.wlan}
                                     />
@@ -282,11 +282,11 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    Farm shop
+                                    Kiosk
                                     <input
                                         className={styles.input}
                                         type="checkbox"
-                                        name="farmShop"
+                                        name="kiosk"
                                         onChange={SearchContext.collectLocationData}
                                         checked={SearchContext.locationData.amenities.farmShop}
                                     />
@@ -360,11 +360,11 @@ const LocationForm = () => {
                                 </label>
 
                                 <label className={styles.container}>
-                                    Toilette
+                                    Lavatory
                                     <input
                                         className={styles.input}
                                         type="checkbox"
-                                        name="toilet"
+                                        name="lavatory"
                                         onChange={SearchContext.collectLocationData}
                                         checked={SearchContext.locationData.essentialAmenities.toilet}
                                     />
@@ -379,7 +379,11 @@ const LocationForm = () => {
                                     Title
                                 </label>
 
-                                <input className={styles["input-field"]} />
+                                <input 
+                                className={styles["input-field"]}
+                                name="title" 
+                                onChange={SearchContext.collectLocationData}
+                                />
                             </div>
 
                             <hr className={styles.hr} />
@@ -398,6 +402,8 @@ const LocationForm = () => {
                                     type="text"
                                     // resize="none"
                                     className={`${styles["input-field"]} ${styles.textarea}`}
+                                    name="description"
+                                    onChange={SearchContext.collectLocationData}
                                 />
                             </div>
 
@@ -466,6 +472,28 @@ const LocationForm = () => {
                                     // resize="none"
                                     className={`${styles["input-field"]} ${styles.textarea}`}
                                 />
+                            </div>
+
+                            <hr className={styles.hr} />
+
+                            <div className={styles["column-container"]}>
+                                <div className={styles.heading}>
+                                    <label className={styles["heading-input"]}>
+                                        What is the price for one property / night? 
+                                    </label>
+
+                                    <NumericInput min={5} max={500} defaultValue={5} step={5} onChange={(val) => SearchContext.setPrice(val)} />
+
+                                    <label className={styles["heading-input"]}>
+                                        € 
+                                    </label>
+                                    {/* <input
+                                        placeholder="Price/night in $"
+                                        className={styles["input-field"]}
+                                        onChange={SearchContext.collectLocationData}
+                                        name="price"
+                                    /> */}
+                                </div>
                             </div>
 
                             <hr className={styles.hr} />
