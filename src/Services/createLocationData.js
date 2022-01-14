@@ -14,8 +14,9 @@ export const createLocation = async (hookData) => {
         }
     }
 
-   fetch("http://localhost:3001/location") 
+   fetch("http://localhost:3001/location", settings) 
    .then( response => {
+       console.log(response)
        if (response.ok) {
            return response
        } else {

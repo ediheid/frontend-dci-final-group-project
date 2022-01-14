@@ -52,7 +52,8 @@ const LocationDetails = () => {
                     <div className={styles["intro-container"]}>
                         {/* // !! Title + host + intro */}
                         <div className={styles["heading-title"]}>
-                            {nameOfPlace} <br /> hosted by {hostName}
+                            {/* {nameOfPlace}  */}
+                            <br /> hosted by {hostName}
                             {/* <div>Joined in December 2020</div>
                             <Button>Contact host</Button> */}
                         </div>
@@ -77,10 +78,11 @@ const LocationDetails = () => {
                     {/* // !! Nice to have */}
                     <div className={styles["bonus-container"]}>
                         <div className={styles.icon}>
-                            <i class="fas fa-shuttle-van"></i>
+                            <i className="fas fa-shuttle-van"></i>
                         </div>
                         <div className={styles["bonus-description"]}>
-                            <div>Entire home</div>
+                            //TODO conditional render of data
+                            <div>Entire property</div>
                             <div>You'll have the place to yourself.</div>
                         </div>
                     </div>
