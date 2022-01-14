@@ -166,8 +166,6 @@
   border-radius: 1.5rem;
   outline: none;
   padding: 0.8rem 0.5rem 0.8rem 1rem;
-
-  // !! also added to dropdown styling .Dropdown-control to match
   width: 15rem;
 
   &::placeholder {
@@ -185,6 +183,9 @@
 .dropdown-container {
   position: relative;
   background-color: white;
+
+  max-height: 10rem;
+  overflow: scroll;
 }
 
 .dropdown-header-action {
@@ -192,8 +193,6 @@
   right: 1rem;
   top: 0.8rem;
 }
-
-// !! Amenities Dropdown Component is styled in "../Search/dropdown-styling.css" - from node modules default styles; - still need to refactor to SASS with correct units
 
 // ? x-small
 

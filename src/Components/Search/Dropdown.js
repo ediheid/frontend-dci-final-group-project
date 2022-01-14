@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+
+// todo:
 import onClickOutside from "react-onclickoutside";
 
 import styles from "../Search/search.module.scss";
@@ -10,7 +15,8 @@ const Dropdown = ({ title, items = [], multiSelect = false }) => {
 
   const toggle = () => setOpenDropdown(!openDropdown);
 
-  Dropdown.handleClickOutside = () => setOpenDropdown(false);
+  // todo:
+  //   Dropdown.handleClickOutside = () => setOpenDropdown(false);
 
   const handleOnClick = (item) => {
     if (!selection.some((current) => current.id === item.id)) {
@@ -56,9 +62,7 @@ const Dropdown = ({ title, items = [], multiSelect = false }) => {
         </div>
 
         <div className={styles["dropdown-header-action"]}>
-          {/*  // !!! */}
-          {/* // todo: add icons arrow down and X */}
-          <p>{openDropdown ? "Close" : "Open"}</p>
+          <p>{openDropdown ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
         </div>
       </div>
       {openDropdown && (
@@ -79,10 +83,11 @@ const Dropdown = ({ title, items = [], multiSelect = false }) => {
   );
 };
 
+// todo:
 // const clickOutsideConfig = {
 //   handleClickOutside: () => Dropdown.handleClickOutside,
 // };
-
-// export default onClickOutside(Dropdown);
+// todo:
+// export default onClickOutside(Dropdown, clickOutsideConfig);
 
 export default Dropdown;

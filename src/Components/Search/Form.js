@@ -23,6 +23,7 @@ import DatePicker from "react-datepicker";
 // Icons
 import { BsArrowsCollapse } from "react-icons/bs";
 
+// Amenity items..
 const items = [
   {
     id: 1,
@@ -180,19 +181,12 @@ const Form = (props) => {
                 {/* // ? Dropdown for amenities */}
                 <div className={styles["search-item"]}>
                   <label className={styles["search-labels"]}>Amenities</label>
-
                   <Dropdown
-                    title="Select.."
+                    // title="Select.."
+                    // placeholder="Select"
                     items={items}
                     multiSelect
                   ></Dropdown>
-
-                  {/* <Dropdown
-                    // * Styled in "../Search/dropdown-styling.css" - from node modules default styles;
-                    options={options}
-                    multiple={true}
-                    // onChange={this._onSelect} // todo: Look into docs
-                  /> */}
                 </div>
 
                 {/* //? Close button  */}
