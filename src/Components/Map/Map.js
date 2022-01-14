@@ -80,10 +80,10 @@ const Map = ({ center, zoom }) => {
             mapContext.setLocationInfo({
               id: event.id,
               title: event.title,
-              address: event.address,
+              // address: event.address,
               // !!
               // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
-              // town: event.town,
+              town: event.town,
               img: event.img,
               link: event.link,
             })
@@ -108,7 +108,7 @@ const Map = ({ center, zoom }) => {
             mapContext.setLocationInfo({
               id: event.id,
               title: event.title,
-              address: event.address,
+              // address: event.address,
               // !!
               // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
               town: event.town,
