@@ -2,9 +2,7 @@ import React, { useState } from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
-
-// todo:
-import onClickOutside from "react-onclickoutside";
+import { BsCheck } from "react-icons/bs";
 
 import styles from "../Search/search.module.scss";
 
@@ -15,8 +13,9 @@ const Dropdown = ({ title, items = [], multiSelect = false }) => {
 
   const toggle = () => setOpenDropdown(!openDropdown);
 
-  // todo:
-  //   Dropdown.handleClickOutside = () => setOpenDropdown(false);
+  const closeDropdown = () => {
+    setOpenDropdown(false);
+  };
 
   const handleOnClick = (item) => {
     if (!selection.some((current) => current.id === item.id)) {
@@ -57,37 +56,38 @@ const Dropdown = ({ title, items = [], multiSelect = false }) => {
         onKeyPress={() => toggle(!openDropdown)}
         onClick={() => toggle(!openDropdown)}
       >
-        <div className={styles["dropdown-header-title"]}>
+        {/* <div className={styles["dropdown-header-title"]}>
           <p className={styles["dropdown-header-title-bold"]}>{title}</p>
-        </div>
+        </div> */}
 
         <div className={styles["dropdown-header-action"]}>
           <p>{openDropdown ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
         </div>
       </div>
       {openDropdown && (
-        <ul className={styles["dropdown-list"]}>
-          {items.map((item) => (
-            <li className={styles["dropdown-list-item"]} key={item.id}>
-              <button type="button" onClick={() => handleOnClick(item)}>
-                <span>{item.value}</span>
-                {/* // !!! */}
-                {/* // todo: add icons - selected can be a tick!? */}
-                <span>{isItemInSelection(item) && "selected"}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className={styles["outer-dropdown-list-container"]}>
+          <ul className={styles["dropdown-list"]}>
+            {items.map((item) => (
+              <li key={item.id}>
+                <button
+                  className={styles["dropdown-list-item"]}
+                  type="button"
+                  onClick={() => handleOnClick(item)}
+                >
+                  <span>{item.value}</span>
+                  {/* // !!! */}
+                  {/* // todo: add icons - selected can be a tick!? */}
+                  <span className={styles["selected-icon"]}>
+                    {isItemInSelection(item) && <BsCheck />}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
 };
-
-// todo:
-// const clickOutsideConfig = {
-//   handleClickOutside: () => Dropdown.handleClickOutside,
-// };
-// todo:
-// export default onClickOutside(Dropdown, clickOutsideConfig);
 
 export default Dropdown;
