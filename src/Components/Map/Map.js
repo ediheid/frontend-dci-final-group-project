@@ -4,8 +4,8 @@ import LocationMarker from "./LocationMarker";
 import LocationInfoBox from "./LocationInfoBox";
 
 // ! Testing Image for location box
-import property1 from "./Static/property-1.png";
-import property2 from "./Static/property-2.png";
+import property1 from "./Static/property-1.jpeg";
+import property2 from "./Static/property-2.jpeg";
 
 import { AppContext } from "../../App";
 
