@@ -18,7 +18,7 @@ import image7 from "./static/pexels-nathan-moore-2603681.jpg";
 const LoggedInCarousel = () => {
     const settings = {
         // dots: true,
-        // autoplay: true,
+        autoplay: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
