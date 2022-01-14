@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
@@ -13,9 +13,11 @@ const Dropdown = ({ title, items = [], multiSelect = false }) => {
 
   const toggle = () => setOpenDropdown(!openDropdown);
 
-  const closeDropdown = () => {
-    setOpenDropdown(false);
-  };
+  // ! Ask Jamie - or look into library..
+  // todo - dropdown should close when any other element in the form is clicked
+  //   const closeDropdown = () => {
+  //     setOpenDropdown(false);
+  //   };
 
   const handleOnClick = (item) => {
     if (!selection.some((current) => current.id === item.id)) {

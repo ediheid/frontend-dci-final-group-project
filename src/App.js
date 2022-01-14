@@ -42,6 +42,7 @@ const App = () => {
   const [openMap, setOpenMap] = useState(false);
   // ? Passed down to Form.js - is used to to openSearch but also to change bg opacity
   const [openSearch, setOpenSearch] = useState(false);
+
   // ? Saved/Liked property..
   const [like, setLike] = useState(false);
   // ? user/login and signup context
@@ -83,7 +84,7 @@ const App = () => {
     regionDescription: "",
     houseRules: "",
     price: 0,
-    cancellation: ""
+    cancellation: "",
   });
 
   useEffect(() => {
@@ -97,7 +98,7 @@ const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
   // ? opens map view - And closes search dropdown so user can see the full map
-  const mapView = event => {
+  const mapView = (event) => {
     event.preventDefault();
     setOpenMap(true);
 
@@ -136,7 +137,7 @@ const App = () => {
   };
 
   // ? Toggles the Search open and close for the buttons and NOT the search field
-  const toggleSearchDropdown = event => {
+  const toggleSearchDropdown = (event) => {
     event.preventDefault();
     setOpenSearch(!openSearch);
   };
@@ -147,18 +148,18 @@ const App = () => {
   // }, []);
   // console.log("!!!!!MAPEVENT", mapEventData);
 
-  const collectSignupData = event => {
+  const collectSignupData = (event) => {
     setSignupData({
       ...signupData,
       [event.target.name]: event.target.value,
     });
   };
 
-  const collectLoginData = event => {
+  const collectLoginData = (event) => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
-  const collectLocationData = event => {
+  const collectLocationData = (event) => {
     if (
       event.target.name === "field" ||
       event.target.name === "forest" ||
@@ -172,7 +173,7 @@ const App = () => {
         });
       } else {
         let newArr = locationData.propertyType.filter(
-          value => !value.includes(event.target.name)
+          (value) => !value.includes(event.target.name)
         );
 
         console.log("!!!", newArr);
@@ -206,7 +207,7 @@ const App = () => {
         });
       } else {
         let newArr = locationData.amenities.filter(
-          value => !value.includes(event.target.name)
+          (value) => !value.includes(event.target.name)
         );
 
         locationData.amenities = newArr;
@@ -227,7 +228,7 @@ const App = () => {
         });
       } else {
         let newArr = locationData.essentialAmenities.filter(
-          value => !value.includes(event.target.name)
+          (value) => !value.includes(event.target.name)
         );
 
         locationData.essentialAmenities = newArr;
@@ -244,11 +245,11 @@ const App = () => {
     }
   };
 
-  const setCapacity = val => {
+  const setCapacity = (val) => {
     setLocationData({ ...locationData, maxCapacity: val });
   };
 
-  const setPrice = val => {
+  const setPrice = (val) => {
     setLocationData({ ...locationData, price: val });
   };
 
