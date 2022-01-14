@@ -1,11 +1,10 @@
 import React, { useState, createContext, useEffect } from "react";
 import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Switch,
-    useHistory,
-    useLocation,
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+  useHistory,
 } from "react-router-dom";
 import signup from "./Services/createNewUser.js";
 import Cookies from "js-cookie";
@@ -160,66 +159,98 @@ const App = () => {
   };
 
   const collectLocationData = event => {
-    if (event.target.name === "field" || event.target.name === "forest" || event.target.name === "lake" || event.target.name === "river") {
+    if (
+      event.target.name === "field" ||
+      event.target.name === "forest" ||
+      event.target.name === "lake" ||
+      event.target.name === "river"
+    ) {
       if (event.target.checked) {
-        setLocationData({...locationData, 
-          ...locationData.propertyType.push(event.target.name)});
+        setLocationData({
+          ...locationData,
+          ...locationData.propertyType.push(event.target.name),
+        });
       } else {
-        let newArr = locationData.propertyType.filter(value => !value.includes(event.target.name));
+        let newArr = locationData.propertyType.filter(
+          value => !value.includes(event.target.name)
+        );
 
-        console.log("!!!", newArr)
+        console.log("!!!", newArr);
 
-        locationData.propertyType = newArr
+        locationData.propertyType = newArr;
 
-        console.log("???", locationData)
+        console.log("???", locationData);
         // setLocationData()
         // setLocationData({...locationData, ...locationData.propertyType = newArr})
       }
-         
-            // propertyType: {
-            // ...locationData.propertyType, [event.target.name]: event.target.checked}
-         
-        } else if (event.target.name === "animalsWelcome" || event.target.name === "barrierFree" || event.target.name === "electricity" || event.target.name === "wifi" || event.target.name === "sauna" || event.target.name === "washingMachine" || event.target.name === "playground" || event.target.name === "kiosk" || event.target.name === "fireplace" || event.target.name === "batteryCharger" || event.target.name === "basin") {
-          if (event.target.checked) {
-            setLocationData({...locationData, 
-              ...locationData.amenities.push(event.target.name)});
-          } else {
-            let newArr = locationData.amenities.filter(value => !value.includes(event.target.name));
-        
-            locationData.amenities = newArr
-          }
-        //   setLocationData({...locationData, amenities: {
-        //     ...locationData.amenities, [event.target.name]: event.target.checked
-        //   }
-        // })
-        } else if (event.target.name === "water" || event.target.name === "shower" || event.target.name === "lavatory") {
-          if (event.target.checked) {
-            setLocationData({...locationData, 
-              ...locationData.essentialAmenities.push(event.target.name)});
-          } else {
-            let newArr = locationData.essentialAmenities.filter(value => !value.includes(event.target.name));
-        
-            locationData.essentialAmenities = newArr
-          }
-          //   setLocationData({...locationData, essentialAmenities: {
-        //     ...locationData.essentialAmenities, [event.target.name]: event.target.checked
-        //   }
-        // })
-        } else {
-          setLocationData({
-            ...locationData,
-            [event.target.name]: event.target.value,
-          });
-        }
+
+      // propertyType: {
+      // ...locationData.propertyType, [event.target.name]: event.target.checked}
+    } else if (
+      event.target.name === "animalsWelcome" ||
+      event.target.name === "barrierFree" ||
+      event.target.name === "electricity" ||
+      event.target.name === "wifi" ||
+      event.target.name === "sauna" ||
+      event.target.name === "washingMachine" ||
+      event.target.name === "playground" ||
+      event.target.name === "kiosk" ||
+      event.target.name === "fireplace" ||
+      event.target.name === "batteryCharger" ||
+      event.target.name === "basin"
+    ) {
+      if (event.target.checked) {
+        setLocationData({
+          ...locationData,
+          ...locationData.amenities.push(event.target.name),
+        });
+      } else {
+        let newArr = locationData.amenities.filter(
+          value => !value.includes(event.target.name)
+        );
+
+        locationData.amenities = newArr;
+      }
+      //   setLocationData({...locationData, amenities: {
+      //     ...locationData.amenities, [event.target.name]: event.target.checked
+      //   }
+      // })
+    } else if (
+      event.target.name === "water" ||
+      event.target.name === "shower" ||
+      event.target.name === "lavatory"
+    ) {
+      if (event.target.checked) {
+        setLocationData({
+          ...locationData,
+          ...locationData.essentialAmenities.push(event.target.name),
+        });
+      } else {
+        let newArr = locationData.essentialAmenities.filter(
+          value => !value.includes(event.target.name)
+        );
+
+        locationData.essentialAmenities = newArr;
+      }
+      //   setLocationData({...locationData, essentialAmenities: {
+      //     ...locationData.essentialAmenities, [event.target.name]: event.target.checked
+      //   }
+      // })
+    } else {
+      setLocationData({
+        ...locationData,
+        [event.target.name]: event.target.value,
+      });
+    }
   };
 
   const setCapacity = val => {
-    setLocationData({...locationData, maxCapacity: val})
-  }
+    setLocationData({ ...locationData, maxCapacity: val });
+  };
 
   const setPrice = val => {
-    setLocationData({...locationData, price: val})
-  }
+    setLocationData({ ...locationData, price: val });
+  };
 
   return (
     <div>
@@ -291,60 +322,32 @@ const App = () => {
             <Route exact path="/" component={LandingPage} />
             {/* {cookies.UserCookie !== "null" ?
                 <Redirect to="/welcome-page" />  */}
-                        {/* :  */}
-                        {/* <LandingPage />
+            {/* :  */}
+            {/* <LandingPage />
             </Route> */}
 
-                        {/* // ? About us overview */}
-                        <Route path="/about-us" exact component={AboutUs} />
-                        <Route
-                            path="/verify-email"
-                            exact
-                            component={Verification}
-                        />
-                        <Route
-                            path="/user-signed-up"
-                            exact
-                            component={CheckMail}
-                        />
-                        <Route
-                            path="/location-cards"
-                            exact
-                            component={LocationCards}
-                        />
-                        <Route path="/welcome-page" exact component={Welcome} />
+            {/* // ? About us overview */}
+            <Route path="/about-us" exact component={AboutUs} />
+            <Route path="/verify-email" exact component={Verification} />
+            <Route path="/user-signed-up" exact component={CheckMail} />
+            <Route path="/location-cards" exact component={LocationCards} />
+            <Route path="/welcome-page" exact component={Welcome} />
 
-                        <Route
-                            path="/location-details"
-                            exact
-                            component={LocationDetails}
-                        />
-                        <Route
-                            path="/location-form"
-                            exact
-                            component={LocationForm}
-                        />
+            <Route path="/location-details" exact component={LocationDetails} />
+            <Route path="/location-form" exact component={LocationForm} />
 
-                        <Route
-                            path="/location-form"
-                            exact
-                            component={LocationForm}
-                        />
+            <Route path="/location-form" exact component={LocationForm} />
 
-                        <Route
-                            path="/logged-in"
-                            exact
-                            component={LoggedInLandingPage}
-                        />
-                        {/* // ? Url redirect to landing page on unknown path */}
-                        <Redirect to="/" exact />
-                    </Switch>
-                </main>
-                {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-                <Footer />
-            </AppContext.Provider>
-        </div>
-    );
+            <Route path="/logged-in" exact component={LoggedInLandingPage} />
+            {/* // ? Url redirect to landing page on unknown path */}
+            <Redirect to="/" exact />
+          </Switch>
+        </main>
+        {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
+        <Footer />
+      </AppContext.Provider>
+    </div>
+  );
 };
 
 export default App;
