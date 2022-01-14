@@ -72,37 +72,18 @@ const App = () => {
   });
 
   const [locationData, setLocationData] = useState({
-    title: "",
-    description: "",
-    address: "",
-    price: 0,
-    propertyType: {
-      field: false,
-      forest: false,
-      lake: false,
-      river: false,
-    },
+    propertyType: [],
     spaceType: "",
     address: "",
     maxCapacity: 0,
-    amenities: {
-      lavatory: false,
-      barrierFree: false,
-      electricity: false,
-      wlan: false,
-      sauna: false,
-      washingMachine: false,
-      playground: false,
-      farmShop: false,
-      fireplace: false,
-      batteryCharger: false,
-      basin: false,
-    },
-    essentialAmenities: {
-      water: false,
-      shower: false,
-      toilet: false,
-    },
+    amenities: [],
+    essentialAmenities: [],
+    title: "",
+    description: "",
+    regionDescription: "",
+    houseRules: "",
+    price: 0,
+    cancellation: ""
   });
 
   useEffect(() => {
@@ -116,7 +97,7 @@ const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
   // ? opens map view - And closes search dropdown so user can see the full map
-  const mapView = (event) => {
+  const mapView = event => {
     event.preventDefault();
     setOpenMap(true);
 
@@ -155,7 +136,7 @@ const App = () => {
   };
 
   // ? Toggles the Search open and close for the buttons and NOT the search field
-  const toggleSearchDropdown = (event) => {
+  const toggleSearchDropdown = event => {
     event.preventDefault();
     setOpenSearch(!openSearch);
   };
@@ -166,64 +147,95 @@ const App = () => {
   // }, []);
   // console.log("!!!!!MAPEVENT", mapEventData);
 
-  const collectSignupData = (event) => {
+  const collectSignupData = event => {
     setSignupData({
       ...signupData,
       [event.target.name]: event.target.value,
     });
   };
 
-  const collectLoginData = (event) => {
+  const collectLoginData = event => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
-  const collectLocationData = (event) => {
-    console.log([event.target.name]);
+  const collectLocationData = event => {
     if (
       event.target.name === "field" ||
       event.target.name === "forest" ||
       event.target.name === "lake" ||
       event.target.name === "river"
     ) {
-      setLocationData({
-        ...locationData,
-        propertyType: {
-          ...locationData.propertyType,
-          [event.target.name]: event.target.checked,
-        },
-      });
+      if (event.target.checked) {
+        setLocationData({
+          ...locationData,
+          ...locationData.propertyType.push(event.target.name),
+        });
+      } else {
+        let newArr = locationData.propertyType.filter(
+          value => !value.includes(event.target.name)
+        );
+
+        console.log("!!!", newArr);
+
+        locationData.propertyType = newArr;
+
+        console.log("???", locationData);
+        // setLocationData()
+        // setLocationData({...locationData, ...locationData.propertyType = newArr})
+      }
+
+      // propertyType: {
+      // ...locationData.propertyType, [event.target.name]: event.target.checked}
     } else if (
-      event.target.name === "lavatory" ||
+      event.target.name === "animalsWelcome" ||
       event.target.name === "barrierFree" ||
       event.target.name === "electricity" ||
-      event.target.name === "wlan" ||
+      event.target.name === "wifi" ||
       event.target.name === "sauna" ||
       event.target.name === "washingMachine" ||
       event.target.name === "playground" ||
-      event.target.name === "farmShop" ||
+      event.target.name === "kiosk" ||
       event.target.name === "fireplace" ||
       event.target.name === "batteryCharger" ||
       event.target.name === "basin"
     ) {
-      setLocationData({
-        ...locationData,
-        amenities: {
-          ...locationData.amenities,
-          [event.target.name]: event.target.checked,
-        },
-      });
+      if (event.target.checked) {
+        setLocationData({
+          ...locationData,
+          ...locationData.amenities.push(event.target.name),
+        });
+      } else {
+        let newArr = locationData.amenities.filter(
+          value => !value.includes(event.target.name)
+        );
+
+        locationData.amenities = newArr;
+      }
+      //   setLocationData({...locationData, amenities: {
+      //     ...locationData.amenities, [event.target.name]: event.target.checked
+      //   }
+      // })
     } else if (
       event.target.name === "water" ||
       event.target.name === "shower" ||
-      event.target.name === "toilet"
+      event.target.name === "lavatory"
     ) {
-      setLocationData({
-        ...locationData,
-        essentialAmenities: {
-          ...locationData.essentialAmenities,
-          [event.target.name]: event.target.checked,
-        },
-      });
+      if (event.target.checked) {
+        setLocationData({
+          ...locationData,
+          ...locationData.essentialAmenities.push(event.target.name),
+        });
+      } else {
+        let newArr = locationData.essentialAmenities.filter(
+          value => !value.includes(event.target.name)
+        );
+
+        locationData.essentialAmenities = newArr;
+      }
+      //   setLocationData({...locationData, essentialAmenities: {
+      //     ...locationData.essentialAmenities, [event.target.name]: event.target.checked
+      //   }
+      // })
     } else {
       setLocationData({
         ...locationData,
@@ -232,8 +244,12 @@ const App = () => {
     }
   };
 
-  const setCapacity = (val) => {
+  const setCapacity = val => {
     setLocationData({ ...locationData, maxCapacity: val });
+  };
+
+  const setPrice = val => {
+    setLocationData({ ...locationData, price: val });
   };
 
   return (
@@ -250,6 +266,7 @@ const App = () => {
           setLocationData,
           collectLocationData,
           setCapacity,
+          setPrice,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
