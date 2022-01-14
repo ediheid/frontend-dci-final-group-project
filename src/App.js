@@ -73,37 +73,18 @@ const App = () => {
   });
 
   const [locationData, setLocationData] = useState({
-    title: "",
-    description: "",
-    address: "",
-    price: "",
-    propertyType: {
-      field: false,
-      forest: false,
-      lake: false,
-      river: false
-    },
+    propertyType: [],
     spaceType: "",
     address: "",
     maxCapacity: 0,
-    amenities: {
-      animalsWelcome: false,
-      barrierFree: false,
-      electricity: false,
-      wifi: false,
-      sauna: false,
-      washingMachine: false,
-      playground: false, 
-      kiosk: false,
-      fireplace: false,
-      batteryCharger: false,
-      basin: false
-    },
-    essentialAmenities: {
-      water: false,
-      shower: false,
-      lavatory: false
-    }
+    amenities: [],
+    essentialAmenities: [],
+    title: "",
+    description: "",
+    regionDescription: "",
+    houseRules: "",
+    price: 0,
+    cancellation: ""
   });
 
   useEffect(() => {
@@ -180,19 +161,50 @@ const App = () => {
 
   const collectLocationData = event => {
     if (event.target.name === "field" || event.target.name === "forest" || event.target.name === "lake" || event.target.name === "river") {
-          setLocationData({...locationData, propertyType: {
-            ...locationData.propertyType, [event.target.name]: event.target.checked}
-          }); 
-        } else if (event.target.name === "lavatory" || event.target.name === "barrierFree" || event.target.name === "electricity" || event.target.name === "wlan" || event.target.name === "sauna" || event.target.name === "washingMachine" || event.target.name === "playground" || event.target.name === "farmShop" || event.target.name === "fireplace" || event.target.name === "batteryCharger" || event.target.name === "basin") {
-          setLocationData({...locationData, amenities: {
-            ...locationData.amenities, [event.target.name]: event.target.checked
+      if (event.target.checked) {
+        setLocationData({...locationData, 
+          ...locationData.propertyType.push(event.target.name)});
+      } else {
+        let newArr = locationData.propertyType.filter(value => !value.includes(event.target.name));
+
+        console.log("!!!", newArr)
+
+        locationData.propertyType = newArr
+
+        console.log("???", locationData)
+        // setLocationData()
+        // setLocationData({...locationData, ...locationData.propertyType = newArr})
+      }
+         
+            // propertyType: {
+            // ...locationData.propertyType, [event.target.name]: event.target.checked}
+         
+        } else if (event.target.name === "animalsWelcome" || event.target.name === "barrierFree" || event.target.name === "electricity" || event.target.name === "wifi" || event.target.name === "sauna" || event.target.name === "washingMachine" || event.target.name === "playground" || event.target.name === "kiosk" || event.target.name === "fireplace" || event.target.name === "batteryCharger" || event.target.name === "basin") {
+          if (event.target.checked) {
+            setLocationData({...locationData, 
+              ...locationData.amenities.push(event.target.name)});
+          } else {
+            let newArr = locationData.amenities.filter(value => !value.includes(event.target.name));
+        
+            locationData.amenities = newArr
           }
-        })
-        } else if (event.target.name === "water" || event.target.name === "shower" || event.target.name === "toilet") {
-          setLocationData({...locationData, essentialAmenities: {
-            ...locationData.essentialAmenities, [event.target.name]: event.target.checked
+        //   setLocationData({...locationData, amenities: {
+        //     ...locationData.amenities, [event.target.name]: event.target.checked
+        //   }
+        // })
+        } else if (event.target.name === "water" || event.target.name === "shower" || event.target.name === "lavatory") {
+          if (event.target.checked) {
+            setLocationData({...locationData, 
+              ...locationData.essentialAmenities.push(event.target.name)});
+          } else {
+            let newArr = locationData.essentialAmenities.filter(value => !value.includes(event.target.name));
+        
+            locationData.essentialAmenities = newArr
           }
-        })
+          //   setLocationData({...locationData, essentialAmenities: {
+        //     ...locationData.essentialAmenities, [event.target.name]: event.target.checked
+        //   }
+        // })
         } else {
           setLocationData({
             ...locationData,

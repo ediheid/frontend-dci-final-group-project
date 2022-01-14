@@ -75,7 +75,7 @@ const LocationForm = () => {
                             </div>
 
                             <label className={styles.container}>
-                                Field
+                                on a Field / Meadow
                                 <input
                                     className={styles.input}
                                     type="checkbox"
@@ -87,7 +87,7 @@ const LocationForm = () => {
                             </label>
 
                             <label className={styles.container}>
-                                Forest
+                                at a Forest
                                 <input
                                     className={styles.input}
                                     type="checkbox"
@@ -100,7 +100,7 @@ const LocationForm = () => {
                             </label>
 
                             <label className={styles.container}>
-                                Lake
+                                at a Lake
                                 <input
                                     className={styles.input}
                                     type="checkbox"
@@ -112,7 +112,7 @@ const LocationForm = () => {
                             </label>
 
                             <label className={styles.container}>
-                                River
+                                at a River
                                 <input
                                     className={styles.input}
                                     type="checkbox"
@@ -332,7 +332,7 @@ const LocationForm = () => {
                                 <hr className={styles.hr} />
 
                                 <div className={styles.heading}>
-                                    What about these guests favourites?
+                                    What about these assentials?
                                 </div>
 
                                 <label className={styles.container}>
@@ -366,7 +366,7 @@ const LocationForm = () => {
                                         type="checkbox"
                                         name="lavatory"
                                         onChange={SearchContext.collectLocationData}
-                                        checked={SearchContext.locationData.essentialAmenities.toilet}
+                                        checked={SearchContext.locationData.essentialAmenities.lavatory}
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
@@ -394,9 +394,12 @@ const LocationForm = () => {
                                 </div>
 
                                 <label className={styles["property-details"]}>
-                                    Give guests a sense of what it's like to
-                                    stay at your property, including why the'll
-                                    love staying there.
+                                    {/* Give guests a sense of what it's like to
+                                    stay at your property, including why they'll
+                                    love staying there. */}
+                                    Provide a general description of what the
+                                    property you are offering is like, so guests know
+                                    what to expect.
                                 </label>
                                 <textarea
                                     type="text"
@@ -410,12 +413,12 @@ const LocationForm = () => {
                             <hr className={styles.hr} />
 
                             <div className={styles.heading}>
-                                <div div className={styles["heading-input"]}>
+                                {/* <div div className={styles["heading-input"]}>
                                     Your property
                                 </div>
                                 <label className={styles["property-details"]}>
                                     Provide a general description of what the
-                                    property and rooms are like so guestts know
+                                    property and rooms are like so guests know
                                     what to expect.
                                 </label>
 
@@ -423,29 +426,43 @@ const LocationForm = () => {
                                     type="text"
                                     // resize="none"
                                     className={`${styles["input-field"]} ${styles.textarea}`}
-                                />
+                                /> */}
+                                <div div className={styles["heading-input"]}>
+                                    Regional Description
+                                </div>
                                 <label className={styles["property-details"]}>
-                                    Let guests know how they can get around the
-                                    neighbourhood.
+                                    {/* Let guests know how they can get around the
+                                    neighbourhood. */}
+                                    Tell your guests something about the region, that your property is located. 
                                 </label>
                                 <textarea
                                     type="text"
                                     // resize="none"
                                     className={`${styles["input-field"]} ${styles.textarea}`}
+                                    name="regionDescription"
+                                    onChange={SearchContext.collectLocationData}
                                 />
+                                
+                                <hr className={styles.hr} />
 
+                                <div div className={styles["heading-input"]}>
+                                    House Rules
+                                </div>
                                 <label className={styles["property-details"]}>
-                                    Tell guests if you'll be available to offer
+                                    {/* Tell guests if you'll be available to offer
                                     help throughout thei stay and how you'll
-                                    keep in touch with them.
+                                    keep in touch with them. */}
+                                    Tell your guests what rules are on your property. When are your checkin and checkout times? What is allowed, what not (e.g. smoking, pets, etc.)?
                                 </label>
                                 <textarea
                                     type="text"
                                     // resize="none"
                                     className={`${styles["input-field"]} ${styles.textarea}`}
+                                    name="houseRules"
+                                    onChange={SearchContext.collectLocationData}
                                 />
 
-                                <label className={styles["property-details"]}>
+                                {/* <label className={styles["property-details"]}>
                                     Include any special info you want potential
                                     guests to know before booking that isn't
                                     covered in other settings.
@@ -454,9 +471,9 @@ const LocationForm = () => {
                                     type="text"
                                     // resize="none"
                                     className={`${styles["input-field"]} ${styles.textarea}`}
-                                />
+                                /> */}
                             </div>
-                            <hr className={styles.hr} />
+                            {/* <hr className={styles.hr} />
 
                             <div className={styles.heading}>
                                 <div div className={styles["heading-input"]}>
@@ -472,7 +489,69 @@ const LocationForm = () => {
                                     // resize="none"
                                     className={`${styles["input-field"]} ${styles.textarea}`}
                                 />
+                            </div> */}
+
+                            <hr className={styles.hr} />
+
+                            <div className={styles.heading}>
+                                Please tell your guest, if and when in advance he could cancel his booking.
                             </div>
+                            <label className={styles.container}>
+                                Loose cancellation policy: Until 24h before booking.
+                                <input
+                                    className={styles.input}
+                                    type="radio"
+                                    // checked="checked"
+                                    name="cancellation"
+                                    value={SearchContext.loginData.cancellation = "Loose cancellation policy: Until 24h before booking."}
+                                    onChange={SearchContext.collectLocationData}
+                                />
+                                <span
+                                    className={styles["checkmark-radio"]}
+                                ></span>
+                            </label>
+                            <label className={styles.container}>
+                                Moderate cancellation policy: Until 72h before booking.
+                                <input
+                                    className={styles.input}
+                                    type="radio"
+                                    // checked="checked"
+                                    name="cancellation"
+                                    value={SearchContext.loginData.cancellation = "Moderate cancellation policy: Until 72h before booking."}
+                                    onChange={SearchContext.collectLocationData}
+                                />
+                                <span
+                                    className={styles["checkmark-radio"]}
+                                ></span>
+                            </label>
+                            <label className={styles.container}>
+                                Strict cancellation policy: Until 2weeks before booking.
+                                <input
+                                    className={styles.input}
+                                    type="radio"
+                                    // checked="checked"
+                                    name="cancellation"
+                                    value={SearchContext.loginData.cancellation = "Strict cancellation policy: Until 2weeks before booking."}
+                                    onChange={SearchContext.collectLocationData}
+                                />
+                                <span
+                                    className={styles["checkmark-radio"]}
+                                ></span>
+                            </label>
+                            <label className={styles.container}>
+                                Very strict cancellation policy: Until 1 month before booking.
+                                <input
+                                    className={styles.input}
+                                    type="radio"
+                                    // checked="checked"
+                                    name="cancellation"
+                                    value={SearchContext.loginData.cancellation = "Very strict cancellation policy: Until 1 month before booking."}
+                                    onChange={SearchContext.collectLocationData}
+                                />
+                                <span
+                                    className={styles["checkmark-radio"]}
+                                ></span>
+                            </label>
 
                             <hr className={styles.hr} />
 
@@ -509,7 +588,7 @@ const LocationForm = () => {
                             </div>
                             <hr className={styles.hr} />
 
-                            <Button>Add property</Button>
+                            <Button type="submit">Add property</Button>
                         </form>
                     </div>
                 </div>
