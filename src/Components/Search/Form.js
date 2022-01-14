@@ -7,10 +7,12 @@ import styles from "../Search/search.module.scss";
 // Datepicker override styles
 import "../Search/Datepicker-Styling/datepicker-override.scss";
 // Dropdown override styles
-import "../Search/Dropdown-Styling/dropdown-styling.css";
+// import "../Search/Dropdown-Styling/dropdown-styling.css";
 
 // Components
 import Map from "../Map/Map";
+
+import Dropdown from "./Dropdown";
 
 // Libraries
 import Expand from "react-expand-animated";
@@ -181,6 +183,8 @@ const Form = (props) => {
                 {/* // ? Dropdown for amenities */}
                 <div className={styles["search-item"]}>
                   <label className={styles["search-labels"]}>Amenities</label>
+
+                  {/* <Dropdown></Dropdown> */}
 
                   {/* <Dropdown
                     // * Styled in "../Search/dropdown-styling.css" - from node modules default styles;
