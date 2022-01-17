@@ -92,6 +92,7 @@ const Map = ({ center, zoom }) => {
               country: event.country,
               // img: event.img,
               // link: event.link,
+              // link: `http://localhost:3000/location-details${id}`,
             })
           }
           // ? ======
