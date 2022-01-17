@@ -95,49 +95,6 @@ const Form = (props) => {
   const SearchContext = useContext(AppContext);
   const MapContext = useContext(AppContext);
 
-<<<<<<< HEAD
-  // ! Debug why this useEffect stops the app from running unless the backend server is running
-  // ? useEffect to pass in location Data from fetch request
-  // useEffect(() => {
-  //   locations(MapContext.setMapEventData);
-  // }, []);
-  // // console.log("!!!!!MAPEVENT", mapEventData);
-
-  // todo Dropdown - Ready to take in data - see docs:
-  // https://www.npmjs.com/package/react-dropdown
-  const options = [
-    "Barrier-free",
-    "Lavatory",
-    "Electricity supply",
-    "Water supply",
-    "Showers",
-    "Animals welcome",
-    "Grey water disposal",
-    "Daily waste disposal",
-    "Basin",
-    "WiFi",
-    "Sauna",
-    "Whirlpool",
-    "Swimming pool",
-    "Washing machine",
-    "On a private path",
-    "In a courtyard",
-    "By a body of water",
-    "By a pond",
-    "By a river",
-    "On a field",
-    "In the woods",
-    "Outdoor seating",
-    "Fireplace",
-    "Garden",
-    "Playground",
-    "Basic supplies available to purchase",
-    "Battery charging station",
-  ];
-  // * Default
-
-=======
->>>>>>> 19089366ba2426b5c9bc46a60deb9e992b7a731c
   // todo Calendar - work on functionality and data collection
   // See docs..
   // https://reactdatepicker.com/
@@ -160,8 +117,8 @@ const Form = (props) => {
         <Fragment>
           <form
             className={styles.form}
-            // ! Note: submit functionality now sits on the button and has fixed the dropdown bug
-            // onSubmit={MapContext.mapView}
+          // ! Note: submit functionality now sits on the button and has fixed the dropdown bug
+          // onSubmit={MapContext.mapView}
           >
             {/* // ? Search bar - when clicked will open all search fields */}
             <input
@@ -175,11 +132,10 @@ const Form = (props) => {
               {/* // !!! Testing display none and padding so height is only 10vh */}
               <div
                 className={`${styles["form-dropdown-container"]}
-              ${
-                SearchContext.openSearch
-                  ? styles["form-dropdown-container"]
-                  : styles["hidden-form-dropdown"]
-              }
+              ${SearchContext.openSearch
+                    ? styles["form-dropdown-container"]
+                    : styles["hidden-form-dropdown"]
+                  }
 
               `}
               >
