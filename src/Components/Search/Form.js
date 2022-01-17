@@ -27,65 +27,65 @@ import { BsArrowsCollapse } from "react-icons/bs";
 const items = [
   {
     id: 1,
+    value: "Water",
+  },
+  {
+    id: 2,
+    value: "Shower",
+  },
+  {
+    id: 3,
+    value: "Lavatory",
+  },
+  {
+    id: 4,
     value: "Barrier-free",
   },
 
   {
-    id: 2,
+    id: 5,
     value: "Electricity",
   },
 
   {
-    id: 3,
+    id: 6,
     value: "WiFi",
   },
 
   {
-    id: 4,
-    value: "Animals Welcome",
-  },
-
-  {
-    id: 5,
+    id: 7,
     value: "Basin",
   },
 
   {
-    id: 6,
+    id: 8,
     value: "Sauna",
   },
 
   {
-    id: 7,
+    id: 9,
     value: "Washing Machine",
   },
   {
-    id: 8,
+    id: 10,
     value: "Fireplace",
   },
   {
-    id: 9,
+    id: 11,
     value: "Playground",
   },
   {
-    id: 10,
+    id: 12,
     value: "Kiosk Nearby",
   },
   {
-    id: 11,
+    id: 13,
     value: "Battery charging",
   },
-  {
-    id: 12,
-    value: "Water",
-  },
-  {
-    id: 13,
-    value: "Shower",
-  },
+
   {
     id: 14,
-    value: "Lavatory",
+    value: "Animals Welcome",
   },
 ];
 
