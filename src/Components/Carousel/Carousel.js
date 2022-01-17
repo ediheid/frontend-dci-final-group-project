@@ -93,7 +93,7 @@ import forrest from "./static/pexels-taryn-elliott-6861137.jpg";
 // import camper from "./static/pexels-gantas-vaicciulenas-4499510.jpg";
 import cozyCamper from "./static/pexels-pnw-production-9354781.jpg";
 import garden from "./static/pexels-matheus-bertelli-1906155.jpg";
-import mountains from "./static/pexels-toth-photos-10539693.jpg";
+// import mountains from "./static/pexels-toth-photos-10539693.jpg";
 import beach from "./static/pexels-alasdair-braxton-1992889.jpg";
 
 const Carousel = () => {
@@ -189,14 +189,14 @@ const Carousel = () => {
                             </Link>
                         </div>
 
-                        <div
+                        {/* <div
                             className={styles.slide}
                             style={{ background: "red" }}
                         >
                             <Link to="location-details">
                                 <div className={styles.slide_5}></div>
                             </Link>
-                        </div>
+                        </div> */}
 
                         <div
                             className={styles.slide}
