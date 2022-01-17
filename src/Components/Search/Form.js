@@ -6,18 +6,13 @@ import { AppContext } from "../../App";
 import styles from "../Search/search.module.scss";
 // Datepicker override styles
 import "../Search/Datepicker-Styling/datepicker-override.scss";
-// Dropdown override styles
-// import "../Search/Dropdown-Styling/dropdown-styling.css";
 
 // Components
 import Map from "../Map/Map";
-
 import Dropdown from "./Dropdown";
 
 // Libraries
 import Expand from "react-expand-animated";
-// import Dropdown from "react-dropdown";
-
 import DatePicker from "react-datepicker";
 
 // Icons
@@ -188,7 +183,6 @@ const Form = (props) => {
 
             {/* // ? This is the dropdown area with all other search fields in the form */}
             <Expand open={SearchContext.openSearch}>
-              {/* // !!! Testing display none and padding so height is only 10vh */}
               <div
                 className={`${styles["form-dropdown-container"]}
               ${
@@ -263,7 +257,9 @@ const Form = (props) => {
                 <button
                   className={styles["form-search-button"]}
                   type="submit"
+                  // ! How to bring these two together..?
                   onClick={MapContext.mapView}
+                  onSubmit={console.log("CHECK:", searchDataToSend)}
                 >
                   Search
                 </button>
@@ -272,7 +268,7 @@ const Form = (props) => {
           </form>
         </Fragment>
       </div>
-      {/* // ! Conditional rendering - Map only opens on a successful submit via onSubmit in form */}
+      {/* //  Conditional rendering - Map only opens on a successful submit via onSubmit in form */}
       {MapContext.openMap && <Map />}
     </FormContext.Provider>
   );
