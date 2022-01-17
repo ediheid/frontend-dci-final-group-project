@@ -38,7 +38,7 @@ const LocationForm = () => {
     const submitHandler = event => {
         event.preventDefault();
 
-        createLocation(SearchContext.locationData)
+        createLocation(SearchContext.locationData, SearchContext.setLocationData, event)
     };
 
     
@@ -169,6 +169,7 @@ const LocationForm = () => {
                                         className={styles["input-field"]}
                                         onChange={SearchContext.collectLocationData}
                                         name="address"
+                                        value={SearchContext.collectLocationData.address}
                                     />
                                 </div>
                                 <Map />
@@ -205,6 +206,8 @@ const LocationForm = () => {
                                         name="animalsWelcome"
                                         onChange={SearchContext.collectLocationData}
                                         checked={SearchContext.locationData.amenities.lavatory}
+                                    
+
                                     />
                                     <span className={styles.checkmark}></span>
                                 </label>
@@ -439,7 +442,7 @@ const LocationForm = () => {
                                     type="text"
                                     // resize="none"
                                     className={`${styles["input-field"]} ${styles.textarea}`}
-                                    name="regionDescription"
+                                    name="regionalDescription"
                                     onChange={SearchContext.collectLocationData}
                                 />
                                 

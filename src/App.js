@@ -80,12 +80,15 @@ const App = () => {
     essentialAmenities: [],
     title: "",
     description: "",
-    regionDescription: "",
+    regionalDescription: "",
     houseRules: "",
     price: 0,
-    cancellation: ""
+    cancellation: "",
+    created: false
   });
 
+  console.log("locationData", locationData)
+  
   useEffect(() => {
     console.log(locationData);
   }, [locationData]);
@@ -333,7 +336,14 @@ const App = () => {
             <Route path="/location-cards" exact component={LocationCards} />
             <Route path="/welcome-page" exact component={Welcome} />
 
-            <Route path="/location-details" exact component={LocationDetails} />
+            <Route path="/location-details/:id" exact render={ ({match}) => {
+                const selectedLocation = locationData.find(location => location._id === match.params._id)
+
+                return(
+                  <LocationDetails selected={selectedLocation}/>
+                )
+            } }
+            />
             <Route path="/location-form" exact component={LocationForm} />
 
             <Route path="/location-form" exact component={LocationForm} />
