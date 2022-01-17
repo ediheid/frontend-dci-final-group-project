@@ -38,8 +38,8 @@ const LocationForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    createLocation(SearchContext.locationData);
-  };
+        createLocation(SearchContext.locationData, SearchContext.setLocationData, event)
+    };
 
   return (
     <>
@@ -164,7 +164,10 @@ const LocationForm = () => {
                     name="address"
                   />
                 </div>
-                <Map />
+
+                <div style={{ overflow: "scroll" }}>
+                  <Map />
+                </div>
 
                 <hr className={styles.hr} />
 
@@ -439,7 +442,7 @@ const LocationForm = () => {
                   type="text"
                   // resize="none"
                   className={`${styles["input-field"]} ${styles.textarea}`}
-                  name="regionDescription"
+                  name="regionalDescription"
                   onChange={SearchContext.collectLocationData}
                 />
 
