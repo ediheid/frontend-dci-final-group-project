@@ -18,6 +18,8 @@
   min-height: 6rem;
 
   background-color: rgba(242, 235, 220, 0.8);
+
+  padding: 0.5rem;
 }
 
 .bgChange {
@@ -67,10 +69,19 @@
 
 // ? Dropdown Search section
 
+// !!! Styling applied to dropdown section of form for when it is closed so clicking other elements isn't blocked - also stops the user from being able to click on form elements when closed
+
+.hidden-form-dropdown {
+  position: absolute;
+  margin-top: -1000%;
+  // z-index: -1000;
+  padding: 0;
+}
+
 .form-dropdown-container {
   position: absolute;
   left: 0;
-  top: 9vh;
+  top: 12vh;
 
   display: flex;
   flex-wrap: wrap;
@@ -81,11 +92,15 @@
 
   padding: 3rem 0 14rem 0;
 
-  background-color: $cream;
+  // margin-top: 5rem;
 
+<<<<<<< HEAD
   // ! Commented out z-index to test - make sure it does not disappear
   // // !! Make sure z-index is higher than all other elements / Components o it does not disappear
   // z-index: 3000;
+=======
+  background-color: $cream;
+>>>>>>> 19089366ba2426b5c9bc46a60deb9e992b7a731c
 }
 
 // Close button
@@ -98,6 +113,8 @@
 
   font-size: 2.5rem;
   color: $main-font-colour;
+
+  cursor: pointer;
 }
 
 .form-search-button {
@@ -155,8 +172,6 @@
   border-radius: 1.5rem;
   outline: none;
   padding: 0.8rem 0.5rem 0.8rem 1rem;
-
-  // !! also added to dropdown styling .Dropdown-control to match
   width: 15rem;
 
   &::placeholder {
@@ -170,7 +185,48 @@
   }
 }
 
-// !! Amenities Dropdown Component is styled in "../Search/dropdown-styling.css" - from node modules default styles; - still need to refactor to SASS with correct units
+// !!! Testing new dropdown..
+
+.dropdown-container {
+  position: relative;
+  background-color: white;
+}
+
+.dropdown-header-action {
+  position: absolute;
+  right: 1.2rem;
+  top: 0.8rem;
+}
+
+.outer-dropdown-list-container {
+  padding: 1rem 0.5rem 3rem 0.5rem;
+
+  max-height: 10rem;
+  overflow: scroll;
+}
+
+.dropdown-list {
+  list-style: none;
+}
+.dropdown-list-item {
+  display: flex;
+  justify-content: space-between;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  font-family: $main-font-font-family;
+  color: $main-font-colour;
+  font-size: 1.5rem;
+  padding: 0.3rem 0 0.3rem 0;
+
+  width: 100%;
+}
+
+.selected-icon {
+  font-size: 2rem;
+}
 
 // ? x-small
 
@@ -184,6 +240,10 @@
     &::placeholder {
       font-size: 1.2rem;
     }
+  }
+
+  .form-dropdown-container {
+    top: 10vh;
   }
 }
 
@@ -209,6 +269,10 @@
   .form-search-button {
     font-size: 2rem;
     padding: 0.5rem 1.5rem 0.7rem 1.5rem;
+  }
+
+  .form-dropdown-container {
+    top: 9vh;
   }
 }
 

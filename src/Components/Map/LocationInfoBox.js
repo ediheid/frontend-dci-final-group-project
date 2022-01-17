@@ -36,7 +36,12 @@ const LocationInfoBox = ({ info }) => {
 
           {/* // !!! */}
           {/* // todo: Pass Property Town into events instead of full address? */}
-          <h3 className={styles["location-address"]}>{info.address}</h3>
+
+          <h3 className={styles["location-address"]}>
+            {info.city}, {info.country}
+          </h3>
+
+          {/* <h3 className={styles["location-address"]}>{info.address}</h3> */}
           {/* Property link */}
 
           <div className={styles["liked-and-link-container"]}>

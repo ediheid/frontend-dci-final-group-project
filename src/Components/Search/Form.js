@@ -7,18 +7,87 @@ import styles from "../Search/search.module.scss";
 // Datepicker override styles
 import "../Search/Datepicker-Styling/datepicker-override.scss";
 // Dropdown override styles
-import "../Search/Dropdown-Styling/dropdown-styling.css";
+// import "../Search/Dropdown-Styling/dropdown-styling.css";
 
 // Components
 import Map from "../Map/Map";
 
+import Dropdown from "./Dropdown";
+
 // Libraries
 import Expand from "react-expand-animated";
-import Dropdown from "react-dropdown";
+// import Dropdown from "react-dropdown";
+
 import DatePicker from "react-datepicker";
 
 // Icons
 import { BsArrowsCollapse } from "react-icons/bs";
+
+// Amenity items..
+const items = [
+  {
+    id: 1,
+    value: "Water",
+  },
+  {
+    id: 2,
+    value: "Shower",
+  },
+  {
+    id: 3,
+    value: "Lavatory",
+  },
+  {
+    id: 4,
+    value: "Barrier-free",
+  },
+
+  {
+    id: 5,
+    value: "Electricity",
+  },
+
+  {
+    id: 6,
+    value: "WiFi",
+  },
+
+  {
+    id: 7,
+    value: "Basin",
+  },
+
+  {
+    id: 8,
+    value: "Sauna",
+  },
+
+  {
+    id: 9,
+    value: "Washing Machine",
+  },
+  {
+    id: 10,
+    value: "Fireplace",
+  },
+  {
+    id: 11,
+    value: "Playground",
+  },
+  {
+    id: 12,
+    value: "Kiosk Nearby",
+  },
+  {
+    id: 13,
+    value: "Battery charging",
+  },
+
+  {
+    id: 14,
+    value: "Animals Welcome",
+  },
+];
 
 // ? Form Component
 const Form = (props) => {
@@ -26,6 +95,7 @@ const Form = (props) => {
   const SearchContext = useContext(AppContext);
   const MapContext = useContext(AppContext);
 
+<<<<<<< HEAD
   // ! Debug why this useEffect stops the app from running unless the backend server is running
   // ? useEffect to pass in location Data from fetch request
   // useEffect(() => {
@@ -66,6 +136,8 @@ const Form = (props) => {
   ];
   // * Default
 
+=======
+>>>>>>> 19089366ba2426b5c9bc46a60deb9e992b7a731c
   // todo Calendar - work on functionality and data collection
   // See docs..
   // https://reactdatepicker.com/
@@ -93,14 +165,24 @@ const Form = (props) => {
           >
             {/* // ? Search bar - when clicked will open all search fields */}
             <input
+              onClick={SearchContext.openForm}
               className={styles["search-input"]}
               placeholder="Dream about Schwarzwald?"
-              onClick={SearchContext.openForm}
             ></input>
 
             {/* // ? This is the dropdown area with all other search fields in the form */}
             <Expand open={SearchContext.openSearch}>
-              <div className={styles["form-dropdown-container"]}>
+              {/* // !!! Testing display none and padding so height is only 10vh */}
+              <div
+                className={`${styles["form-dropdown-container"]}
+              ${
+                SearchContext.openSearch
+                  ? styles["form-dropdown-container"]
+                  : styles["hidden-form-dropdown"]
+              }
+
+              `}
+              >
                 {/* // ? Check in */}
                 <div className={styles["search-item"]}>
                   <label className={styles["search-labels"]}>Check in</label>
@@ -141,12 +223,13 @@ const Form = (props) => {
 
                 {/* // ? Dropdown for amenities */}
                 <div className={styles["search-item"]}>
-                  <label className={styles["search-labels"]}>Extras</label>
+                  <label className={styles["search-labels"]}>Amenities</label>
                   <Dropdown
-                    // * Styled in "../Search/dropdown-styling.css" - from node modules default styles;
-                    options={options}
-                    // onChange={this._onSelect} // todo: Look into docs
-                  />
+                    // title="Select.."
+                    // placeholder="Select"
+                    items={items}
+                    multiSelect
+                  ></Dropdown>
                 </div>
 
                 {/* //? Close button  */}

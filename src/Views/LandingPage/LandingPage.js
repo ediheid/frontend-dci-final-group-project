@@ -14,7 +14,6 @@ import Navbar from "../../Components/Navbar/Navbar";
 
 // ? All Images
 import backgroundImage from "./static/pexels-matthew-devries-2775231.jpg";
-import guestImage from "./static/pexels-taryn-elliott-5581736.jpg";
 import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
 
 const LandingPage = () => {

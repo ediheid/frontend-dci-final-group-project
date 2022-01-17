@@ -6,211 +6,217 @@
 // ? Universal styling
 
 .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: auto;
-    padding-top: 10vh;
-    padding-bottom: 10vh;
-    color: $army-green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // !!! Make sure we keep
+  // width: 100vw;
+  height: auto;
+  overflow: hidden;
+
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  color: $army-green;
+
+  position: relative;
 }
 
 .content-container {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-    height: auto;
-    font-family: $main-font-font-family;
-    font-size: 1rem;
-    padding-bottom: 2.5vh;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  height: auto;
+  font-family: $main-font-font-family;
+  font-size: 1rem;
+  padding-bottom: 2.5vh;
 }
 
 .title-image {
-    margin-left: -5vw;
-    margin-top: -10vh;
-    width: 100vw;
-    height: 50vh;
-    object-fit: cover;
-    object-position: 80% 100%;
-    // border: 2px solid green;
-    // to do
-    // object-position:
-    // border-radius: $border-radius;
+  margin-left: -5vw;
+  margin-top: -10vh;
+  width: 100vw;
+  height: 50vh;
+  object-fit: cover;
+  object-position: 80% 100%;
+  // border: 2px solid green;
+  // to do
+  // object-position:
+  // border-radius: $border-radius;
 }
 
 .heading-title {
-    font-size: 2.5rem;
-    padding-right: 15vw;
-    padding-top: 2vh;
+  font-size: 2.5rem;
+  padding-right: 15vw;
+  padding-top: 2vh;
 }
 
 .subheading-title {
-    padding-top: 0.5vh;
-    font-size: 1.5rem;
+  padding-top: 0.5vh;
+  font-size: 1.5rem;
 }
 
 .hr {
-    margin-top: 2.5vh;
-    margin-bottom: 2.5vh;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
 }
 
 .heading {
-    font-size: 2rem;
-    padding-right: 15vw;
-    // padding-top: 2vh;
-    // background-color: pink;
-    margin-bottom: 2vh;
+  font-size: 2rem;
+  padding-right: 15vw;
+  // padding-top: 2vh;
+  // background-color: pink;
+  margin-bottom: 2vh;
 }
 
 /* The container */
 .container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    // border: 1px solid blue;
-    cursor: pointer;
-    font-size: 1.5rem;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  // border: 1px solid blue;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 /* Hide the browser's default checkbox */
 .container .input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 /* Create a custom checkbox */
 .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    // background-color: #eee;
-    background-color: rgba(242, 235, 220, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  // background-color: #eee;
+  background-color: rgba(242, 235, 220, 0.8);
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover .input ~ .checkmark {
-    background-color: rgba(211, 211, 211, 0.8);
+  background-color: rgba(211, 211, 211, 0.8);
 }
 
 /* When the checkbox is checked, add a blue background */
 .container .input:checked ~ .checkmark {
-    background-color: $orange;
+  background-color: $orange;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
 /* Show the checkmark when checked */
 .container .input:checked ~ .checkmark:after {
-    display: block;
+  display: block;
 }
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid $off-white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid $off-white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 //////////////////////
 /* Create a custom radio button */
 .checkmark-radio {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: rgba(242, 235, 220, 0.8);
-    border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: rgba(242, 235, 220, 0.8);
+  border-radius: 50%;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover .input ~ .checkmark-radio {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
 .container .input:checked ~ .checkmark-radio {
-    background-color: $orange;
+  background-color: $orange;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark-radio:after {
-    content: "";
-    position: absolute;
-    display: none;
+  content: "";
+  position: absolute;
+  display: none;
 }
 
 /* Show the indicator (dot/circle) when checked */
 .container .input:checked ~ .checkmark-radio:after {
-    display: block;
+  display: block;
 }
 
 /* Style the indicator (dot/circle) */
 .container .checkmark-radio:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: $off-white;
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $off-white;
 }
 
 .column-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-field {
-    margin-top: 0.5vh;
-    margin-bottom: 2vh;
-    border-radius: 10px;
-    border: 2px solid rgba(242, 235, 220, 20);
-    width: 90vw;
-    height: 5vh;
-    // border: 2px solid blue;
+  margin-top: 0.5vh;
+  margin-bottom: 2vh;
+  border-radius: 10px;
+  border: 2px solid rgba(242, 235, 220, 20);
+  width: 90vw;
+  height: 5vh;
+  // border: 2px solid blue;
 }
 
 .input-field:focus {
-    outline: none;
-    border: 2px solid $orange;
+  outline: none;
+  border: 2px solid $orange;
 }
 
 .property-details {
-    font-size: 1.5rem;
-    display: flex;
-    flex-direction: row;
-    // border: 1px solid blue;
-    // width: 90vw;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  // border: 1px solid blue;
+  // width: 90vw;
 }
 
 .textarea {
-    height: 25vh;
-    resize: none;
-    border: 2px solid rgba(242, 235, 220);
-    // border: 2px solid $main-font-colour;
+  height: 25vh;
+  resize: none;
+  border: 2px solid rgba(242, 235, 220);
+  // border: 2px solid $main-font-colour;
 }
 
 .textarea:focus {
-    outline: none;
-    border: 2px solid $orange;
+  outline: none;
+  border: 2px solid $orange;
 }
 
 // ? Media Queries
@@ -226,83 +232,83 @@
 
 // * Medium = Less than 992px - tablets
 @include medium {
-    .content-container {
-        max-width: 80vw;
-    }
+  .content-container {
+    max-width: 80vw;
+  }
 
-    .title-image {
-        margin-top: 0vh;
-        max-width: 90vw;
-        height: 60vh;
-    }
+  .title-image {
+    margin-top: 18vh;
+    max-width: 90vw;
+    height: 60vh;
+  }
 
-    .input-field {
-        width: 80vw;
-    }
+  .input-field {
+    width: 80vw;
+  }
 
-    .property-details {
-        width: 80vw;
-    }
+  .property-details {
+    width: 80vw;
+  }
 }
 
 // * Large = Less than 1200px - small desktops
 @include large {
-    .content-container {
-        max-width: 70vw;
-    }
+  .content-container {
+    max-width: 70vw;
+  }
 
-    .title-image {
-        margin-top: 0vh;
-        max-width: 80vw;
-        height: 65vh;
-    }
+  .title-image {
+    margin-top: 18vh;
+    max-width: 80vw;
+    height: 65vh;
+  }
 
-    .input-field {
-        width: 70vw;
-    }
+  .input-field {
+    width: 70vw;
+  }
 
-    .property-details {
-        width: 70vw;
-    }
+  .property-details {
+    width: 70vw;
+  }
 }
 
 // * Extra Large = Less than 1399px - medium desktops
 @include extra-large {
-    .content-container {
-        max-width: 60vw;
-    }
+  .content-container {
+    max-width: 60vw;
+  }
 
-    .title-image {
-        margin-top: 0vh;
-        max-width: 70vw;
-        height: 60vh;
-    }
+  .title-image {
+    margin-top: 18vh;
+    max-width: 70vw;
+    height: 60vh;
+  }
 
-    .input-field {
-        width: 60vw;
-    }
+  .input-field {
+    width: 60vw;
+  }
 
-    .property-details {
-        width: 60vw;
-    }
+  .property-details {
+    width: 60vw;
+  }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
 @include extra-extra-large {
-    .content-container {
-        max-width: 50vw;
-    }
+  .content-container {
+    max-width: 50vw;
+  }
 
-    .title-image {
-        margin-top: 0vh;
-        max-width: 60vw;
-    }
+  .title-image {
+    margin-top: 18vh;
+    max-width: 60vw;
+  }
 
-    .input-field {
-        width: 50vw;
-    }
+  .input-field {
+    width: 50vw;
+  }
 
-    .property-details {
-        width: 50vw;
-    }
+  .property-details {
+    width: 50vw;
+  }
 }

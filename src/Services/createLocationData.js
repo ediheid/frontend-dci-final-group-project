@@ -14,8 +14,14 @@ export const createLocation = async (hookData) => {
         }
     }
 
+<<<<<<< HEAD
    fetch("http://localhost:3001/location") 
    .then( response => {
+=======
+   fetch("http://localhost:3001/location", settings) 
+   .then( response => {
+       console.log(response)
+>>>>>>> 19089366ba2426b5c9bc46a60deb9e992b7a731c
        if (response.ok) {
            return response
        } else {
