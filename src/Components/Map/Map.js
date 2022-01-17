@@ -59,16 +59,21 @@ const Map = ({ center, zoom }) => {
 
   console.log("#####", mapContext.mapEventData);
 
+  // let markers = mapContext.mapEventData;
+
   // !!!
   // Todo: Create a an extra loop to run through ids to the populate..
 
-  const markers = mapContext.mapEventData.map((event) => {
-    console.log("*****", event.coordinates[0]);
+  let markers = mapContext.mapEventData.map(
+    (event) => {
+      console.log("*****", event.coordinates[0]);
 
-    if (event.id === "1") {
+      // if (event.id == 1) {
       // console.log("YES", events);
       // console.log("LATITUDE", events[0].coordinates[0]);
       // console.log("LONGITUDE", events[0].coordinates[1]);
+
+      // console.log("ID COUNT!", idCounter);
 
       return (
         <LocationMarker
@@ -94,35 +99,36 @@ const Map = ({ center, zoom }) => {
       );
     }
 
-    if (event.id === "2") {
-      // console.log("Another", events);
-      // console.log(" ID 2: LATITUDE", events[1].coordinates[0]);
-      // console.log(" ID 2: LONGITUDE", events[1].coordinates[1]);
+    // if (event.id === "2") {
+    //   // console.log("Another", events);
+    //   // console.log(" ID 2: LATITUDE", events[1].coordinates[0]);
+    //   // console.log(" ID 2: LONGITUDE", events[1].coordinates[1]);
 
-      return (
-        <LocationMarker
-          lat={event.coordinates[1]}
-          lng={event.coordinates[0]}
-          // ? To look into with Kathi
-          // !! Testing location Info..
-          onClick={() =>
-            mapContext.setLocationInfo({
-              id: event.id,
-              title: event.title,
-              // address: event.address,
-              // !!
-              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
-              town: event.town,
-              img: event.img,
-              link: event.link,
-            })
-          }
-          // ? ======
-        />
-      );
-    }
-    return null;
-  });
+    //   return (
+    //     <LocationMarker
+    //       lat={event.coordinates[1]}
+    //       lng={event.coordinates[0]}
+    //       // ? To look into with Kathi
+    //       // !! Testing location Info..
+    //       onClick={() =>
+    //         mapContext.setLocationInfo({
+    //           id: event.id,
+    //           title: event.title,
+    //           // address: event.address,
+    //           // !!
+    //           // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+    //           town: event.town,
+    //           img: event.img,
+    //           link: event.link,
+    //         })
+    //       }
+    //       // ? ======
+    //     />
+    //   );
+    // }
+    //   return null;
+    // });
+  );
 
   return (
     // Conditionally rendered - will only display onSubmit of form!

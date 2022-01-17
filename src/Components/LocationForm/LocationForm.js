@@ -164,7 +164,10 @@ const LocationForm = () => {
                     name="address"
                   />
                 </div>
-                <Map />
+
+                <div style={{ overflow: "scroll" }}>
+                  <Map />
+                </div>
 
                 <hr className={styles.hr} />
 
