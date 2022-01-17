@@ -95,6 +95,8 @@ const Form = (props) => {
   const SearchContext = useContext(AppContext);
   const MapContext = useContext(AppContext);
 
+  const searchFieldQuery = useState("");
+
   // todo Calendar - work on functionality and data collection
   // See docs..
   // https://reactdatepicker.com/
@@ -107,6 +109,10 @@ const Form = (props) => {
   // Testing and does set on select
   // console.log(startDate);
   // console.log(endDate);
+
+  const handleUserInput = (event) => {};
+
+  // const collectSearchData = (event) => {};
 
   return (
     <>
