@@ -346,7 +346,7 @@ const App = () => {
                         <Route path="/welcome-page" exact component={Welcome} />
 
                         <Route path="/location-details/:id" exact render={ ({match}) => {
-                            const selectedLocation = locationData.find(location => location._id === match.params._id)
+                            const selectedLocation = locationData.find(location => location.id === match.params.id)
 
                             return(
                             <LocationDetails selected={selectedLocation}/>
