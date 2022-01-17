@@ -1,51 +1,51 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
+// ? Stylesheet
 import styles from "../Card/Card.module.scss";
 
-import forrest from "./static/pexels-taryn-elliott-6861137.jpg";
-import middleOfNowhere from "./static/pexels-arthouse-studio-4579021.jpg";
-import field from "./static/pexels-rachel-claire-4577786.jpg";
+// ? All Component and View imports
+import Search from "../../Components/Search/Search";
+import Navbar from "../../Components/Navbar/Navbar";
+
+// ? All Images
+import image1 from "./static/pexels-uriel-mont-6271691.jpg";
 
 const Card = () => {
     return (
         <>
-            <div className={styles["cards-container"]}>
+            <div className={styles["card-container"]}>
                 <div className={styles["card-item"]}>
-                    <img
-                        className={styles.image}
-                        src={forrest}
-                        alt="Camper by Devries from Pexels"
-                    />
-                    <div className={styles["card-heading"]}>In the forrest</div>
-                </div>
-
-                <div className={styles["card-item"]}>
-                    <img
-                        className={styles.image}
-                        src={middleOfNowhere}
-                        alt="Camper by Devries from Pexels"
-                    />
-                    <div className={styles["card-heading"]}>
-                        In the middle of nowhere
+                    <div className={styles["image-container"]}>
+                        <img
+                            className={styles.image}
+                            src={image1}
+                            alt="Credit to Joshua Earle on Unsplash"
+                        />
                     </div>
-                </div>
+                    <div className={styles.content}>
+                        <div className={styles.title}>
+                            Lonely place in the middle of black forest
+                        </div>
 
-                <div className={styles["card-item"]}>
-                    <img
-                        className={styles.image}
-                        src={field}
-                        alt="Camper by Devries from Pexels"
-                    />
-                    <div className={styles["card-heading"]}>In the forrest</div>
-                </div>
+                        <div className={styles["info-box"]}>
+                            <div>Feldberg, Baden-Würtemberg, Germany</div>
+                            <div>80€ / night</div>
+                        </div>
+                        <hr className={styles.hr} />
 
-                <div className={styles["card-item"]}>
-                    <img
-                        className={styles.image}
-                        src={forrest}
-                        alt="Camper by Devries from Pexels"
-                    />
-                    <div className={styles["card-heading"]}>In the forrest</div>
+                        <div className={styles.description}>
+                            Gummi bears marshmallow biscuit donut fruitcake
+                            jelly. Brownie sweet roll croissant dessert tiramisu
+                            toffee tootsie roll.
+                            {/* Tootsie roll liquorice wafer
+                            jelly-o caramels topping jelly icing. Candy canes
+                            chupa chups jelly beans chupa chups candy. */}
+                            {/* Testing */}
+                            <div className={styles["description-link"]}>
+                                Show more &#62;
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
