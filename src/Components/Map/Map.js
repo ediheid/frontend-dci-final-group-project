@@ -90,8 +90,8 @@ const Map = ({ center, zoom }) => {
               // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
               city: event.city,
               country: event.country,
-              img: event.img,
-              link: event.link,
+              // img: event.img,
+              // link: event.link,
             })
           }
           // ? ======
