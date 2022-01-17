@@ -43,9 +43,9 @@ const LoggedInLandingPage = () => {
         </div>
       </div>
       <Card />
+      {/* <Card />
       <Card />
-      <Card />
-      <Card />
+      <Card /> */}
     </>
   );
 };

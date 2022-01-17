@@ -36,6 +36,7 @@ const App = () => {
   // ?  State passed into fetch request for our database locations
   const [mapEventData, setMapEventData] = useState([]);
   const [locationInfo, setLocationInfo] = useState(false);
+
   // ? Display and Hide map functionality
   const [openMap, setOpenMap] = useState(false);
   // ? Passed down to Form.js - is used to to openSearch but also to change bg opacity
@@ -87,6 +88,14 @@ const App = () => {
   useEffect(() => {
     console.log(locationData);
   }, [locationData]);
+
+  // !! TEST: cards
+  const [populateCards, setPopulateCards] = useState([]);
+
+  useEffect(() => {
+    locations(setPopulateCards);
+  }, []);
+  //   console.log("QQQQ", populateCards);
 
   // ? login/signup state
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -270,6 +279,10 @@ const App = () => {
           openSearch: openSearch,
           openForm: openForm,
           toggleSearchDropdown: toggleSearchDropdown,
+
+          // ! TEST: Cards
+          populateCards: populateCards,
+          setPopulateCards: setPopulateCards,
 
           // ? Map Context
           mapView: mapView,
