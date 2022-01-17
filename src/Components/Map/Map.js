@@ -66,7 +66,7 @@ const Map = ({ center, zoom }) => {
 
   let markers = mapContext.mapEventData.map(
     (event) => {
-      console.log("*****", event.coordinates[0]);
+      console.log("*****", event);
 
       // if (event.id == 1) {
       // console.log("YES", events);
