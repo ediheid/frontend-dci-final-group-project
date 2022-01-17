@@ -72,19 +72,42 @@ const App = () => {
     });
 
     const [locationData, setLocationData] = useState({
-        propertyType: [],
-        spaceType: "",
-        address: "",
-        maxCapacity: 0,
-        amenities: [],
-        essentialAmenities: [],
-        title: "",
-        description: "",
-        regionDescription: "",
-        houseRules: "",
-        price: 0,
-        cancellation: "",
-    });
+        "propertyType": [
+          "field"
+        ],
+        "spaceType": "An entire property",
+        "address": "Barcelona",
+        "maxCapacity": 0,
+        "amenities": [
+          "barrierFree"
+        ],
+        "essentialAmenities": [
+          "water"
+        ],
+        "title": "dasdasdasdada",
+        "description": "das",
+        "regionDescription": "da",
+        "houseRules": "das",
+        "price": 0,
+        "cancellation": "Strict cancellation policy: Until 2weeks before booking.",
+        "locationImage": {}
+      });
+
+    // const [locationData, setLocationData] = useState({
+    //     propertyType: [],
+    //     spaceType: "",
+    //     address: "",
+    //     maxCapacity: 0,
+    //     amenities: [],
+    //     essentialAmenities: [],
+    //     title: "",
+    //     description: "",
+    //     regionDescription: "",
+    //     houseRules: "",
+    //     price: 0,
+    //     cancellation: "",
+    //     locationImage: ""
+    // });
 
     useEffect(() => {
         console.log(locationData);
@@ -252,6 +275,10 @@ const App = () => {
         setLocationData({ ...locationData, price: val });
     };
 
+    const setImage = (val) => {
+        setLocationData({ ...locationData, locationImage: val });
+    };
+
     return (
         <div>
             {/* // !!! This is where our context lives */}
@@ -267,6 +294,7 @@ const App = () => {
                     collectLocationData,
                     setCapacity,
                     setPrice,
+                    setImage,
 
                     // ? Search Context to pass down to Search and Navbar..
                     openSearch: openSearch,

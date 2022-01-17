@@ -1,18 +1,40 @@
 
 export const createLocation = async (hookData) => {
 
+    let formData=new FormData();
 
     const locationData = {
         ...hookData
     }
 
+    console.log(formData)
+    console.log(locationData.locationImage)
+    formData.append("locationImage",locationData.locationImage);
+
+    console.log(formData)
+
+    formData.append("locationData",JSON.stringify(locationData));
+
+
+
+    console.log(formData)
+    
+
     const settings = {
         method: "POST",
-        body: JSON.stringify(locationData),
+        body: formData,
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "multipart/form-data"
         }
     }
+
+    // const settings = {
+    //     method: "POST",
+    //     body: JSON.stringify(locationData),
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     }
+    // }
 
    fetch("http://localhost:3001/location", settings) 
    .then( response => {
