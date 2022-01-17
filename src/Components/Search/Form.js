@@ -23,79 +23,77 @@ import DatePicker from "react-datepicker";
 // Icons
 import { BsArrowsCollapse } from "react-icons/bs";
 
+// Amenity items..
+const items = [
+  {
+    id: 1,
+    value: "Water",
+  },
+  {
+    id: 2,
+    value: "Shower",
+  },
+  {
+    id: 3,
+    value: "Lavatory",
+  },
+  {
+    id: 4,
+    value: "Barrier-free",
+  },
+
+  {
+    id: 5,
+    value: "Electricity",
+  },
+
+  {
+    id: 6,
+    value: "WiFi",
+  },
+
+  {
+    id: 7,
+    value: "Basin",
+  },
+
+  {
+    id: 8,
+    value: "Sauna",
+  },
+
+  {
+    id: 9,
+    value: "Washing Machine",
+  },
+  {
+    id: 10,
+    value: "Fireplace",
+  },
+  {
+    id: 11,
+    value: "Playground",
+  },
+  {
+    id: 12,
+    value: "Kiosk Nearby",
+  },
+  {
+    id: 13,
+    value: "Battery charging",
+  },
+
+  {
+    id: 14,
+    value: "Animals Welcome",
+  },
+];
+
 // ? Form Component
 const Form = (props) => {
   // ? Context Variables
   const SearchContext = useContext(AppContext);
   const MapContext = useContext(AppContext);
-
-  // ! Debug why this useEffect stops the app from running unless the backend server is running
-  // ? useEffect to pass in location Data from fetch request
-  // useEffect(() => {
-  //   locations(MapContext.setMapEventData);
-  // }, []);
-  // // console.log("!!!!!MAPEVENT", mapEventData);
-
-  // todo Dropdown - Ready to take in data - see docs:
-  // https://www.npmjs.com/package/react-dropdown
-  // const options = [
-  //   "Barrier-free",
-  //   "Lavatory",
-  //   "Electricity supply",
-  //   "Water supply",
-  //   "Showers",
-  //   "Animals welcome",
-  //   "Grey water disposal",
-  //   "Daily waste disposal",
-  //   "Basin",
-  //   "WiFi",
-  //   "Sauna",
-  //   "Whirlpool",
-  //   "Swimming pool",
-  //   "Washing machine",
-  //   "On a private path",
-  //   "In a courtyard",
-  //   "By a body of water",
-  //   "By a pond",
-  //   "By a river",
-  //   "On a field",
-  //   "In the woods",
-  //   "Outdoor seating",
-  //   "Fireplace",
-  //   "Garden",
-  //   "Playground",
-  //   "Basic supplies available to purchase",
-  //   "Battery charging station",
-  // ];
-
-  // const options = [
-  //   {
-  //     type: "group",
-  //     name: "Equipment",
-  //     items: [
-  //       { value: "three", label: "Three", className: "myOptionClassName" },
-  //       { value: "four", label: "Four" },
-  //     ],
-  //   },
-  //   {
-  //     type: "group",
-  //     name: "Extras",
-  //     items: [
-  //       { value: "five", label: "Five" },
-  //       { value: "six", label: "Six" },
-  //     ],
-  //   },
-  //   {
-  //     type: "group",
-  //     name: "group2",
-  //     items: [
-  //       { value: "five", label: "Five" },
-  //       { value: "six", label: "Six" },
-  //     ],
-  //   },
-  // ];
-
-  // * Default
 
   // todo Calendar - work on functionality and data collection
   // See docs..
@@ -183,15 +181,12 @@ const Form = (props) => {
                 {/* // ? Dropdown for amenities */}
                 <div className={styles["search-item"]}>
                   <label className={styles["search-labels"]}>Amenities</label>
-
-                  {/* <Dropdown></Dropdown> */}
-
-                  {/* <Dropdown
-                    // * Styled in "../Search/dropdown-styling.css" - from node modules default styles;
-                    options={options}
-                    multiple={true}
-                    // onChange={this._onSelect} // todo: Look into docs
-                  /> */}
+                  <Dropdown
+                    // title="Select.."
+                    // placeholder="Select"
+                    items={items}
+                    multiSelect
+                  ></Dropdown>
                 </div>
 
                 {/* //? Close button  */}
