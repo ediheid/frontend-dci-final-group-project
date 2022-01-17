@@ -18,38 +18,36 @@ import Card from "../../UI/Card/Card";
 // import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
 
 const LoggedInLandingPage = () => {
-    // const [showLogIn, setShowLogIn] = useState(false);
+  // const [showLogIn, setShowLogIn] = useState(false);
 
-    // const openLogIn = (event) => {
-    //     event.preventDefault();
-    //     setShowLogIn(true);
-    // };
+  // const openLogIn = (event) => {
+  //     event.preventDefault();
+  //     setShowLogIn(true);
+  // };
 
-    // const closeLogIn = (event) => {
-    //     event.preventDefault();
-    //     setShowLogIn(false);
-    //     console.log("background was clicked close log in");
-    // };
-    return (
-        <>
-            <Navbar />
-            <Search />
-            <div className={styles["test-container"]}>
-                <LoggedInCarousel />
-                <div className={styles["main-container"]}>
-                    <div className={styles["content-container"]}>
-                        <div className={styles.heading}>
-                            Not sure where to go? Perfect.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <Card />
-            <Card /> 
-            <Card />
-            <Card />
-        </>
-    );
+  // const closeLogIn = (event) => {
+  //     event.preventDefault();
+  //     setShowLogIn(false);
+  //     console.log("background was clicked close log in");
+  // };
+  return (
+    <>
+      <Navbar />
+      <Search />
+      <div className={styles["test-container"]}>
+        <LoggedInCarousel />
+        <div className={styles["main-container"]}>
+          <div className={styles["content-container"]}>
+            <div className={styles.heading}>Not sure where to go? Perfect.</div>
+          </div>
+        </div>
+      </div>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </>
+  );
 };
 
 export default LoggedInLandingPage;
