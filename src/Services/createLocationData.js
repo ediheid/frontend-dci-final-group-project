@@ -1,5 +1,8 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
-export const createLocation = async (hookData, setHookData, event) => {
+export const createLocation = async (hookData, setHookData) => {
     const locationData = {
         ...hookData
     }
@@ -29,7 +32,15 @@ export const createLocation = async (hookData, setHookData, event) => {
        }
    })
    .then( data => {
-       console.log(data)
+    console.log(data)
+
+    const locationCreated = () => {
+        toast("Your Location has been successfully created!", {
+        position: "top-center",
+        autoClose: 2000,
+        draggable: false
+    });
+    }
 
     setHookData({
         propertyType: [],
@@ -44,12 +55,11 @@ export const createLocation = async (hookData, setHookData, event) => {
         houseRules: "",
         price: 0,
         cancellation: "",
-        created: data.created}
-        )
+        created: data.created
+    });
 
-        console.log("EVENT", event)
-        // event.reset();
-       console.log("created location?", hookData)
+    locationCreated();
+
    })
    .catch( err => {
        console.log(err)
