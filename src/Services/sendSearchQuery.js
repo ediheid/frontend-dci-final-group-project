@@ -1,13 +1,13 @@
 export const sendSearchQuery = async (searchDataToSend) => {
   const settings = {
-    method: "GET",
+    method: "POST",
     body: JSON.stringify(searchDataToSend),
     headers: {
       "Content-Type": "application/json",
     },
   };
 
-  fetch("http://localhost:3001/location", settings)
+  fetch("http://localhost:3001/location/find", settings)
     .then((response) => {
       console.log("HERE!");
       if (response.ok) {
