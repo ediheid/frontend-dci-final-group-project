@@ -43,19 +43,20 @@ const Card = () => {
               <div>
                 {loc.address}
                 {/* // !! Will be.... */}
-                {`${loc.city}, ${loc.country}`}
+                {/* {`${loc.city}, ${loc.country}`} */}
               </div>
 
               <div>
+                {/* // !! Will be... */}
                 80€ / night
-                {loc.pricePerNight}
+                {/* {loc.pricePerNight} */}
               </div>
             </div>
             <hr className={styles.hr} />
 
             <div className={styles.description}>
               {/* // !! Will be... */}
-              {loc.description}
+              {/* {loc.description} */}
               Gummi bears marshmallow biscuit donut fruitcake jelly. Brownie
               sweet roll croissant dessert tiramisu toffee tootsie roll.
               <div className={styles["description-link"]}>Show more &#62;</div>
