@@ -1,8 +1,7 @@
 // import { useParams } from "react-router-dom"
 
 export const getSpecificLocation = async (id, setLocationData) => {
-    console.log("id", id)
-    console.log("setLocationData", setLocationData)
+    
     const url = `http://localhost:3001/location/${id}`
 
 
@@ -10,7 +9,6 @@ export const getSpecificLocation = async (id, setLocationData) => {
     try {
         const response = await fetch(url)
         const data = await response.json()
-        console.log("SPECIFICLOCATIONDATA", data)
         setLocationData(data)
     } catch (e) {
         console.log(e)
