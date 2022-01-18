@@ -3,6 +3,5 @@ export const locations = async (setMapEventData) => {
   const events = await res.json();
 
   // console.log("????", events.returnedLocations[0].title);
-
   setMapEventData(events.returnedLocations);
 };

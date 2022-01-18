@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from "react";
+import React, { Fragment, useState, useContext, createContext } from "react";
 
 import { AppContext } from "../../App";
 
@@ -6,22 +6,20 @@ import { AppContext } from "../../App";
 import styles from "../Search/search.module.scss";
 // Datepicker override styles
 import "../Search/Datepicker-Styling/datepicker-override.scss";
-// Dropdown override styles
-// import "../Search/Dropdown-Styling/dropdown-styling.css";
 
 // Components
 import Map from "../Map/Map";
-
 import Dropdown from "./Dropdown";
 
 // Libraries
 import Expand from "react-expand-animated";
-// import Dropdown from "react-dropdown";
-
 import DatePicker from "react-datepicker";
 
 // Icons
 import { BsArrowsCollapse } from "react-icons/bs";
+
+// !!! Form Context
+export const FormContext = createContext();
 
 // Amenity items..
 const items = [
@@ -95,64 +93,74 @@ const Form = (props) => {
   const SearchContext = useContext(AppContext);
   const MapContext = useContext(AppContext);
 
-<<<<<<< HEAD
-  // ! Debug why this useEffect stops the app from running unless the backend server is running
-  // ? useEffect to pass in location Data from fetch request
-  // useEffect(() => {
-  //   locations(MapContext.setMapEventData);
-  // }, []);
-  // // console.log("!!!!!MAPEVENT", mapEventData);
-
-  // todo Dropdown - Ready to take in data - see docs:
-  // https://www.npmjs.com/package/react-dropdown
-  const options = [
-    "Barrier-free",
-    "Lavatory",
-    "Electricity supply",
-    "Water supply",
-    "Showers",
-    "Animals welcome",
-    "Grey water disposal",
-    "Daily waste disposal",
-    "Basin",
-    "WiFi",
-    "Sauna",
-    "Whirlpool",
-    "Swimming pool",
-    "Washing machine",
-    "On a private path",
-    "In a courtyard",
-    "By a body of water",
-    "By a pond",
-    "By a river",
-    "On a field",
-    "In the woods",
-    "Outdoor seating",
-    "Fireplace",
-    "Garden",
-    "Playground",
-    "Basic supplies available to purchase",
-    "Battery charging station",
-  ];
-  // * Default
-
-=======
->>>>>>> 19089366ba2426b5c9bc46a60deb9e992b7a731c
-  // todo Calendar - work on functionality and data collection
-  // See docs..
-  // https://reactdatepicker.com/
-  // !! Setting placeholder instead of today's date as holder
-  // https://github.com/Hacker0x01/react-datepicker/issues/446
-  // const [startDate, setStartDate] = useState(new Date());
-  // const [endDate, setEndDate] = useState(new Date());
+  // ? State Hooks
+  const [searchFieldQuery, setSearchFieldQuery] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  // Testing and does set on select
-  // console.log(startDate);
-  // console.log(endDate);
+  const [campervans, setCampervans] = useState("");
+  // Amenity Selection
+  const [selection, setSelection] = useState([]);
+  // Amenities Dropdown state
+  const [openDropdown, setOpenDropdown] = useState(false);
+
+  // ? To pass down to Dropdown..
+  const toggle = () => setOpenDropdown(!openDropdown);
+
+  let isItemInSelection = (item) => {
+    if (selection.find((current) => current.id === item.id)) {
+      return true;
+    }
+
+    return false;
+  };
+
+  // ? ====
+
+  // ? Handling and collecting user input/data
+
+  const handleUserInput = (event) => {
+    switch (event.target.name) {
+      case "locationSearchName":
+        setSearchFieldQuery(event.target.value);
+        break;
+      case "campervans":
+        setCampervans(event.target.value);
+        break;
+      case "amenities":
+        setSelection(event.target.value);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  // ! Collected data to send to backend
+  let searchDataToSend = {
+    locationSearchName: searchFieldQuery,
+    checkInDate: startDate,
+    checkOutDate: endDate,
+    campervans: campervans,
+    amenities: selection,
+  };
+
+  console.log(handleUserInput);
+  console.log(searchDataToSend);
+
+  // ? ====
 
   return (
-    <>
+    <FormContext.Provider
+      value={{
+        selection,
+        setSelection,
+        openDropdown,
+        setOpenDropdown,
+        toggle,
+        // handleOnClick,
+        isItemInSelection,
+      }}
+    >
       <div className={styles["form-container"]}>
         {/* //? Expand sits WITHIN the <form> so everything can be submitted at once (onSubmit) */}
         {/* // todo - when setting up data collection add error handling of not ALL fields are filled out */}
@@ -160,27 +168,27 @@ const Form = (props) => {
         <Fragment>
           <form
             className={styles.form}
-            // ! Note: submit functionality now sits on the button and has fixed the dropdown bug
-            // onSubmit={MapContext.mapView}
+          // ! Note: submit functionality now sits on the button and has fixed the dropdown bug
+          // onSubmit={MapContext.mapView}
           >
             {/* // ? Search bar - when clicked will open all search fields */}
             <input
               onClick={SearchContext.openForm}
               className={styles["search-input"]}
               placeholder="Dream about Schwarzwald?"
+              // ! Testing
+              name="locationSearchName"
+              onChange={handleUserInput}
             ></input>
 
             {/* // ? This is the dropdown area with all other search fields in the form */}
             <Expand open={SearchContext.openSearch}>
-              {/* // !!! Testing display none and padding so height is only 10vh */}
               <div
                 className={`${styles["form-dropdown-container"]}
-              ${
-                SearchContext.openSearch
-                  ? styles["form-dropdown-container"]
-                  : styles["hidden-form-dropdown"]
-              }
-
+              ${SearchContext.openSearch
+                    ? styles["form-dropdown-container"]
+                    : styles["hidden-form-dropdown"]
+                  }
               `}
               >
                 {/* // ? Check in */}
@@ -193,6 +201,7 @@ const Form = (props) => {
                     dateFormat="dd/MM/yyyy"
                     className={styles["dropdown-section-input"]}
                     selected={startDate}
+                    // name="checkInDate"
                     onChange={(date) => setStartDate(date)}
                   />
                   {/* // todo: Original to match */}
@@ -218,6 +227,8 @@ const Form = (props) => {
                     className={styles["dropdown-section-input"]}
                     placeholder="e.g. 1"
                     type="number"
+                    name="campervans"
+                    onChange={handleUserInput}
                   ></input>
                 </div>
 
@@ -244,7 +255,9 @@ const Form = (props) => {
                 <button
                   className={styles["form-search-button"]}
                   type="submit"
+                  // ! How to bring these two together..?
                   onClick={MapContext.mapView}
+                  onSubmit={console.log("CHECK:", searchDataToSend)}
                 >
                   Search
                 </button>
@@ -253,9 +266,9 @@ const Form = (props) => {
           </form>
         </Fragment>
       </div>
-      {/* // ! Conditional rendering - Map only opens on a successful submit via onSubmit in form */}
+      {/* //  Conditional rendering - Map only opens on a successful submit via onSubmit in form */}
       {MapContext.openMap && <Map />}
-    </>
+    </FormContext.Provider>
   );
 };
 

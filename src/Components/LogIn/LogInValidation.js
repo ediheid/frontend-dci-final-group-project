@@ -6,7 +6,7 @@ const LogInValidation = (values) => {
         errors.email = "Email is required"
     } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
         errors.email = "Should be a valid email"
-    } else if (!values.email.length <= 50) {
+    } else if (values.email.length > 50) {
         errors.email = "Email should not be longer than 50 characters"
     }
 

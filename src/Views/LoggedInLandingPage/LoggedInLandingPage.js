@@ -10,7 +10,7 @@ import LogIn from "../../Components/LogIn/LogIn";
 import Search from "../../Components/Search/Search";
 import Navbar from "../../Components/Navbar/Navbar";
 import LoggedInCarousel from "../../Components/LoggedInCarousel/LoggedInCarousel";
-import LocationCards from "../../Components/LocationCards/LocationCards";
+import Card from "../../UI/Card/Card";
 
 // ? All Images
 // import backgroundImage from "./static/pexels-matthew-devries-2775231.jpg";
@@ -39,10 +39,13 @@ const LoggedInLandingPage = () => {
         <div className={styles["main-container"]}>
           <div className={styles["content-container"]}>
             <div className={styles.heading}>Not sure where to go? Perfect.</div>
-            {/* <LocationCards /> */}
           </div>
         </div>
       </div>
+      <Card />
+      {/* <Card />
+      <Card />
+      <Card /> */}
     </>
   );
 };
