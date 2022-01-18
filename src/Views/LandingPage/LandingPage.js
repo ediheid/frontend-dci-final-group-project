@@ -19,7 +19,7 @@ import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
 import LoggedInLandingPage from "../LoggedInLandingPage/LoggedInLandingPage";
 
 const LandingPage = () => {
-    const landingPageContext = useContext();
+    const landingPageContext = useContext(AppContext);
     // const [showLogIn, setShowLogIn] = useState(false);
 
     // const openLogIn = (event) => {

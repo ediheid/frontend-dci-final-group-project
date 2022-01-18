@@ -20,7 +20,7 @@ import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
 
 const LocationDetails = () => {
   const SearchContext = useContext(AppContext);
-  const [specificLocationData, setSpecificLocationData] = useState({})
+  const [specificLocationData, setSpecificLocationData] = useState(null)
 
   const params = useParams();
   const getParams = params.id;
@@ -37,7 +37,7 @@ const LocationDetails = () => {
   
   console.log("SpecificLocationData", specificLocationData)
   
-  const amenities = specificLocationData.amenities.map(a => <div>{a}</div>)
+  const amenities = specificLocationData?.amenities?.map(a => <div>{a}</div>)
   // const spaceType = specificLocationData.spaceType.map(a => <div>{a}</div>)
 
   const title = "Lonely place in the middle of black forest";
@@ -45,6 +45,7 @@ const LocationDetails = () => {
   const nameOfPlace = "Lonely place";
   const hostName = "Florian";
 
+  if (specificLocationData) {
   return (
     <>
       <Navbar />
@@ -132,19 +133,13 @@ const LocationDetails = () => {
               <i className="far fa-calendar-times"></i>
             </div>
             <div className={styles["bonus-description"]}>
-              <div>Free cancellation for 48 hours</div>
+              <div>{specificLocationData.cancellation}</div>
               <div>{""}</div>
             </div>
           </div>
           <hr className={styles.hr} />
           <div className={styles["detailed-description"]}>
-            Lemon drops candy canes marshmallow cake apple pie. Toffee wafer
-            bear claw jujubes liquorice chupa chups cotton candy gummies. Apple
-            pie cookie jujubes jujubes pastry halvah. <br />
-            <br /> Toffee candy canes chocolate cake sesame snaps marzipan oat
-            cake bear claw chocolate. Jelly-o macaroon bear claw apple pie oat
-            cake halvah. Chupa chups sesame snaps brownie marshmallow topping
-            sesame snaps pie.{" "}
+            {specificLocationData.description}
             <div className={styles["modal-description-link"]}>
               Show more &#62;
             </div>
@@ -189,13 +184,9 @@ const LocationDetails = () => {
             </div>
             <div>
               <div className={styles["location-description"]}>
-                <div>{address}</div>
+                <div>{specificLocationData?.location?.city}, {specificLocationData?.location?.region}, {specificLocationData?.location?.country}</div>
                 <div>
-                  The black forest is Biscuit sesame snaps jelly fruitcake
-                  dragée chocolate cake tiramisu topping. Carrot cake lollipop
-                  shortbread apple pie fruitcake. Shortbread marshmallow
-                  chocolate bar gummi bears carrot cake tootsie roll cookie.
-                  Biscuit bear claw dessert chocolate cake liquorice.
+                  {specificLocationData.regionalDescription}
                 </div>
               </div>
               <div className={styles["map-description-link"]}>
@@ -304,6 +295,9 @@ const LocationDetails = () => {
       </div>
     </>
   );
+} else {
+  return <div>Loading</div>
+}
 };
 
 export default LocationDetails;
