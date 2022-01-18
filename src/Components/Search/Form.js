@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useContext, createContext } from "react";
 
 import { AppContext } from "../../App";
+import { sendSearchQuery } from "../../Services/sendSearchQuery";
 
 //  Styles
 import styles from "../Search/search.module.scss";
@@ -147,6 +148,12 @@ const Form = (props) => {
   console.log(handleUserInput);
   console.log(searchDataToSend);
 
+  const searchQuery = (event) => {
+    event.preventDefault();
+    console.log("here");
+    sendSearchQuery(searchDataToSend);
+  };
+
   // ? ====
 
   return (
@@ -259,7 +266,12 @@ const Form = (props) => {
                   type="submit"
                   // ! How to bring these two together..?
                   onClick={MapContext.mapView}
-                  onSubmit={console.log("CHECK:", searchDataToSend)}
+                  // onSubmit={searchQuery}
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    sendSearchQuery(searchDataToSend);
+                  }}
+                  // onSubmit={console.log("Data:", searchDataToSend)}
                 >
                   Search
                 </button>

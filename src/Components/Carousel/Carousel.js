@@ -97,99 +97,87 @@ import garden from "./static/pexels-matheus-bertelli-1906155.jpg";
 import beach from "./static/pexels-alasdair-braxton-1992889.jpg";
 
 const Carousel = () => {
-    const settings = {
-        // centerMode: true,
-        dots: true,
-        // autoplay: true,
-        infinite: true,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        arrows: false,
+  const settings = {
+    // centerMode: true,
+    dots: true,
+    // autoplay: true,
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    arrows: false,
 
-        responsive: [
-            {
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 2,
-                },
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3,
-                },
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 3,
-                },
-            },
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 3,
-                },
-            },
-            {
-                breakpoint: 1399,
-                settings: { slidesToShow: 3 },
-            },
-            {
-                breakpoint: 1400,
-                settings: { slidesToShow: 3 },
-            },
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ],
-    };
+    responsive: [
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1399,
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 1400,
+        settings: { slidesToShow: 3 },
+      },
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ],
+  };
 
-    return (
-        <>
-            <div className={styles["carousel-container"]}>
-                <div className={styles["carousel-heading"]}>
-                    Find your next adventure
-                </div>
-                <div className={styles.carousel}>
-                    <Slider {...settings}>
-                        <div
-                            className={styles.slide}
-                            style={{ background: "red" }}
-                        >
-                            <Link to="location-details">
-                                <div className={styles.slide_1}></div>
-                            </Link>
-                        </div>
+  return (
+    <>
+      <div className={styles["carousel-container"]}>
+        <div className={styles["carousel-heading"]}>
+          Find your next adventure..
+        </div>
+        <div className={styles.carousel}>
+          <Slider {...settings}>
+            <div className={styles.slide} style={{ background: "red" }}>
+              <Link to="location-details">
+                <div className={styles.slide_1}></div>
+              </Link>
+            </div>
 
-                        <div
-                            className={styles.slide}
-                            style={{ background: "red" }}
-                        >
-                            <Link to="location-details">
-                                <div className={styles.slide_2}> </div>
-                            </Link>
-                        </div>
+            <div className={styles.slide} style={{ background: "red" }}>
+              <Link to="location-details">
+                <div className={styles.slide_2}> </div>
+              </Link>
+            </div>
 
-                        <div
-                            className={styles.slide}
-                            style={{ background: "red" }}
-                        >
-                            <Link to="location-details">
-                                <div className={styles.slide_3}></div>
-                            </Link>
-                        </div>
+            <div className={styles.slide} style={{ background: "red" }}>
+              <Link to="location-details">
+                <div className={styles.slide_3}></div>
+              </Link>
+            </div>
 
-                        <div
-                            className={styles.slide}
-                            style={{ background: "red" }}
-                        >
-                            <Link to="location-details">
-                                <div className={styles.slide_4}></div>
-                            </Link>
-                        </div>
+            <div className={styles.slide} style={{ background: "red" }}>
+              <Link to="location-details">
+                <div className={styles.slide_4}></div>
+              </Link>
+            </div>
 
-                        {/* <div
+            {/* <div
                             className={styles.slide}
                             style={{ background: "red" }}
                         >
@@ -198,16 +186,13 @@ const Carousel = () => {
                             </Link>
                         </div> */}
 
-                        <div
-                            className={styles.slide}
-                            style={{ background: "red" }}
-                        >
-                            <Link to="location-details">
-                                <div className={styles.slide_6}></div>
-                            </Link>
-                        </div>
+            <div className={styles.slide} style={{ background: "red" }}>
+              <Link to="location-details">
+                <div className={styles.slide_6}></div>
+              </Link>
+            </div>
 
-                        {/* <div className={styles.test}>
+            {/* <div className={styles.test}>
                         <img
                             className={styles.image}
                             src={forrest}
@@ -242,11 +227,11 @@ const Carousel = () => {
                             alt="Camper by Devries from Pexels"
                         />
                     </div> */}
-                    </Slider>
-                </div>
-            </div>
-        </>
-    );
+          </Slider>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Carousel;
