@@ -589,6 +589,14 @@ const LocationForm = () => {
                 And finally.. time for some images of your gorgeous property!
               </div>
               <div>
+              <label>
+                  Property picture
+                  <input
+                      type="file"
+                      name="locationImage"
+                      onChange={(e) => SearchContext.setImage(e.target.files[0])}
+                  />
+                </label>
                 <Button>
                   <i className="fas fa-arrow-up"></i>Upload photos
                 </Button>

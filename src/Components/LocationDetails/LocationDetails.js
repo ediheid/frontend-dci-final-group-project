@@ -1,9 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { AppContext } from "../../App";
-
+// ? import fetch request to get Data for populatin the pages
 import { getSpecificLocation } from "../../Services/getSpecificLocation.js";
+
+// ? import Component for Aminities
+import LocationDetailsIcons from "./LocationDetailsIcons.js";
 
 // ? Stylesheet
 import styles from "../LocationDetails/LocationDetails.module.scss";
@@ -19,8 +21,19 @@ import mainImage from "../LocationDetails/static/pexels-mali-maeder-109679.jpg";
 import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
 
 const LocationDetails = () => {
-  const SearchContext = useContext(AppContext);
-  const [specificLocationData, setSpecificLocationData] = useState(null)
+  const [specificLocationData, setSpecificLocationData] = useState(null);
+  const [readMore, setReadMore] = useState(false);
+
+  const cutText = () => {
+    if (!readMore) {
+      return specificLocationData.regionalDescription.slice(0,30)
+    } else {
+      return specificLocationData.regionalDescription
+    }
+  }
+
+  const linkname = readMore ? "show less" : "show more"; 
+
 
   const params = useParams();
   const getParams = params.id;
@@ -38,7 +51,7 @@ const LocationDetails = () => {
   console.log("SpecificLocationData", specificLocationData)
   
   const amenities = specificLocationData?.amenities?.map(a => <div>{a}</div>)
-  // const spaceType = specificLocationData.spaceType.map(a => <div>{a}</div>)
+  
 
   const title = "Lonely place in the middle of black forest";
   const address = "Feldberg, Baden-Würtemberg, Germany";
@@ -63,7 +76,7 @@ const LocationDetails = () => {
 "
           />
           {/* // !! Title of location */}
-          <div className={styles["heading-title"]}>{}</div>
+          <div className={styles["heading-title"]}>{specificLocationData.title}</div>
           {/* // !! Address under title of location */}
           <div className={styles["title-location"]}>{}</div>
           <hr className={styles.hr} />
@@ -148,7 +161,9 @@ const LocationDetails = () => {
           <div className={styles["heading-section"]}>
             What this place offers
           </div>
-          <div className={styles["bonus-container"]}>
+
+          <LocationDetailsIcons specificLocationData={specificLocationData}/>
+          {/* <div className={styles["bonus-container"]}>
             <div className={styles.icon}>
               <i class="fas fa-tree"></i>{" "}
             </div>
@@ -156,7 +171,7 @@ const LocationDetails = () => {
               <div>Forest view</div>
               <div>{""}</div>
             </div>
-          </div>
+          </div> */}
           <div className={styles["bonus-container"]}>
             <div className={styles.icon}>
               <i className="fas fa-box-open"></i>
@@ -184,13 +199,13 @@ const LocationDetails = () => {
             </div>
             <div>
               <div className={styles["location-description"]}>
-                <div>{specificLocationData?.location?.city}, {specificLocationData?.location?.region}, {specificLocationData?.location?.country}</div>
+                <div>{specificLocationData.location.city}, {specificLocationData.location.region}, {specificLocationData.location.country}</div>
                 <div>
-                  {specificLocationData.regionalDescription}
+                  {cutText()} 
                 </div>
               </div>
               <div className={styles["map-description-link"]}>
-                Show more &#62;
+                <a className="showmore" onClick={() => setReadMore(!readMore)}>{linkname} &#62;</a>
               </div>
             </div>
           </div>
@@ -279,7 +294,7 @@ const LocationDetails = () => {
           <div className={styles["price-container"]}>
             {/* // !! More info */}
             <div className={styles["price-info"]}>
-              €85 / <span className={styles.span}>night</span>
+              {specificLocationData.price} € / <span className={styles.span}>night</span>
               {/* <br /> */}
               <div>02 May - 09 May</div>
             </div>
