@@ -6,79 +6,81 @@
 // ? Universal styling
 
 .card-container {
-    font-family: $main-font-font-family;
-    color: $army-green;
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: wrap;
-    // justify-content: center;
-    // align-items: center;
-    // align-content: center;
-    // width: 100vw;
-    // background-color: pink;
+  font-family: $main-font-font-family;
+  color: $army-green;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  // justify-content: center;
+  // align-items: center;
+  // align-content: center;
+  // width: 100vw;
+  // background-color: pink;
 }
 
 .card-item {
-    width: 90vw;
-    height: 70vh;
-    margin-bottom: 5vh;
-    border-radius: $border-radius;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  width: 90vw;
+  height: auto;
+  margin-bottom: 5vh;
+  border-radius: $border-radius;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding-bottom: 2rem;
 }
 
 .image-container {
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
 
-    height: 70%;
+  height: 70%;
 }
 
 .image {
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .content {
-    padding: 1vh 5vw 1vh 5vw;
+  padding: 1vh 5vw 1vh 5vw;
 }
 
 .title {
-    // padding-top:
-    font-size: 2.5rem;
-    padding-top: 2vh;
+  // padding-top:
+  font-size: 2.5rem;
+  padding-top: 2vh;
 }
 
 .hr {
-    margin-top: 1.5vh;
-    margin-bottom: 1.5vh;
-    // color: red;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+  // color: red;
 }
 
 .info-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 0.5vh;
-    font-size: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 0.5vh;
+  font-size: 1.2rem;
+  height: 4rem;
 }
 
 .description {
-    padding-top: 1vh;
-    text-align: justify;
-    text-align-last: none;
+  padding-top: 1vh;
+  text-align: justify;
+  text-align-last: none;
 
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .description-link {
-    margin-top: 1vh;
-    cursor: pointer;
-    text-decoration: underline;
-    font-weight: bolder;
+  margin-top: 1vh;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bolder;
 }
 
 // ? Media Queries
@@ -90,48 +92,48 @@
 
 // * Medium = Less than 992px - tablets
 @include medium {
-    .card-item {
-        width: 44vw;
-        // height: 70vh;
-    }
+  .card-item {
+    width: 44vw;
+    // height: 70vh;
+  }
 
-    .content {
-        padding: 1vh 2vw 1vh 2vw;
-    }
+  .content {
+    padding: 1vh 2vw 1vh 2vw;
+  }
 }
 
 // * Large = Less than 1200px - small desktops
 @include large {
-    .card-item {
-        width: 44vw;
-        // height: 95vh;
-    }
+  .card-item {
+    width: 44vw;
+    // height: 95vh;
+  }
 
-    .content {
-        padding: 1vh 2vw 1vh 2vw;
-    }
+  .content {
+    padding: 1vh 2vw 1vh 2vw;
+  }
 }
 
 // * Extra Large = Less than 1399px - medium desktops
 @include extra-large {
-    .card-item {
-        width: 44vw;
-        // height: 95vh;
-    }
+  .card-item {
+    width: 44vw;
+    // height: 95vh;
+  }
 
-    .content {
-        padding: 1vh 2vw 1vh 2vw;
-    }
+  .content {
+    padding: 1vh 2vw 1vh 2vw;
+  }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
 @include extra-extra-large {
-    .card-item {
-        width: 44vw;
-        // height: 95vh;
-    }
+  .card-item {
+    width: 44vw;
+    // height: 95vh;
+  }
 
-    .content {
-        padding: 1vh 2vw 1vh 2vw;
-    }
+  .content {
+    padding: 1vh 2vw 1vh 2vw;
+  }
 }
