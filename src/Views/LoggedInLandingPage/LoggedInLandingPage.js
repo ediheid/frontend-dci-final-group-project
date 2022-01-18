@@ -32,8 +32,8 @@ const LoggedInLandingPage = () => {
     // };
     return (
         <>
-            <Navbar />
-            <Search />
+            {/* <Navbar />
+            <Search /> */}
             <div className={styles["test-container"]}>
                 <LoggedInCarousel />
             </div>
@@ -58,7 +58,6 @@ const LoggedInLandingPage = () => {
                 </div>
                 <Card />
             </div>
-            {/* <Card /> */}
         </>
     );
 };

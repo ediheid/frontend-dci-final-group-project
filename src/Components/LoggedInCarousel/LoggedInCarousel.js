@@ -18,7 +18,7 @@ import image7 from "./static/pexels-nathan-moore-2603681.jpg";
 const LoggedInCarousel = () => {
     const settings = {
         // dots: true,
-        autoplay: false,
+        autoplay: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -29,49 +29,49 @@ const LoggedInCarousel = () => {
         <Slider {...settings}>
             <div className={styles.imagecontainer}>
                 <img
-                    className={styles.image}
+                    className={styles.image1}
                     src={image1}
                     alt="Credit to Joshua Earle on Unsplash"
                 />
             </div>
             <div>
                 <img
-                    className={styles.image}
+                    className={styles.image2}
                     src={image2}
                     alt="Credit to Alisa Anton on Unsplash"
                 />
             </div>
             <div>
                 <img
-                    className={styles.image}
+                    className={styles.image3}
                     src={image3}
                     alt="Credit to Igor Ovsyannykov on Unsplash"
                 />
             </div>
             <div>
                 <img
-                    className={styles.image}
+                    className={styles.image4}
                     src={image4}
                     alt="Credit to Pierre Châtel-Innocenti on Unsplash"
                 />
             </div>
             <div>
                 <img
-                    className={styles.image}
+                    className={styles.image5}
                     src={image5}
                     alt="Credit to Richard Nolan on Unsplash"
                 />
             </div>
             <div>
                 <img
-                    className={styles.image}
+                    className={styles.image6}
                     src={image6}
                     alt="Credit to Cristina Gottardi on Unsplash"
                 />
             </div>
             <div>
                 <img
-                    className={styles.image}
+                    className={styles.image7}
                     src={image7}
                     alt="Credit to Cristina Gottardi on Unsplash"
                 />
