@@ -7,56 +7,58 @@ import { AppContext } from "../../App";
 import styles from "../Logout/Logout.module.scss";
 
 const Logout = (props) => {
-    const logoutContext = useContext(AppContext);
+  const logoutContext = useContext(AppContext);
 
-    if (!props.showLogin) {
-        return null;
-    }
+  if (!props.showLogin) {
+    return null;
+  }
 
-    const stop = (event) => {
-        event.stopPropagation();
-    };
+  const stop = (event) => {
+    event.stopPropagation();
+  };
 
-    // const openLoginModal = () => {
-    //     logoutContext.setShowLoginModal(true);
-    // };
+  // const openLoginModal = () => {
+  //     logoutContext.setShowLoginModal(true);
+  // };
 
-    // const closeLoginModal = event => {
-    //     event.stopPropagation();
-    //     logoutContext.setShowLoginModal(false);
-    // }
+  // const closeLoginModal = event => {
+  //     event.stopPropagation();
+  //     logoutContext.setShowLoginModal(false);
+  // }
 
-    const handleLogout = event => {
-        // logoutContext.setCookie("UserCookie", "");
-        logoutContext.removeCookie("UserCookie")
-        props.closeLogin(event);
+  const handleLogout = (event) => {
+    // logoutContext.setCookie("UserCookie", "");
+    logoutContext.removeCookie("UserCookie");
+    props.closeLogin(event);
 
-        //! Change URL to ENV.Provess.Location
-        window.location.replace("http://localhost:3000/");
-    }
+    //! Change URL to ENV.Provess.Location
+    window.location.replace(
+      "https://frontend-dci-final-group-project.vercel.app/"
+    );
+  };
 
-    return (
-        <>
-            <div
-                className={styles["logout-modal-container"]}
-                onClick={props.closeLogin}
-            >
-                {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
-            <div className={styles.content} onClick={stop}>
-                <div className={styles.header}>
-                    <p className={styles.title}>Logout</p>
-                </div>
+  return (
+    <>
+      <div
+        className={styles["logout-modal-container"]}
+        onClick={props.closeLogin}
+      >
+        {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
+        <div className={styles.content} onClick={stop}>
+          <div className={styles.header}>
+            <p className={styles.title}>Logout</p>
+          </div>
 
-                <input
-                    className={styles["input-logout-button"]}
-                    type="submit"
-                    value="Logout"
-                    onClick={handleLogout}
-                />
-            </div>    
-            </div>
-        </>
-    )
+          <input
+            className={styles["input-logout-button"]}
+            type="submit"
+            value="Logout"
+            onClick={handleLogout}
+          />
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Logout;
