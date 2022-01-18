@@ -140,12 +140,14 @@ const App = () => {
   // ? Open Search Form function
   const openForm = () => {
     setOpenSearch(true);
+    setOpenMap(false);
   };
 
   // ? Toggles the Search open and close for the buttons and NOT the search field
   const toggleSearchDropdown = (event) => {
     event.preventDefault();
     setOpenSearch(!openSearch);
+    setOpenMap(false);
   };
 
   // ? useEffect to pass in location Data from fetch request
