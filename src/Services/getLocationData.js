@@ -7,8 +7,8 @@ export const locations = async (setMapEventData) => {
 
   const res = await axios({
     method: "POST",
-    // url: "http://localhost:3001/location/find",
-    url: `${backendURL}location/find`,
+    url: "http://localhost:3001/location/find",
+    // url: `${backendURL}location/find`,
     headers: { "Content-Type": "application/json" },
 
     body: JSON.stringify(data),
