@@ -93,7 +93,7 @@ const Map = ({ center, zoom }) => {
             // description: event.description,
             // img: event.img,
             // link: event.link,
-            // link: `http://localhost:3000/location-details${id}`,
+            link: `http://localhost:3000/location-details${event.id}`,
           })
         }
         // ? ======
