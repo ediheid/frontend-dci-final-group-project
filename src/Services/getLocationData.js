@@ -10,9 +10,9 @@ export const locations = async (setMapEventData) => {
     url: "http://localhost:3001/location/find",
     // url: `${backendURL}location/find`,
     headers: { "Content-Type": "application/json" },
-
     body: JSON.stringify(data),
   });
 
+  console.log("test");
   setMapEventData(res.data.returnedLocations);
 };
