@@ -35,9 +35,8 @@ const App = () => {
   // ?  State hooks
   // ?  State passed into fetch request for our database locations
   const [mapEventData, setMapEventData] = useState([]);
-  // ? To look into with Kathi
-  // !! Testing location Info..
   const [locationInfo, setLocationInfo] = useState(false);
+
   // ? Display and Hide map functionality
   const [openMap, setOpenMap] = useState(false);
   // ? Passed down to Form.js - is used to to openSearch but also to change bg opacity
@@ -89,6 +88,14 @@ const App = () => {
   useEffect(() => {
     console.log(locationData);
   }, [locationData]);
+
+  // !! TEST: cards
+  const [populateCards, setPopulateCards] = useState([]);
+
+  useEffect(() => {
+    locations(setPopulateCards);
+  }, []);
+  //   console.log("QQQQ", populateCards);
 
   // ? login/signup state
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -251,6 +258,14 @@ const App = () => {
   const setPrice = (val) => {
     setLocationData({ ...locationData, price: val });
   };
+<<<<<<< HEAD
+=======
+
+
+  const setImage = (val) => {
+    setLocationData({ ...locationData, locationImage: val });
+  };
+>>>>>>> main
 
   return (
     <div>
@@ -267,12 +282,23 @@ const App = () => {
           collectLocationData,
           setCapacity,
           setPrice,
+<<<<<<< HEAD
+=======
+          setImage,
+>>>>>>> main
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
           openForm: openForm,
           toggleSearchDropdown: toggleSearchDropdown,
 
+<<<<<<< HEAD
+=======
+          // ! TEST: Cards
+          populateCards: populateCards,
+          setPopulateCards: setPopulateCards,
+
+>>>>>>> main
           // ? Map Context
           mapView: mapView,
           openMap: openMap,
@@ -328,6 +354,7 @@ const App = () => {
 
             {/* // ? About us overview */}
             <Route path="/about-us" exact component={AboutUs} />
+<<<<<<< HEAD
             <Route
               path="/verify-email"
               exact
@@ -366,6 +393,28 @@ const App = () => {
               exact
               component={LoggedInLandingPage}
             />
+=======
+            <Route path="/verify-email" exact component={Verification} />
+            <Route path="/user-signed-up" exact component={CheckMail} />
+            <Route path="/location-cards" exact component={LocationCards} />
+            <Route path="/welcome-page" exact component={Welcome} />
+
+            <Route
+              path="/location-details/:id"
+              exact
+              render={({ match }) => {
+                const selectedLocation = locationData.find(
+                  (location) => location._id === match.params._id
+                );
+
+                return <LocationDetails selected={selectedLocation} />;
+              }}
+            />
+
+            <Route path="/location-form" exact component={LocationForm} />
+
+            <Route path="/logged-in" exact component={LoggedInLandingPage} />
+>>>>>>> main
             {/* // ? Url redirect to landing page on unknown path */}
             <Redirect to="/" exact />
           </Switch>
