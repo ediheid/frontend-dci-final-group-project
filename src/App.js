@@ -259,6 +259,11 @@ const App = () => {
     setLocationData({ ...locationData, price: val });
   };
 
+
+  const setImage = (val) => {
+    setLocationData({ ...locationData, locationImage: val });
+  };
+
   return (
     <div>
       {/* // !!! This is where our context lives */}
@@ -274,6 +279,7 @@ const App = () => {
           collectLocationData,
           setCapacity,
           setPrice,
+          setImage,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
