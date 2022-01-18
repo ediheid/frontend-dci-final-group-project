@@ -1,6 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import { AppContext } from "../../App";
+
+import { getSpecificLocation } from "../../Services/getSpecificLocation.js";
 
 // ? Stylesheet
 import styles from "../LocationDetails/LocationDetails.module.scss";
@@ -17,6 +20,25 @@ import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
 
 const LocationDetails = () => {
   const SearchContext = useContext(AppContext);
+  const [specificLocationData, setSpecificLocationData] = useState({})
+
+  const params = useParams();
+  const getParams = params.id;
+
+
+  console.log("Params", getParams)
+
+
+  useEffect(() => {
+    getSpecificLocation(getParams, setSpecificLocationData)
+    console.log("hello !")
+  }, [])
+
+  
+  console.log("SpecificLocationData", specificLocationData)
+  
+  const amenities = specificLocationData.amenities.map(a => <div>{a}</div>)
+  // const spaceType = specificLocationData.spaceType.map(a => <div>{a}</div>)
 
   const title = "Lonely place in the middle of black forest";
   const address = "Feldberg, Baden-Würtemberg, Germany";
@@ -40,9 +62,9 @@ const LocationDetails = () => {
 "
           />
           {/* // !! Title of location */}
-          <div className={styles["heading-title"]}>{title}</div>
+          <div className={styles["heading-title"]}>{}</div>
           {/* // !! Address under title of location */}
-          <div className={styles["title-location"]}>{address}</div>
+          <div className={styles["title-location"]}>{}</div>
           <hr className={styles.hr} />
           {/* // !! Catching info */}
           <div className={styles["catching-info"]}>
@@ -68,11 +90,12 @@ const LocationDetails = () => {
           </div>
           {/* // !! Title + host + intro */}
           <div className={styles["intro-details"]}>
-            <div>1 caravan</div>
+            {amenities}
+            {/* <div>1 caravan</div>
             <div>forrest</div>
             <div>no wifi</div>
             <div>no shower</div>
-            <div>animals allowed</div>
+            <div>animals allowed</div> */}
           </div>
           <hr className={styles.hr} />
           {/* // !! Nice to have */}
@@ -81,14 +104,14 @@ const LocationDetails = () => {
               <i className="fas fa-shuttle-van"></i>
             </div>
             <div className={styles["bonus-description"]}>
-              //TODO conditional render of data
-              <div>Entire property</div>
-              <div>You'll have the place to yourself.</div>
+              
+              <div>{specificLocationData.spaceType}</div>
+              <div>{specificLocationData.spaceType === "An entire property" ? "You'll have the place to yourself." : "You'll share the place with other caravans."}</div>
             </div>
           </div>
           <div className={styles["bonus-container"]}>
             <div className={styles.icon}>
-              <i class="fas fa-door-closed"></i>
+              <i className="fas fa-door-closed"></i>
             </div>
             <div className={styles["bonus-description"]}>
               <div>Self check-in</div>
@@ -97,7 +120,7 @@ const LocationDetails = () => {
           </div>
           <div className={styles["bonus-container"]}>
             <div className={styles.icon}>
-              <i class="fas fa-mobile-alt"></i>
+              <i className="fas fa-mobile-alt"></i>
             </div>
             <div className={styles["bonus-description"]}>
               <div>Great communication experience</div>
@@ -106,7 +129,7 @@ const LocationDetails = () => {
           </div>
           <div className={styles["bonus-container"]}>
             <div className={styles.icon}>
-              <i class="far fa-calendar-times"></i>
+              <i className="far fa-calendar-times"></i>
             </div>
             <div className={styles["bonus-description"]}>
               <div>Free cancellation for 48 hours</div>
@@ -141,7 +164,7 @@ const LocationDetails = () => {
           </div>
           <div className={styles["bonus-container"]}>
             <div className={styles.icon}>
-              <i class="fas fa-box-open"></i>
+              <i className="fas fa-box-open"></i>
             </div>
             <div className={styles["bonus-description"]}>
               <div>Welcome package</div>
@@ -150,7 +173,7 @@ const LocationDetails = () => {
           </div>
           <div className={styles["bonus-container"]}>
             <div className={styles.icon}>
-              <i class="fas fa-campground"></i>{" "}
+              <i className="fas fa-campground"></i>{" "}
             </div>
             <div className={styles["bonus-description"]}>
               <div>Calmness</div>
@@ -190,11 +213,11 @@ const LocationDetails = () => {
                 Joined in December 2020
               </div>
               <div>
-                <i class="fas fa-user-check"></i>
+                <i className="fas fa-user-check"></i>
                 Identity verified
               </div>
               <div>
-                <i class="fas fa-clipboard-check"></i>12 reviews
+                <i className="fas fa-clipboard-check"></i>12 reviews
               </div>
             </div>
 

@@ -347,13 +347,14 @@ const App = () => {
             <Route
               path="/location-details/:id"
               exact
-              render={({ match }) => {
-                const selectedLocation = locationData.find(
-                  (location) => location._id === match.params._id
-                );
+              // render={({ match }) => {
+              //   const selectedLocation = locationData.find(
+              //     (location) => location._id === match.params._id
+              //   );
 
-                return <LocationDetails selected={selectedLocation} />;
-              }}
+              //   return <LocationDetails selected={selectedLocation} />;
+              // }
+            component={LocationDetails}
             />
 
             <Route path="/location-form" exact component={LocationForm} />
