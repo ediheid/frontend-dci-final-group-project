@@ -38,13 +38,12 @@
 
 .heading {
     padding-top: 5vh;
-    // padding-bottom: 2vh;
+    padding-bottom: 2vh;
     display: flex;
     justify-content: flex-start;
     font-size: 3.5rem;
 }
 
-/////////////////////////////
 .image-container {
     position: relative;
     text-align: center;
@@ -74,6 +73,15 @@
     top: 12vh;
     left: 5vw;
     // border: 2px solid blue;
+}
+
+.card-container {
+    width: 90vw;
+    // border: 2px solid orange;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 // ? Media Queries

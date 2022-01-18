@@ -8,30 +8,26 @@
 .card-container {
     font-family: $main-font-font-family;
     color: $army-green;
-    display: flex;
+    // display: flex;
     // flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    width: 100vw;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center;
+    // align-content: center;
+    // width: 100vw;
     // background-color: pink;
 }
 
 .card-item {
-    // padding: 5vw;
     width: 90vw;
-    height: auto;
-    // background-color: tomato;
-    // border: 1px solid black;
-    margin-top: 5vh;
+    height: 70vh;
+    margin-bottom: 5vh;
     border-radius: $border-radius;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
         rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .image-container {
-    // background-color: yellow;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
 
@@ -47,7 +43,7 @@
 }
 
 .content {
-    padding: 1vh 5vw 2vh 5vw;
+    padding: 1vh 5vw 1vh 5vw;
 }
 
 .title {
@@ -88,38 +84,54 @@
 // ? Media Queries
 // Based on Bootstrap breakpoints
 
-// // * X-Small = Less than 576px - small mobile devices
-// @include x-small {
-// }
+// * Small = Less than 768px - mobile devices
+@include small {
+}
 
-// // * Small = Less than 768px - mobile devices
-// @include small {
-// }
+// * Medium = Less than 992px - tablets
+@include medium {
+    .card-item {
+        width: 44vw;
+        // height: 70vh;
+    }
 
-// // * Medium = Less than 992px - tablets
-// @include medium {
-//     .card-container {
-//         max-width: 80vw;
-//     }
-// }
+    .content {
+        padding: 1vh 2vw 1vh 2vw;
+    }
+}
 
-// // * Large = Less than 1200px - small desktops
-// @include large {
-//     .card-container {
-//         max-width: 70vw;
-//     }
-// }
+// * Large = Less than 1200px - small desktops
+@include large {
+    .card-item {
+        width: 44vw;
+        // height: 95vh;
+    }
 
-// // * Extra Large = Less than 1399px - medium desktops
-// @include extra-large {
-//     .card-container {
-//         max-width: 60vw;
-//     }
-// }
+    .content {
+        padding: 1vh 2vw 1vh 2vw;
+    }
+}
 
-// // * Extra EXTRA Large = More than 1400px - medium desktops
-// @include extra-extra-large {
-//     .card-container {
-//         max-width: 50vw;
-//     }
-// }
+// * Extra Large = Less than 1399px - medium desktops
+@include extra-large {
+    .card-item {
+        width: 44vw;
+        // height: 95vh;
+    }
+
+    .content {
+        padding: 1vh 2vw 1vh 2vw;
+    }
+}
+
+// * Extra EXTRA Large = More than 1400px - medium desktops
+@include extra-extra-large {
+    .card-item {
+        width: 44vw;
+        // height: 95vh;
+    }
+
+    .content {
+        padding: 1vh 2vw 1vh 2vw;
+    }
+}
