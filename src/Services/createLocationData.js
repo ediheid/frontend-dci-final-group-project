@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 export const createLocation = async (hookData) => {
 
@@ -7,24 +8,39 @@ export const createLocation = async (hookData) => {
         ...hookData
     }
 
-    console.log(formData)
-    console.log(locationData.locationImage)
-    formData.append("locationImage",locationData.locationImage);
 
-    console.log(formData)
+    // console.log(formData)
+    // console.log(locationData.locationImage)
+    // formData.append("locationImage",locationData.locationImage);
 
-    formData.append("locationData",JSON.stringify(locationData));
+    // console.log(formData)
 
+    formData.append("locationData",JSON.stringify(hookData));
+    formData.append("locationImage",hookData.locationImage);
 
+    try {
+        // make axios post request
+        const response = await axios({
+          method: "post",
+          url: "http://localhost:3001/location",
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        console.log(response)
+      } catch(error) {
+        console.log(error)
+      }
 
-    console.log(formData)
     
 
     const settings = {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(formData),
         headers: {
-            "Content-Type": "multipart/form-data"
+            "Content-Type": "multipart/form-data;boundary=----WebKitFormBoundaryyrV7KO0BoCBuDbTL"
+
+            // "Content-Type": "application/x-www-form-urlencoded"
+            
         }
     }
 
@@ -36,26 +52,26 @@ export const createLocation = async (hookData) => {
     //     }
     // }
 
-   fetch("http://localhost:3001/location", settings) 
-   .then( response => {
-       console.log(response)
-       if (response.ok) {
-           return response
-       } else {
-            switch(response.status) {
-                case 400: 
-                    return response.json().then(err => {
-                        throw new Error(err.message)
-                    })
-                default: 
-                    throw new Error("Internal server Error!")
-            }   
-       }
-   })
-   .then( data => {
-       console.log(data)
-   })
-   .catch( err => {
-       console.log(err)
-   })
+//    fetch("http://localhost:3001/location", settings) 
+//    .then( response => {
+//        console.log(response)
+//        if (response.ok) {
+//            return response
+//        } else {
+//             switch(response.status) {
+//                 case 400: 
+//                     return response.json().then(err => {
+//                         throw new Error(err.message)
+//                     })
+//                 default: 
+//                     throw new Error("Internal server Error!")
+//             }   
+//        }
+//    })
+//    .then( data => {
+//        console.log(data)
+//    })
+//    .catch( err => {
+//        console.log(err)
+//    })
 }
