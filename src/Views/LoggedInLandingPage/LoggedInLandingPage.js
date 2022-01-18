@@ -13,7 +13,7 @@ import LoggedInCarousel from "../../Components/LoggedInCarousel/LoggedInCarousel
 import Card from "../../UI/Card/Card";
 
 // ? All Images
-// import backgroundImage from "./static/pexels-matthew-devries-2775231.jpg";
+import host from "./static/pexels-valeria-boltneva-7960259.jpg";
 // import guestImage from "./static/pexels-taryn-elliott-5581736.jpg";
 // import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
 
@@ -36,15 +36,29 @@ const LoggedInLandingPage = () => {
             <Search />
             <div className={styles["test-container"]}>
                 <LoggedInCarousel />
-                <div className={styles["main-container"]}>
-                    <div className={styles["content-container"]}>
-                        <div className={styles.heading}>
-                            Not sure where to go? Perfect.
-                        </div>
+            </div>
+            <div className={styles["main-container"]}>
+                <div className={styles["content-container"]}>
+                    <div className={styles["image-container"]}>
+                        <Link to="/location-form">
+                            <img
+                                className={styles.image}
+                                src={host}
+                                alt="Camper by Devries from Pexels"
+                            />
+                            <div className={styles["heading-image"]}>
+                                Want to become a host?
+                            </div>
+                        </Link>
+                    </div>
+
+                    <div className={styles.heading}>
+                        Not sure where to go? Perfect.
                     </div>
                 </div>
+                <Card />
             </div>
-            <Card />
+            {/* <Card /> */}
         </>
     );
 };
