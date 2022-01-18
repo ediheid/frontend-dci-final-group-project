@@ -104,8 +104,8 @@ const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
   // ? opens map view - And closes search dropdown so user can see the full map
-  const mapView = (event) => {
-    event.preventDefault();
+  const mapView = () => {
+    // event.preventDefault();
     setOpenMap(true);
 
     // ! Set map location markers from fetch request (getLocationData.js)
