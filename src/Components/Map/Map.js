@@ -146,10 +146,10 @@ const Map = ({ center, zoom }) => {
 // !!! Map Component default props live here..
 
 Map.defaultProps = {
-  // Center coordinates set to Baden-Württemberg
-  center: { lat: 48.758339, lng: 8.243008 },
-  defaultCenter: { lat: 48.758339, lng: 8.243008 },
-  zoom: 6,
+  // Center coordinates set to Germany
+  center: { lat: 51.1657, lng: 10.4515 },
+  defaultCenter: { lat: 51.1657, lng: 10.4515 },
+  zoom: 5,
 };
 
 export default Map;
