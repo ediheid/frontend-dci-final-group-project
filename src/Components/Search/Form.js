@@ -267,10 +267,10 @@ const Form = (props) => {
                   // ! How to bring these two together..?
                   onClick={MapContext.mapView}
                   // onSubmit={searchQuery}
-                  onSubmit={(event) => {
-                    event.preventDefault();
-                    sendSearchQuery(searchDataToSend);
-                  }}
+                  // onSubmit={(event) => {
+                  //   event.preventDefault();
+                  //   sendSearchQuery(searchDataToSend);
+                  // }}
                   // onSubmit={console.log("Data:", searchDataToSend)}
                 >
                   Search
