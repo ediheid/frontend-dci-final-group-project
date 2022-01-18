@@ -259,7 +259,6 @@ const App = () => {
     setLocationData({ ...locationData, price: val });
   };
 
-
   const setImage = (val) => {
     setLocationData({ ...locationData, locationImage: val });
   };
@@ -347,7 +346,7 @@ const App = () => {
             <Route path="/about-us" exact component={AboutUs} />
             <Route path="/verify-email" exact component={Verification} />
             <Route path="/user-signed-up" exact component={CheckMail} />
-            <Route path="/location-cards" exact component={LocationCards} />
+            {/* <Route path="/location-cards" exact component={LocationCards} /> */}
             <Route path="/welcome-page" exact component={Welcome} />
 
             <Route
