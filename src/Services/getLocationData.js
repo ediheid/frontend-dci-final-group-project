@@ -14,7 +14,5 @@ export const locations = async (setMapEventData) => {
     body: JSON.stringify(data),
   });
 
-  console.log("Test for deplyoment");
-
   setMapEventData(res.data.returnedLocations);
 };
