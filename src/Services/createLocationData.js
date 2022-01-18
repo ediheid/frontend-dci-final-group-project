@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
+
 export const createLocation = async (hookData, setHookData, event) => {
   let formData = new FormData();
 
@@ -14,7 +16,8 @@ export const createLocation = async (hookData, setHookData, event) => {
   try {
     const response = await axios({
       method: "post",
-      url: "http://localhost:3001/location",
+      // url: "http://localhost:3001/location",
+      url: `${backendURL}location`,
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     });
