@@ -1,6 +1,6 @@
 export const sendSearchQuery = async (searchDataToSend) => {
   const settings = {
-    method: "POST",
+    method: "GET",
     body: JSON.stringify(searchDataToSend),
     headers: {
       "Content-Type": "application/json",
