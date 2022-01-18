@@ -6,6 +6,8 @@ import { AppContext } from "../../App";
 // ? Stylesheet
 import styles from "../Logout/Logout.module.scss";
 
+const websiteURL = process.env.REACT_APP_FRONTEND_URL;
+
 const Logout = (props) => {
   const logoutContext = useContext(AppContext);
 
@@ -32,9 +34,7 @@ const Logout = (props) => {
     props.closeLogin(event);
 
     //! Change URL to ENV.Provess.Location
-    window.location.replace(
-      "https://frontend-dci-final-group-project.vercel.app/"
-    );
+    window.location.replace(`${websiteURL}`);
   };
 
   return (
