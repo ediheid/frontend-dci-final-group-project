@@ -17,7 +17,7 @@ export const locations = async (setMapEventData) => {
 
   let places = res.data.returnedLocations;
   places.map((place) => {
-    place.link = `${frontendURL}location-details/${place.id}`;
+    place.link = `${frontendURL}location-details/${place._id.toString()}`;
     return place;
   });
 
