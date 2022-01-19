@@ -1,3 +1,5 @@
+const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
+
 export const sendSearchQuery = async (searchDataToSend) => {
   const settings = {
     method: "POST",
@@ -7,7 +9,7 @@ export const sendSearchQuery = async (searchDataToSend) => {
     },
   };
 
-  fetch("http://localhost:3001/location/find", settings)
+  fetch(`${backendURL}location/find`, settings)
     .then((response) => {
       console.log("HERE!");
       if (response.ok) {
