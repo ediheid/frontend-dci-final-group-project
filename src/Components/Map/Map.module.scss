@@ -22,6 +22,8 @@
   // width: 88%;
   width: 100%;
 
+  overflow: hidden;
+
   padding: 3rem 3rem 5rem 3rem;
   background-color: white;
 
@@ -230,6 +232,7 @@
 @include x-small {
   .map-container {
     height: 80vh;
+    width: 100%;
   }
 
   .location-box {
@@ -250,6 +253,7 @@
 
 @include medium {
   .map-container {
+    height: 80vh;
     padding-bottom: 15rem;
   }
 
