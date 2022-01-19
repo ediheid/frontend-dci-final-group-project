@@ -93,7 +93,9 @@ const Map = ({ center, zoom }) => {
             country: event.country,
             // pricePerNight: event.pricePerNight,
             // description: event.description,
-            // img: event.img,
+            // img: `http://localhost:3001/uploads/${event.id}.jpg`,
+
+            img: `${event.img}`,
 
             // !! Actual link once setup..
             link: `${event.link}`,

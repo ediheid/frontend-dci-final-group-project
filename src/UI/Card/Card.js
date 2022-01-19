@@ -32,9 +32,10 @@ const Card = () => {
               // !!! Image passed in from backend will live here soon..
               // {loc.image} ?
               className={styles.image}
-              src={image1}
+              // src={image1}
+              src={loc.img}
               // !!! Alt will be passed in from backend too.. We can ask Marc to set it up with each corelating photo!
-              alt="Credit to Joshua Earle on Unsplash"
+              alt="UPDATE THIS"
             />
           </div>
           <div className={styles.content}>
