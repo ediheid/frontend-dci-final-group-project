@@ -4,48 +4,56 @@ import "react-toastify/dist/ReactToastify.css";
 
 toast.configure();
 
+const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
 
-export const login = async (hookData, sethookData, setUserData, setShowLoginModal, setCookie, history) => {
-    // let history = useHistory();
+export const login = async (
+  hookData,
+  sethookData,
+  setUserData,
+  setShowLoginModal,
+  setCookie,
+  history
+) => {
+  // let history = useHistory();
 
-    const currloginData = {
-      email: hookData.email,
-      password: hookData.password
-    }
+  const currloginData = {
+    email: hookData.email,
+    password: hookData.password,
+  };
 
-    const settings = {
-      method: "POST",
-      body: JSON.stringify(currloginData),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }
+  const settings = {
+    method: "POST",
+    body: JSON.stringify(currloginData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
-    fetch("http://localhost:3001/user/login", settings)
-    .then(response => {
+  fetch(`${backendURL}user/login`, settings)
+    .then((response) => {
       if (response.ok) {
-        return response.json()
+        return response.json();
       } else {
-        switch(response.status) {
-          case 401: 
-              return response.json().then(err => {
-                  throw new Error(err.message)
-              })
+        switch (response.status) {
+          case 401:
+            return response.json().then((err) => {
+              throw new Error(err.message);
+            });
           default:
-              throw new Error("Internal Server Error!")
+            throw new Error("Internal Server Error!");
         }
       }
     })
-    .then(data => {
+    .then((data) => {
       console.log("showData from backend:", data);
 
-      setCookie("UserCookie", data.token)
-      
+      setCookie("UserCookie", data.token);
+
       const loginSuccessful = () => {
         toast("Login successful!! Taking you to your dashboard!", {
           position: "top-center",
           autoClose: 2000,
-          draggable: false
+          draggable: false,
         });
       };
 
@@ -54,8 +62,8 @@ export const login = async (hookData, sethookData, setUserData, setShowLoginModa
 
       sethookData({
         email: "",
-        password: ""
-      })
+        password: "",
+      });
 
       setUserData({
         _id: data._id,
@@ -63,13 +71,13 @@ export const login = async (hookData, sethookData, setUserData, setShowLoginModa
         lastname: data.lastname,
         locations: data.locations,
         bookings: data.bookings,
-      })
+      });
 
-      setShowLoginModal(false)
+      setShowLoginModal(false);
 
       loginSuccessful();
     })
-    .catch(err => {
+    .catch((err) => {
       const loginFailed = () => {
         toast.error(`Error: ${err.message}`, {
           position: "top-center",
@@ -82,7 +90,7 @@ export const login = async (hookData, sethookData, setUserData, setShowLoginModa
 
       sethookData({
         email: "",
-        password: ""
-      })
-    })
-  }
+        password: "",
+      });
+    });
+};
