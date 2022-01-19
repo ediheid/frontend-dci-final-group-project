@@ -59,69 +59,46 @@ const Map = ({ center, zoom }) => {
 
   console.log("#####", mapContext.mapEventData);
 
+  // let markers = mapContext.mapEventData;
+
   // !!!
   // Todo: Create a an extra loop to run through ids to the populate..
 
-  const markers = mapContext.mapEventData.map((event) => {
-    console.log("*****", event.coordinates[0]);
+  let markers = mapContext.mapEventData.map((event) => {
+    console.log("*****", event);
 
-    if (event.id === "1") {
-      // console.log("YES", events);
-      // console.log("LATITUDE", events[0].coordinates[0]);
-      // console.log("LONGITUDE", events[0].coordinates[1]);
+    // if (event.id == 1) {
+    // console.log("YES", events);
+    // console.log("LATITUDE", events[0].coordinates[0]);
+    // console.log("LONGITUDE", events[0].coordinates[1]);
 
-      return (
-        <LocationMarker
-          lat={event.coordinates[1]}
-          lng={event.coordinates[0]}
-          // ? To look into with Kathi
-          // !! Testing location Info..
-          onClick={() =>
-            mapContext.setLocationInfo({
-              id: event.id,
-              title: event.title,
-              // address: event.address,
-              // !!
-              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
-              city: event.city,
-              country: event.country,
-              img: event.img,
-              link: event.link,
-            })
-          }
-          // ? ======
-        />
-      );
-    }
+    // console.log("ID COUNT!", idCounter);
 
-    if (event.id === "2") {
-      // console.log("Another", events);
-      // console.log(" ID 2: LATITUDE", events[1].coordinates[0]);
-      // console.log(" ID 2: LONGITUDE", events[1].coordinates[1]);
-
-      return (
-        <LocationMarker
-          lat={event.coordinates[1]}
-          lng={event.coordinates[0]}
-          // ? To look into with Kathi
-          // !! Testing location Info..
-          onClick={() =>
-            mapContext.setLocationInfo({
-              id: event.id,
-              title: event.title,
-              // address: event.address,
-              // !!
-              // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
-              town: event.town,
-              img: event.img,
-              link: event.link,
-            })
-          }
-          // ? ======
-        />
-      );
-    }
-    return null;
+    return (
+      <LocationMarker
+        lat={event.coordinates[1]}
+        lng={event.coordinates[0]}
+        // ? To look into with Kathi
+        // !! Testing location Info..
+        onClick={() =>
+          mapContext.setLocationInfo({
+            id: event.id,
+            title: event.title,
+            // address: event.address,
+            // !!
+            // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
+            city: event.city,
+            country: event.country,
+            // pricePerNight: event.pricePerNight,
+            // description: event.description,
+            // img: event.img,
+            // link: event.link,
+            // link: `http://localhost:3000/location-details${id}`,
+          })
+        }
+        // ? ======
+      />
+    );
   });
 
   return (
@@ -169,10 +146,10 @@ const Map = ({ center, zoom }) => {
 // !!! Map Component default props live here..
 
 Map.defaultProps = {
-  // Center coordinates set to Baden-Württemberg
-  center: { lat: 48.758339, lng: 8.243008 },
-  defaultCenter: { lat: 48.758339, lng: 8.243008 },
-  zoom: 8,
+  // Center coordinates set to Germany
+  center: { lat: 51.1657, lng: 10.4515 },
+  defaultCenter: { lat: 51.1657, lng: 10.4515 },
+  zoom: 5,
 };
 
 export default Map;

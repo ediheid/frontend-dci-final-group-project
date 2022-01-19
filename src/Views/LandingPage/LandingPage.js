@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "./LandingPage.module.scss";
@@ -15,8 +16,10 @@ import Navbar from "../../Components/Navbar/Navbar";
 // ? All Images
 import backgroundImage from "./static/pexels-matthew-devries-2775231.jpg";
 import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
+import LoggedInLandingPage from "../LoggedInLandingPage/LoggedInLandingPage";
 
 const LandingPage = () => {
+    const landingPageContext = useContext(AppContext);
     // const [showLogIn, setShowLogIn] = useState(false);
 
     // const openLogIn = (event) => {
@@ -29,10 +32,8 @@ const LandingPage = () => {
     //     setShowLogIn(false);
     //     console.log("background was clicked close log in");
     // };
-    return (
-        <>
-            <Navbar />
-            <Search />
+
+    const content = !landingPageContext.cookies.UserCookie ? (
             <div className={styles["main-container"]}>
                 <div className={styles["content-container"]}>
                     <img
@@ -75,6 +76,18 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
+    )
+    :
+    (
+        <LoggedInLandingPage />
+    );
+
+    return (
+        
+        <>
+            <Navbar />
+            <Search />
+            {content}
         </>
     );
 };

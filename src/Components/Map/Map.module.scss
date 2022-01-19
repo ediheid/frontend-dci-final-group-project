@@ -5,13 +5,13 @@
 
 // ? Map
 
-.test-container {
-  width: 100vw;
+// .test-container {
+//   width: 100vw;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
 .map-container {
   position: relative;
@@ -24,6 +24,8 @@
 
   padding: 3rem 3rem 5rem 3rem;
   background-color: white;
+
+  margin-top: 0.5rem;
 }
 
 // ? Map close button
@@ -207,7 +209,7 @@
 
 @include x-small {
   .map-container {
-    padding-bottom: 15rem;
+    height: 80vh;
   }
 
   .location-box {
@@ -217,7 +219,8 @@
 
 @include small {
   .map-container {
-    padding-bottom: 15rem;
+    // padding-bottom: 10rem;
+    height: 80vh;
   }
 
   .liked-and-link-container {
@@ -237,7 +240,7 @@
 
 @include large {
   .map-container {
-    height: 70vh;
+    height: 80vh;
     padding-bottom: 8rem;
   }
 
@@ -248,7 +251,7 @@
 
 @include extra-large {
   .map-container {
-    height: 70vh;
+    height: 80vh;
   }
 
   .liked-and-link-container {
@@ -258,7 +261,7 @@
 
 @include extra-extra-large {
   .map-container {
-    height: 70vh;
+    height: 80vh;
   }
 
   .liked-and-link-container {
