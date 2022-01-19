@@ -591,13 +591,13 @@ const LocationForm = () => {
                     onChange={(e) => SearchContext.setImage(e.target.files[0])}
                   />
                 </label>
-                <Button>
+                {/* <Button>
                   <i
                     className="fas fa-arrow-up"
                     style={{ paddingRight: ".5rem" }}
                   ></i>{" "}
                   Upload photos
-                </Button>
+                </Button> */}
               </div>
               <hr className={styles.hr} />
 
