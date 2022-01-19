@@ -5,7 +5,7 @@ const SignUpValidation = (values) => {
 
     if (!values.firstName) {
         errors.firstName = "First Name is required"
-    } else if (/^\S+@\S+\.\S+$/.test(values.firstName)) {
+    } else if (!/^[a-zA-Z\s]*$/.test(values.firstName)) {
         errors.firstName = "First name should only include letters or spaces"
     } else if (values.firstName.length > 30) {
         errors.firstName = "First name should not be longer than 30 characters"
@@ -14,7 +14,7 @@ const SignUpValidation = (values) => {
 
     if (!values.lastName) {
         errors.lastName = "Last Name is required"
-    } else if (/^\S+@\S+\.\S+$/.test(values.lastName)) {
+    } else if (!/^[a-zA-Z\s]*$/.test(values.lastName)) {
         errors.lastName = "Last name should only include letters or spaces"
     } else if (values.lastName.length > 30) {
         errors.lastName = "Last Name should not be longer than 30 characters"
