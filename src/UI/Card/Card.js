@@ -55,6 +55,22 @@ const Card = () => {
                         </div>
                         <hr className={styles.hr} />
 
+<<<<<<< HEAD
+            <div className={styles.description}>
+              {/* // !! Will be... */}
+              {/* {loc.description} */}
+              Gummi bears marshmallow biscuit donut fruitcake jelly. Brownie
+              sweet roll croissant dessert tiramisu toffee tootsie roll.
+              <div className={styles["description-link"]}>
+                <a
+                  href="http://localhost:3000/about-us"
+                  alt={`Show property page for ${loc.title}`}
+                >
+                  {" "}
+                  Show more &#62;
+                </a>
+              </div>
+=======
                         <div className={styles.description}>
                             {/* // !! Will be... */}
                             {/* {loc.description} */}
@@ -79,6 +95,7 @@ const Card = () => {
                         </div>
                     </div>
                 </div>
+>>>>>>> b59fbf425d6869187388d5a89a2d7cd28083365e
             </div>
         );
     });
