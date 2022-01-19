@@ -21,7 +21,7 @@ const Card = () => {
   // console.log("LLLLLLL", locationContext.populateCards);
 
   let content = locationContext.populateCards.map((loc) => {
-    // console.log("444444", loc);
+    console.log("444444", loc);
 
     return (
       <div className={styles["card-container"]}>
@@ -60,7 +60,10 @@ const Card = () => {
               Gummi bears marshmallow biscuit donut fruitcake jelly. Brownie
               sweet roll croissant dessert tiramisu toffee tootsie roll.
               <div className={styles["description-link"]}>
-                <a href={loc.link} alt={`Show property page for ${loc.title}`}>
+                <a
+                  href="http://localhost:3000/about-us"
+                  alt={`Show property page for ${loc.title}`}
+                >
                   {" "}
                   Show more &#62;
                 </a>

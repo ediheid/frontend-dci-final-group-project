@@ -96,9 +96,9 @@ const Map = ({ center, zoom }) => {
             // img: event.img,
 
             // !! Actual link once setup..
-            // link: `${frontendURL}location-details/${event.id}`,
+            link: `${event.link}`,
             // !! For test
-            link: `${frontendURL}about-us`,
+            // link: event.link,
           })
         }
         // ? ======
