@@ -17,7 +17,7 @@ const Welcome = () => {
   // const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
-      history.push("/logged-in");
+      history.push("/");
     }, 1500);
   }, []);
 

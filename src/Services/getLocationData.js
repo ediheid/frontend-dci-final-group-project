@@ -18,6 +18,9 @@ export const locations = async (setMapEventData) => {
   let places = res.data.returnedLocations;
   places.map((place) => {
     place.link = `${frontendURL}location-details/${place._id.toString()}`;
+
+    place.img = `${backendURL}uploads/${place.img}`;
+
     return place;
   });
 
