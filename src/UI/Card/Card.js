@@ -59,7 +59,12 @@ const Card = () => {
               {/* {loc.description} */}
               Gummi bears marshmallow biscuit donut fruitcake jelly. Brownie
               sweet roll croissant dessert tiramisu toffee tootsie roll.
-              <div className={styles["description-link"]}>Show more &#62;</div>
+              <div className={styles["description-link"]}>
+                <a href={loc.link} alt={`Show property page for ${loc.title}`}>
+                  {" "}
+                  Show more &#62;
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -13,6 +13,8 @@ import styles from "../Map/Map.module.scss";
 
 import mapStyles from "./mapStyles";
 
+const frontendURL = process.env.REACT_APP_FRONTEND_URL;
+
 // ! Hardcoded location data.. (will live in backend)
 // const events = [
 //   {
@@ -92,8 +94,11 @@ const Map = ({ center, zoom }) => {
             // pricePerNight: event.pricePerNight,
             // description: event.description,
             // img: event.img,
-            // link: event.link,
-            link: `http://localhost:3000/location-details${event.id}`,
+
+            // !! Actual link once setup..
+            // link: `${frontendURL}location-details/${event.id}`,
+            // !! For test
+            link: `${frontendURL}about-us`,
           })
         }
         // ? ======
