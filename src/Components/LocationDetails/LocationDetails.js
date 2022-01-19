@@ -23,6 +23,22 @@ import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
 const LocationDetails = () => {
   const [specificLocationData, setSpecificLocationData] = useState(null);
   const [readMore, setReadMore] = useState(false);
+  const [visibleAvailability, setVisibleAvailability] = useState(false);
+  const [visibleRules, setVisibleRules] = useState(false);
+  const [visibleCancellation, setVisibleCancellation] = useState(false);
+
+    const openCloseAvailability = () => {
+        setVisibleAvailability(!visibleAvailability);
+    };
+
+    const openCloseRules = () => {
+        setVisibleRules(!visibleRules);
+    };
+
+    const openCloseCancellation = () => {
+        setVisibleCancellation(!visibleCancellation);
+    };
+
 
   const cutText = text => {
     if (!readMore) {
@@ -211,61 +227,118 @@ const LocationDetails = () => {
 
           <hr className={styles.hr} />
 
-          <div className={styles["booking-info-container"]}>
-            {/* // !! More info */}
-            <div className={styles["heading-booking-info"]}>
-              Availabilty
-              {/* <br /> */}
-              <div>May 02 - May 09</div>
-            </div>
+          <div
+                            onClick={openCloseAvailability}
+                            className={styles["booking-info-container"]}
+                        >
+                            {/* // !! More info */}
+                            <div className={styles["heading-booking-info"]}>
+                                Availabilty
+                                {/* <br /> */}
+                                <div>May 02 - May 09</div>
+                                <div className={styles.details2}>
+                                    {visibleAvailability && (
+                                        <div>
+                                            Dragée oat cake carrot cake cake
+                                            lemon drops. Sweet powder jujubes
+                                            wafer candy marshmallow chupa chups
+                                            halvah. Jelly-o donut marshmallow
+                                            sesame snaps icing icing. Gummi
+                                            bears muffin wafer sugar plum
+                                            cupcake cupcake.
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
 
-            <div>
-              {/* TEST */}
-              <i className="fas fa-greater-than"></i>
-            </div>
-          </div>
+                            <div>
+                                {visibleAvailability ? (
+                                    <i className="fas fa-chevron-up"></i>
+                                ) : (
+                                    <i className="fas fa-chevron-down"></i>
+                                )}
+                            </div>
+                        </div>
 
-          <hr className={styles.hr} />
+                        <hr className={styles.hr} />
 
-          <div className={styles["booking-info-container"]}>
-            {/* // !! More info */}
-            <div className={styles["heading-booking-info"]}>
-              House rules
-              {/* <br /> */}
-              <div>Check-in: 1 pm</div>
-            </div>
+                        <div
+                            onClick={openCloseRules}
+                            className={styles["booking-info-container"]}
+                        >
+                            {/* // !! More info */}
+                            <div className={styles["heading-booking-info"]}>
+                                Place rules
+                                <div>Check-in: 1pm</div>
+                                <div className={styles.details}>
+                                    {visibleRules && (
+                                        <div>
+                                            Dragée oat cake carrot cake cake
+                                            lemon drops. Sweet powder jujubes
+                                            wafer candy marshmallow chupa chups
+                                            halvah. Jelly-o donut marshmallow
+                                            sesame snaps icing icing. Gummi
+                                            bears muffin wafer sugar plum
+                                            cupcake cupcake.
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
 
-            <div>
-              {/* TEST */}
-              <i className="fas fa-greater-than"></i>
-            </div>
-          </div>
+                            <div>
+                                {visibleRules ? (
+                                    <i className="fas fa-chevron-up"></i>
+                                ) : (
+                                    <i className="fas fa-chevron-down"></i>
+                                )}
+                            </div>
+                        </div>
 
-          <hr className={styles.hr} />
+                        <hr className={styles.hr} />
 
-          <div className={styles["booking-info-container"]}>
-            {/* // !! More info */}
-            <div className={styles["heading-booking-info"]}>
-              Cancellation policy
-              {/* <br /> */}
-              <div>{specificLocationData.cancellation}</div>
-            </div>
+                        <div
+                            onClick={openCloseCancellation}
+                            className={styles["booking-info-container"]}
+                        >
+                            {/* // !! More info */}
+                            <div className={styles["heading-booking-info"]}>
+                                Cancellation policy
+                                {/* <br /> */}
+                                <div>Free cancellation for 48 hours</div>
+                                <div>
+                                    {visibleCancellation && (
+                                        <div className={styles.details}>
+                                            Dragée oat cake carrot cake cake
+                                            lemon drops. Sweet powder jujubes
+                                            wafer candy marshmallow chupa chups
+                                            halvah. Jelly-o donut marshmallow
+                                            sesame snaps icing icing. Gummi
+                                            bears muffin wafer sugar plum
+                                            cupcake cupcake.
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
 
-            <div>
-              {/* TEST */}
-              <i className="fas fa-greater-than"></i>
-            </div>
-          </div>
+                            <div>
+                                {visibleCancellation ? (
+                                    <i className="fas fa-chevron-up"></i>
+                                ) : (
+                                    <i className="fas fa-chevron-down"></i>
+                                )}
+                            </div>
+                        </div>
 
-          <hr className={styles.hr} />
+                        <hr className={styles.hr} />
 
-          <div className={styles["price-container"]}>
-            {/* // !! More info */}
-            <div className={styles["price-info"]}>
-              {specificLocationData.price} € / <span className={styles.span}>night</span>
-              {/* <br /> */}
-              <div>02 May - 09 May</div>
-            </div>
+                        <div className={styles["price-container"]}>
+                            {/* // !! More info */}
+                            <div className={styles["price-info"]}>
+                                {specificLocationData.price} € /{" "}
+                                <span className={styles.span}>night</span>
+                                {/* <br /> */}
+                                <div>02 May - 09 May</div>
+                        </div>
 
             <div>
               {/* TEST */}

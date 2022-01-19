@@ -29,10 +29,11 @@ const LocationForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    createLocation(SearchContext.locationData, SearchContext.setLocationData)
- 
-    event.target.reset()
-    };
+
+    createLocation(SearchContext.locationData, SearchContext.setLocationData);
+
+    event.target.reset();
+  };
 
   return (
     <>
@@ -582,16 +583,20 @@ const LocationForm = () => {
                 And finally.. time for some images of your gorgeous property!
               </div>
               <div>
-              <label>
+                <label>
                   Property picture
                   <input
-                      type="file"
-                      name="locationImage"
-                      onChange={(e) => SearchContext.setImage(e.target.files[0])}
+                    type="file"
+                    name="locationImage"
+                    onChange={(e) => SearchContext.setImage(e.target.files[0])}
                   />
                 </label>
                 <Button>
-                  <i className="fas fa-arrow-up"></i>Upload photos
+                  <i
+                    className="fas fa-arrow-up"
+                    style={{ paddingRight: ".5rem" }}
+                  ></i>{" "}
+                  Upload photos
                 </Button>
               </div>
               <hr className={styles.hr} />
