@@ -192,6 +192,14 @@
   width: 90vw;
   height: 5vh;
   // border: 2px solid blue;
+
+  // ! Define input font size so form does not auto zoom on ios
+  font-size: 1.5rem;
+  padding: 1rem;
+  &::placeholder {
+    padding-left: 0.5rem;
+    font-size: 1.3rem;
+  }
 }
 
 .input-field:focus {
@@ -212,6 +220,14 @@
   resize: none;
   border: 2px solid rgba(242, 235, 220);
   // border: 2px solid $main-font-colour;
+
+  // ! Define input font size so form does not auto zoom on ios
+  font-size: 1.5rem;
+  padding: 1rem;
+  &::placeholder {
+    padding-left: 1.5rem;
+    font-size: 1.3rem;
+  }
 }
 
 .textarea:focus {
