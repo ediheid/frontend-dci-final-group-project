@@ -75,13 +75,18 @@
 .inner-location-box {
   position: absolute;
   display: flex;
+
+  align-items: flex-start;
+
+  flex-direction: column;
+
   top: 10rem;
 
   width: 80%;
   max-width: 40rem;
   height: 18rem;
 
-  padding: 1.3rem;
+  padding: 1rem 1.3rem 1.3rem 2rem;
   border-radius: 1rem;
 
   background-color: $cream;
@@ -94,6 +99,8 @@
   border: none;
   outline: none;
   cursor: pointer;
+
+  margin-bottom: 0.5rem;
 
   font-family: $roboto-thin-font-family;
   font-size: 1.3rem;
@@ -112,17 +119,23 @@
 }
 
 .img-container {
+  // display: flex;
+  // justify-self: flex-end;
+
   // align-self: center;
   // justify-self: center;
-  position: absolute;
-  top: 4.5rem;
+  // position: absolute;
+  // top: 4.5rem;
 
-  left: 1.2rem;
-  width: 15rem;
+  // left: 1.2rem;
+  // width: 15rem;
 
-  height: auto;
-  max-height: 10rem;
-  object-fit: contain;
+  height: 11rem;
+  max-width: 20rem;
+
+  // height: auto;
+  // max-height: 15rem;
+  object-fit: fill;
 
   border-radius: 0.6rem;
 }
@@ -150,6 +163,7 @@
   padding-bottom: 0.5rem;
   font-size: 1.6rem;
   letter-spacing: 1px;
+  text-align: right;
 }
 
 .location-address {
