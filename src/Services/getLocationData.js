@@ -1,7 +1,17 @@
-export const locations = async (setMapEventData) => {
-  const res = await fetch("http://localhost:3001/location");
-  const events = await res.json();
+import axios from "axios";
 
-  // console.log("????", events.returnedLocations[0].title);
-  setMapEventData(events.returnedLocations);
+const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
+
+export const locations = async (setMapEventData) => {
+  const data = { locationSearchName: "" };
+
+  const res = await axios({
+    method: "POST",
+    url: "http://localhost:3001/location/find",
+    headers: { "Content-Type": "application/json" },
+
+    body: JSON.stringify(data),
+  });
+
+  setMapEventData(res.data.returnedLocations);
 };

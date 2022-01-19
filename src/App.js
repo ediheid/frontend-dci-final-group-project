@@ -104,8 +104,8 @@ const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["UserCookie"]);
 
   // ? opens map view - And closes search dropdown so user can see the full map
-  const mapView = (event) => {
-    event.preventDefault();
+  const mapView = () => {
+    // event.preventDefault();
     setOpenMap(true);
 
     // ! Set map location markers from fetch request (getLocationData.js)
@@ -259,7 +259,6 @@ const App = () => {
     setLocationData({ ...locationData, price: val });
   };
 
-
   const setImage = (val) => {
     setLocationData({ ...locationData, locationImage: val });
   };
@@ -347,19 +346,20 @@ const App = () => {
             <Route path="/about-us" exact component={AboutUs} />
             <Route path="/verify-email" exact component={Verification} />
             <Route path="/user-signed-up" exact component={CheckMail} />
-            <Route path="/location-cards" exact component={LocationCards} />
+            {/* <Route path="/location-cards" exact component={LocationCards} /> */}
             <Route path="/welcome-page" exact component={Welcome} />
 
             <Route
               path="/location-details/:id"
               exact
-              render={({ match }) => {
-                const selectedLocation = locationData.find(
-                  (location) => location._id === match.params._id
-                );
+              // render={({ match }) => {
+              //   const selectedLocation = locationData.find(
+              //     (location) => location._id === match.params._id
+              //   );
 
-                return <LocationDetails selected={selectedLocation} />;
-              }}
+              //   return <LocationDetails selected={selectedLocation} />;
+              // }
+            component={LocationDetails}
             />
 
             <Route path="/location-form" exact component={LocationForm} />

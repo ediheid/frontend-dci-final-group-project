@@ -89,8 +89,8 @@ const Map = ({ center, zoom }) => {
             // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
             city: event.city,
             country: event.country,
-            pricePerNight: event.pricePerNight,
-            description: event.description,
+            // pricePerNight: event.pricePerNight,
+            // description: event.description,
             // img: event.img,
             // link: event.link,
             // link: `http://localhost:3000/location-details${id}`,
@@ -146,10 +146,10 @@ const Map = ({ center, zoom }) => {
 // !!! Map Component default props live here..
 
 Map.defaultProps = {
-  // Center coordinates set to Baden-Württemberg
-  center: { lat: 48.758339, lng: 8.243008 },
-  defaultCenter: { lat: 48.758339, lng: 8.243008 },
-  zoom: 6,
+  // Center coordinates set to Germany
+  center: { lat: 51.1657, lng: 10.4515 },
+  defaultCenter: { lat: 51.1657, lng: 10.4515 },
+  zoom: 5,
 };
 
 export default Map;
