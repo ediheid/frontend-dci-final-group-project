@@ -91,16 +91,11 @@ const Map = ({ center, zoom }) => {
             // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
             city: event.city,
             country: event.country,
-            // pricePerNight: event.pricePerNight,
-            // description: event.description,
-            // img: `http://localhost:3001/uploads/${event.id}.jpg`,
-
+            // ! Price per night not populating?
+            pricePerNight: event.pricePerNight,
+            description: event.description,
             img: `${event.img}`,
-
-            // !! Actual link once setup..
             link: `${event.link}`,
-            // !! For test
-            // link: event.link,
           })
         }
         // ? ======

@@ -29,38 +29,30 @@ const Card = () => {
         <div className={styles["card-item"]}>
           <div className={styles["image-container"]}>
             <img
-              // !!! Image passed in from backend will live here soon..
-              // {loc.image} ?
               className={styles.image}
-              // src={image1}
               src={loc.img}
-              // !!! Alt will be passed in from backend too.. We can ask Marc to set it up with each corelating photo!
-              alt="UPDATE THIS"
+              alt={`Property view of ${loc.title}`}
             />
           </div>
           <div className={styles.content}>
             <div className={styles.title}>{loc.title}</div>
 
             <div className={styles["info-box"]}>
-              <div>
-                {/* {loc.address} */}
-                {/* // !! Will be.... */}
-                {`${loc.city}, ${loc.country}`}
-              </div>
+              <div>{`${loc.city}, ${loc.country}`}</div>
 
               <div>
-                {/* // !! Will be... */}
-                80€ / night
-                {/* {loc.pricePerNight} */}
+                {/* 80€ / night */}
+                {/* // !! Not getting passed in?!*/}
+                {loc.pricePerNight} / night
               </div>
             </div>
             <hr className={styles.hr} />
 
             <div className={styles.description}>
               {/* // !! Will be... */}
-              {/* {loc.description} */}
-              Gummi bears marshmallow biscuit donut fruitcake jelly. Brownie
-              sweet roll croissant dessert tiramisu toffee tootsie roll.
+              {loc.description}
+              {/* Gummi bears marshmallow biscuit donut fruitcake jelly. Brownie
+              sweet roll croissant dessert tiramisu toffee tootsie roll. */}
               {/* <div className={styles["description-link"]}> */}
               <a
                 href={loc.link}
@@ -70,12 +62,6 @@ const Card = () => {
                 {" "}
                 Show more &#62;
               </a>
-              {/* <Link to="/about-us">
-                                <div className={styles.icon}>
-                                    <i className="fas fa-caravan"></i>
-                                </div>
-                            </Link> */}
-              {/* </div> */}
             </div>
           </div>
         </div>
