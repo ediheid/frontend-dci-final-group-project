@@ -24,11 +24,11 @@ const LocationDetails = () => {
   const [specificLocationData, setSpecificLocationData] = useState(null);
   const [readMore, setReadMore] = useState(false);
 
-  const cutText = () => {
+  const cutText = text => {
     if (!readMore) {
-      return specificLocationData.regionalDescription.slice(0,30)
+      return text.slice(0,30)
     } else {
-      return specificLocationData.regionalDescription
+      return text
     }
   }
 
@@ -52,9 +52,6 @@ const LocationDetails = () => {
   
   const amenities = specificLocationData?.amenities?.map((a, i) => <div key={i}>{a}</div>)
   
-
-  const title = "Lonely place in the middle of black forest";
-  const address = "Feldberg, Baden-Würtemberg, Germany";
   const nameOfPlace = "Lonely place";
   const hostName = "Florian";
 
@@ -89,7 +86,7 @@ const LocationDetails = () => {
             {/* // !! Title + host + intro */}
             <div className={styles["heading-title"]}>
               {/* {nameOfPlace}  */}
-              <br /> hosted by {hostName}
+              <br /> hosted by {specificLocationData.host}
               {/* <div>Joined in December 2020</div>
                             <Button>Contact host</Button> */}
             </div>
@@ -105,11 +102,6 @@ const LocationDetails = () => {
           {/* // !! Title + host + intro */}
           <div className={styles["intro-details"]}>
             {amenities}
-            {/* <div>1 caravan</div>
-            <div>forrest</div>
-            <div>no wifi</div>
-            <div>no shower</div>
-            <div>animals allowed</div> */}
           </div>
           <hr className={styles.hr} />
           {/* // !! Nice to have */}
@@ -152,44 +144,20 @@ const LocationDetails = () => {
           </div>
           <hr className={styles.hr} />
           <div className={styles["detailed-description"]}>
-            {specificLocationData.description}
+            {cutText(specificLocationData.description)}
             <div className={styles["modal-description-link"]}>
-              Show more &#62;
+              <a className="showmore" onClick={() => setReadMore(!readMore)}>{linkname} &#62;</a>
             </div>
           </div>
+
           <hr className={styles.hr} />
+
           <div className={styles["heading-section"]}>
             What this place offers
           </div>
 
           <LocationDetailsIcons specificLocationData={specificLocationData}/>
-          {/* <div className={styles["bonus-container"]}>
-            <div className={styles.icon}>
-              <i class="fas fa-tree"></i>{" "}
-            </div>
-            <div className={styles["bonus-description"]}>
-              <div>Forest view</div>
-              <div>{""}</div>
-            </div>
-          </div> */}
-          <div className={styles["bonus-container"]}>
-            <div className={styles.icon}>
-              <i className="fas fa-box-open"></i>
-            </div>
-            <div className={styles["bonus-description"]}>
-              <div>Welcome package</div>
-              <div>{""}</div>
-            </div>
-          </div>
-          <div className={styles["bonus-container"]}>
-            <div className={styles.icon}>
-              <i className="fas fa-campground"></i>{" "}
-            </div>
-            <div className={styles["bonus-description"]}>
-              <div>Calmness</div>
-              <div>{""}</div>
-            </div>
-          </div>
+          
           <Button>Show all amenities</Button>
           <hr className={styles.hr} />
           <div className={styles["map-container"]}>
@@ -201,7 +169,7 @@ const LocationDetails = () => {
               <div className={styles["location-description"]}>
                 <div>{specificLocationData.location.city}, {specificLocationData.location.region}, {specificLocationData.location.country}</div>
                 <div>
-                  {cutText()} 
+                  {cutText(specificLocationData.regionalDescription)} 
                 </div>
               </div>
               <div className={styles["map-description-link"]}>
@@ -213,10 +181,10 @@ const LocationDetails = () => {
           <div className={styles["host-details-container"]}>
             {/* // !! Title + host + intro */}
             <div className={styles["heading-title"]}>
-              Hosted by {hostName}
+              Hosted by {specificLocationData.host}
               {/* <br /> */}
               <div className={styles["member-since"]}>
-                Joined in December 2020
+                {`created on ${specificLocationData.createdAt}`}
               </div>
               <div>
                 <i className="fas fa-user-check"></i>
@@ -280,7 +248,7 @@ const LocationDetails = () => {
             <div className={styles["heading-booking-info"]}>
               Cancellation policy
               {/* <br /> */}
-              <div>Free cancellation for 48 hours</div>
+              <div>{specificLocationData.cancellation}</div>
             </div>
 
             <div>

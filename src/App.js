@@ -71,6 +71,8 @@ const App = () => {
   });
 
   const [locationData, setLocationData] = useState({
+    host: currentUser.firstname,
+    userId: currentUser._id,
     propertyType: [],
     spaceType: "",
     address: "",
@@ -182,17 +184,9 @@ const App = () => {
           (value) => !value.includes(event.target.name)
         );
 
-        console.log("!!!", newArr);
-
         locationData.propertyType = newArr;
-
-        console.log("???", locationData);
-        // setLocationData()
-        // setLocationData({...locationData, ...locationData.propertyType = newArr})
       }
 
-      // propertyType: {
-      // ...locationData.propertyType, [event.target.name]: event.target.checked}
     } else if (
       event.target.name === "animalsWelcome" ||
       event.target.name === "barrierFree" ||
@@ -218,10 +212,6 @@ const App = () => {
 
         locationData.amenities = newArr;
       }
-      //   setLocationData({...locationData, amenities: {
-      //     ...locationData.amenities, [event.target.name]: event.target.checked
-      //   }
-      // })
     } else if (
       event.target.name === "water" ||
       event.target.name === "shower" ||
@@ -239,10 +229,6 @@ const App = () => {
 
         locationData.essentialAmenities = newArr;
       }
-      //   setLocationData({...locationData, essentialAmenities: {
-      //     ...locationData.essentialAmenities, [event.target.name]: event.target.checked
-      //   }
-      // })
     } else {
       setLocationData({
         ...locationData,
@@ -262,6 +248,8 @@ const App = () => {
   const setImage = (val) => {
     setLocationData({ ...locationData, locationImage: val });
   };
+
+console.log("who is logged in?", currentUser)
 
   return (
     <div>
