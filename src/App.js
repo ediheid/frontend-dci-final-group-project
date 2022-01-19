@@ -342,57 +342,6 @@ const App = () => {
             {/* <LandingPage />
             </Route> */}
 
-<<<<<<< HEAD
-                        {/* // ? About us overview */}
-                        <Route path="/about-us" exact component={AboutUs} />
-                        <Route
-                            path="/verify-email"
-                            exact
-                            component={Verification}
-                        />
-                        <Route
-                            path="/user-signed-up"
-                            exact
-                            component={CheckMail}
-                        />
-                        <Route
-                            path="/location-cards"
-                            exact
-                            component={LocationCards}
-                        />
-                        <Route path="/welcome-page" exact component={Welcome} />
-
-                        <Route path="/location-details/:id" exact render={ ({match}) => {
-                            const selectedLocation = locationData.find(location => location.id === match.params.id)
-
-                            return(
-                            <LocationDetails selected={selectedLocation}/>
-                            )
-                         } }
-                        />
-                        
-                        <Route
-                            path="/location-form"
-                            exact
-                            component={LocationForm}
-                        />
-
-
-                        <Route
-                            path="/logged-in"
-                            exact
-                            component={LoggedInLandingPage}
-                        />
-                        {/* // ? Url redirect to landing page on unknown path */}
-                        <Redirect to="/" exact />
-                    </Switch>
-                </main>
-                {/* // ? Footer lives outside of Main and is only visible on tablet + views */}
-                <Footer />
-            </AppContext.Provider>
-        </div>
-    );
-=======
             {/* // ? About us overview */}
             <Route path="/about-us" exact component={AboutUs} />
             <Route path="/verify-email" exact component={Verification} />
@@ -425,7 +374,6 @@ const App = () => {
       </AppContext.Provider>
     </div>
   );
->>>>>>> 0b591ece5e9a27da5fbb35380e2042fbd4294a93
 };
 
 export default App;

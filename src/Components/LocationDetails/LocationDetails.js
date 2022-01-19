@@ -44,13 +44,13 @@ const LocationDetails = () => {
 
   useEffect(() => {
     getSpecificLocation(getParams, setSpecificLocationData)
-    console.log("hello !")
+    
   }, [])
 
   
   console.log("SpecificLocationData", specificLocationData)
   
-  const amenities = specificLocationData?.amenities?.map(a => <div>{a}</div>)
+  const amenities = specificLocationData?.amenities?.map((a, i) => <div key={i}>{a}</div>)
   
 
   const title = "Lonely place in the middle of black forest";
@@ -253,7 +253,7 @@ const LocationDetails = () => {
 
             <div>
               {/* TEST */}
-              <i class="fas fa-greater-than"></i>
+              <i className="fas fa-greater-than"></i>
             </div>
           </div>
 
@@ -269,7 +269,7 @@ const LocationDetails = () => {
 
             <div>
               {/* TEST */}
-              <i class="fas fa-greater-than"></i>
+              <i className="fas fa-greater-than"></i>
             </div>
           </div>
 
@@ -285,7 +285,7 @@ const LocationDetails = () => {
 
             <div>
               {/* TEST */}
-              <i class="fas fa-greater-than"></i>
+              <i className="fas fa-greater-than"></i>
             </div>
           </div>
 
