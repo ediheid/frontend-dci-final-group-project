@@ -189,11 +189,6 @@
     font-size: 1.2rem;
 }
 
-.details {
-    font-size: 1.5rem;
-    color: $army-green;
-}
-
 .booking-info-container {
     display: flex;
     // flex-direction: row;
@@ -203,6 +198,11 @@
     // align-content: center;
     // background-color: pink;
     // width: 50vw;
+}
+
+.details2 {
+    font-size: 5rem;
+    color: $army-green;
 }
 
 .booking-info-container :nth-child(1) div {

@@ -23,11 +23,20 @@ import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
 const LocationDetails = () => {
     const [specificLocationData, setSpecificLocationData] = useState(null);
     const [readMore, setReadMore] = useState(false);
-    const [visible, setVisible] = useState(false);
+    const [visibleAvailability, setVisibleAvailability] = useState(false);
+    const [visibleRules, setVisibleRules] = useState(false);
+    const [visibleCancellation, setVisibleCancellation] = useState(false);
 
-    const openCloseDetails = () => {
-        setVisible(!visible);
-        console.log("button was clicked");
+    const openCloseAvailability = () => {
+        setVisibleAvailability(!visibleAvailability);
+    };
+
+    const openCloseRules = () => {
+        setVisibleRules(!visibleRules);
+    };
+
+    const openCloseCancellation = () => {
+        setVisibleCancellation(!visibleCancellation);
     };
 
     const cutText = () => {
@@ -266,7 +275,7 @@ const LocationDetails = () => {
                         <hr className={styles.hr} />
 
                         <div
-                            onClick={openCloseDetails}
+                            onClick={openCloseAvailability}
                             className={styles["booking-info-container"]}
                         >
                             {/* // !! More info */}
@@ -274,9 +283,9 @@ const LocationDetails = () => {
                                 Availabilty
                                 {/* <br /> */}
                                 <div>May 02 - May 09</div>
-                                <div>
-                                    {visible && (
-                                        <div className={styles.details}>
+                                <div className={styles.details2}>
+                                    {visibleAvailability && (
+                                        <div>
                                             Dragée oat cake carrot cake cake
                                             lemon drops. Sweet powder jujubes
                                             wafer candy marshmallow chupa chups
@@ -290,7 +299,7 @@ const LocationDetails = () => {
                             </div>
 
                             <div>
-                                {visible ? (
+                                {visibleAvailability ? (
                                     <i className="fas fa-chevron-up"></i>
                                 ) : (
                                     <i className="fas fa-chevron-down"></i>
@@ -301,16 +310,16 @@ const LocationDetails = () => {
                         <hr className={styles.hr} />
 
                         <div
-                            onClick={openCloseDetails}
+                            onClick={openCloseRules}
                             className={styles["booking-info-container"]}
                         >
                             {/* // !! More info */}
                             <div className={styles["heading-booking-info"]}>
                                 Place rules
                                 <div>Check-in: 1pm</div>
-                                <div>
-                                    {visible && (
-                                        <div className={styles.details}>
+                                <div className={styles.details}>
+                                    {visibleRules && (
+                                        <div>
                                             Dragée oat cake carrot cake cake
                                             lemon drops. Sweet powder jujubes
                                             wafer candy marshmallow chupa chups
@@ -324,8 +333,7 @@ const LocationDetails = () => {
                             </div>
 
                             <div>
-                          
-                                {visible ? (
+                                {visibleRules ? (
                                     <i className="fas fa-chevron-up"></i>
                                 ) : (
                                     <i className="fas fa-chevron-down"></i>
@@ -336,7 +344,7 @@ const LocationDetails = () => {
                         <hr className={styles.hr} />
 
                         <div
-                            onClick={openCloseDetails}
+                            onClick={openCloseCancellation}
                             className={styles["booking-info-container"]}
                         >
                             {/* // !! More info */}
@@ -345,7 +353,7 @@ const LocationDetails = () => {
                                 {/* <br /> */}
                                 <div>Free cancellation for 48 hours</div>
                                 <div>
-                                    {visible && (
+                                    {visibleCancellation && (
                                         <div className={styles.details}>
                                             Dragée oat cake carrot cake cake
                                             lemon drops. Sweet powder jujubes
@@ -360,7 +368,7 @@ const LocationDetails = () => {
                             </div>
 
                             <div>
-                                {visible ? (
+                                {visibleCancellation ? (
                                     <i className="fas fa-chevron-up"></i>
                                 ) : (
                                     <i className="fas fa-chevron-down"></i>
