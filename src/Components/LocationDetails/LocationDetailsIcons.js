@@ -1,9 +1,8 @@
 import React from "react";
 
-import styles from "../LocationDetails/LocationDetailsIcons.module.scss";
+import styles from "./LocationDetailsIcons.module.scss";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAccessibleIcon } from '@fortawesome/free-solid-svg-icons';
 import { faBolt } from "@fortawesome/free-solid-svg-icons";
 import { faWifi } from "@fortawesome/free-solid-svg-icons";
 import { faHotTub } from "@fortawesome/free-solid-svg-icons"; 
@@ -47,8 +46,9 @@ const shower = <FontAwesomeIcon icon={faShower} />
 const toilet = <FontAwesomeIcon icon={faToilet} />
 
 const LocationDetailsIcons = (props) => {
+    console.log("props", props.openAmenitiesList)
     return(
-        <div className="amenitiesFlex">
+        <div style={{maxHeight: props.openAmenitiesList ? "fit-content" : 150}} className={styles.amenitiesFlex}>
             { props.specificLocationData.amenities.includes("barrierFree") && 
             (
                 <div className={styles["bonus-container"]}>

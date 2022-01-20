@@ -170,6 +170,8 @@ const App = () => {
   };
 
   const collectLocationData = (event) => {
+    setLocationData({...locationData, ...locationData.host = currentUser.firstname, ...locationData.userId = currentUser.userId})
+    
     if (
       event.target.name === "field" ||
       event.target.name === "forest" ||

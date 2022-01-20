@@ -1,4 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
+
+import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+
 import { useParams } from "react-router-dom";
 
 // ? import fetch request to get Data for populatin the pages
@@ -9,6 +13,10 @@ import LocationDetailsIcons from "./LocationDetailsIcons.js";
 
 // ? Stylesheet
 import styles from "../LocationDetails/LocationDetails.module.scss";
+import datePickerstyles from "../Search/search.module.scss";
+import "../../Components/Search/Datepicker-Styling/datepicker-override.scss"
+
+import "../Search/Datepicker-Styling/datepicker-override.scss";
 
 // ? All Component and View imports
 import Search from "../Search/Search";
@@ -17,8 +25,9 @@ import Button from "../../UI/Button/Button";
 import Map from "../Map/Map";
 
 // ? All Images
-import mainImage from "../LocationDetails/static/pexels-mali-maeder-109679.jpg";
 import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
+
+const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
 
 const LocationDetails = () => {
   const [specificLocationData, setSpecificLocationData] = useState(null);
@@ -26,6 +35,15 @@ const LocationDetails = () => {
   const [visibleAvailability, setVisibleAvailability] = useState(false);
   const [visibleRules, setVisibleRules] = useState(false);
   const [visibleCancellation, setVisibleCancellation] = useState(false);
+  const [openAmenitiesList, setOpenAmenitiesList] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+
+  // const btnRef = useRef("styles.amenitiesFlex");
+  // const changeStyle = () => {
+  //   btnRef.current.value = "styles.amenities";
+  // }
+
+  // console.log("REF", btnRef)
 
     const openCloseAvailability = () => {
         setVisibleAvailability(!visibleAvailability);
@@ -39,10 +57,9 @@ const LocationDetails = () => {
         setVisibleCancellation(!visibleCancellation);
     };
 
-
   const cutText = text => {
     if (!readMore) {
-      return text.slice(0,30)
+      return text.slice(0,300)
     } else {
       return text
     }
@@ -50,26 +67,37 @@ const LocationDetails = () => {
 
   const linkname = readMore ? "show less" : "show more"; 
 
-
   const params = useParams();
   const getParams = params.id;
 
-
-  console.log("Params", getParams)
-
-
   useEffect(() => {
     getSpecificLocation(getParams, setSpecificLocationData)
-    
   }, [])
-
   
   console.log("SpecificLocationData", specificLocationData)
   
   const amenities = specificLocationData?.amenities?.map((a, i) => <div key={i}>{a}</div>)
   
-  const nameOfPlace = "Lonely place";
-  const hostName = "Florian";
+  const cancellationText = () => {
+
+    let text = "";
+
+    switch(specificLocationData?.cancellation) {
+      case "Loose cancellation policy: Until 24h before booking.":
+        return text = "Your host will accept cancellations that are provided at least 24 hours before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted."
+      case "Moderate cancellation policy: Until 72h before booking.":
+        return text = "Your host will accept cancellations that are provided at least 3 days before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted."
+      case "Strict cancellation policy: Until 2weeks before booking.":
+        return text = "Your host will accept cancellations that are provided at least 2 weeks before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted."
+      case "Very strict cancellation policy: Until 1 month before booking.": 
+        return text = "Your host will accept cancellations that are provided at least 1 month before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted."
+    }
+  };
+  
+  console.log("CANCELLATION", specificLocationData?.cancellation)
+
+
+  
 
   if (specificLocationData) {
   return (
@@ -84,7 +112,7 @@ const LocationDetails = () => {
         <div className={styles["content-container"]}>
           <img
             className={styles["title-image"]}
-            src={mainImage}
+            src={`${backendURL}uploads/${specificLocationData.img}`}
             alt="Forest by mali maeder from Pexels
 "
           />
@@ -172,9 +200,12 @@ const LocationDetails = () => {
             What this place offers
           </div>
 
-          <LocationDetailsIcons specificLocationData={specificLocationData}/>
+          <LocationDetailsIcons specificLocationData={specificLocationData} openAmenitiesList={openAmenitiesList}/>
           
-          <Button>Show all amenities</Button>
+          {/* <Button onClick={() => setOpenAmenitiesList(!openAmenitiesList)}>Show all amenities</Button> */}
+
+          <button className={styles.button} onClick={() => setOpenAmenitiesList(!openAmenitiesList)}>Show all amenities</button>
+          
           <hr className={styles.hr} />
           <div className={styles["map-container"]}>
             <div className={styles["heading-section"]}>Where you'll be</div>
@@ -235,28 +266,22 @@ const LocationDetails = () => {
                             <div className={styles["heading-booking-info"]}>
                                 Availabilty
                                 {/* <br /> */}
-                                <div>May 02 - May 09</div>
-                                <div className={styles.details2}>
-                                    {visibleAvailability && (
-                                        <div>
-                                            Dragée oat cake carrot cake cake
-                                            lemon drops. Sweet powder jujubes
-                                            wafer candy marshmallow chupa chups
-                                            halvah. Jelly-o donut marshmallow
-                                            sesame snaps icing icing. Gummi
-                                            bears muffin wafer sugar plum
-                                            cupcake cupcake.
+                                <div className={styles.subinfo}>May 02 - May 09</div>
+                                <div className={styles.details}>
+                              
+                                        <div className={styles.bookingInfoText}>
+                                            <DatePicker minDate={new Date()}
+                                                        placeholderText="Add dates"
+                                                       dateFormat="dd/MM/yyyy"
+                                                        className={datePickerstyles["dropdown-section-input"]}
+                                                        selected={startDate}
+                    
+                                                              
+                                                      onChange={(date) => setStartDate(date)}
+                                             /> 
                                         </div>
-                                    )}
+                                  
                                 </div>
-                            </div>
-
-                            <div>
-                                {visibleAvailability ? (
-                                    <i className="fas fa-chevron-up"></i>
-                                ) : (
-                                    <i className="fas fa-chevron-down"></i>
-                                )}
                             </div>
                         </div>
 
@@ -269,17 +294,11 @@ const LocationDetails = () => {
                             {/* // !! More info */}
                             <div className={styles["heading-booking-info"]}>
                                 Place rules
-                                <div>Check-in: 1pm</div>
+                                <div className={styles.subinfo}>Check-in: 1pm</div>
                                 <div className={styles.details}>
                                     {visibleRules && (
-                                        <div>
-                                            Dragée oat cake carrot cake cake
-                                            lemon drops. Sweet powder jujubes
-                                            wafer candy marshmallow chupa chups
-                                            halvah. Jelly-o donut marshmallow
-                                            sesame snaps icing icing. Gummi
-                                            bears muffin wafer sugar plum
-                                            cupcake cupcake.
+                                        <div className={styles.bookingInfoText}>
+                                            {specificLocationData.houseRules}
                                         </div>
                                     )}
                                 </div>
@@ -304,17 +323,11 @@ const LocationDetails = () => {
                             <div className={styles["heading-booking-info"]}>
                                 Cancellation policy
                                 {/* <br /> */}
-                                <div>Free cancellation for 48 hours</div>
-                                <div>
+                                <div className={styles.subinfo}>{specificLocationData.cancellation}</div>
+                                <div className={styles.details}>
                                     {visibleCancellation && (
-                                        <div className={styles.details}>
-                                            Dragée oat cake carrot cake cake
-                                            lemon drops. Sweet powder jujubes
-                                            wafer candy marshmallow chupa chups
-                                            halvah. Jelly-o donut marshmallow
-                                            sesame snaps icing icing. Gummi
-                                            bears muffin wafer sugar plum
-                                            cupcake cupcake.
+                                        <div className={styles.bookingInfoText}>
+                                            {cancellationText()}
                                         </div>
                                     )}
                                 </div>
