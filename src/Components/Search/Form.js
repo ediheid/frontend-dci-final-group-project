@@ -125,6 +125,7 @@ const Form = () => {
     const latLng = await getLatLng(results[0]);
 
     // console.log("TESTHANDLE", latLng);
+    // setSearchFieldQuery(value);
     setAddress(value);
     setCoordinates(latLng);
   };
@@ -234,6 +235,13 @@ const Form = () => {
                     {...getInputProps({
                       // placeholder: "Dream about Schwarzwald?",
                     })}
+                    className={styles["search-input"]}
+                    onClick={SearchContext.openForm}
+                    // className={styles["search-input"]}
+                    // placeholder="Dream about Schwarzwald?"
+                    // // ! Testing
+                    name="locationSearchName"
+                    // onChange={handleUserInput}
                   ></input>
                   <div>
                     {loading ? <div>...loading</div> : null}
