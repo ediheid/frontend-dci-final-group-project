@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 
 import { AppContext } from "../../App";
 
@@ -9,12 +8,6 @@ import styles from "../Card/Card.module.scss";
 // ? All Component and View imports
 import Search from "../../Components/Search/Search";
 import Navbar from "../../Components/Navbar/Navbar";
-
-// ? All Images
-
-// !!!
-// todo: Will eventually be passed in from the backend
-import image1 from "./static/pexels-uriel-mont-6271691.jpg";
 
 const Card = () => {
   const locationContext = useContext(AppContext);
