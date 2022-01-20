@@ -136,6 +136,9 @@ const App = () => {
     lng: null,
   });
 
+  const latitude = coordinates.lat;
+  const longitude = coordinates.lng;
+
   // ? Allows user to click on Caravan(home) button without re-rendering the page but will close both map and search without state conflicts
   const returnHome = () => {
     setOpenMap(false);
@@ -316,6 +319,8 @@ const App = () => {
           setAddress: setAddress,
           coordinates: coordinates,
           setCoordinates: setCoordinates,
+          latitude: latitude,
+          longitude: longitude,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,

@@ -223,15 +223,14 @@ const Form = () => {
                 loading,
               }) => (
                 <div>
-                  <p>Latitude: {MapContext.coordinates.lat}</p>
-                  <p>Longitude: {MapContext.coordinates.lng}</p>
+                  <p>Latitude: {MapContext.latitude}</p>
+                  <p>Longitude: {MapContext.longitude}</p>
                   <input
                     {...getInputProps({
-                      // placeholder: "Dream about Schwarzwald?",
+                      placeholder: "Dream about Schwarzwald?",
                     })}
                     className={styles["search-input"]}
                     onClick={SearchContext.openForm}
-                    // className={styles["search-input"]}
                     // placeholder="Dream about Schwarzwald?"
                     // // ! Testing
                     name="locationSearchName"
