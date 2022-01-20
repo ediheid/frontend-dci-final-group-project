@@ -22,6 +22,9 @@ import { BsArrowsCollapse } from "react-icons/bs";
 // !!! Form Context
 export const FormContext = createContext();
 
+// Google Map API
+// const MAP_API = process.env.REACT_APP_MAP_API;
+
 // Amenity items..
 const items = [
   {
@@ -89,7 +92,7 @@ const items = [
 ];
 
 // ? Form Component
-const Form = (props) => {
+const Form = () => {
   // ? Context Variables
   const SearchContext = useContext(AppContext);
   const MapContext = useContext(AppContext);
@@ -103,6 +106,13 @@ const Form = (props) => {
   const [selection, setSelection] = useState([]);
   // Amenities Dropdown state
   const [openDropdown, setOpenDropdown] = useState(false);
+
+  // !! TEST
+
+  const [address, setAddress] = useState("");
+  const handleSelect = async (value) => {};
+
+  // // !! ==========
 
   // ? To pass down to Dropdown..
   const toggle = () => setOpenDropdown(!openDropdown);
@@ -188,6 +198,34 @@ const Form = (props) => {
               name="locationSearchName"
               onChange={handleUserInput}
             ></input>
+
+            <MapContext.PlacesAutocomplete
+              value={address}
+              onChange={setAddress}
+              onSelect={handleSelect}
+            >
+              {({
+                getInputProps,
+                suggestions,
+                getSuggestionItemProps,
+                loading,
+              }) => (
+                <div>
+                  <input
+                    {...getInputProps({
+                      placeholder: "Dream about Schwarzwald?",
+                    })}
+                  ></input>
+                  <div>
+                    {loading ? <div>...loading</div> : null}
+
+                    {suggestions.map((suggestion) => {
+                      return <div>{suggestion.description}</div>;
+                    })}
+                  </div>
+                </div>
+              )}
+            </MapContext.PlacesAutocomplete>
 
             {/* // ? This is the dropdown area with all other search fields in the form */}
             <Expand open={SearchContext.openSearch}>
