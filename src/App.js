@@ -10,10 +10,10 @@ import signup from "./Services/createNewUser.js";
 import Cookies from "js-cookie";
 import { useCookies } from "react-cookie";
 
-// import PlacesAutocomplete, {
-//   geocodeByAddress,
-//   getLatLng,
-// } from "react-places-autocomplete";
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
 
 // ? Main scss
 import styles from "./Styling/app.module.scss";
@@ -36,7 +36,7 @@ import { locations } from "./Services/getLocationData.js";
 // ? createContext variable
 export const AppContext = createContext();
 
-const MAP_API = process.env.REACT_APP_MAP_API;
+// const MAP_API = process.env.REACT_APP_MAP_API;
 
 const App = () => {
   // ?  State hooks
@@ -129,6 +129,12 @@ const App = () => {
   };
 
   // !! Testing auto complete for map input
+
+  const [address, setAddress] = useState("");
+  const [coordinates, setCoordinates] = useState({
+    lat: null,
+    lng: null,
+  });
 
   // ? Allows user to click on Caravan(home) button without re-rendering the page but will close both map and search without state conflicts
   const returnHome = () => {
@@ -303,9 +309,13 @@ const App = () => {
           closeLocationInfoBox: closeLocationInfoBox,
 
           // ! TEST: Autocomplete
-          // PlacesAutocomplete: PlacesAutocomplete,
-          // geocodeByAddress: geocodeByAddress,
-          // getLatLng: getLatLng,
+          PlacesAutocomplete: PlacesAutocomplete,
+          geocodeByAddress: geocodeByAddress,
+          getLatLng: getLatLng,
+          address: address,
+          setAddress: setAddress,
+          coordinates: coordinates,
+          setCoordinates: setCoordinates,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,

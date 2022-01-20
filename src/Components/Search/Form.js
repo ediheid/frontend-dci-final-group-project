@@ -3,10 +3,10 @@ import React, { Fragment, useState, useContext, createContext } from "react";
 import { AppContext } from "../../App";
 import { sendSearchQuery } from "../../Services/sendSearchQuery";
 
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from "react-places-autocomplete";
+// import PlacesAutocomplete, {
+//   geocodeByAddress,
+//   getLatLng,
+// } from "react-places-autocomplete";
 
 //  Styles
 import styles from "../Search/search.module.scss";
@@ -114,20 +114,14 @@ const Form = () => {
 
   // !! TEST
 
-  const [address, setAddress] = useState("");
-  const [coordinates, setCoordinates] = useState({
-    lat: null,
-    lng: null,
-  });
-
   const handleSelect = async (value) => {
-    const results = await geocodeByAddress(value);
-    const latLng = await getLatLng(results[0]);
+    const results = await MapContext.geocodeByAddress(value);
+    const latLng = await MapContext.getLatLng(results[0]);
 
-    // console.log("TESTHANDLE", latLng);
+    console.log("TESTHANDLE", latLng);
     // setSearchFieldQuery(value);
-    setAddress(value);
-    setCoordinates(latLng);
+    MapContext.setAddress(value);
+    MapContext.setCoordinates(latLng);
   };
 
   // // !! ==========
@@ -217,9 +211,9 @@ const Form = () => {
               onChange={handleUserInput}
             ></input>
 
-            <PlacesAutocomplete
-              value={address}
-              onChange={setAddress}
+            <MapContext.PlacesAutocomplete
+              value={MapContext.address}
+              onChange={MapContext.setAddress}
               onSelect={handleSelect}
             >
               {({
@@ -229,8 +223,8 @@ const Form = () => {
                 loading,
               }) => (
                 <div>
-                  <p>Latitude: {coordinates.lat}</p>
-                  <p>Longitude: {coordinates.lng}</p>
+                  <p>Latitude: {MapContext.coordinates.lat}</p>
+                  <p>Longitude: {MapContext.coordinates.lng}</p>
                   <input
                     {...getInputProps({
                       // placeholder: "Dream about Schwarzwald?",
@@ -262,7 +256,7 @@ const Form = () => {
                   </div>
                 </div>
               )}
-            </PlacesAutocomplete>
+            </MapContext.PlacesAutocomplete>
 
             {/* // ? This is the dropdown area with all other search fields in the form */}
             <Expand open={SearchContext.openSearch}>
