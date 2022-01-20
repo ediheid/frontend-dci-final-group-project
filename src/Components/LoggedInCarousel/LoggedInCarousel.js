@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
+import { AppContext } from "../../App";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-// import "../LoggedInCarousel/Slick-styling/slick-override.scss";
-
 import "slick-carousel/slick/slick-theme.css";
-// import "../LoggedInCarousel/Slick-styling/slick-theme-override.scss";
+
+import Button from "../../UI/Button/Button";
 
 import styles from "../LoggedInCarousel/LoggedInCarousel.module.scss";
 
@@ -20,9 +20,13 @@ import image7 from "./static/pexels-nathan-moore-2603681.jpg";
 // import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
 
 const LoggedInCarousel = () => {
+    const SearchContext = useContext(AppContext);
+
+    const username = SearchContext.currentUser.firstname;
+
     const settings = {
         dots: true,
-        autoplay: true,
+        // autoplay: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -33,10 +37,14 @@ const LoggedInCarousel = () => {
             <Slider {...settings}>
                 <div className={styles.imagecontainer}>
                     <img
-                        className={styles.image1}
-                        src={image1}
+                        className={styles.image5}
+                        src={image5}
                         alt="Credit to Joshua Earle on Unsplash"
                     />
+                    <div className={styles["welcome-heading"]}>
+                        Hi {username}! <br />
+                        Nice to see you.
+                    </div>
                 </div>
                 <div>
                     <img
@@ -44,6 +52,9 @@ const LoggedInCarousel = () => {
                         src={image2}
                         alt="Credit to Alisa Anton on Unsplash"
                     />
+                    <div className={styles["about-us"]}>
+                        <Button>About us</Button>
+                    </div>
                 </div>
                 <div>
                     <img
@@ -61,8 +72,8 @@ const LoggedInCarousel = () => {
                 </div>
                 <div>
                     <img
-                        className={styles.image5}
-                        src={image5}
+                        className={styles.image1}
+                        src={image1}
                         alt="Credit to Richard Nolan on Unsplash"
                     />
                 </div>
