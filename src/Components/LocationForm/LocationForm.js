@@ -27,14 +27,6 @@ const LocationForm = () => {
   NumericInput.style["btn:hover"].backgroundColor = "#d3d3d3";
   NumericInput.style["btn:active"].backgroundColor = "pink";
 
-  // NumericInput.style.input.borderColor = "green";
-  // NumericInput.style["input:focus"].backgroundColor = "d3d3d3";
-
-  // const btnUp = document.querySelector("btnUp");
-  // btnUp.style.backgroundColor = "pink";
-
-  // NumericInput.style.input.color = "red";
-
   const submitHandler = (event) => {
     event.preventDefault();
 
