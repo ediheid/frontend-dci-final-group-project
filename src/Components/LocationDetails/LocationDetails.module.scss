@@ -45,7 +45,7 @@
 .hr {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
-    color: red;
+    color: $army-green;
 }
 
 .heading-title {
@@ -129,6 +129,7 @@
 
 .heading-section {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .modal-description-link {
@@ -200,21 +201,26 @@
     // width: 50vw;
 }
 
-.details2 {
-    font-size: 5rem;
+.details {
+    font-size: 1.5rem;
     color: $army-green;
-}
-
-.booking-info-container :nth-child(1) div {
-    font-size: 1.2rem;
-    opacity: 0.4;
-    // padding-bottom: 1vh;
-    // background-color: yellow;
 }
 
 .heading-booking-info {
     font-size: 2.5rem;
 }
+
+.subinfo {
+    font-size: 1.2rem;
+    opacity: .4;
+}
+
+.bookingInfoText {
+    color: $army-green;
+    padding: 1.5rem;
+    text-align: justify;
+}
+
 
 .booking-info-container :nth-child(2) i {
     // border: 1px solid blue;
@@ -257,6 +263,18 @@
     font-size: 1.5rem;
 }
 
+.button {
+    font-family: $main-font-font-family;
+    color: $main-font-colour;
+    background-color: $main-font-colour-light;
+    font-size: 1.7rem;
+    margin-top: 2vh;
+    padding: 1vh 5vw 1vh 5vw;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
 // ? Media Queries
 // Based on Bootstrap breakpoints
 
@@ -288,6 +306,10 @@
         width: 2vw;
         padding-right: 3vw;
     }
+
+    .button {
+        display: none;
+    }
 }
 
 // * Large = Less than 1200px - small desktops
@@ -304,6 +326,10 @@
     .heading-title :nth-child(n + 2) i {
         width: 2vw;
         padding-right: 2vw;
+    }
+
+    .button {
+        display: none;
     }
 }
 
@@ -323,6 +349,10 @@
         width: 2vw;
         padding-right: 1vw;
     }
+
+    .button {
+        display: none;
+    }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
@@ -338,5 +368,9 @@
     .heading-title :nth-child(n + 2) i {
         width: 1vw;
         padding-right: 2vw;
+    }
+
+    .button {
+        display: none;
     }
 }
