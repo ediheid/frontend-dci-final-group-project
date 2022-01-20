@@ -3,6 +3,11 @@ import React, { Fragment, useState, useContext, createContext } from "react";
 import { AppContext } from "../../App";
 import { sendSearchQuery } from "../../Services/sendSearchQuery";
 
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
+
 //  Styles
 import styles from "../Search/search.module.scss";
 // Datepicker override styles
@@ -110,7 +115,19 @@ const Form = () => {
   // !! TEST
 
   const [address, setAddress] = useState("");
-  const handleSelect = async (value) => {};
+  const [coordinates, setCoordinates] = useState({
+    lat: null,
+    lng: null,
+  });
+
+  const handleSelect = async (value) => {
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0]);
+
+    // console.log("TESTHANDLE", latLng);
+    setAddress(value);
+    setCoordinates(latLng);
+  };
 
   // // !! ==========
 
@@ -199,7 +216,7 @@ const Form = () => {
               onChange={handleUserInput}
             ></input>
 
-            <MapContext.PlacesAutocomplete
+            <PlacesAutocomplete
               value={address}
               onChange={setAddress}
               onSelect={handleSelect}
@@ -211,21 +228,33 @@ const Form = () => {
                 loading,
               }) => (
                 <div>
+                  <p>Latitude: {coordinates.lat}</p>
+                  <p>Longitude: {coordinates.lng}</p>
                   <input
                     {...getInputProps({
-                      placeholder: "Dream about Schwarzwald?",
+                      // placeholder: "Dream about Schwarzwald?",
                     })}
                   ></input>
                   <div>
                     {loading ? <div>...loading</div> : null}
 
                     {suggestions.map((suggestion) => {
-                      return <div>{suggestion.description}</div>;
+                      const style = {
+                        backgroundColor: suggestion.active
+                          ? styles["$cream"]
+                          : "white",
+                      };
+
+                      return (
+                        <div {...getSuggestionItemProps(suggestion, { style })}>
+                          {suggestion.description}
+                        </div>
+                      );
                     })}
                   </div>
                 </div>
               )}
-            </MapContext.PlacesAutocomplete>
+            </PlacesAutocomplete>
 
             {/* // ? This is the dropdown area with all other search fields in the form */}
             <Expand open={SearchContext.openSearch}>

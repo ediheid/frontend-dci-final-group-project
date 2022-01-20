@@ -10,10 +10,10 @@ import signup from "./Services/createNewUser.js";
 import Cookies from "js-cookie";
 import { useCookies } from "react-cookie";
 
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from "react-places-autocomplete";
+// import PlacesAutocomplete, {
+//   geocodeByAddress,
+//   getLatLng,
+// } from "react-places-autocomplete";
 
 // ? Main scss
 import styles from "./Styling/app.module.scss";
@@ -179,8 +179,12 @@ const App = () => {
   };
 
   const collectLocationData = (event) => {
-    setLocationData({...locationData, ...locationData.host = currentUser.firstname, ...locationData.userId = currentUser.userId})
-    
+    setLocationData({
+      ...locationData,
+      ...(locationData.host = currentUser.firstname),
+      ...(locationData.userId = currentUser.userId),
+    });
+
     if (
       event.target.name === "field" ||
       event.target.name === "forest" ||
@@ -199,7 +203,6 @@ const App = () => {
 
         locationData.propertyType = newArr;
       }
-
     } else if (
       event.target.name === "animalsWelcome" ||
       event.target.name === "barrierFree" ||
@@ -262,7 +265,7 @@ const App = () => {
     setLocationData({ ...locationData, locationImage: val });
   };
 
-console.log("who is logged in?", currentUser)
+  console.log("who is logged in?", currentUser);
 
   return (
     <div>
@@ -300,7 +303,9 @@ console.log("who is logged in?", currentUser)
           closeLocationInfoBox: closeLocationInfoBox,
 
           // ! TEST: Autocomplete
-          PlacesAutocomplete: PlacesAutocomplete,
+          // PlacesAutocomplete: PlacesAutocomplete,
+          // geocodeByAddress: geocodeByAddress,
+          // getLatLng: getLatLng,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
