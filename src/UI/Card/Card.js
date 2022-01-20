@@ -12,10 +12,6 @@ import Navbar from "../../Components/Navbar/Navbar";
 
 // ? All Images
 
-// !!!
-// todo: Will eventually be passed in from the backend
-import image1 from "./static/pexels-uriel-mont-6271691.jpg";
-
 const Card = () => {
   const locationContext = useContext(AppContext);
 
