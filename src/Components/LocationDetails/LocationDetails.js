@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
@@ -16,9 +16,8 @@ import LocationDetailsIcons from "./LocationDetailsIcons.js";
 
 // ? Stylesheet
 import styles from "../LocationDetails/LocationDetails.module.scss";
-import datePickerstyles from "../Search/search.module.scss";
+import btnStyles from "../../UI/Button/Button.module.scss";
 import "../../Components/Search/Datepicker-Styling/datepicker-override.scss"
-
 import "../Search/Datepicker-Styling/datepicker-override.scss";
 
 // ? All Component and View imports
@@ -42,6 +41,7 @@ const LocationDetails = () => {
   const [visibleCancellation, setVisibleCancellation] = useState(false);
   const [openAmenitiesList, setOpenAmenitiesList] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
     const openCloseAvailability = () => {
         setVisibleAvailability(!visibleAvailability);
@@ -71,11 +71,67 @@ const LocationDetails = () => {
   useEffect(() => {
     getSpecificLocation(getParams, setSpecificLocationData)
   }, [])
+
+  const renameAmenities = () => {
+    let newArr = [];
+
+    for (let amenity of specificLocationData.amenities) {
+      switch(amenity) {
+        case "animalsWelcome":
+          newArr.push("Animals welcome");
+          break;
+        case "barrierFree":
+          newArr.push("Animals welcome");
+          break;
+        case "electricity":
+          newArr.push("Electricity")
+          break;
+        case "wifi":
+          newArr.push("Wifi")
+          break;
+        case "sauna":
+          newArr.push("Sauna")
+          break;
+        case "washingMachine":
+          newArr.push("Washing machine");
+          break;
+        case "playground":
+          newArr.push("Playground");
+          break;
+        case "kiosk":
+          newArr.push("Kiosk");
+          break;
+        case "fireplace":
+          newArr.push("Fireplace");
+          break;
+        case "batteryCharger":
+          newArr.push("Battery Charger");
+          break;
+        case "basin":
+          newArr.push("Basin")
+          break;
+        default:
+          newArr.push("This place offers no extras.")
+          break;
+      }
+    }
+    return newArr.map((a, i) => <div key={i}>{a}</div>)
+  }
   
-  console.log("SpecificLocationData", specificLocationData)
-  
-  const amenities = specificLocationData?.amenities?.map((a, i) => <div key={i}>{a}</div>)
-  
+  const catchingInfo = ["This is a rare find. Lucky you!", "is a Superhost.", "Users have rated this place as recommendable.", "This place is booked very frequently. Hurry up! ;-)"]
+  const random = Math.floor(Math.random() * catchingInfo.length);
+
+  const getcatchingInfoContent = () => {
+    let catchingInfoContent = "";
+
+    if (catchingInfo[random] === "is a Superhost.") {
+      return catchingInfoContent = `${specificLocationData.host} is a Superhost.`;
+    } else {
+      return catchingInfoContent = catchingInfo[random];
+    }  
+  }
+
+
   const cancellationText = () => {
 
     let text = "";
@@ -91,11 +147,6 @@ const LocationDetails = () => {
         return text = "Your host will accept cancellations that are provided at least 1 month before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted."
     }
   };
-  
-  console.log("CANCELLATION", specificLocationData?.cancellation)
-
-
-  
 
   if (specificLocationData) {
   return (
@@ -111,8 +162,7 @@ const LocationDetails = () => {
           <img
             className={styles["title-image"]}
             src={`${backendURL}uploads/${specificLocationData.img}`}
-            alt="Forest by mali maeder from Pexels
-"
+            alt={specificLocationData.title}
           />
           {/* // !! Title of location */}
           <div className={styles["heading-title"]}>{specificLocationData.title}</div>
@@ -121,14 +171,14 @@ const LocationDetails = () => {
           <hr className={styles.hr} />
           {/* // !! Catching info */}
           <div className={styles["catching-info"]}>
-            This is a rare find. Lucky you!
+            {getcatchingInfoContent()}
           </div>
           <hr className={styles.hr} />
           <div className={styles["intro-container"]}>
             {/* // !! Title + host + intro */}
             <div className={styles["heading-title"]}>
               {/* {nameOfPlace}  */}
-              <br /> hosted by {specificLocationData.host}
+              <br />This place is hosted by {specificLocationData.host}.
               {/* <div>Joined in December 2020</div>
                             <Button>Contact host</Button> */}
             </div>
@@ -143,7 +193,7 @@ const LocationDetails = () => {
           </div>
           {/* // !! Title + host + intro */}
           <div className={styles["intro-details"]}>
-            {amenities}
+            {renameAmenities()}
           </div>
           <hr className={styles.hr} />
           {/* // !! Nice to have */}
@@ -188,7 +238,8 @@ const LocationDetails = () => {
           <div className={styles["detailed-description"]}>
             {cutText(specificLocationData.description)}
             <div className={styles["modal-description-link"]}>
-              <a className="showmore" onClick={() => setReadMore(!readMore)}>{linkname} &#62;</a>
+            <button className={btnStyles.button} onClick={() => setReadMore(!readMore)}>{linkname}</button>
+              {/* <a className="showmore" onClick={() => setReadMore(!readMore)}>{linkname} &#62;</a> */}
             </div>
           </div>
 
@@ -199,8 +250,6 @@ const LocationDetails = () => {
           </div>
 
           <LocationDetailsIcons specificLocationData={specificLocationData} openAmenitiesList={openAmenitiesList}/>
-          
-          {/* <Button onClick={() => setOpenAmenitiesList(!openAmenitiesList)}>Show all amenities</Button> */}
 
           <button className={styles.button} onClick={() => setOpenAmenitiesList(!openAmenitiesList)}>Show all amenities</button>
           
@@ -218,7 +267,9 @@ const LocationDetails = () => {
                 </div>
               </div>
               <div className={styles["map-description-link"]}>
-                <a className="showmore" onClick={() => setReadMore(!readMore)}>{linkname} &#62;</a>
+                
+                <button className={btnStyles.button} onClick={() => setReadMore(!readMore)}>{linkname}</button>
+                {/* <a className="showmore" onClick={() => setReadMore(!readMore)}>{linkname} &#62;</a> */}
               </div>
             </div>
           </div>
@@ -257,99 +308,116 @@ const LocationDetails = () => {
           <hr className={styles.hr} />
 
           <div
-                            onClick={openCloseAvailability}
-                            className={styles["booking-info-container"]}
-                        >
-                            {/* // !! More info */}
-                            <div className={styles["heading-booking-info"]}>
-                                Availabilty
-                                {/* <br /> */}
-                                <div className={styles.subinfo}>May 02 - May 09</div>
-                                <div className={styles.details}>
+              onClick={openCloseAvailability}
+              className={styles["booking-info-container"]}
+          >
+            {/* // !! More info */}
+            <div className={styles["heading-booking-info"]}>
+              Availabilty
+            {/* <br /> */}
+            <div className={styles.subinfo}>Check if this place is available for your next journey.</div>
+            <div className={styles.details}>
                               
-                                        <div className={styles.bookingInfoText}>
-                                            <DatePicker minDate={new Date()}
-                                                        placeholderText="Add dates"
-                                                       dateFormat="dd/MM/yyyy"
-                                                        className={datePickerstyles["dropdown-section-input"]}
-                                                        selected={startDate}
-                    
-                                                              
-                                                      onChange={(date) => setStartDate(date)}
-                                             /> 
-                                        </div>
+                                        
+            <div className={styles["search-item"]}>
+              <label className={styles["search-labels"]}>Check in</label>
+
+              <DatePicker
+                  minDate={new Date()}
+                  placeholderText="Add dates"
+                  dateFormat="dd/MM/yyyy"
+                  className={styles["dropdown-section-input"]}
+                  selected={startDate}
+                  name="checkInDate"
+                  onChange={(date) => setStartDate(date)}
+              />
+              {/* // todo: Original to match */}
+            </div>
+
+            {/* // ? Check out */}
+            <div className={styles["search-item"]}>
+              <label className={styles["search-labels"]}>Check out</label>
+              <DatePicker
+                minDate={new Date()}
+                placeholderText="Add dates"
+                dateFormat="dd/MM/yyyy"
+                className={styles["dropdown-section-input"]}
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+              />
+            </div>
                                   
-                                </div>
-                            </div>
+            </div>
+          </div>
+        </div>
+
+        <hr className={styles.hr} />
+
+        <div
+            onClick={openCloseRules}
+            className={styles["booking-info-container"]}
+        >
+            {/* // !! More info */}
+            <div className={styles["heading-booking-info"]}>
+                Place rules
+                <div className={styles.subinfo}>{specificLocationData.checkin}</div>
+                <div className={styles.details}>
+                    {visibleRules && (
+                        <div className={styles.bookingInfoText}>
+                            {specificLocationData.houseRules}
                         </div>
+                    )}
+                </div>
+            </div>
 
-                        <hr className={styles.hr} />
+            <div>
+                {visibleRules ? (
+                    <i className="fas fa-chevron-up"></i>
+                ) : (
+                    <i className="fas fa-chevron-down"></i>
+                )}
+            </div>
+        </div>
 
-                        <div
-                            onClick={openCloseRules}
-                            className={styles["booking-info-container"]}
-                        >
-                            {/* // !! More info */}
-                            <div className={styles["heading-booking-info"]}>
-                                Place rules
-                                <div className={styles.subinfo}>Check-in: 1pm</div>
-                                <div className={styles.details}>
-                                    {visibleRules && (
-                                        <div className={styles.bookingInfoText}>
-                                            {specificLocationData.houseRules}
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
+        <hr className={styles.hr} />
 
-                            <div>
-                                {visibleRules ? (
-                                    <i className="fas fa-chevron-up"></i>
-                                ) : (
-                                    <i className="fas fa-chevron-down"></i>
-                                )}
-                            </div>
+        <div
+            onClick={openCloseCancellation}
+            className={styles["booking-info-container"]}
+        >
+            {/* // !! More info */}
+            <div className={styles["heading-booking-info"]}>
+                Cancellation policy
+                {/* <br /> */}
+                <div className={styles.subinfo}>{specificLocationData.cancellation}</div>
+                <div className={styles.details}>
+                    {visibleCancellation && (
+                        <div className={styles.bookingInfoText}>
+                            {cancellationText()}
                         </div>
+                    )}
+                </div>
+            </div>
 
-                        <hr className={styles.hr} />
+            <div>
+                {visibleCancellation ? (
+                    <i className="fas fa-chevron-up"></i>
+                ) : (
+                    <i className="fas fa-chevron-down"></i>
+                )}
+            </div>
+        </div>
 
-                        <div
-                            onClick={openCloseCancellation}
-                            className={styles["booking-info-container"]}
-                        >
-                            {/* // !! More info */}
-                            <div className={styles["heading-booking-info"]}>
-                                Cancellation policy
-                                {/* <br /> */}
-                                <div className={styles.subinfo}>{specificLocationData.cancellation}</div>
-                                <div className={styles.details}>
-                                    {visibleCancellation && (
-                                        <div className={styles.bookingInfoText}>
-                                            {cancellationText()}
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
+        <hr className={styles.hr} />
 
-                            <div>
-                                {visibleCancellation ? (
-                                    <i className="fas fa-chevron-up"></i>
-                                ) : (
-                                    <i className="fas fa-chevron-down"></i>
-                                )}
-                            </div>
-                        </div>
-
-                        <hr className={styles.hr} />
-
-                        <div className={styles["price-container"]}>
-                            {/* // !! More info */}
-                            <div className={styles["price-info"]}>
-                                {specificLocationData.price} € /{" "}
-                                <span className={styles.span}>night</span>
-                                {/* <br /> */}
-                                <div>02 May - 09 May</div>
-                        </div>
+        <div className={styles["price-container"]}>
+            {/* // !! More info */}
+            <div className={styles["price-info"]}>
+                {specificLocationData.price} € /{" "}
+                <span className={styles.span}>night</span>
+                {/* <br /> */}
+                <div>Reserve now</div>
+        </div>
 
             <div>
               {/* TEST */}

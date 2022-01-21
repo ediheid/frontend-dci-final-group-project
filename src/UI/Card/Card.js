@@ -1,35 +1,22 @@
-import React, { useContext, useState, useEffect } from "react";
-
-import { AppContext } from "../../App";
+import React, { useContext } from "react";
 
 // ? Stylesheet
 import styles from "../Card/Card.module.scss";
+import btnStyles from "../Button/Button.module.scss";
+
+import { AppContext } from "../../App";
 
 // ? All Component and View imports
-import Search from "../../Components/Search/Search";
-import Navbar from "../../Components/Navbar/Navbar";
 import { getCardData } from "../../Services/getCardData.js";
 
-const Card = () => {
-  const locationContext = useContext(AppContext);
-  const [cardData, setCardData] = useState([]);
-
+const Card = (props) => {
   const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
   const frontendURL = process.env.REACT_APP_FRONTEND_URL;
+  const cardContext = useContext(AppContext);
 
-  useEffect(() => {
-    getCardData(setCardData)
-  }, [])
-
-  console.log("CARDDATA", cardData)
-
-  // console.log("LLLLLLL", locationContext.populateCards);
-
-  let content = cardData.map((loc) => {
-    // console.log("444444", loc);
-
+  let content =cardContext.cardData.map((loc, i) => {
     return (
-      <div className={styles["card-container"]}>
+      <div key={i} className={styles["card-container"]}>
         <div className={styles["card-item"]}>
           <div className={styles["image-container"]}>
             <img
@@ -45,26 +32,19 @@ const Card = () => {
               <div>{`${loc.location.city}, ${loc.location.country}`}</div>
 
               <div>
-                {/* 80€ / night */}
-                {/* // !! Not getting passed in?!*/}
                 {loc.price} € / night
               </div>
             </div>
             <hr className={styles.hr} />
 
             <div className={styles.description}>
-              {/* // !! Will be... */}
-              {loc.description}
-              {/* Gummi bears marshmallow biscuit donut fruitcake jelly. Brownie
-              sweet roll croissant dessert tiramisu toffee tootsie roll. */}
-              {/* <div className={styles["description-link"]}> */}
+              <p>{loc.description.slice(0,800)}</p>
               <a
                 href={`${frontendURL}location-details/${loc._id}`}
-                // style={{ zIndex: 5000 }}
                 alt={`Show property page for ${loc.title}`}
               >
-                {" "}
-                Show more &#62;
+              <button className={btnStyles.button}>show more</button>
+                {/* Show more &#62; */}
               </a>
             </div>
           </div>
