@@ -12,6 +12,7 @@ import Button from "../../UI/Button/Button";
 import LogIn from "../../Components/LogIn/LogIn";
 import Search from "../../Components/Search/Search";
 import Navbar from "../../Components/Navbar/Navbar";
+import LoadingModal from "../../Components/LoadingModal/LoadingModal";
 
 // ? All Images
 import backgroundImage from "./static/pexels-matthew-devries-2775231.jpg";
@@ -20,27 +21,17 @@ import LoggedInLandingPage from "../LoggedInLandingPage/LoggedInLandingPage";
 
 const LandingPage = () => {
     const landingPageContext = useContext(AppContext);
-    // const [showLogIn, setShowLogIn] = useState(false);
 
-    // const openLogIn = (event) => {
-    //     event.preventDefault();
-    //     setShowLogIn(true);
-    // };
-
-    // const closeLogIn = (event) => {
-    //     event.preventDefault();
-    //     setShowLogIn(false);
-    //     console.log("background was clicked close log in");
-    // };
-
-    const content = !landingPageContext.cookies.UserCookie ? (
-        <div className={styles["main-container"]}>
-            <div className={styles["content-container"]}>
-                <img
-                    className={styles["title-image"]}
-                    src={backgroundImage}
-                    alt="Forest by mali maeder from Pexels
-"
+    let content = null;
+    
+    if (!landingPageContext.cookies.UserCookie) {
+        ( content = (
+            <div className={styles["main-container"]}>
+                <div className={styles["content-container"]}>
+                    <img
+                        className={styles["title-image"]}
+                        src={backgroundImage}
+                        alt="Forest by mali maeder from Pexels"
                 />
                 <div className={styles.heading}>
                     <div className={styles["text-container"]}>
@@ -74,26 +65,16 @@ const LandingPage = () => {
                         </div>
                     </Link>
                 </div>
-
-                {/* <div className={styles["info-host"]}>
-                    <Link to="/location-form">
-                        <img
-                            className={styles["host-image"]}
-                            src={hostImage}
-                            alt="Camper by Devries from Pexels"
-                        />
-                        <div className={styles["heading-host"]}>
-                            Become
-                            <br />a host
-                        </div>
-                    </Link>
-                </div> */}
             </div>
         </div>
-    ) : (
-        <LoggedInLandingPage />
-    );
-
+        )
+    )
+    } else if (landingPageContext.cookies.UserCookie && landingPageContext.cardData) {
+        content = (<LoggedInLandingPage />)
+    } else {
+        content = <LoadingModal />
+    }
+    
     return (
         <>
             <Navbar />
