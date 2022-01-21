@@ -3,6 +3,9 @@ import React, { useRef, useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+
 import { useParams } from "react-router-dom";
 
 // ? import fetch request to get Data for populatin the pages
@@ -29,6 +32,8 @@ import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
 
 const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
 
+const spinner = <FontAwesomeIcon icon={faSpinner} />
+
 const LocationDetails = () => {
   const [specificLocationData, setSpecificLocationData] = useState(null);
   const [readMore, setReadMore] = useState(false);
@@ -37,13 +42,6 @@ const LocationDetails = () => {
   const [visibleCancellation, setVisibleCancellation] = useState(false);
   const [openAmenitiesList, setOpenAmenitiesList] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-
-  // const btnRef = useRef("styles.amenitiesFlex");
-  // const changeStyle = () => {
-  //   btnRef.current.value = "styles.amenities";
-  // }
-
-  // console.log("REF", btnRef)
 
     const openCloseAvailability = () => {
         setVisibleAvailability(!visibleAvailability);
@@ -365,7 +363,13 @@ const LocationDetails = () => {
     </>
   );
 } else {
-  return <div>Loading</div>
+  return (
+  <div className={styles.loadingModal}>
+    <p>Loading ...</p>
+    <div className={styles.spinner}>{spinner}</div>
+  </div>
+  
+  )
 }
 };
 

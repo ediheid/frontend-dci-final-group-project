@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import { AppContext } from "../../App";
 
@@ -8,13 +8,24 @@ import styles from "../Card/Card.module.scss";
 // ? All Component and View imports
 import Search from "../../Components/Search/Search";
 import Navbar from "../../Components/Navbar/Navbar";
+import { getCardData } from "../../Services/getCardData.js";
 
 const Card = () => {
   const locationContext = useContext(AppContext);
+  const [cardData, setCardData] = useState([]);
+
+  const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
+  const frontendURL = process.env.REACT_APP_FRONTEND_URL;
+
+  useEffect(() => {
+    getCardData(setCardData)
+  }, [])
+
+  console.log("CARDDATA", cardData)
 
   // console.log("LLLLLLL", locationContext.populateCards);
 
-  let content = locationContext.populateCards.map((loc) => {
+  let content = cardData.map((loc) => {
     // console.log("444444", loc);
 
     return (
@@ -23,7 +34,7 @@ const Card = () => {
           <div className={styles["image-container"]}>
             <img
               className={styles.image}
-              src={loc.img}
+              src={`${backendURL}uploads/${loc.img}`}
               alt={`Property view of ${loc.title}`}
             />
           </div>
@@ -31,12 +42,12 @@ const Card = () => {
             <div className={styles.title}>{loc.title}</div>
 
             <div className={styles["info-box"]}>
-              <div>{`${loc.city}, ${loc.country}`}</div>
+              <div>{`${loc.location.city}, ${loc.location.country}`}</div>
 
               <div>
                 {/* 80€ / night */}
                 {/* // !! Not getting passed in?!*/}
-                {loc.pricePerNight} / night
+                {loc.price} € / night
               </div>
             </div>
             <hr className={styles.hr} />
@@ -48,7 +59,7 @@ const Card = () => {
               sweet roll croissant dessert tiramisu toffee tootsie roll. */}
               {/* <div className={styles["description-link"]}> */}
               <a
-                href={loc.link}
+                href={`${frontendURL}location-details/${loc._id}`}
                 // style={{ zIndex: 5000 }}
                 alt={`Show property page for ${loc.title}`}
               >

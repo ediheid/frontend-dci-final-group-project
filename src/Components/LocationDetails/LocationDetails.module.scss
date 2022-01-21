@@ -275,6 +275,27 @@
     cursor: pointer;
 }
 
+.loadingModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background: $main-font-colour;
+    font-size: 4rem;
+    color: $cream;
+}
+
+.spinner {
+    animation: loading 1s infinite normal;
+}
+
+@keyframes loading {
+    from {transform: rotate(0);}
+    to {transform: rotate(360deg);}
+}
+
 // ? Media Queries
 // Based on Bootstrap breakpoints
 
