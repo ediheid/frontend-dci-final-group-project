@@ -3,6 +3,11 @@ import React, { Fragment, useState, useContext, createContext } from "react";
 import { AppContext } from "../../App";
 import { sendSearchQuery } from "../../Services/sendSearchQuery";
 
+// import PlacesAutocomplete, {
+//   geocodeByAddress,
+//   getLatLng,
+// } from "react-places-autocomplete";
+
 //  Styles
 import styles from "../Search/search.module.scss";
 // Datepicker override styles
@@ -21,6 +26,9 @@ import { BsArrowsCollapse } from "react-icons/bs";
 
 // !!! Form Context
 export const FormContext = createContext();
+
+// Google Map API
+// const MAP_API = process.env.REACT_APP_MAP_API;
 
 // Amenity items..
 const items = [
@@ -89,7 +97,7 @@ const items = [
 ];
 
 // ? Form Component
-const Form = (props) => {
+const Form = () => {
   // ? Context Variables
   const SearchContext = useContext(AppContext);
   const MapContext = useContext(AppContext);
@@ -103,6 +111,20 @@ const Form = (props) => {
   const [selection, setSelection] = useState([]);
   // Amenities Dropdown state
   const [openDropdown, setOpenDropdown] = useState(false);
+
+  // !! TEST
+
+  const handleSelect = async (value) => {
+    const results = await MapContext.geocodeByAddress(value);
+    const latLng = await MapContext.getLatLng(results[0]);
+
+    console.log("TESTHANDLE", latLng);
+    // setSearchFieldQuery(value);
+    MapContext.setAddress(value);
+    MapContext.setCoordinates(latLng);
+  };
+
+  // // !! ==========
 
   // ? To pass down to Dropdown..
   const toggle = () => setOpenDropdown(!openDropdown);
@@ -188,6 +210,52 @@ const Form = (props) => {
               name="locationSearchName"
               onChange={handleUserInput}
             ></input>
+
+            <MapContext.PlacesAutocomplete
+              value={MapContext.address}
+              onChange={MapContext.setAddress}
+              onSelect={handleSelect}
+            >
+              {({
+                getInputProps,
+                suggestions,
+                getSuggestionItemProps,
+                loading,
+              }) => (
+                <div>
+                  <p>Latitude: {MapContext.latitude}</p>
+                  <p>Longitude: {MapContext.longitude}</p>
+                  <input
+                    {...getInputProps({
+                      placeholder: "Dream about Schwarzwald?",
+                    })}
+                    className={styles["search-input"]}
+                    onClick={SearchContext.openForm}
+                    // placeholder="Dream about Schwarzwald?"
+                    // // ! Testing
+                    name="locationSearchName"
+                    // onChange={handleUserInput}
+                  ></input>
+                  <div>
+                    {loading ? <div>...loading</div> : null}
+
+                    {suggestions.map((suggestion) => {
+                      const style = {
+                        backgroundColor: suggestion.active
+                          ? styles["$cream"]
+                          : "white",
+                      };
+
+                      return (
+                        <div {...getSuggestionItemProps(suggestion, { style })}>
+                          {suggestion.description}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </MapContext.PlacesAutocomplete>
 
             {/* // ? This is the dropdown area with all other search fields in the form */}
             <Expand open={SearchContext.openSearch}>
