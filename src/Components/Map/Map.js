@@ -126,10 +126,10 @@ const Map = ({ center, zoom }) => {
           className={styles["map-component"]}
           // !!! API key lives in .env file - when commented out Map runs in dev mode
           // !!! Use like this so we don't use up the API
-          bootstrapURLKeys={{
-            key: MAP_API,
-            language: "en",
-          }}
+          // bootstrapURLKeys={{
+          //   key: MAP_API,
+          //   language: "en",
+          // }}
           defaultCenter={center}
           // center={lat: {mapContext.latitude}, lng: {mapContext.longitude}}
           center={{ lat: mapContext.latitude, lng: mapContext.longitude }}
@@ -138,8 +138,7 @@ const Map = ({ center, zoom }) => {
           {markers}
           {/* <LocationMarker lat={center.lat} lng={center.lng} /> */}
         </GoogleMapReact>
-        {/*   // ? To look into with Kathi
-            // !! Testing location Info.. */}
+
         {mapContext.locationInfo && (
           <LocationInfoBox info={mapContext.locationInfo} />
         )}
