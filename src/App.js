@@ -31,6 +31,8 @@ import LocationDetails from "./Components/LocationDetails/LocationDetails";
 import LocationForm from "./Components/LocationForm/LocationForm";
 import LoggedInLandingPage from "./Views/LoggedInLandingPage/LoggedInLandingPage";
 
+import { getCardData } from "./Services/getCardData.js";
+
 import { locations } from "./Services/getLocationData.js";
 
 // ? createContext variable
@@ -91,19 +93,20 @@ const App = () => {
     regionalDescription: "",
     houseRules: "",
     price: 0,
+    checkin: "",
     cancellation: "",
   });
 
-  useEffect(() => {
-    console.log(locationData);
-  }, [locationData]);
+  const [cardData, setCardData] = useState([]);
 
-  // !! TEST: cards
-  const [populateCards, setPopulateCards] = useState([]);
+  
 
   useEffect(() => {
-    locations(setPopulateCards);
-  }, []);
+      getCardData(setCardData)
+  }, [])
+
+
+  console.log("CARDDATA", cardData)
   //   console.log("QQQQ", populateCards);
 
   // ? login/signup state
@@ -298,9 +301,8 @@ const App = () => {
           openForm: openForm,
           toggleSearchDropdown: toggleSearchDropdown,
 
-          // ! TEST: Cards
-          populateCards: populateCards,
-          setPopulateCards: setPopulateCards,
+          // ? send CardData to Cards to populate and landingpage for conditional rendering 
+          cardData: cardData,
 
           // ? Map Context
           mapView: mapView,

@@ -8,14 +8,11 @@
 .card-container {
   font-family: $main-font-font-family;
   color: $army-green;
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  // justify-content: center;
-  // align-items: center;
-  // align-content: center;
-  // width: 100vw;
-  // background-color: pink;
+  transition: .3s;
+}
+
+.card-container:hover {
+  transform: scale(102%)
 }
 
 .card-item {
@@ -31,8 +28,7 @@
 .image-container {
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-
-  height: 70%;
+  height: 45rem;
 }
 
 .image {
