@@ -11,7 +11,7 @@ export const sendSearchQuery = async (searchDataToSend) => {
 
   fetch(`${backendURL}location/find`, settings)
     .then((response) => {
-      console.log("HERE!");
+      // console.log("HERE!");
       if (response.ok) {
         return response.json();
       } else {
@@ -34,10 +34,10 @@ export const sendSearchQuery = async (searchDataToSend) => {
       }
     })
     .then((data) => {
-      console.log("NOW", data);
+      // console.log("NOW", data);
       return data;
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
     });
 };

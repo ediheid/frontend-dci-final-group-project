@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 // !!! Add useContext to React and import AppContext below
-import { AppContext, SignupContext } from "../../App";
+import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "../SignUp/SignUp.module.scss";
@@ -9,24 +9,23 @@ import styles from "../SignUp/SignUp.module.scss";
 // importing fetch request from services
 import { signup } from "../../Services/createNewUser.js";
 
-const SignUp = props => {
-//   const createUserContext = useContext(SignupContext);
+const SignUp = (props) => {
+  //   const createUserContext = useContext(SignupContext);
   const signUpContext = useContext(AppContext);
-
 
   // Signup Modal is not visible
   if (!props.showSignup) {
     return null;
   }
 
-  const stop = event => {
+  const stop = (event) => {
     event.stopPropagation();
   };
 
   // Fetch request for signing up
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    signup(signUpContext.signupData, signUpContext.setSignupData)
+    signup(signUpContext.signupData, signUpContext.setSignupData);
   };
 
   // const handleSubmit = useCallback((event) => {
@@ -44,7 +43,9 @@ const SignUp = props => {
         {/* <SignUp onCloseSignup={closeSignUp} showSignup={showSignUp} /> */}
         <div className={styles.content} onClick={stop}>
           <div className={styles.header}>
-            <div className={styles.pointer} onClick={props.closeSignup}>X</div>
+            <div className={styles.pointer} onClick={props.closeSignup}>
+              X
+            </div>
 
             <div className={styles.title}>Sign up</div>
           </div>

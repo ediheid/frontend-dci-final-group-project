@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 // ? Stylesheet
 import styles from "./LoggedInLandingPage.module.scss";
 
 // ? All Component and View imports
-import Button from "../../UI/Button/Button";
-import LogIn from "../../Components/LogIn/LogIn";
-import Search from "../../Components/Search/Search";
-import Navbar from "../../Components/Navbar/Navbar";
+// import Button from "../../UI/Button/Button";
+// import LogIn from "../../Components/LogIn/LogIn";
+// import Search from "../../Components/Search/Search";
+// import Navbar from "../../Components/Navbar/Navbar";
 import LoggedInCarousel from "../../Components/LoggedInCarousel/LoggedInCarousel";
 import Card from "../../UI/Card/Card";
 

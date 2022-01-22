@@ -1,10 +1,4 @@
-import React, {
-  Fragment,
-  useState,
-  useContext,
-  createContext,
-  useEffect,
-} from "react";
+import React, { Fragment, useState, useContext, createContext } from "react";
 
 import { AppContext } from "../../App";
 import { sendSearchQuery } from "../../Services/sendSearchQuery";
@@ -214,7 +208,7 @@ const Form = () => {
       sendSearchQuery(searchDataToSend);
       MapContext.setAddress("");
     } else {
-      console.log("please fill out all fields");
+      // console.log("please fill out all fields");
     }
   };
 
