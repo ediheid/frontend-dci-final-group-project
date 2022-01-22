@@ -172,12 +172,14 @@
 
   &:focus {
     background-color: $light-green;
+    color: $cream;
   }
 }
 
 // ? Solving sticky hover on touch screen devices..
 @media (hover: hover) {
   .form-search-button:hover {
+    color: $cream;
     background-color: $light-green; /* solves sticky problem */
   }
 }
