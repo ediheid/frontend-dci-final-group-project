@@ -53,13 +53,13 @@ const Map = ({ center, zoom }) => {
 
   const mapContext = useContext(AppContext);
 
-  console.log(mapStyles);
+  // console.log(mapStyles);
 
   // console.log("!!!!!", events);
   // console.log("??", events[0].id);
   // console.log("##", events[0].coordinates[0]);
 
-  console.log("#####", mapContext.mapEventData);
+  // console.log("#####", mapContext.mapEventData);
 
   // let markers = mapContext.mapEventData;
 
@@ -72,7 +72,7 @@ const Map = ({ center, zoom }) => {
   // Todo: Create a an extra loop to run through ids to the populate..
 
   let markers = mapContext.mapEventData.map((event) => {
-    console.log("*****", event);
+    // console.log("*****", event);
 
     // if (event.id == 1) {
     // console.log("YES", events);
@@ -96,14 +96,9 @@ const Map = ({ center, zoom }) => {
             // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
             city: event.city,
             country: event.country,
-            // pricePerNight: event.pricePerNight,
-            // description: event.description,
-            // img: event.img,
-
-            // !! Actual link once setup..
+            pricePerNight: event.pricePerNight,
+            img: event.img,
             link: `${event.link}`,
-            // !! For test
-            // link: event.link,
           })
         }
         // ? ======
@@ -131,10 +126,10 @@ const Map = ({ center, zoom }) => {
           className={styles["map-component"]}
           // !!! API key lives in .env file - when commented out Map runs in dev mode
           // !!! Use like this so we don't use up the API
-          bootstrapURLKeys={{
-            key: MAP_API,
-            language: "en",
-          }}
+          // bootstrapURLKeys={{
+          //   key: MAP_API,
+          //   language: "en",
+          // }}
           defaultCenter={center}
           // center={lat: {mapContext.latitude}, lng: {mapContext.longitude}}
           center={{ lat: mapContext.latitude, lng: mapContext.longitude }}
@@ -143,8 +138,7 @@ const Map = ({ center, zoom }) => {
           {markers}
           {/* <LocationMarker lat={center.lat} lng={center.lng} /> */}
         </GoogleMapReact>
-        {/*   // ? To look into with Kathi
-            // !! Testing location Info.. */}
+
         {mapContext.locationInfo && (
           <LocationInfoBox info={mapContext.locationInfo} />
         )}
