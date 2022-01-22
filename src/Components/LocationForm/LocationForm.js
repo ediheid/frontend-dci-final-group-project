@@ -426,7 +426,6 @@ const LocationForm = () => {
                                     property and rooms are like so guests know
                                     what to expect.
                                 </label>
-
                                 <textarea
                                     type="text"
                                     // resize="none"
@@ -477,7 +476,6 @@ const LocationForm = () => {
                                 /> */}
               </div>
               {/* <hr className={styles.hr} />
-
                             <div className={styles.heading}>
                                 <div div className={styles["heading-input"]}>
                                     Your neighbourhood
@@ -486,7 +484,6 @@ const LocationForm = () => {
                                     Share some highlights about the
                                     neighbourhood.
                                 </label>
-
                                 <textarea
                                     type="text"
                                     // resize="none"

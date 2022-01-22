@@ -1,4 +1,10 @@
-import React, { Fragment, useState, useContext, createContext } from "react";
+import React, {
+  Fragment,
+  useState,
+  useContext,
+  createContext,
+  useEffect,
+} from "react";
 
 import { AppContext } from "../../App";
 import { sendSearchQuery } from "../../Services/sendSearchQuery";
@@ -134,6 +140,10 @@ const Form = () => {
     MapContext.setAddress(value);
     MapContext.setCoordinates(latLng);
   };
+
+  // useEffect(() => {
+  //   handleSelect();
+  // }, []);
 
   // // !! ==========
 

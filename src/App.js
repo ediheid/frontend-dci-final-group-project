@@ -123,6 +123,10 @@ const App = () => {
     setOpenSearch(false);
   };
 
+  // const locationPageMap = () => {
+  //   setOpenMap(true);
+  // };
+
   // ? Close map for close map button
   const closeMap = () => {
     setOpenMap(false);

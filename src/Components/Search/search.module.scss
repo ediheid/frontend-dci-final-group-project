@@ -149,6 +149,17 @@
   color: $main-font-colour;
 
   cursor: pointer;
+
+  &:focus {
+    color: $orange;
+  }
+}
+
+// ? Solving sticky hover on touch screen devices..
+@media (hover: hover) {
+  .close-button:hover {
+    color: $orange;
+  }
 }
 
 .form-search-button {

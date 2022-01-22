@@ -16,10 +16,10 @@ const MapLocationForm = ({ center, zoom }) => {
         defaultCenter={center}
         center={center}
         defaultZoom={zoom}
-        bootstrapURLKeys={{
-          key: MAP_API,
-          language: "en",
-        }}
+        // bootstrapURLKeys={{
+        //   key: MAP_API,
+        //   language: "en",
+        // }}
       ></GoogleMapReact>
     </div>
   );
