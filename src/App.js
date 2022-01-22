@@ -10,6 +10,11 @@ import signup from "./Services/createNewUser.js";
 import Cookies from "js-cookie";
 import { useCookies } from "react-cookie";
 
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
+
 // ? Main scss
 import styles from "./Styling/app.module.scss";
 
@@ -32,6 +37,8 @@ import { locations } from "./Services/getLocationData.js";
 
 // ? createContext variable
 export const AppContext = createContext();
+
+// const MAP_API = process.env.REACT_APP_MAP_API;
 
 const App = () => {
   // ?  State hooks
@@ -113,7 +120,7 @@ const App = () => {
     // event.preventDefault();
     setOpenMap(true);
 
-    // ! Set map location markers from fetch request (getLocationData.js)
+    // Set map location markers from fetch request (getLocationData.js)
     locations(setMapEventData);
 
     setOpenSearch(false);
@@ -123,6 +130,17 @@ const App = () => {
   const closeMap = () => {
     setOpenMap(false);
   };
+
+  // !! Testing auto complete for map input
+
+  const [address, setAddress] = useState("");
+  const [coordinates, setCoordinates] = useState({
+    lat: null,
+    lng: null,
+  });
+
+  const latitude = coordinates.lat;
+  const longitude = coordinates.lng;
 
   // ? Allows user to click on Caravan(home) button without re-rendering the page but will close both map and search without state conflicts
   const returnHome = () => {
@@ -173,8 +191,12 @@ const App = () => {
   };
 
   const collectLocationData = (event) => {
-    setLocationData({...locationData, ...locationData.host = currentUser.firstname, ...locationData.userId = currentUser.userId})
-    
+    setLocationData({
+      ...locationData,
+      ...(locationData.host = currentUser.firstname),
+      ...(locationData.userId = currentUser.userId),
+    });
+
     if (
       event.target.name === "field" ||
       event.target.name === "forest" ||
@@ -193,7 +215,6 @@ const App = () => {
 
         locationData.propertyType = newArr;
       }
-
     } else if (
       event.target.name === "animalsWelcome" ||
       event.target.name === "barrierFree" ||
@@ -256,7 +277,7 @@ const App = () => {
     setLocationData({ ...locationData, locationImage: val });
   };
 
-console.log("who is logged in?", currentUser)
+  console.log("who is logged in?", currentUser);
 
   return (
     <div>
@@ -291,6 +312,17 @@ console.log("who is logged in?", currentUser)
           locationInfo: locationInfo,
           setLocationInfo: setLocationInfo,
           closeLocationInfoBox: closeLocationInfoBox,
+
+          // ! TEST: Autocomplete
+          PlacesAutocomplete: PlacesAutocomplete,
+          geocodeByAddress: geocodeByAddress,
+          getLatLng: getLatLng,
+          address: address,
+          setAddress: setAddress,
+          coordinates: coordinates,
+          setCoordinates: setCoordinates,
+          latitude: latitude,
+          longitude: longitude,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
@@ -353,7 +385,7 @@ console.log("who is logged in?", currentUser)
 
               //   return <LocationDetails selected={selectedLocation} />;
               // }
-            component={LocationDetails}
+              component={LocationDetails}
             />
 
             <Route path="/location-form" exact component={LocationForm} />

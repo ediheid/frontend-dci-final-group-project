@@ -63,6 +63,11 @@ const Map = ({ center, zoom }) => {
 
   // let markers = mapContext.mapEventData;
 
+  // let latitude = mapContext.latitude;
+  // let longitude = mapContext.longitude;
+
+  // console.log("TESTLONGLAT", latitude, longitude);
+
   // !!!
   // Todo: Create a an extra loop to run through ids to the populate..
 
@@ -91,11 +96,14 @@ const Map = ({ center, zoom }) => {
             // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
             city: event.city,
             country: event.country,
-            // ! Price per night not populating?
-            pricePerNight: event.pricePerNight,
-            description: event.description,
-            img: `${event.img}`,
+            // pricePerNight: event.pricePerNight,
+            // description: event.description,
+            // img: event.img,
+
+            // !! Actual link once setup..
             link: `${event.link}`,
+            // !! For test
+            // link: event.link,
           })
         }
         // ? ======
@@ -128,7 +136,8 @@ const Map = ({ center, zoom }) => {
             language: "en",
           }}
           defaultCenter={center}
-          center={center}
+          // center={lat: {mapContext.latitude}, lng: {mapContext.longitude}}
+          center={{ lat: mapContext.latitude, lng: mapContext.longitude }}
           defaultZoom={zoom}
         >
           {markers}
@@ -149,7 +158,7 @@ const Map = ({ center, zoom }) => {
 
 Map.defaultProps = {
   // Center coordinates set to Germany
-  center: { lat: 51.1657, lng: 10.4515 },
+  // center: { lat: 51.1657, lng: 10.4515 },
   defaultCenter: { lat: 51.1657, lng: 10.4515 },
   zoom: 5,
 };
