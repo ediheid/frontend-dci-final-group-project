@@ -51,7 +51,7 @@ const LoggedInLandingPage = () => {
           </div>
 
           <div className={styles.heading}>
-            Not sure where to go? Browse all below..
+            Not sure where to go? Browse some of our top locations..
           </div>
         </div>
         <div className={styles["card-container"]}>
