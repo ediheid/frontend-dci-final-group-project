@@ -103,7 +103,7 @@ const Form = () => {
   const MapContext = useContext(AppContext);
 
   // ? State Hooks
-  const [searchFieldQuery, setSearchFieldQuery] = useState("");
+  // const [searchFieldQuery, setSearchFieldQuery] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [campervans, setCampervans] = useState("");
@@ -118,7 +118,7 @@ const Form = () => {
     const results = await MapContext.geocodeByAddress(value);
     const latLng = await MapContext.getLatLng(results[0]);
 
-    console.log("TESTHANDLE", latLng);
+    // console.log("TESTHANDLE", latLng);
     // setSearchFieldQuery(value);
     MapContext.setAddress(value);
     MapContext.setCoordinates(latLng);
@@ -144,7 +144,7 @@ const Form = () => {
   const handleUserInput = (event) => {
     switch (event.target.name) {
       case "locationSearchName":
-        setSearchFieldQuery(event.target.value);
+        MapContext.setAddress(event.target.value);
         break;
       case "campervans":
         setCampervans(event.target.value);
@@ -160,15 +160,15 @@ const Form = () => {
 
   // ! Collected data to send to backend
   let searchDataToSend = {
-    locationSearchName: searchFieldQuery,
+    locationSearchName: MapContext.address,
     checkInDate: startDate,
     checkOutDate: endDate,
     campervans: campervans,
     amenities: selection,
   };
 
-  console.log(handleUserInput);
-  console.log(searchDataToSend);
+  // console.log(handleUserInput);
+  // console.log("SD", searchDataToSend);
 
   const searchQuery = (event) => {
     event.preventDefault();
@@ -231,8 +231,6 @@ const Form = () => {
                     })}
                     className={styles["search-input"]}
                     onClick={SearchContext.openForm}
-                    // placeholder="Dream about Schwarzwald?"
-                    // // ! Testing
                     name="locationSearchName"
                     // onChange={handleUserInput}
                   ></input>
