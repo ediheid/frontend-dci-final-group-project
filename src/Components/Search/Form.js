@@ -24,6 +24,17 @@ import DatePicker from "react-datepicker";
 // Icons
 import { BsArrowsCollapse } from "react-icons/bs";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
+
+const fillAddress = () => {
+  toast.error("Please add a location before searching 🔎 ", {
+    position: "top-center",
+    draggable: false,
+  });
+};
+
 // !!! Form Context
 export const FormContext = createContext();
 
@@ -167,14 +178,34 @@ const Form = () => {
     amenities: selection,
   };
 
+  // ! Test error handling..
+
+  const handleErrorChecking = () => {
+    let validationSuccessful = false;
+
+    if (MapContext.address.length >= 1) {
+      validationSuccessful = true;
+    } else {
+      validationSuccessful = false;
+      fillAddress();
+    }
+    return validationSuccessful;
+  };
+
   // console.log(handleUserInput);
   // console.log("SD", searchDataToSend);
 
   const searchQuery = (event) => {
     event.preventDefault();
-    // console.log("here");
-    MapContext.mapView();
-    sendSearchQuery(searchDataToSend);
+
+    if (handleErrorChecking()) {
+      // console.log("here");
+      MapContext.mapView();
+      sendSearchQuery(searchDataToSend);
+      MapContext.setAddress("");
+    } else {
+      console.log("please fill out all fields");
+    }
   };
 
   // ? ====
