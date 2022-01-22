@@ -134,6 +134,7 @@ const Map = ({ center, zoom }) => {
           // center={lat: {mapContext.latitude}, lng: {mapContext.longitude}}
           center={{ lat: mapContext.latitude, lng: mapContext.longitude }}
           defaultZoom={zoom}
+          zoom={13}
         >
           {markers}
           {/* <LocationMarker lat={center.lat} lng={center.lng} /> */}
