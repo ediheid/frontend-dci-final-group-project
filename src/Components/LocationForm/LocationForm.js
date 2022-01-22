@@ -13,7 +13,8 @@ import styles from "../LocationForm/LocationForm.module.scss";
 import Search from "../Search/Search";
 import Navbar from "../Navbar/Navbar";
 import Button from "../../UI/Button/Button";
-import Map from "../Map/Map";
+// import Map from "../Map/Map";
+// import MapLocationForm from "../Map/MapLocationForm";
 
 // ? All Images
 import mainImage from "../LocationForm/static/pexels-uriel-mont-6271625.jpg";
@@ -26,6 +27,12 @@ const LocationForm = () => {
   NumericInput.style.btn.backgroundColor = " rgba(242, 235, 220, 0.8)";
   NumericInput.style["btn:hover"].backgroundColor = "#d3d3d3";
   NumericInput.style["btn:active"].backgroundColor = "pink";
+
+  // const MapContext = useContext(AppContext);
+
+  // const openMap = () => {
+  //   MapContext.setOpenMap(true);
+  // };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -160,7 +167,8 @@ const LocationForm = () => {
                 </div>
 
                 <div style={{ overflow: "scroll" }}>
-                  <Map />
+                  {/* <Map></Map>
+                  <MapLocationForm /> */}
                 </div>
 
                 <hr className={styles.hr} />
@@ -554,7 +562,7 @@ const LocationForm = () => {
 
               <div className={styles.heading}>Checkin / Checkout</div>
               <label className={styles.container}>
-                Checkin: 10h / checkout: 9h 
+                Checkin: 10h / checkout: 9h
                 <input
                   className={styles.input}
                   type="radio"
@@ -570,7 +578,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 11h / checkout: 10h 
+                Checkin: 11h / checkout: 10h
                 <input
                   className={styles.input}
                   type="radio"
@@ -586,7 +594,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 11h / checkout: 10h 
+                Checkin: 11h / checkout: 10h
                 <input
                   className={styles.input}
                   type="radio"
@@ -602,7 +610,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 12h / checkout: 11h 
+                Checkin: 12h / checkout: 11h
                 <input
                   className={styles.input}
                   type="radio"
@@ -618,7 +626,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 13h / checkout: 12h 
+                Checkin: 13h / checkout: 12h
                 <input
                   className={styles.input}
                   type="radio"
@@ -634,7 +642,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 14h / checkout: 13h 
+                Checkin: 14h / checkout: 13h
                 <input
                   className={styles.input}
                   type="radio"
@@ -650,7 +658,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 15h / checkout: 14h 
+                Checkin: 15h / checkout: 14h
                 <input
                   className={styles.input}
                   type="radio"
@@ -703,12 +711,12 @@ const LocationForm = () => {
                 </label>
                 <div></div>
                 <input
-                    type="file"
-                    name="locationImage"
-                    onChange={(e) => SearchContext.setImage(e.target.files[0])}
-                    className={styles.picInput}
-                  />
-              
+                  type="file"
+                  name="locationImage"
+                  onChange={(e) => SearchContext.setImage(e.target.files[0])}
+                  className={styles.picInput}
+                />
+
                 {/* <Button>
                   <i
                     className="fas fa-arrow-up"

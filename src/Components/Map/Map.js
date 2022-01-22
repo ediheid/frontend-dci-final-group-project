@@ -53,13 +53,13 @@ const Map = ({ center, zoom }) => {
 
   const mapContext = useContext(AppContext);
 
-  console.log(mapStyles);
+  // console.log(mapStyles);
 
   // console.log("!!!!!", events);
   // console.log("??", events[0].id);
   // console.log("##", events[0].coordinates[0]);
 
-  console.log("#####", mapContext.mapEventData);
+  // console.log("#####", mapContext.mapEventData);
 
   // let markers = mapContext.mapEventData;
 
@@ -72,7 +72,7 @@ const Map = ({ center, zoom }) => {
   // Todo: Create a an extra loop to run through ids to the populate..
 
   let markers = mapContext.mapEventData.map((event) => {
-    console.log("*****", event);
+    // console.log("*****", event);
 
     // if (event.id == 1) {
     // console.log("YES", events);
