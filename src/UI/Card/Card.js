@@ -1,36 +1,27 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-
-import { AppContext } from "../../App";
 
 // ? Stylesheet
 import styles from "../Card/Card.module.scss";
+import btnStyles from "../Button/Button.module.scss";
+
+import { AppContext } from "../../App";
 
 // ? All Component and View imports
-import Search from "../../Components/Search/Search";
-import Navbar from "../../Components/Navbar/Navbar";
+import { getCardData } from "../../Services/getCardData.js";
 
-// ? All Images
+const Card = (props) => {
+  const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
+  const frontendURL = process.env.REACT_APP_FRONTEND_URL;
+  const cardContext = useContext(AppContext);
 
-// !!!
-// todo: Will eventually be passed in from the backend
-import image1 from "./static/pexels-uriel-mont-6271691.jpg";
-
-const Card = () => {
-  const locationContext = useContext(AppContext);
-
-  // console.log("LLLLLLL", locationContext.populateCards);
-
-  let content = locationContext.populateCards.map((loc) => {
-    // console.log("444444", loc);
-
+  let content =cardContext.cardData.map((loc, i) => {
     return (
-      <div className={styles["card-container"]}>
+      <div key={i} className={styles["card-container"]}>
         <div className={styles["card-item"]}>
           <div className={styles["image-container"]}>
             <img
               className={styles.image}
-              src={loc.img}
+              src={`${backendURL}uploads/${loc.img}`}
               alt={`Property view of ${loc.title}`}
             />
           </div>
@@ -38,29 +29,22 @@ const Card = () => {
             <div className={styles.title}>{loc.title}</div>
 
             <div className={styles["info-box"]}>
-              <div>{`${loc.city}, ${loc.country}`}</div>
+              <div>{`${loc.location.city}, ${loc.location.country}`}</div>
 
               <div>
-                {/* 80€ / night */}
-                {/* // !! Not getting passed in?!*/}
-                {loc.pricePerNight} / night
+                {loc.price} € / night
               </div>
             </div>
             <hr className={styles.hr} />
 
             <div className={styles.description}>
-              {/* // !! Will be... */}
-              {loc.description}
-              {/* Gummi bears marshmallow biscuit donut fruitcake jelly. Brownie
-              sweet roll croissant dessert tiramisu toffee tootsie roll. */}
-              {/* <div className={styles["description-link"]}> */}
+              <p>{loc.description.slice(0,800)}</p>
               <a
-                href={loc.link}
-                // style={{ zIndex: 5000 }}
+                href={`${frontendURL}location-details/${loc._id}`}
                 alt={`Show property page for ${loc.title}`}
               >
-                {" "}
-                Show more &#62;
+              <button className={btnStyles.button}>show more</button>
+                {/* Show more &#62; */}
               </a>
             </div>
           </div>

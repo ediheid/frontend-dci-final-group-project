@@ -152,7 +152,7 @@ const LocationForm = () => {
                   </label>
 
                   <input
-                    placeholder="Search"
+                    placeholder="Please insert a valid address: street, no. & city"
                     className={styles["input-field"]}
                     onChange={SearchContext.collectLocationData}
                     name="address"
@@ -552,6 +552,121 @@ const LocationForm = () => {
 
               <hr className={styles.hr} />
 
+              <div className={styles.heading}>Checkin / Checkout</div>
+              <label className={styles.container}>
+                Checkin: 10h / checkout: 9h 
+                <input
+                  className={styles.input}
+                  type="radio"
+                  // checked="checked"
+                  name="checkin"
+                  value={
+                    (SearchContext.loginData.cancellation =
+                      "Checkin: 10h / checkout: 9h")
+                  }
+                  onChange={SearchContext.collectLocationData}
+                />
+                <span className={styles["checkmark-radio"]}></span>
+              </label>
+
+              <label className={styles.container}>
+                Checkin: 11h / checkout: 10h 
+                <input
+                  className={styles.input}
+                  type="radio"
+                  // checked="checked"
+                  name="checkin"
+                  value={
+                    (SearchContext.loginData.cancellation =
+                      "Checkin: 11h / checkout: 10h")
+                  }
+                  onChange={SearchContext.collectLocationData}
+                />
+                <span className={styles["checkmark-radio"]}></span>
+              </label>
+
+              <label className={styles.container}>
+                Checkin: 11h / checkout: 10h 
+                <input
+                  className={styles.input}
+                  type="radio"
+                  // checked="checked"
+                  name="checkin"
+                  value={
+                    (SearchContext.loginData.cancellation =
+                      "Checkin: 11h / checkout: 10h")
+                  }
+                  onChange={SearchContext.collectLocationData}
+                />
+                <span className={styles["checkmark-radio"]}></span>
+              </label>
+
+              <label className={styles.container}>
+                Checkin: 12h / checkout: 11h 
+                <input
+                  className={styles.input}
+                  type="radio"
+                  // checked="checked"
+                  name="checkin"
+                  value={
+                    (SearchContext.loginData.cancellation =
+                      "Checkin: 12h / checkout: 11h")
+                  }
+                  onChange={SearchContext.collectLocationData}
+                />
+                <span className={styles["checkmark-radio"]}></span>
+              </label>
+
+              <label className={styles.container}>
+                Checkin: 13h / checkout: 12h 
+                <input
+                  className={styles.input}
+                  type="radio"
+                  // checked="checked"
+                  name="checkin"
+                  value={
+                    (SearchContext.loginData.cancellation =
+                      "Checkin: 13h / checkout: 12h")
+                  }
+                  onChange={SearchContext.collectLocationData}
+                />
+                <span className={styles["checkmark-radio"]}></span>
+              </label>
+
+              <label className={styles.container}>
+                Checkin: 14h / checkout: 13h 
+                <input
+                  className={styles.input}
+                  type="radio"
+                  // checked="checked"
+                  name="checkin"
+                  value={
+                    (SearchContext.loginData.cancellation =
+                      "Checkin: 14h / checkout: 13h")
+                  }
+                  onChange={SearchContext.collectLocationData}
+                />
+                <span className={styles["checkmark-radio"]}></span>
+              </label>
+
+              <label className={styles.container}>
+                Checkin: 15h / checkout: 14h 
+                <input
+                  className={styles.input}
+                  type="radio"
+                  // checked="checked"
+                  name="checkin"
+                  value={
+                    (SearchContext.loginData.cancellation =
+                      "Checkin: 15h / checkout: 14h")
+                  }
+                  onChange={SearchContext.collectLocationData}
+                />
+                <span className={styles["checkmark-radio"]}></span>
+              </label>
+
+              <hr className={styles.hr} />
+
               <div className={styles["column-container"]}>
                 <div className={styles.heading}>
                   <label className={styles["heading-input"]}>
@@ -583,14 +698,17 @@ const LocationForm = () => {
                 And finally.. time for some images of your gorgeous property!
               </div>
               <div>
-                <label>
-                  Property picture
-                  <input
+                <label className={styles.picLabel}>
+                  Please upload a property picture
+                </label>
+                <div></div>
+                <input
                     type="file"
                     name="locationImage"
                     onChange={(e) => SearchContext.setImage(e.target.files[0])}
+                    className={styles.picInput}
                   />
-                </label>
+              
                 {/* <Button>
                   <i
                     className="fas fa-arrow-up"

@@ -14,7 +14,11 @@
     padding: 1vh 5vw 1vh 5vw;
     border-radius: 25px;
     border: none;
+}
+
+button:hover {
     cursor: pointer;
+    color: $google-pin-colour;
 }
 
 // ? Media Queries
