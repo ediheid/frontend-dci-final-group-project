@@ -122,7 +122,7 @@ const LocationDetails = () => {
   const catchingInfo = [
     "This is a rare find. Lucky you!",
     "is a Superhost.",
-    "Users have rated this place as recommendable.",
+    "Users have rated this place as highly.",
     "This place is booked very frequently. Hurry up! ;-)",
   ];
   const random = Math.floor(Math.random() * catchingInfo.length);
@@ -189,7 +189,7 @@ const LocationDetails = () => {
               <div className={styles["heading-title"]}>
                 {/* {nameOfPlace}  */}
                 <br />
-                This place is hosted by {specificLocationData.host}.
+                Hosted by {specificLocationData.host}.
                 {/* <div>Joined in December 2020</div>
                             <Button>Contact host</Button> */}
               </div>
@@ -233,7 +233,7 @@ const LocationDetails = () => {
                 <i className="fas fa-mobile-alt"></i>
               </div>
               <div className={styles["bonus-description"]}>
-                <div>Great communication experience</div>
+                <div>Great communication</div>
                 <div>The host answers in less than an hour.</div>
               </div>
             </div>
@@ -333,8 +333,8 @@ const LocationDetails = () => {
             </div>
             <Button>Contact host</Button>
             <div className={styles["payment-info"]}>
-              To protect your payment, never transfer money or communicate
-              outside of the Freshbnb website or app.
+              To protect your identity and bank details, never transfer money or
+              communicate outside of the Freshbnb website or app.
             </div>
 
             <hr className={styles.hr} />
@@ -451,7 +451,7 @@ const LocationDetails = () => {
                 {specificLocationData.price} € /{" "}
                 <span className={styles.span}>night</span>
                 {/* <br /> */}
-                <div>Reserve now</div>
+                <div>Book now</div>
               </div>
 
               <div>

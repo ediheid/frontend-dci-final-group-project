@@ -559,7 +559,7 @@ const LocationForm = () => {
 
               <div className={styles.heading}>Checkin / Checkout</div>
               <label className={styles.container}>
-                Checkin: 10h / checkout: 9h
+                Checkin: 10am / checkout: 9am
                 <input
                   className={styles.input}
                   type="radio"
@@ -575,7 +575,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 11h / checkout: 10h
+                Checkin: 11am / checkout: 10am
                 <input
                   className={styles.input}
                   type="radio"
@@ -591,7 +591,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 11h / checkout: 10h
+                Checkin: 11am / checkout: 10am
                 <input
                   className={styles.input}
                   type="radio"
@@ -607,7 +607,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 12h / checkout: 11h
+                Checkin: 12am / checkout: 11am
                 <input
                   className={styles.input}
                   type="radio"
@@ -623,7 +623,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 13h / checkout: 12h
+                Checkin: 13am / checkout: 12am
                 <input
                   className={styles.input}
                   type="radio"
@@ -639,7 +639,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 14h / checkout: 13h
+                Checkin: 14am / checkout: 13am
                 <input
                   className={styles.input}
                   type="radio"
@@ -655,7 +655,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 15h / checkout: 14h
+                Checkin: 15am / checkout: 14am
                 <input
                   className={styles.input}
                   type="radio"
@@ -704,7 +704,7 @@ const LocationForm = () => {
               </div>
               <div>
                 <label className={styles.picLabel}>
-                  Please upload a property picture
+                  Please select a file to upload.
                 </label>
                 <div></div>
                 <input
