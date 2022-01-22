@@ -99,14 +99,11 @@ const App = () => {
 
   const [cardData, setCardData] = useState([]);
 
-  
-
   useEffect(() => {
-      getCardData(setCardData)
-  }, [])
+    getCardData(setCardData);
+  }, []);
 
-
-  console.log("CARDDATA", cardData)
+  // console.log("CARDDATA", cardData)
   //   console.log("QQQQ", populateCards);
 
   // ? login/signup state
@@ -301,7 +298,7 @@ const App = () => {
           openForm: openForm,
           toggleSearchDropdown: toggleSearchDropdown,
 
-          // ? send CardData to Cards to populate and landingpage for conditional rendering 
+          // ? send CardData to Cards to populate and landingpage for conditional rendering
           cardData: cardData,
 
           // ? Map Context
