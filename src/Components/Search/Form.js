@@ -24,6 +24,17 @@ import DatePicker from "react-datepicker";
 // Icons
 import { BsArrowsCollapse } from "react-icons/bs";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
+
+const fillAddress = () => {
+  toast.error("Please add a location before searching 🔎 ", {
+    position: "top-center",
+    draggable: false,
+  });
+};
+
 // !!! Form Context
 export const FormContext = createContext();
 
@@ -103,7 +114,7 @@ const Form = () => {
   const MapContext = useContext(AppContext);
 
   // ? State Hooks
-  const [searchFieldQuery, setSearchFieldQuery] = useState("");
+  // const [searchFieldQuery, setSearchFieldQuery] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [campervans, setCampervans] = useState("");
@@ -118,7 +129,7 @@ const Form = () => {
     const results = await MapContext.geocodeByAddress(value);
     const latLng = await MapContext.getLatLng(results[0]);
 
-    console.log("TESTHANDLE", latLng);
+    // console.log("TESTHANDLE", latLng);
     // setSearchFieldQuery(value);
     MapContext.setAddress(value);
     MapContext.setCoordinates(latLng);
@@ -144,7 +155,7 @@ const Form = () => {
   const handleUserInput = (event) => {
     switch (event.target.name) {
       case "locationSearchName":
-        setSearchFieldQuery(event.target.value);
+        MapContext.setAddress(event.target.value);
         break;
       case "campervans":
         setCampervans(event.target.value);
@@ -160,21 +171,41 @@ const Form = () => {
 
   // ! Collected data to send to backend
   let searchDataToSend = {
-    locationSearchName: searchFieldQuery,
+    locationSearchName: MapContext.address,
     checkInDate: startDate,
     checkOutDate: endDate,
     campervans: campervans,
     amenities: selection,
   };
 
-  console.log(handleUserInput);
-  console.log(searchDataToSend);
+  // ! Test error handling..
+
+  const handleErrorChecking = () => {
+    let validationSuccessful = false;
+
+    if (MapContext.address.length >= 1) {
+      validationSuccessful = true;
+    } else {
+      validationSuccessful = false;
+      fillAddress();
+    }
+    return validationSuccessful;
+  };
+
+  // console.log(handleUserInput);
+  // console.log("SD", searchDataToSend);
 
   const searchQuery = (event) => {
     event.preventDefault();
-    // console.log("here");
-    MapContext.mapView();
-    sendSearchQuery(searchDataToSend);
+
+    if (handleErrorChecking()) {
+      // console.log("here");
+      MapContext.mapView();
+      sendSearchQuery(searchDataToSend);
+      MapContext.setAddress("");
+    } else {
+      console.log("please fill out all fields");
+    }
   };
 
   // ? ====
@@ -202,14 +233,14 @@ const Form = () => {
             // onSubmit={MapContext.mapView}
           >
             {/* // ? Search bar - when clicked will open all search fields */}
-            <input
+            {/* <input
               onClick={SearchContext.openForm}
               className={styles["search-input"]}
               placeholder="Dream about Schwarzwald?"
               // ! Testing
               name="locationSearchName"
               onChange={handleUserInput}
-            ></input>
+            ></input> */}
 
             <MapContext.PlacesAutocomplete
               value={MapContext.address}
@@ -222,21 +253,19 @@ const Form = () => {
                 getSuggestionItemProps,
                 loading,
               }) => (
-                <div>
-                  <p>Latitude: {MapContext.latitude}</p>
-                  <p>Longitude: {MapContext.longitude}</p>
+                <div className={styles["search-input-div"]}>
+                  {/* <p>Latitude: {MapContext.latitude}</p>
+                  <p>Longitude: {MapContext.longitude}</p> */}
                   <input
                     {...getInputProps({
                       placeholder: "Dream about Schwarzwald?",
                     })}
                     className={styles["search-input"]}
                     onClick={SearchContext.openForm}
-                    // placeholder="Dream about Schwarzwald?"
-                    // // ! Testing
                     name="locationSearchName"
                     // onChange={handleUserInput}
                   ></input>
-                  <div>
+                  <div className={styles["search-output-container"]}>
                     {loading ? <div>...loading</div> : null}
 
                     {suggestions.map((suggestion) => {
@@ -247,8 +276,13 @@ const Form = () => {
                       };
 
                       return (
-                        <div {...getSuggestionItemProps(suggestion, { style })}>
-                          {suggestion.description}
+                        <div className={styles["suggestions-container"]}>
+                          <div
+                            className={styles["search-suggestions"]}
+                            {...getSuggestionItemProps(suggestion, { style })}
+                          >
+                            {suggestion.description}
+                          </div>
                         </div>
                       );
                     })}
