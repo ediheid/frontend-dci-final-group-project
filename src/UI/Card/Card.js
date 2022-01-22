@@ -5,19 +5,19 @@ import styles from "../Card/Card.module.scss";
 import btnStyles from "../Button/Button.module.scss";
 
 // ? All Component and View imports
-import Search from "../../Components/Search/Search";
-import Navbar from "../../Components/Navbar/Navbar";
+// import Search from "../../Components/Search/Search";
+// import Navbar from "../../Components/Navbar/Navbar";
 
 import { AppContext } from "../../App";
 
-import { getCardData } from "../../Services/getCardData.js";
+// import { getCardData } from "../../Services/getCardData.js";
 // ? All Images
 
 const Card = (props) => {
   const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
   const frontendURL = process.env.REACT_APP_FRONTEND_URL;
   const cardContext = useContext(AppContext);
-  const locationContext = useContext(AppContext);
+  // const locationContext = useContext(AppContext);
 
   let content = cardContext.cardData.map((loc, i) => {
     return (

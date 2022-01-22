@@ -1,13 +1,13 @@
 import React, { useState, createContext, useEffect } from "react";
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Route,
   Redirect,
   Switch,
   useHistory,
 } from "react-router-dom";
-import signup from "./Services/createNewUser.js";
-import Cookies from "js-cookie";
+// import signup from "./Services/createNewUser.js";
+// import Cookies from "js-cookie";
 import { useCookies } from "react-cookie";
 
 import PlacesAutocomplete, {
@@ -16,7 +16,7 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 
 // ? Main scss
-import styles from "./Styling/app.module.scss";
+// import styles from "./Styling/app.module.scss";
 
 // ? All Component and View imports
 import ScrollToTop from "./Components/ScrollToTop.js";
@@ -25,7 +25,6 @@ import AboutUs from "./Views/AboutUs/AboutUs";
 import Footer from "./Components/Footer/Footer";
 import Verification from "./Components/Verification/Verification";
 import CheckMail from "./Components/CheckMail/CheckMail.js";
-import LocationCards from "./Components/LocationCards/LocationCards.js";
 import Welcome from "./Views/Welcome/Welcome";
 import LocationDetails from "./Components/LocationDetails/LocationDetails";
 import LocationForm from "./Components/LocationForm/LocationForm";
@@ -122,6 +121,10 @@ const App = () => {
 
     setOpenSearch(false);
   };
+
+  // const locationPageMap = () => {
+  //   setOpenMap(true);
+  // };
 
   // ? Close map for close map button
   const closeMap = () => {
@@ -274,7 +277,7 @@ const App = () => {
     setLocationData({ ...locationData, locationImage: val });
   };
 
-  console.log("who is logged in?", currentUser);
+  // console.log("who is logged in?", currentUser);
 
   return (
     <div>

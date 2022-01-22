@@ -1,11 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
 import LocationInfoBox from "./LocationInfoBox";
-
-// ! Testing Image for location box
-import property1 from "./Static/property-1.jpeg";
-import property2 from "./Static/property-2.jpeg";
 
 import { AppContext } from "../../App";
 
@@ -13,7 +9,7 @@ import styles from "../Map/Map.module.scss";
 
 import mapStyles from "./mapStyles";
 
-const frontendURL = process.env.REACT_APP_FRONTEND_URL;
+// const frontendURL = process.env.REACT_APP_FRONTEND_URL;
 
 // ! Hardcoded location data.. (will live in backend)
 // const events = [
@@ -49,7 +45,7 @@ const frontendURL = process.env.REACT_APP_FRONTEND_URL;
 // Default props passed in to set below Component
 const Map = ({ center, zoom }) => {
   // Google Map API
-  const MAP_API = process.env.REACT_APP_MAP_API;
+  // const MAP_API = process.env.REACT_APP_MAP_API;
 
   const mapContext = useContext(AppContext);
 
@@ -134,6 +130,7 @@ const Map = ({ center, zoom }) => {
           // center={lat: {mapContext.latitude}, lng: {mapContext.longitude}}
           center={{ lat: mapContext.latitude, lng: mapContext.longitude }}
           defaultZoom={zoom}
+          zoom={12}
         >
           {markers}
           {/* <LocationMarker lat={center.lat} lng={center.lng} /> */}

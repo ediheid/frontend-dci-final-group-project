@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { AppContext } from "../../App.js";
 import { Link } from "react-router-dom";
 import jwt_decode from "jwt-decode";
@@ -18,7 +18,7 @@ const Navbar = (props) => {
 
     if (token && typeof token === "string") {
       const userData = jwt_decode(token);
-      console.log("decoded Data from Cookie", userData);
+      // console.log("decoded Data from Cookie", userData);
       modalContext.setCurrentUser(userData);
     }
   }, []);
@@ -53,7 +53,7 @@ const Navbar = (props) => {
   // !modalContext.currentUser.firstname.length > 0
   // modalContext.cookies.UserCookie === null
 
-  console.log(typeof modalContext.cookies.UserCookie);
+  // console.log(typeof modalContext.cookies.UserCookie);
 
   const content = !modalContext.cookies.UserCookie ? (
     <div className={styles["icon-container"]}>
