@@ -202,14 +202,14 @@ const Form = () => {
             // onSubmit={MapContext.mapView}
           >
             {/* // ? Search bar - when clicked will open all search fields */}
-            <input
+            {/* <input
               onClick={SearchContext.openForm}
               className={styles["search-input"]}
               placeholder="Dream about Schwarzwald?"
               // ! Testing
               name="locationSearchName"
               onChange={handleUserInput}
-            ></input>
+            ></input> */}
 
             <MapContext.PlacesAutocomplete
               value={MapContext.address}
@@ -222,9 +222,9 @@ const Form = () => {
                 getSuggestionItemProps,
                 loading,
               }) => (
-                <div>
-                  <p>Latitude: {MapContext.latitude}</p>
-                  <p>Longitude: {MapContext.longitude}</p>
+                <div className={styles["search-input-div"]}>
+                  {/* <p>Latitude: {MapContext.latitude}</p>
+                  <p>Longitude: {MapContext.longitude}</p> */}
                   <input
                     {...getInputProps({
                       placeholder: "Dream about Schwarzwald?",
@@ -236,7 +236,7 @@ const Form = () => {
                     name="locationSearchName"
                     // onChange={handleUserInput}
                   ></input>
-                  <div>
+                  <div className={styles["search-output-container"]}>
                     {loading ? <div>...loading</div> : null}
 
                     {suggestions.map((suggestion) => {
@@ -247,8 +247,13 @@ const Form = () => {
                       };
 
                       return (
-                        <div {...getSuggestionItemProps(suggestion, { style })}>
-                          {suggestion.description}
+                        <div className={styles["suggestions-container"]}>
+                          <div
+                            className={styles["search-suggestions"]}
+                            {...getSuggestionItemProps(suggestion, { style })}
+                          >
+                            {suggestion.description}
+                          </div>
                         </div>
                       );
                     })}
