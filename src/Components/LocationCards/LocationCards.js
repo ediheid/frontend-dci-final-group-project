@@ -21,7 +21,7 @@ import ResortKleinenzhof from "./static/ResortKleinenzhof.001.jpg";
 const LocationCards = () => {
   return (
     <div className={styles["wrapper"]}>
-      <div className={styles["card"]}>
+      {/* <div className={styles["card"]}>
         <div className={styles["card__body"]}>
           <img src={Daheim} className={styles["card__image"]} alt="" />
           <h2 className={styles["card__title"]}> DaHeim </h2>
@@ -41,9 +41,9 @@ const LocationCards = () => {
           </p>
         </div>
         <button className={styles["card__btn"]}>View Location</button>
-      </div>
+      </div> */}
 
-      <div className={styles["card"]}>
+      {/* <div className={styles["card"]}>
         <div className={styles["card__body"]}>
           <img
             src={ResortKleinenzhof}
@@ -66,7 +66,7 @@ const LocationCards = () => {
           </p>
         </div>
         <button className={styles["card__btn"]}>View Location</button>
-      </div>
+      </div> */}
 
       <div className={styles["card"]}>
         <div className={styles["card__body"]}>
