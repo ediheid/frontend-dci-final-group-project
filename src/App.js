@@ -122,10 +122,6 @@ const App = () => {
     setOpenSearch(false);
   };
 
-  const setMapOpenPermanent = () => {
-    setOpenMap(true);
-  };
-
   // const locationPageMap = () => {
   //   setOpenMap(true);
   // };
