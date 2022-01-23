@@ -236,7 +236,7 @@ const LocationForm = () => {
                 </div>
 
                 <div style={{ overflow: "scroll" }}>
-                  {/* <Map></Map> */}
+                  <Map></Map>
                   {/* <MapLocationForm /> */}
                 </div>
 
