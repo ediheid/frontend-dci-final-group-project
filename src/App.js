@@ -131,6 +131,10 @@ const App = () => {
     setOpenMap(false);
   };
 
+  // !! NEW Address auto suggest hook
+
+  const [addressForForm, setAddressForForm] = useState("");
+
   // !! Testing auto complete for map input
 
   const [address, setAddress] = useState("");
@@ -277,6 +281,27 @@ const App = () => {
     setLocationData({ ...locationData, locationImage: val });
   };
 
+  const setAddressForFormCollection = (val) => {
+    setLocationData({ ...locationData, address: val });
+  };
+
+  const handleSelect = async (value) => {
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0]);
+
+    // console.log("TESTHANDLE", latLng);
+    // setSearchFieldQuery(value);
+    setAddressForForm(value);
+    setCoordinates(latLng);
+
+    setAddressForFormCollection(value);
+
+    // const setAddressForFormCollection = () => {
+    //   setLocationData({ ...locationData, address: addressForForm });
+    // };
+  };
+
+  console.log("Test address for Jan", locationData);
   // console.log("who is logged in?", currentUser);
 
   return (
@@ -323,6 +348,11 @@ const App = () => {
           setCoordinates: setCoordinates,
           latitude: latitude,
           longitude: longitude,
+
+          setAddressForFormCollection: setAddressForFormCollection,
+          handleSelect: handleSelect,
+          addressForForm: addressForForm,
+          setAddressForForm: setAddressForForm,
 
           // ? Sign up and login Context
           setShowSignupModal: setShowSignupModal,
