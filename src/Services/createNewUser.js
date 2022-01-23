@@ -45,7 +45,7 @@ export const signup = async (hookData, sethookData) => {
       }
     })
     .then((data) => {
-      console.log(data); // setCurrentUser(data)
+      // console.log(data); // setCurrentUser(data)
       const loginSuccessful = () => {
         toast("Your User data has been received!", {
           position: "top-center",

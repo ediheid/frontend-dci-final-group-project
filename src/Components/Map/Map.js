@@ -1,11 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
 import LocationInfoBox from "./LocationInfoBox";
-
-// ! Testing Image for location box
-import property1 from "./Static/property-1.jpeg";
-import property2 from "./Static/property-2.jpeg";
 
 import { AppContext } from "../../App";
 
@@ -13,7 +9,7 @@ import styles from "../Map/Map.module.scss";
 
 import mapStyles from "./mapStyles";
 
-const frontendURL = process.env.REACT_APP_FRONTEND_URL;
+// const frontendURL = process.env.REACT_APP_FRONTEND_URL;
 
 // ! Hardcoded location data.. (will live in backend)
 // const events = [
@@ -49,25 +45,30 @@ const frontendURL = process.env.REACT_APP_FRONTEND_URL;
 // Default props passed in to set below Component
 const Map = ({ center, zoom }) => {
   // Google Map API
-  const MAP_API = process.env.REACT_APP_MAP_API;
+  // const MAP_API = process.env.REACT_APP_MAP_API;
 
   const mapContext = useContext(AppContext);
 
-  console.log(mapStyles);
+  // console.log(mapStyles);
 
   // console.log("!!!!!", events);
   // console.log("??", events[0].id);
   // console.log("##", events[0].coordinates[0]);
 
-  console.log("#####", mapContext.mapEventData);
+  // console.log("#####", mapContext.mapEventData);
 
   // let markers = mapContext.mapEventData;
+
+  // let latitude = mapContext.latitude;
+  // let longitude = mapContext.longitude;
+
+  // console.log("TESTLONGLAT", latitude, longitude);
 
   // !!!
   // Todo: Create a an extra loop to run through ids to the populate..
 
   let markers = mapContext.mapEventData.map((event) => {
-    console.log("*****", event);
+    // console.log("*****", event);
 
     // if (event.id == 1) {
     // console.log("YES", events);
@@ -91,10 +92,8 @@ const Map = ({ center, zoom }) => {
             // Todo: add Town to database to populate card with town instead of full address but keep full address for when a user books
             city: event.city,
             country: event.country,
-            // ! Price per night not populating?
             pricePerNight: event.pricePerNight,
-            description: event.description,
-            img: `${event.img}`,
+            img: event.img,
             link: `${event.link}`,
           })
         }
@@ -123,19 +122,20 @@ const Map = ({ center, zoom }) => {
           className={styles["map-component"]}
           // !!! API key lives in .env file - when commented out Map runs in dev mode
           // !!! Use like this so we don't use up the API
-          bootstrapURLKeys={{
-            key: MAP_API,
-            language: "en",
-          }}
+          // bootstrapURLKeys={{
+          //   key: MAP_API,
+          //   language: "en",
+          // }}
           defaultCenter={center}
-          center={center}
+          // center={lat: {mapContext.latitude}, lng: {mapContext.longitude}}
+          center={{ lat: mapContext.latitude, lng: mapContext.longitude }}
           defaultZoom={zoom}
+          zoom={12}
         >
           {markers}
           {/* <LocationMarker lat={center.lat} lng={center.lng} /> */}
         </GoogleMapReact>
-        {/*   // ? To look into with Kathi
-            // !! Testing location Info.. */}
+
         {mapContext.locationInfo && (
           <LocationInfoBox info={mapContext.locationInfo} />
         )}
@@ -149,7 +149,7 @@ const Map = ({ center, zoom }) => {
 
 Map.defaultProps = {
   // Center coordinates set to Germany
-  center: { lat: 51.1657, lng: 10.4515 },
+  // center: { lat: 51.1657, lng: 10.4515 },
   defaultCenter: { lat: 51.1657, lng: 10.4515 },
   zoom: 5,
 };

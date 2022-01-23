@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 import { AppContext } from "../../App";
 
@@ -43,7 +43,7 @@ const LocationInfoBox = ({ info }) => {
 
           <h3 className={styles["location-address"]}>
             {/* // ! Bug fix why this is not working */}
-            {info.pricePerNight} /night
+            {info.pricePerNight}€ /night
           </h3>
 
           {/* <h3 className={styles["location-address"]}>{info.address}</h3> */}

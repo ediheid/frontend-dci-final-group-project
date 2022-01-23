@@ -5,22 +5,25 @@
 
 // ? Map
 
-// .test-container {
-//   width: 100vw;
+.test-container {
+  width: 100vw;
+  // height: 80vh;
 
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .map-container {
   position: relative;
 
   // !! Probably 80vh for tablet +
   // height: 87vh;
-  height: 73vh;
+  height: 70vh;
   // width: 88%;
-  width: 100%;
+  width: 80%;
+
+  overflow: hidden;
 
   padding: 3rem 3rem 5rem 3rem;
   background-color: white;
@@ -75,13 +78,18 @@
 .inner-location-box {
   position: absolute;
   display: flex;
+
+  align-items: flex-start;
+
+  flex-direction: column;
+
   top: 10rem;
 
   width: 80%;
   max-width: 40rem;
   height: 18rem;
 
-  padding: 1.3rem;
+  padding: 1rem 1.3rem 1.3rem 2rem;
   border-radius: 1rem;
 
   background-color: $cream;
@@ -94,6 +102,8 @@
   border: none;
   outline: none;
   cursor: pointer;
+
+  margin-bottom: 0.5rem;
 
   font-family: $roboto-thin-font-family;
   font-size: 1.3rem;
@@ -112,17 +122,23 @@
 }
 
 .img-container {
+  // display: flex;
+  // justify-self: flex-end;
+
   // align-self: center;
   // justify-self: center;
-  position: absolute;
-  top: 4.5rem;
+  // position: absolute;
+  // top: 4.5rem;
 
-  left: 1.2rem;
-  width: 15rem;
+  // left: 1.2rem;
+  // width: 15rem;
 
-  height: auto;
-  max-height: 10rem;
-  object-fit: contain;
+  height: 11rem;
+  max-width: 20rem;
+
+  // height: auto;
+  // max-height: 15rem;
+  object-fit: fill;
 
   border-radius: 0.6rem;
 }
@@ -150,6 +166,7 @@
   padding-bottom: 0.5rem;
   font-size: 1.6rem;
   letter-spacing: 1px;
+  text-align: right;
 }
 
 .location-address {
@@ -215,7 +232,8 @@
 
 @include x-small {
   .map-container {
-    height: 80vh;
+    margin-left: -1rem;
+    width: 100%;
   }
 
   .location-box {
@@ -224,10 +242,10 @@
 }
 
 @include small {
-  .map-container {
-    // padding-bottom: 10rem;
-    height: 80vh;
-  }
+  // .map-container {
+  //   // padding-bottom: 10rem;
+  //   height: 80vh;
+  // }
 
   .liked-and-link-container {
     width: 60%;
@@ -235,9 +253,10 @@
 }
 
 @include medium {
-  .map-container {
-    padding-bottom: 15rem;
-  }
+  // .map-container {
+  //   height: 80vh;
+  //   padding-bottom: 15rem;
+  // }
 
   .liked-and-link-container {
     width: 60%;
@@ -245,10 +264,10 @@
 }
 
 @include large {
-  .map-container {
-    height: 80vh;
-    padding-bottom: 8rem;
-  }
+  // .map-container {
+  //   height: 80vh;
+  //   padding-bottom: 8rem;
+  // }
 
   .liked-and-link-container {
     width: 60%;
@@ -256,9 +275,9 @@
 }
 
 @include extra-large {
-  .map-container {
-    height: 80vh;
-  }
+  // .map-container {
+  //   height: 80vh;
+  // }
 
   .liked-and-link-container {
     width: 60%;
@@ -266,9 +285,9 @@
 }
 
 @include extra-extra-large {
-  .map-container {
-    height: 80vh;
-  }
+  // .map-container {
+  //   height: 80vh;
+  // }
 
   .liked-and-link-container {
     width: 60%;
@@ -276,11 +295,12 @@
 }
 
 @include extra-extra-small {
-  .map-container {
-    padding: 0;
+  // .map-container {
+  //   padding: 0;
+  //   overflow: hidden;
 
-    height: 80vh;
-  }
+  //   height: 80vh;
+  // }
 
   .inner-location-box {
     height: 22em;
