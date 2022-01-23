@@ -68,7 +68,7 @@ const LocationCards = () => {
         <button className={styles["card__btn"]}>View Location</button>
       </div> */}
 
-      <div className={styles["card"]}>
+      {/* <div className={styles["card"]}>
         <div className={styles["card__body"]}>
           <img
             src={FerienparadiesSchwarzwälderHof}
@@ -95,7 +95,7 @@ const LocationCards = () => {
           </p>
         </div>
         <button className={styles["card__btn"]}>View Location</button>
-      </div>
+      </div> */}
 
       <div className={styles["card"]}>
         <div className={styles["card__body"]}>

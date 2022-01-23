@@ -676,7 +676,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 12am / checkout: 11am
+                Checkin: 12pm / checkout: 11am
                 <input
                   className={styles.input}
                   type="radio"
@@ -692,7 +692,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 13am / checkout: 12am
+                Checkin: 1pm / checkout: 12pm
                 <input
                   className={styles.input}
                   type="radio"
@@ -708,7 +708,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 14am / checkout: 13am
+                Checkin: 2pm / checkout: 1pm
                 <input
                   className={styles.input}
                   type="radio"
@@ -724,7 +724,7 @@ const LocationForm = () => {
               </label>
 
               <label className={styles.container}>
-                Checkin: 15am / checkout: 14am
+                Checkin: 3pm / checkout: 2pm
                 <input
                   className={styles.input}
                   type="radio"
