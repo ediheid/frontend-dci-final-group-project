@@ -2,7 +2,7 @@ import axios from "axios";
 
 const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
 
-export const createLocation = async (hookData, setHookData, event) => {
+export const createLocation = async (hookData, setErrors) => {
   let formData = new FormData();
 
   // TODO delete?
@@ -20,9 +20,26 @@ export const createLocation = async (hookData, setHookData, event) => {
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     });
-    console.log(response);
+
+    // if (response.ok) {
+    //   console.log("200 RESPONSE", response)
+    // } else {
+    //   switch (response.status) {
+    //     case 400: 
+    //          const err = await response.
+
+    //   }
+    //   throw new Error("Test error")
+    // }
+    
+
+    // console.log(response);
   } catch (error) {
-    console.log(error);
+  if (error.response) 
+    console.log(error.response.data.message)
+    // console.log(error.response.data.error)
+    // setErrors(error.message)
+    // console.log("ErrorMSG in fetch", error.message);
   }
 
   //     const settings = {

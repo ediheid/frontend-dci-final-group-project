@@ -90,17 +90,23 @@ const App = () => {
     cancellation: "",
   });
 
+
+  console.log("LOCDATA", locationData)
+
+  // ? State hook for storing fetched backend Data to populate location-Cards
   const [cardData, setCardData] = useState([]);
-
-  
-
+  // Fetching Card data from backend
   useEffect(() => {
       getCardData(setCardData)
   }, [])
 
-
   console.log("CARDDATA", cardData)
   //   console.log("QQQQ", populateCards);
+
+  // ? State hook for handeling form input errors from backend
+  const [errors, setErrors] = useState(null)
+
+  console.log("ERRORS", errors)
 
   // ? login/signup state
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -274,6 +280,7 @@ console.log("who is logged in?", currentUser)
           setCapacity,
           setPrice,
           setImage,
+          setErrors,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,

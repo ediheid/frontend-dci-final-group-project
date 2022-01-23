@@ -30,7 +30,7 @@ const LocationForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    createLocation(SearchContext.locationData, SearchContext.setLocationData);
+    createLocation(SearchContext.locationData, SearchContext.setErrors);
 
     event.target.reset();
   };

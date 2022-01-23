@@ -29,7 +29,7 @@ const Card = (props) => {
             <div className={styles.title}>{loc.title}</div>
 
             <div className={styles["info-box"]}>
-              <div>{`${loc.location.city}, ${loc.location.country}`}</div>
+              {/* <div>{`${loc.location.city}, ${loc.location.country}`}</div> */}
 
               <div>
                 {loc.price} € / night
