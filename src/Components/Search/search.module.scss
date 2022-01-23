@@ -86,7 +86,7 @@
   padding: 0.3rem 1rem 0.3rem 1rem;
 
   // ? So input field does not zoom in on ios devices
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: $main-font-colour;
 
   &::placeholder {
@@ -149,6 +149,17 @@
   color: $main-font-colour;
 
   cursor: pointer;
+
+  &:focus {
+    color: $orange;
+  }
+}
+
+// ? Solving sticky hover on touch screen devices..
+@media (hover: hover) {
+  .close-button:hover {
+    color: $orange;
+  }
 }
 
 .form-search-button {
@@ -172,12 +183,14 @@
 
   &:focus {
     background-color: $light-green;
+    color: $cream;
   }
 }
 
 // ? Solving sticky hover on touch screen devices..
 @media (hover: hover) {
   .form-search-button:hover {
+    color: $cream;
     background-color: $light-green; /* solves sticky problem */
   }
 }
@@ -201,7 +214,7 @@
 
 .dropdown-section-input {
   color: $main-font-colour;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   border: none;
   border-radius: 1.5rem;
   outline: none;

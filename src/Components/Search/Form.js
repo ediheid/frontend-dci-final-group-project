@@ -135,6 +135,10 @@ const Form = () => {
     MapContext.setCoordinates(latLng);
   };
 
+  // useEffect(() => {
+  //   handleSelect();
+  // }, []);
+
   // // !! ==========
 
   // ? To pass down to Dropdown..
@@ -204,7 +208,7 @@ const Form = () => {
       sendSearchQuery(searchDataToSend);
       MapContext.setAddress("");
     } else {
-      console.log("please fill out all fields");
+      // console.log("please fill out all fields");
     }
   };
 

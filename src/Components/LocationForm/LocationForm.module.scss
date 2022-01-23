@@ -239,7 +239,6 @@
   font-size: 1.6rem;
 }
 
-
 // ? Media Queries
 // Based on Bootstrap breakpoints
 
@@ -249,6 +248,9 @@
 
 // * Small = Less than 768px - mobile devices
 @include small {
+  .input-field {
+    width: 80vw;
+  }
 }
 
 // * Medium = Less than 992px - tablets

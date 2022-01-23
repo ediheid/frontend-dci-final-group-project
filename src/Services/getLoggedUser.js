@@ -45,7 +45,7 @@ export const login = async (
       }
     })
     .then((data) => {
-      console.log("showData from backend:", data);
+      // console.log("showData from backend:", data);
 
       setCookie("UserCookie", data.token);
 
