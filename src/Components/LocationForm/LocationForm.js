@@ -13,7 +13,7 @@ import styles from "../LocationForm/LocationForm.module.scss";
 import Search from "../Search/Search";
 import Navbar from "../Navbar/Navbar";
 import Button from "../../UI/Button/Button";
-// import Map from "../Map/Map";
+import Map from "../Map/Map";
 // import MapLocationForm from "../Map/MapLocationForm";
 
 // ? All Images
@@ -41,6 +41,16 @@ const LocationForm = () => {
 
     event.target.reset();
   };
+
+  // const handleSelect = async (value) => {
+  //   const results = await SearchContext.geocodeByAddress(value);
+  //   const latLng = await SearchContext.getLatLng(results[0]);
+
+  //   // console.log("TESTHANDLE", latLng);
+  //   // setSearchFieldQuery(value);
+  //   SearchContext.setAddressForForm(value);
+  //   SearchContext.setCoordinates(latLng);
+  // };
 
   return (
     <>
@@ -157,18 +167,77 @@ const LocationForm = () => {
                   <label className={styles["heading-input"]}>
                     Where's your property located?
                   </label>
-
+                  {/* 
                   <input
                     placeholder="Please insert a valid address: street, no. & city"
                     className={styles["input-field"]}
-                    onChange={SearchContext.collectLocationData}
+                    onEnter={SearchContext.setAddressForFormCollection}
+                    // !! or onClick ?????
                     name="address"
-                  />
+                  /> */}
+
+                  <SearchContext.PlacesAutocomplete
+                    value={SearchContext.addressForForm}
+                    onChange={SearchContext.setAddressForForm}
+                    onSelect={SearchContext.handleSelect}
+                  >
+                    {({
+                      getInputProps,
+                      suggestions,
+                      getSuggestionItemProps,
+                      loading,
+                    }) => (
+                      <div className={styles["search-input-div"]}>
+                        {/* <p>Latitude: {MapContext.latitude}</p>
+                  <p>Longitude: {MapContext.longitude}</p> */}
+                        {/* <input
+                          placeholder="Please insert a valid address: street, no. & city"
+                          className={styles["input-field"]}
+                          onEnter={SearchContext.setAddressForFormCollection}
+                          // !! or onClick ?????
+                          name="address"
+                        /> */}
+
+                        <input
+                          {...getInputProps({
+                            placeholder:
+                              "Please insert a valid address: street, no. & city",
+                          })}
+                          className={styles["input-field"]}
+                          onKeyDown={SearchContext.setAddressForFormCollection}
+                        ></input>
+                        <div className={styles["search-output-container"]}>
+                          {loading ? <div>...loading</div> : null}
+
+                          {suggestions.map((suggestion) => {
+                            const style = {
+                              backgroundColor: suggestion.active
+                                ? styles["$cream"]
+                                : "white",
+                            };
+
+                            return (
+                              <div className={styles["suggestions-container"]}>
+                                <div
+                                  className={styles["search-suggestions"]}
+                                  {...getSuggestionItemProps(suggestion, {
+                                    style,
+                                  })}
+                                >
+                                  {suggestion.description}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </SearchContext.PlacesAutocomplete>
                 </div>
 
                 <div style={{ overflow: "scroll" }}>
-                  {/* <Map></Map>
-                  <MapLocationForm /> */}
+                  {/* <Map></Map> */}
+                  {/* <MapLocationForm /> */}
                 </div>
 
                 <hr className={styles.hr} />
