@@ -102,7 +102,7 @@ const App = () => {
     getCardData(setCardData);
   }, []);
 
-  // console.log("CARDDATA", cardData)
+  console.log("CARDDATA", cardData);
   //   console.log("QQQQ", populateCards);
 
   // ? login/signup state
