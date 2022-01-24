@@ -24,7 +24,7 @@ import "../Search/Datepicker-Styling/datepicker-override.scss";
 import Search from "../Search/Search";
 import Navbar from "../Navbar/Navbar";
 import Button from "../../UI/Button/Button";
-import Map from "../Map/Map";
+// import Map from "../Map/Map";
 
 // ? All Images
 import pic1 from "./static/pic-1.jpg";
@@ -44,7 +44,21 @@ import pic14 from "./static/pic-14.jpg";
 // import MapLocationForm from "../Map/MapLocationForm.js";
 
 // ? take a random img for the host
-const picArr = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic10, pic11, pic12, pic13, pic14];
+const picArr = [
+  pic1,
+  pic2,
+  pic3,
+  pic4,
+  pic5,
+  pic6,
+  pic7,
+  pic8,
+  pic10,
+  pic11,
+  pic12,
+  pic13,
+  pic14,
+];
 const randomString = Math.floor(Math.random() * picArr.length);
 let pic = picArr[randomString];
 
@@ -61,15 +75,14 @@ const LocationDetails = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
-
   // let picString = "";
 
   // const getRandomPic = () => {
-    // const picArr = ["pic-1.jpg", "pic-2.jpg", "pic-3.jpg", "pic-4.jpg", "pic-5.jpg", "pic-6.jpg", "pic-7.jpg", "pic-8.jpg", "pic-10.jpg", "pic-11.jpg", "pic-12.jpg", "pic-13.jpg", "pic-14.jpg"];
-    // const randomString = Math.floor(Math.random() * picArr.length);
+  // const picArr = ["pic-1.jpg", "pic-2.jpg", "pic-3.jpg", "pic-4.jpg", "pic-5.jpg", "pic-6.jpg", "pic-7.jpg", "pic-8.jpg", "pic-10.jpg", "pic-11.jpg", "pic-12.jpg", "pic-13.jpg", "pic-14.jpg"];
+  // const randomString = Math.floor(Math.random() * picArr.length);
 
-    // let picString = picArr[randomString];
-  // } 
+  // let picString = picArr[randomString];
+  // }
 
   const openCloseAvailability = () => {
     setVisibleAvailability(!visibleAvailability);
@@ -95,14 +108,13 @@ const LocationDetails = () => {
   const getInnerWith = () => {
     let size = window.innerWidth;
     if (size > 768) {
-      setOpenAmenitiesList(true)
+      setOpenAmenitiesList(true);
     } else {
-      setOpenAmenitiesList(false)
+      setOpenAmenitiesList(false);
     }
-  }
+  };
   // ? Call Function on "onresize" eventhandler
-  window.onresize = getInnerWith
-  
+  window.onresize = getInnerWith;
 
   const linkname = readMore ? "show less" : "show more";
 
@@ -182,16 +194,16 @@ const LocationDetails = () => {
     let text = "";
 
     switch (specificLocationData?.cancellation) {
-      case "Very strict cancellation policy: Up to 24h before booking.":
+      case "Loose cancellation policy: Up to 24h before booking.":
         return (text =
           "Your host will accept cancellations that are provided at least 24 hours before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted.");
-      case "Strict cancellation policy: Up to 72h before booking.":
+      case "Moderate cancellation policy: Up to 72h before booking.":
         return (text =
           "Your host will accept cancellations that are provided at least 3 days before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted.");
-      case "Moderate cancellation policy: Up to 2weeks before booking.":
+      case "Strict cancellation policy: Up to 2weeks before booking.":
         return (text =
           "Your host will accept cancellations that are provided at least 2 weeks before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted.");
-      case "Loose cancellation policy: Up to 1 month before booking.":
+      case "Very strict cancellation policy: Up to 1 month before booking.":
         return (text =
           "Your host will accept cancellations that are provided at least 1 month before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted.");
     }
@@ -214,7 +226,9 @@ const LocationDetails = () => {
               alt={specificLocationData.title}
             />
             {/* // !! Title of location */}
-            <div className={styles["heading-title"]}>
+            <div
+              className={`${styles["heading-title"]} ${styles["main-heading"]}`}
+            >
               {specificLocationData.title}
             </div>
             {/* // !! Address under title of location */}
@@ -227,7 +241,9 @@ const LocationDetails = () => {
             <hr className={styles.hr} />
             <div className={styles["intro-container"]}>
               {/* // !! Title + host + intro */}
-              <div className={styles["heading-title"]}>
+              <div
+                className={`${styles["heading-title"]} ${styles["host-subheading"]}`}
+              >
                 {/* {nameOfPlace}  */}
                 <br />
                 Hosted by {specificLocationData.host}.
@@ -239,7 +255,7 @@ const LocationDetails = () => {
                 <img
                   className={styles["host-image"]}
                   src={pic}
-                  alt="Portfolio picture of host"
+                  alt="Portfolio of host"
                 />
               </div>
             </div>
