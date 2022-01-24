@@ -51,9 +51,8 @@ const LandingPage = () => {
           {/* // ?  Carousel Component */}
           <Carousel />
         </div>
-        <div className={styles.cardHeading}>
-          Browse some of our top locations..
-        </div>
+        <div className={styles.cardHeading}>This week's top locations..</div>
+        {/* // ? Card component */}
         <div className={styles["card-container"]}>
           <Card />
         </div>
