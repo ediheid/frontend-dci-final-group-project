@@ -25,7 +25,7 @@ import mainImage from "../LocationForm/static/pexels-uriel-mont-6271625.jpg";
 
 const LocationForm = () => {
   const SearchContext = useContext(AppContext);
-  let history = useHistory()
+  let history = useHistory();
   NumericInput.style.btn.backgroundColor = " rgba(242, 235, 220, 0.8)";
   NumericInput.style["btn:hover"].backgroundColor = "#d3d3d3";
   NumericInput.style["btn:active"].backgroundColor = "pink";
@@ -44,9 +44,9 @@ const LocationForm = () => {
     event.target.reset();
 
     SearchContext.setAddressForForm("");
-    
+
     setTimeout(() => {
-      history.push("/")
+      history.push("/");
     }, 3200);
   };
 
@@ -562,7 +562,7 @@ const LocationForm = () => {
               <div className={styles["radio-container"]}>
                 <div className={styles.heading}>Cancellation Policy</div>
                 <label className={styles.container}>
-                  Very Strict - Up to 24h before check-in.
+                  Loose - Up to 24h before check-in.
                   <input
                     className={styles.input}
                     type="radio"
@@ -577,7 +577,7 @@ const LocationForm = () => {
                   <span className={styles["checkmark-radio"]}></span>
                 </label>
                 <label className={styles.container}>
-                  Strict - Up to 72h before check-in.
+                  Moderate - Up to 72h before check-in.
                   <input
                     className={styles.input}
                     type="radio"
@@ -592,7 +592,7 @@ const LocationForm = () => {
                   <span className={styles["checkmark-radio"]}></span>
                 </label>
                 <label className={styles.container}>
-                  Moderate - Two weeks before check-in.
+                  Strict - Two weeks before check-in.
                   <input
                     className={styles.input}
                     type="radio"
@@ -607,7 +607,7 @@ const LocationForm = () => {
                   <span className={styles["checkmark-radio"]}></span>
                 </label>
                 <label className={styles.container}>
-                  Loose - One month before check-in.
+                  Very Strict - One month before check-in.
                   <input
                     className={styles.input}
                     type="radio"
