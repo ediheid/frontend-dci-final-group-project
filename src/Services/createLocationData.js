@@ -5,7 +5,7 @@ toast.configure();
 
 const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
 
-export const createLocation = async (hookData, setErrors) => {
+export const createLocation = async (hookData, event) => {
   let formData = new FormData();
 
   formData.append("locationData", JSON.stringify(hookData));
@@ -24,16 +24,13 @@ export const createLocation = async (hookData, setErrors) => {
     const locationCreated = () => {
       toast("Your property has been successfully created!", {
         position: "top-center",
-        autoClose: 3500,
-        draggable: false
+        autoClose: 3000,
+        draggable: false,
+        onClose: () => window.location.replace("/")
       });
     }
 
     locationCreated();
-
-    setTimeout(() => {
-      window.location.replace("/");
-    }, 3500);
   } catch (error) {
     if (error.response) {
       const errors = error.response.data.errors;
