@@ -772,8 +772,9 @@ const LocationForm = () => {
               <div className={styles.heading}>
                 And finally.. time for some images of your gorgeous property!
               </div>
+
               <div className={styles["upload-container"]}>
-                <label className={styles.picLabel}>
+                <label className={styles["upload-sub-heading"]}>
                   Please select a file to upload.
                 </label>
 

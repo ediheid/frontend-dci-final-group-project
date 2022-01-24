@@ -252,27 +252,20 @@
   border: 2px solid $light-green;
 }
 
-// .picLabel {
-//   font-size: 1.6rem;
-//   background-color: green;
-// }
-
-// .picInput {
-//   background-color: red;
-// }
-
-// #input{
-
-// }
-
 .upload-container {
   display: flex;
   flex-direction: column;
 }
 
+.upload-sub-heading {
+  font-family: $main-font-font-family;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
 .custom-file-input {
-  padding: 5rem 0 1rem 0;
-  height: 6rem;
+  padding: 2.5rem 0 1rem 0;
+  height: 5rem;
 }
 
 .custom-file-input::-webkit-file-upload-button {
@@ -285,6 +278,7 @@
   width: 10rem;
   text-align: center;
   padding: 1.2vh 6vw 1.2vh 5vw;
+  margin-right: -5rem;
   background-color: $main-font-colour-light;
   outline: none;
   font-size: 1.7rem;
@@ -308,9 +302,9 @@
   }
 }
 
-.custom-file-input::after {
-  background-color: red;
-}
+// .custom-file-input::after {
+//   background-color: red;
+// }
 
 // ? Media Queries
 // Based on Bootstrap breakpoints
