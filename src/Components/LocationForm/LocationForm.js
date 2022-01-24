@@ -75,7 +75,11 @@ const LocationForm = () => {
 "
           />
           {/* // !! Title of location */}
-          <div className={styles["heading-title"]}>Become a host</div>
+          <div
+            className={`${styles["heading-title"]} ${styles["main-heading"]}`}
+          >
+            Become a host
+          </div>
           {/* // !! Address under title of location */}
           <div className={styles["subheading-title"]}>
             Let guests know what your property has to offer..
@@ -196,16 +200,6 @@ const LocationForm = () => {
                       loading,
                     }) => (
                       <div className={styles["search-input-div"]}>
-                        {/* <p>Latitude: {MapContext.latitude}</p>
-                  <p>Longitude: {MapContext.longitude}</p> */}
-                        {/* <input
-                          placeholder="Please insert a valid address: street, no. & city"
-                          className={styles["input-field"]}
-                          onEnter={SearchContext.setAddressForFormCollection}
-                          // !! or onClick ?????
-                          name="address"
-                        /> */}
-
                         <input
                           {...getInputProps({
                             placeholder:
@@ -220,7 +214,7 @@ const LocationForm = () => {
                           {suggestions.map((suggestion) => {
                             const style = {
                               backgroundColor: suggestion.active
-                                ? styles["$cream"]
+                                ? "#f2ebdc"
                                 : "white",
                             };
 
@@ -778,7 +772,7 @@ const LocationForm = () => {
               {/* <hr className={styles.hr} /> */}
 
               <div className={styles.heading}>
-                And finally.. time for some images of your gorgeous property!
+                And finally, time for some images of your gorgeous property!
               </div>
 
               <div className={styles["upload-container"]}>
