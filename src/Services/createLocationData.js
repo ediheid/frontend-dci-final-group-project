@@ -35,7 +35,15 @@ export const createLocation = async (hookData, setErrors) => {
       window.location.replace("/");
     }, 3500);
   } catch (error) {
-  if (error.response) 
-    console.log(error.response.data.message)
+    if (error.response) {
+      const errors = error.response.data.errors;
+      for (let i = 0; i < errors.length; i++) {
+        toast.error(`Error: ${errors[i].msg}`, {
+          position: "top-center",
+          draggable: false,
+          autoClose: 4000,
+        });
+      }
+    } 
   }
 };
