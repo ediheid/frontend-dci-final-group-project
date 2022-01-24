@@ -447,7 +447,7 @@ const LocationDetails = () => {
             >
               {/* // !! More info */}
               <div className={styles["heading-booking-info"]}>
-                Place rules
+                Property rules
                 <div className={styles.subinfo}>
                   {specificLocationData.checkin}
                 </div>
