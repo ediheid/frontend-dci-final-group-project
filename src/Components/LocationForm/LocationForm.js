@@ -772,16 +772,16 @@ const LocationForm = () => {
               <div className={styles.heading}>
                 And finally.. time for some images of your gorgeous property!
               </div>
-              <div>
+              <div className={styles["upload-container"]}>
                 <label className={styles.picLabel}>
                   Please select a file to upload.
                 </label>
-                <div></div>
+
                 <input
                   type="file"
                   name="locationImage"
                   onChange={(e) => SearchContext.setImage(e.target.files[0])}
-                  className={styles.picInput}
+                  class={styles["custom-file-input"]}
                 />
 
                 {/* <Button>
