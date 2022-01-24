@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import NumericInput from "react-numeric-input";
-import { useHistory } from "react-router-dom";
 
 // ? importing AppContext
 import { AppContext } from "../../App";
@@ -25,7 +24,6 @@ import mainImage from "../LocationForm/static/pexels-uriel-mont-6271625.jpg";
 
 const LocationForm = () => {
   const SearchContext = useContext(AppContext);
-  let history = useHistory();
   NumericInput.style.btn.backgroundColor = " rgba(242, 235, 220, 0.8)";
   NumericInput.style["btn:hover"].backgroundColor = "#d3d3d3";
   NumericInput.style["btn:active"].backgroundColor = "pink";
@@ -39,26 +37,16 @@ const LocationForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    createLocation(SearchContext.locationData, SearchContext.setErrors);
+    createLocation(SearchContext.locationData, SearchContext.setErrors, event);
 
-    event.target.reset();
+    // event.target.reset();
 
     SearchContext.setAddressForForm("");
 
-    setTimeout(() => {
-      history.push("/");
-    }, 3200);
+    // setTimeout(() => {
+    //   history.push("/");
+    // }, 3500);
   };
-
-  // const handleSelect = async (value) => {
-  //   const results = await SearchContext.geocodeByAddress(value);
-  //   const latLng = await SearchContext.getLatLng(results[0]);
-
-  //   // console.log("TESTHANDLE", latLng);
-  //   // setSearchFieldQuery(value);
-  //   SearchContext.setAddressForForm(value);
-  //   SearchContext.setCoordinates(latLng);
-  // };
 
   return (
     <>
@@ -570,7 +558,7 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Very strict cancellation policy: Up to 24h before booking.")
+                        "Loose cancellation policy: Up to 24h before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
@@ -585,7 +573,7 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Strict cancellation policy: Up to 72h before booking.")
+                        "Moderate cancellation policy: Up to 72h before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
@@ -600,7 +588,7 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Moderate cancellation policy: Up to 2weeks before booking.")
+                        "Strict cancellation policy: Up to 2weeks before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
@@ -615,7 +603,7 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Loose cancellation policy: Up to 1 month before booking.")
+                        "Very strict cancellation policy: Up to 1 month before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
