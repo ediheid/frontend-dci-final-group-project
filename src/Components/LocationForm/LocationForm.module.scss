@@ -225,8 +225,20 @@
   border: 2px solid $light-green;
 }
 
-.property-details {
+.suggestions-container {
   font-size: 1.5rem;
+  color: $main-font-colour;
+  cursor: pointer;
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.search-suggestions {
+  padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+}
+
+.property-details {
+  font-size: 1.6rem;
   display: flex;
   flex-direction: row;
   padding-bottom: 0.2rem;
@@ -245,7 +257,7 @@
   // border: 2px solid $main-font-colour;
 
   // ! Define input font size so form does not auto zoom on ios
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   padding: 1rem;
   &::placeholder {
     padding-left: 1.5rem;
