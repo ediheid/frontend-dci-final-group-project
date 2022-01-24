@@ -64,6 +64,13 @@ const LocationDetails = () => {
     }
   };
 
+  // const setInnerwidth = () => {
+  //   if (window.innerWidth > "768px") {
+  //     setOpenAmenitiesList(true)
+  //   }
+  // }
+  
+
   const linkname = readMore ? "show less" : "show more";
 
   const params = useParams();

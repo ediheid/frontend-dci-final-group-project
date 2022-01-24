@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import NumericInput from "react-numeric-input";
+import { useHistory } from "react-router-dom";
 
 // ? importing AppContext
 import { AppContext } from "../../App";
@@ -24,6 +25,7 @@ import mainImage from "../LocationForm/static/pexels-uriel-mont-6271625.jpg";
 
 const LocationForm = () => {
   const SearchContext = useContext(AppContext);
+  let history = useHistory()
   NumericInput.style.btn.backgroundColor = " rgba(242, 235, 220, 0.8)";
   NumericInput.style["btn:hover"].backgroundColor = "#d3d3d3";
   NumericInput.style["btn:active"].backgroundColor = "pink";
@@ -40,6 +42,12 @@ const LocationForm = () => {
     createLocation(SearchContext.locationData, SearchContext.setErrors);
 
     event.target.reset();
+
+    SearchContext.setAddressForForm("");
+    
+    setTimeout(() => {
+      history.push("/")
+    }, 3200);
   };
 
   // const handleSelect = async (value) => {
