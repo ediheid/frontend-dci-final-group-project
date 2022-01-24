@@ -49,7 +49,7 @@ const LocationDetailsIcons = (props) => {
   // console.log("props", props.openAmenitiesList)
   return (
     <div
-      style={{ maxHeight: props.openAmenitiesList ? "fit-content" : 150 }}
+      style={{ maxHeight: props.openAmenitiesList ? "fit-content" : 180 }}
       className={styles.amenitiesFlex}
     >
       {props.specificLocationData.amenities.includes("barrierFree") && (
