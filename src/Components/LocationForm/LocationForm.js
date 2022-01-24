@@ -67,7 +67,11 @@ const LocationForm = () => {
 "
           />
           {/* // !! Title of location */}
-          <div className={styles["heading-title"]}>Become a host</div>
+          <div
+            className={`${styles["heading-title"]} ${styles["main-heading"]}`}
+          >
+            Become a host
+          </div>
           {/* // !! Address under title of location */}
           <div className={styles["subheading-title"]}>
             Let guests know what your property has to offer..
