@@ -9,7 +9,7 @@ import styles from "./LandingPage.module.scss";
 // import Card from "../../UI/Card/Card";
 import Carousel from "../../Components/Carousel/Carousel";
 import Button from "../../UI/Button/Button";
-// import LogIn from "../../Components/LogIn/LogIn";
+import Card from "../../UI/Card/Card";
 import Search from "../../Components/Search/Search";
 import Navbar from "../../Components/Navbar/Navbar";
 import LoadingModal from "../../Components/LoadingModal/LoadingModal";
@@ -52,17 +52,9 @@ const LandingPage = () => {
           <Carousel />
 
           {/* // ? Info Component */}
-
-          <div className={styles["image-container"]}>
-            <Link to="/location-form">
-              <img
-                className={styles.image}
-                src={host}
-                alt="Camper by Devries from Pexels"
-              />
-              <div className={styles["heading-image"]}>Become a host</div>
-            </Link>
-          </div>
+          <div className={styles.cardHeading}>Browse our latest locations:</div>
+          <Card />
+          
         </div>
       </div>
     );
