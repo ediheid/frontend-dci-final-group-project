@@ -25,23 +25,31 @@ import Search from "../Search/Search";
 import Navbar from "../Navbar/Navbar";
 import Button from "../../UI/Button/Button";
 import Map from "../Map/Map";
-// import MapLocationForm from "../Map/MapLocationForm.js";
 
 // ? All Images
-import florian from "../LocationDetails/static/pic-1.jpg";
+import pic1 from "./static/pic-1.jpg";
+import pic2 from "./static/pic-2.jpg";
+import pic3 from "./static/pic-3.jpg";
+import pic4 from "./static/pic-4.jpg";
+import pic5 from "./static/pic-5.jpg";
+import pic6 from "./static/pic-6.jpg";
+import pic7 from "./static/pic-7.jpg";
+import pic8 from "./static/pic-8.jpg";
+// import pic9 from "./static/pic-1.jpg";
+import pic10 from "./static/pic-10.jpg";
+import pic11 from "./static/pic-11.jpg";
+import pic12 from "./static/pic-12.jpg";
+import pic13 from "./static/pic-13.jpg";
+import pic14 from "./static/pic-14.jpg";
+// import MapLocationForm from "../Map/MapLocationForm.js";
+
+// ? take a random img for the host
+const picArr = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic10, pic11, pic12, pic13, pic14];
+const randomString = Math.floor(Math.random() * picArr.length);
+let pic = picArr[randomString];
 
 const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
-
 const spinner = <FontAwesomeIcon icon={faSpinner} />;
-
-const picArr = ["pic-1.jpg", "pic-2.jpg", "pic-3.jpg", "pic-4.jpg", "pic-5.jpg", "pic-6.jpg", "pic-7.jpg", "pic-8.jpg", "pic-10.jpg", "pic-11.jpg", "pic-12.jpg", "pic-13.jpg", "pic-14.jpg"];
-const randomString = Math.floor(Math.random() * picArr.length);
-
-let picString = picArr[randomString];
-
-const picLink = `../LocationDetails/static/${picString}`
-
-console.log("PICLINK", picLink)
 
 const LocationDetails = () => {
   const [specificLocationData, setSpecificLocationData] = useState(null);
@@ -105,8 +113,6 @@ const LocationDetails = () => {
     getSpecificLocation(getParams, setSpecificLocationData);
     // getRandomPic();
   }, []);
-
-  console.log("PICSTRING", picString)
 
   const renameAmenities = () => {
     let newArr = [];
@@ -232,7 +238,7 @@ const LocationDetails = () => {
               <div>
                 <img
                   className={styles["host-image"]}
-                  src={picLink}
+                  src={pic}
                   alt="Portfolio picture of host"
                 />
               </div>
