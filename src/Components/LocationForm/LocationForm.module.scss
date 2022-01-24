@@ -270,34 +270,46 @@
   flex-direction: column;
 }
 
+.custom-file-input {
+  padding: 5rem 0 1rem 0;
+  height: 6rem;
+}
+
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
 }
 .custom-file-input::before {
   content: "Choose file";
-  display: flex;
-  // flex-direction: row;
-  background: linear-gradient(top, #f9f9f9, #e3e3e3);
-  // border: 1px solid #999;
-  border-radius: 3px;
-  padding: 5px 8px;
-
-  outline: none;
   white-space: nowrap;
   -webkit-user-select: none;
-  cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
-  font-size: 10pt;
-
   width: 10rem;
   text-align: center;
+  padding: 1.2vh 6vw 1.2vh 5vw;
+  background-color: $main-font-colour-light;
+  outline: none;
+  font-size: 1.7rem;
+  font-family: $main-font-font-family;
+  color: $main-font-colour;
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  &:focus {
+    color: $light-green;
+    font-weight: bold;
+  }
 }
-.custom-file-input:hover::before {
-  border-color: black;
+
+/* solves sticky problem */
+@media (hover: hover) {
+  .custom-file-input:hover::before {
+    color: $light-green;
+    font-weight: bold;
+  }
 }
-.custom-file-input:active::before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+
+.custom-file-input::after {
+  background-color: red;
 }
 
 // ? Media Queries
