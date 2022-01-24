@@ -64,16 +64,15 @@
   background-color: white;
   padding: 0.5rem 2rem 0.5rem 2rem;
   width: 20rem;
-
-  // margin: 0 5rem 5rem 0;
+  cursor: pointer;
 }
 
 .search-suggestions {
   font-family: $main-font-font-family;
   color: $main-font-colour;
   font-size: 1.5rem;
-  // padding: 0.1rem 1rem 0.1rem 1rem;
-  // border-radius: 0.5rem;
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  border-radius: 0.5rem;
 }
 
 .search-input {
@@ -243,6 +242,7 @@
   position: absolute;
   right: 1.2rem;
   top: 0.8rem;
+  cursor: pointer;
 }
 
 .outer-dropdown-list-container {

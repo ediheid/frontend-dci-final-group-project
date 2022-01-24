@@ -224,7 +224,8 @@
   &:hover {
     *::before {
       // * My Style
-      border-color: $army-green;
+      border-color: $datepicker__selected-color;
+      // background-color: $army-green;
       // border-color: darken($datepicker__muted-color, 15%);
     }
   }
@@ -484,7 +485,7 @@
 
   &:hover {
     border-radius: $datepicker__border-radius;
-    background-color: $datepicker__background-color;
+    background-color: $datepicker__highlighted-color;
   }
 
   &--today {

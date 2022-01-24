@@ -3,11 +3,6 @@ import React, { Fragment, useState, useContext, createContext } from "react";
 import { AppContext } from "../../App";
 import { sendSearchQuery } from "../../Services/sendSearchQuery";
 
-// import PlacesAutocomplete, {
-//   geocodeByAddress,
-//   getLatLng,
-// } from "react-places-autocomplete";
-
 //  Styles
 import styles from "../Search/search.module.scss";
 // Datepicker override styles
@@ -237,15 +232,6 @@ const Form = () => {
             // onSubmit={MapContext.mapView}
           >
             {/* // ? Search bar - when clicked will open all search fields */}
-            {/* <input
-              onClick={SearchContext.openForm}
-              className={styles["search-input"]}
-              placeholder="Dream about Schwarzwald?"
-              // ! Testing
-              name="locationSearchName"
-              onChange={handleUserInput}
-            ></input> */}
-
             <MapContext.PlacesAutocomplete
               value={MapContext.address}
               onChange={MapContext.setAddress}
@@ -275,7 +261,7 @@ const Form = () => {
                     {suggestions.map((suggestion) => {
                       const style = {
                         backgroundColor: suggestion.active
-                          ? styles["$cream"]
+                          ? "#f2ebdc"
                           : "white",
                       };
 

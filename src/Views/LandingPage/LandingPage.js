@@ -50,11 +50,11 @@ const LandingPage = () => {
           {/* <div className={styles.adventure}>Find your next adventure</div> */}
           {/* // ?  Carousel Component */}
           <Carousel />
-
-          {/* // ? Info Component */}
-          <div className={styles.cardHeading}>Browse our latest locations:</div>
+        </div>
+        <div className={styles.cardHeading}>This week's top locations..</div>
+        {/* // ? Card component */}
+        <div className={styles["card-container"]}>
           <Card />
-          
         </div>
       </div>
     );
