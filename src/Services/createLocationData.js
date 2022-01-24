@@ -33,11 +33,17 @@ export const createLocation = async (hookData, setErrors) => {
   } catch (error) {
     if (error.response) {
       const errors = error.response.data.errors;
+      let autoCloseTime = 5000;
+      if (errors.length >= 3 && errors.length < 6) {
+        autoCloseTime = 7500;
+      } else if ( errors.length >= 6) {
+        autoCloseTime = 10000
+      }
       for (let i = 0; i < errors.length; i++) {
         toast.error(`Error: ${errors[i].msg}`, {
           position: "top-center",
           draggable: false,
-          autoClose: 4000,
+          autoClose: autoCloseTime,
         });
       }
     } 
