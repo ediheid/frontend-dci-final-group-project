@@ -235,11 +235,6 @@ const LocationForm = () => {
                   </SearchContext.PlacesAutocomplete>
                 </div>
 
-                <div style={{ overflow: "scroll" }}>
-                  {/* <Map></Map> */}
-                  {/* <MapLocationForm /> */}
-                </div>
-
                 <hr className={styles.hr} />
 
                 <div className={styles.heading}>
