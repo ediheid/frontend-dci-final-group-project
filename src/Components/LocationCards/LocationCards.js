@@ -97,7 +97,7 @@ const LocationCards = () => {
         <button className={styles["card__btn"]}>View Location</button>
       </div> */}
 
-      <div className={styles["card"]}>
+      {/* <div className={styles["card"]}>
         <div className={styles["card__body"]}>
           <img
             src={CampingMunstertal}
@@ -121,9 +121,9 @@ const LocationCards = () => {
           </p>
         </div>
         <button className={styles["card__btn"]}>View Location</button>
-      </div>
+      </div> */}
 
-      <div className={styles["card"]}>
+      {/* <div className={styles["card"]}>
         <div className={styles["card__body"]}>
           <img src={LynxCamp} className={styles["card__image"]} alt="" />
           <h2 className={styles["card__title"]}> Lynx Camp </h2>
@@ -143,9 +143,9 @@ const LocationCards = () => {
           </p>
         </div>
         <button className={styles["card__btn"]}>View Location</button>
-      </div>
+      </div> */}
 
-      <div className={styles["card"]}>
+      {/* <div className={styles["card"]}>
         <div className={styles["card__body"]}>
           <img
             src={MeadowbedHilserhof}
@@ -169,8 +169,8 @@ const LocationCards = () => {
           </p>
         </div>
         <button className={styles["card__btn"]}>View Location</button>
-      </div>
-
+      </div> */}
+      {/* 
       <div className={styles["card"]}>
         <div className={styles["card__body"]}>
           <img
@@ -195,7 +195,7 @@ const LocationCards = () => {
           </p>
         </div>
         <button className={styles["card__btn"]}>View Location</button>
-      </div>
+      </div> */}
 
       <div className={styles["card"]}>
         <div className={styles["card__body"]}>
