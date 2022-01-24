@@ -6,19 +6,29 @@
 // ? Universal styling
 
 .button {
-    font-family: $main-font-font-family;
-    color: $main-font-colour;
-    background-color: $main-font-colour-light;
-    font-size: 1.7rem;
-    margin-top: 2vh;
-    padding: 1vh 5vw 1vh 5vw;
-    border-radius: 25px;
-    border: none;
+  font-family: $main-font-font-family;
+  color: $main-font-colour;
+  background-color: $main-font-colour-light;
+  font-size: 1.7rem;
+  margin-top: 2vh;
+  padding: 1.2vh 5vw 1.2vh 5vw;
+  border-radius: 25px;
+  border: none;
+
+  cursor: pointer;
+
+  &:focus {
+    color: $light-green;
+    font-weight: bold;
+  }
 }
 
-button:hover {
-    cursor: pointer;
-    color: $google-pin-colour;
+/* solves sticky problem */
+@media (hover: hover) {
+  button:hover {
+    color: $light-green;
+    font-weight: bold;
+  }
 }
 
 // ? Media Queries

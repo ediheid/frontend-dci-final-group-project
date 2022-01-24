@@ -82,7 +82,7 @@
   width: 60vw;
 
   color: $main-font-colour;
-  cursor: pointer;
+  // cursor: pointer;
   // ! Define input font size so form does not auto zoom on ios
   font-size: 1.5rem;
 
@@ -102,6 +102,35 @@
   border-radius: 25px;
   border: none;
   cursor: pointer;
+
+  &:focus {
+    font-weight: bold;
+    color: $main-font-colour-light;
+    background-color: $light-green;
+  }
+}
+
+@media (hover: hover) {
+  .input-login-button:hover {
+    font-weight: bold; /* solves sticky problem */
+    color: $main-font-colour-light;
+    background-color: $light-green;
+  }
+}
+
+.forgot-password {
+  &:focus {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+}
+
+@media (hover: hover) {
+  .forgot-password:hover,
+  .link:hover {
+    font-size: 1.3rem;
+    font-weight: bold; /* solves sticky problem */
+  }
 }
 
 .modal-footer {
@@ -129,6 +158,11 @@
   text-decoration: none;
   color: $orange;
   cursor: pointer;
+
+  &:focus {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
 }
 
 /// ? Media Queries

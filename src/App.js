@@ -29,7 +29,6 @@ import Welcome from "./Views/Welcome/Welcome";
 import LocationDetails from "./Components/LocationDetails/LocationDetails";
 import LocationForm from "./Components/LocationForm/LocationForm";
 import LoggedInLandingPage from "./Views/LoggedInLandingPage/LoggedInLandingPage";
-
 import { getCardData } from "./Services/getCardData.js";
 
 import { locations } from "./Services/getLocationData.js";
@@ -96,7 +95,7 @@ const App = () => {
     cancellation: "",
   });
 
-  const [cardData, setCardData] = useState([]);
+  const [cardData, setCardData] = useState([])
 
   useEffect(() => {
     getCardData(setCardData);
@@ -104,6 +103,11 @@ const App = () => {
 
   console.log("CARDDATA", cardData);
   //   console.log("QQQQ", populateCards);
+
+  // ? State hook for handeling form input errors from backend
+  const [errors, setErrors] = useState(null)
+
+  console.log("ERRORS", errors)
 
   // ? login/signup state
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -320,6 +324,8 @@ const App = () => {
           setCapacity,
           setPrice,
           setImage,
+          setErrors,
+          setAddressForForm,
 
           // ? Search Context to pass down to Search and Navbar..
           openSearch: openSearch,
