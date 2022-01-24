@@ -148,7 +148,7 @@ const LocationForm = () => {
                   // checked="checked"
                   name="spaceType"
                   value={
-                    (SearchContext.loginData.spaceType = "An entire property")
+                    (SearchContext.loginData.spaceType = "Entire property")
                   }
                   onChange={SearchContext.collectLocationData}
                 />
@@ -161,7 +161,7 @@ const LocationForm = () => {
                   type="radio"
                   name="spaceType"
                   value={
-                    (SearchContext.loginData.spaceType = "A shared property")
+                    (SearchContext.loginData.spaceType = "Shared property")
                   }
                   onChange={SearchContext.collectLocationData}
                 />
@@ -568,7 +568,7 @@ const LocationForm = () => {
               <div className={styles["radio-container"]}>
                 <div className={styles.heading}>Cancellation Policy</div>
                 <label className={styles.container}>
-                  Loose - Up to 24h before check-in.
+                  Very Strict - Up to 24h before check-in.
                   <input
                     className={styles.input}
                     type="radio"
@@ -576,14 +576,14 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Loose cancellation policy: Until 24h before booking.")
+                        "Very strict cancellation policy: Up to 24h before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
                   <span className={styles["checkmark-radio"]}></span>
                 </label>
                 <label className={styles.container}>
-                  Moderate - Up to 72h before check-in.
+                  Strict - Up to 72h before check-in.
                   <input
                     className={styles.input}
                     type="radio"
@@ -591,14 +591,14 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Moderate cancellation policy: Until 72h before booking.")
+                        "Strict cancellation policy: Up to 72h before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
                   <span className={styles["checkmark-radio"]}></span>
                 </label>
                 <label className={styles.container}>
-                  Strict - Two weeks before check-in.
+                  Moderate - Two weeks before check-in.
                   <input
                     className={styles.input}
                     type="radio"
@@ -606,14 +606,14 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Strict cancellation policy: Until 2weeks before booking.")
+                        "Moderate cancellation policy: Up to 2weeks before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
                   <span className={styles["checkmark-radio"]}></span>
                 </label>
                 <label className={styles.container}>
-                  Super Strict - One month before check-in.
+                  Loose - One month before check-in.
                   <input
                     className={styles.input}
                     type="radio"
@@ -621,7 +621,7 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Very strict cancellation policy: Until 1 month before booking.")
+                        "Loose cancellation policy: Up to 1 month before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />

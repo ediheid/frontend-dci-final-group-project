@@ -21,11 +21,10 @@ export const createLocation = async (hookData, setErrors) => {
 
     console.log(response);
 
-    alert("test")
     const locationCreated = () => {
       toast("Your property has been successfully created!", {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 3500,
         draggable: false
       });
     }

@@ -148,16 +148,16 @@ const LocationDetails = () => {
     let text = "";
 
     switch (specificLocationData?.cancellation) {
-      case "Loose cancellation policy: Until 24h before booking.":
+      case "Very strict cancellation policy: Up to 24h before booking.":
         return (text =
           "Your host will accept cancellations that are provided at least 24 hours before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted.");
-      case "Moderate cancellation policy: Until 72h before booking.":
+      case "Strict cancellation policy: Up to 72h before booking.":
         return (text =
           "Your host will accept cancellations that are provided at least 3 days before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted.");
-      case "Strict cancellation policy: Until 2weeks before booking.":
+      case "Moderate cancellation policy: Up to 2weeks before booking.":
         return (text =
           "Your host will accept cancellations that are provided at least 2 weeks before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted.");
-      case "Very strict cancellation policy: Until 1 month before booking.":
+      case "Loose cancellation policy: Up to 1 month before booking.":
         return (text =
           "Your host will accept cancellations that are provided at least 1 month before your booking starts. Cancellations are only accepted througout a regular accepted cancellation with this app. The Cancellation is just valid, when your host acceppted it and you are getting a confirmation. Cancellation via mail or phone calls will not be accepted.");
     }
@@ -220,7 +220,7 @@ const LocationDetails = () => {
               <div className={styles["bonus-description"]}>
                 <div>{specificLocationData.spaceType}</div>
                 <div>
-                  {specificLocationData.spaceType === "An entire property"
+                  {specificLocationData.spaceType === "Entire property"
                     ? "You'll have the place to yourself."
                     : "You'll share the place with other caravans."}
                 </div>
