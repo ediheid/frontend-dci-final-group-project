@@ -45,20 +45,10 @@ const LocationForm = () => {
 
     SearchContext.setAddressForForm("");
 
-    setTimeout(() => {
-      history.push("/");
-    }, 3200);
+    // setTimeout(() => {
+    //   history.push("/");
+    // }, 3500);
   };
-
-  // const handleSelect = async (value) => {
-  //   const results = await SearchContext.geocodeByAddress(value);
-  //   const latLng = await SearchContext.getLatLng(results[0]);
-
-  //   // console.log("TESTHANDLE", latLng);
-  //   // setSearchFieldQuery(value);
-  //   SearchContext.setAddressForForm(value);
-  //   SearchContext.setCoordinates(latLng);
-  // };
 
   return (
     <>

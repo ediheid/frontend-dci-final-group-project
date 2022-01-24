@@ -30,6 +30,10 @@ export const createLocation = async (hookData, setErrors) => {
     }
 
     locationCreated();
+
+    setTimeout(() => {
+      window.location.replace("/");
+    }, 3500);
   } catch (error) {
   if (error.response) 
     console.log(error.response.data.message)
