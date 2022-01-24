@@ -247,13 +247,14 @@ const LocationForm = () => {
                     How many caravans can fit on your property?
                   </label>
 
-                  <NumericInput
-                    min={1}
-                    max={20}
-                    defaultValue={1}
-                    onChange={(val) => SearchContext.setCapacity(val)}
-                  />
-
+                  <div className={styles["numeric-input-container"]}>
+                    <NumericInput
+                      min={1}
+                      max={20}
+                      defaultValue={1}
+                      onChange={(val) => SearchContext.setCapacity(val)}
+                    />
+                  </div>
                   {/* <div className={styles.number}>
                                         <span className={styles.minus}>-</span>
                                         <input type="text" value="1" />
@@ -561,183 +562,185 @@ const LocationForm = () => {
                             </div> */}
 
               <hr className={styles.hr} />
-
-              <div className={styles.heading}>Cancellation Policy</div>
-              <label className={styles.container}>
-                Loose - Up to 24h before check-in.
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="cancellation"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Loose cancellation policy: Until 24h before booking.")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
-              <label className={styles.container}>
-                Moderate - Up to 72h before check-in.
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="cancellation"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Moderate cancellation policy: Until 72h before booking.")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
-              <label className={styles.container}>
-                Strict - Two weeks before check-in.
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="cancellation"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Strict cancellation policy: Until 2weeks before booking.")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
-              <label className={styles.container}>
-                Super Strict - One month before check-in.
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="cancellation"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Very strict cancellation policy: Until 1 month before booking.")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
+              <div className={styles["radio-container"]}>
+                <div className={styles.heading}>Cancellation Policy</div>
+                <label className={styles.container}>
+                  Loose - Up to 24h before check-in.
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="cancellation"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Loose cancellation policy: Until 24h before booking.")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
+                <label className={styles.container}>
+                  Moderate - Up to 72h before check-in.
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="cancellation"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Moderate cancellation policy: Until 72h before booking.")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
+                <label className={styles.container}>
+                  Strict - Two weeks before check-in.
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="cancellation"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Strict cancellation policy: Until 2weeks before booking.")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
+                <label className={styles.container}>
+                  Super Strict - One month before check-in.
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="cancellation"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Very strict cancellation policy: Until 1 month before booking.")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
+              </div>
 
               <hr className={styles.hr} />
+              <div className={styles["radio-container"]}>
+                <div className={styles.heading}>Checkin / Checkout</div>
+                <label className={styles.container}>
+                  Checkin: 10am / checkout: 9am
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="checkin"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Checkin: 10h / checkout: 9h")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
 
-              <div className={styles.heading}>Checkin / Checkout</div>
-              <label className={styles.container}>
-                Checkin: 10am / checkout: 9am
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="checkin"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Checkin: 10h / checkout: 9h")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
+                <label className={styles.container}>
+                  Checkin: 11am / checkout: 10am
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="checkin"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Checkin: 11h / checkout: 10h")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
 
-              <label className={styles.container}>
-                Checkin: 11am / checkout: 10am
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="checkin"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Checkin: 11h / checkout: 10h")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
+                <label className={styles.container}>
+                  Checkin: 11am / checkout: 10am
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="checkin"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Checkin: 11h / checkout: 10h")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
 
-              <label className={styles.container}>
-                Checkin: 11am / checkout: 10am
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="checkin"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Checkin: 11h / checkout: 10h")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
+                <label className={styles.container}>
+                  Checkin: 12pm / checkout: 11am
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="checkin"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Checkin: 12h / checkout: 11h")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
 
-              <label className={styles.container}>
-                Checkin: 12pm / checkout: 11am
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="checkin"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Checkin: 12h / checkout: 11h")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
+                <label className={styles.container}>
+                  Checkin: 1pm / checkout: 12pm
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="checkin"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Checkin: 13h / checkout: 12h")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
 
-              <label className={styles.container}>
-                Checkin: 1pm / checkout: 12pm
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="checkin"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Checkin: 13h / checkout: 12h")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
+                <label className={styles.container}>
+                  Checkin: 2pm / checkout: 1pm
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="checkin"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Checkin: 14h / checkout: 13h")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
 
-              <label className={styles.container}>
-                Checkin: 2pm / checkout: 1pm
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="checkin"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Checkin: 14h / checkout: 13h")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
-
-              <label className={styles.container}>
-                Checkin: 3pm / checkout: 2pm
-                <input
-                  className={styles.input}
-                  type="radio"
-                  // checked="checked"
-                  name="checkin"
-                  value={
-                    (SearchContext.loginData.cancellation =
-                      "Checkin: 15h / checkout: 14h")
-                  }
-                  onChange={SearchContext.collectLocationData}
-                />
-                <span className={styles["checkmark-radio"]}></span>
-              </label>
+                <label className={styles.container}>
+                  Checkin: 3pm / checkout: 2pm
+                  <input
+                    className={styles.input}
+                    type="radio"
+                    // checked="checked"
+                    name="checkin"
+                    value={
+                      (SearchContext.loginData.cancellation =
+                        "Checkin: 15h / checkout: 14h")
+                    }
+                    onChange={SearchContext.collectLocationData}
+                  />
+                  <span className={styles["checkmark-radio"]}></span>
+                </label>
+              </div>
 
               <hr className={styles.hr} />
 
@@ -747,15 +750,18 @@ const LocationForm = () => {
                     Price per night?
                   </label>
 
-                  <NumericInput
-                    min={5}
-                    max={500}
-                    defaultValue={5}
-                    step={5}
-                    onChange={(val) => SearchContext.setPrice(val)}
-                  />
+                  <div className={styles["numeric-input-container"]}>
+                    <NumericInput
+                      min={5}
+                      max={500}
+                      defaultValue={5}
+                      step={5}
+                      onChange={(val) => SearchContext.setPrice(val)}
+                    />
+                    <span className={styles["currency"]}>€</span>
+                  </div>
+                  {/* <label className={styles["currency"]}>€</label> */}
 
-                  <label className={styles["heading-input"]}>€</label>
                   {/* <input
                                         placeholder="Price/night in $"
                                         className={styles["input-field"]}
