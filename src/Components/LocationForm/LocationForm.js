@@ -570,7 +570,7 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Very strict cancellation policy: Up to 24h before booking.")
+                        "Loose cancellation policy: Up to 24h before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
@@ -585,7 +585,7 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Strict cancellation policy: Up to 72h before booking.")
+                        "Moderate cancellation policy: Up to 72h before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
@@ -600,7 +600,7 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Moderate cancellation policy: Up to 2weeks before booking.")
+                        "Strict cancellation policy: Up to 2weeks before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
@@ -615,7 +615,7 @@ const LocationForm = () => {
                     name="cancellation"
                     value={
                       (SearchContext.loginData.cancellation =
-                        "Loose cancellation policy: Up to 1 month before booking.")
+                        "Very strict cancellation policy: Up to 1 month before booking.")
                     }
                     onChange={SearchContext.collectLocationData}
                   />
