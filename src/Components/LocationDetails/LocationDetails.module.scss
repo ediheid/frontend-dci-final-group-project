@@ -54,8 +54,18 @@
   padding-top: 2vh;
 }
 
+.main-heading {
+  font-size: 3.6rem;
+  padding: 2rem 0 0.5rem 0;
+}
+
 .heading-title div {
   font-size: 1.5rem;
+}
+
+.host-subheading {
+  //   font-size: 3rem;
+  margin-top: -3rem;
 }
 
 .title-location {
@@ -78,11 +88,15 @@
   width: 15vw;
   border-radius: 50%;
   object-fit: cover;
+  margin: 2rem 0.6rem 0 0;
 }
 
 .intro-details {
   display: flex;
   flex-flow: row wrap;
+
+  width: 80%;
+  margin-top: 1rem;
 }
 
 .intro-details div {
@@ -372,6 +386,10 @@
   .button {
     display: none;
   }
+
+  .host-subheading {
+    font-size: 3rem;
+  }
 }
 
 // * Large = Less than 1200px - small desktops
@@ -392,6 +410,10 @@
 
   .button {
     display: none;
+  }
+
+  .host-subheading {
+    font-size: 3rem;
   }
 }
 
@@ -414,6 +436,10 @@
 
   .button {
     display: none;
+  }
+
+  .host-subheading {
+    font-size: 3.2rem;
   }
 }
 
