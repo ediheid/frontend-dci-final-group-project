@@ -28,11 +28,20 @@ import Map from "../Map/Map";
 // import MapLocationForm from "../Map/MapLocationForm.js";
 
 // ? All Images
-import florian from "../LocationDetails/static/pexels-anna-shvets-5262378.jpg";
+import florian from "../LocationDetails/static/pic-1.jpg";
 
 const backendURL = process.env.REACT_APP_GET_BACKEND_URL;
 
 const spinner = <FontAwesomeIcon icon={faSpinner} />;
+
+const picArr = ["pic-1.jpg", "pic-2.jpg", "pic-3.jpg", "pic-4.jpg", "pic-5.jpg", "pic-6.jpg", "pic-7.jpg", "pic-8.jpg", "pic-10.jpg", "pic-11.jpg", "pic-12.jpg", "pic-13.jpg", "pic-14.jpg"];
+const randomString = Math.floor(Math.random() * picArr.length);
+
+let picString = picArr[randomString];
+
+const picLink = `../LocationDetails/static/${picString}`
+
+console.log("PICLINK", picLink)
 
 const LocationDetails = () => {
   const [specificLocationData, setSpecificLocationData] = useState(null);
@@ -43,6 +52,16 @@ const LocationDetails = () => {
   const [openAmenitiesList, setOpenAmenitiesList] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+
+
+  // let picString = "";
+
+  // const getRandomPic = () => {
+    // const picArr = ["pic-1.jpg", "pic-2.jpg", "pic-3.jpg", "pic-4.jpg", "pic-5.jpg", "pic-6.jpg", "pic-7.jpg", "pic-8.jpg", "pic-10.jpg", "pic-11.jpg", "pic-12.jpg", "pic-13.jpg", "pic-14.jpg"];
+    // const randomString = Math.floor(Math.random() * picArr.length);
+
+    // let picString = picArr[randomString];
+  // } 
 
   const openCloseAvailability = () => {
     setVisibleAvailability(!visibleAvailability);
@@ -64,11 +83,17 @@ const LocationDetails = () => {
     }
   };
 
-  // const setInnerwidth = () => {
-  //   if (window.innerWidth > "768px") {
-  //     setOpenAmenitiesList(true)
-  //   }
-  // }
+  // ? Function to get inner width of window and to change openAmenities state
+  const getInnerWith = () => {
+    let size = window.innerWidth;
+    if (size > 768) {
+      setOpenAmenitiesList(true)
+    } else {
+      setOpenAmenitiesList(false)
+    }
+  }
+  // ? Call Function on "onresize" eventhandler
+  window.onresize = getInnerWith
   
 
   const linkname = readMore ? "show less" : "show more";
@@ -78,7 +103,10 @@ const LocationDetails = () => {
 
   useEffect(() => {
     getSpecificLocation(getParams, setSpecificLocationData);
+    // getRandomPic();
   }, []);
+
+  console.log("PICSTRING", picString)
 
   const renameAmenities = () => {
     let newArr = [];
@@ -204,8 +232,8 @@ const LocationDetails = () => {
               <div>
                 <img
                   className={styles["host-image"]}
-                  src={florian}
-                  alt="Blond man with yellow flowers"
+                  src={picLink}
+                  alt="Portfolio picture of host"
                 />
               </div>
             </div>
@@ -331,11 +359,11 @@ const LocationDetails = () => {
               </div>
 
               <div>
-                <img
+                {/* <img
                   className={styles["host-image"]}
                   src={florian}
                   alt="Blond man with yellow flowers"
-                />
+                /> */}
               </div>
             </div>
             <Button>Contact host</Button>
