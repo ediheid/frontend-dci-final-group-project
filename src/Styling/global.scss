@@ -1,0 +1,13 @@
+@import "././variables.module";
+@import "././fonts.module";
+
+.Toastify__toast-container {
+    height: 500px;
+    width: 500px;
+}
+
+.Toastify__toast-body {
+    height: 4vw;
+    // color: $army-green;
+    font-size: 1.5rem;
+}

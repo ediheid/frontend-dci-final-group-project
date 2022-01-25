@@ -35,10 +35,18 @@ export const login = async (
         return response.json();
       } else {
         switch (response.status) {
+          case 400: 
+            return response.json().then((err) => {
+              throw new Error(err.errors[0].msg)
+            })
           case 401:
             return response.json().then((err) => {
               throw new Error(err.message);
             });
+          case 403: 
+            return response.json().then((err) => {
+              throw new Error(err.message);
+            })
           default:
             throw new Error("Internal Server Error!");
         }
@@ -52,12 +60,12 @@ export const login = async (
       const loginSuccessful = () => {
         toast("Login successful!! Taking you to your dashboard!", {
           position: "top-center",
-          autoClose: 2000,
+          autoClose: 3000,
           draggable: false,
         });
       };
 
-      history.push("/welcome-page");
+      // history.push("/welcome-page");
       // window.location.replace("/welcome-page");
 
       sethookData({
@@ -78,19 +86,25 @@ export const login = async (
       loginSuccessful();
     })
     .catch((err) => {
-      const loginFailed = () => {
-        toast.error(`Error: ${err.message}`, {
-          position: "top-center",
-          draggable: false,
-          autoClose: 2000,
-        });
-      };
-
-      loginFailed();
-
-      sethookData({
-        email: "",
-        password: "",
-      });
+      
+      if (err.message) {
+        const loginFailed = () => {
+          toast.error(`Error: ${err.message}`, {
+            position: "top-center",
+            draggable: false,
+            autoClose: 3500,
+          });
+        };
+        loginFailed()
+      } else {
+        const loginFailed = () => {
+          toast.error(`Error: ${err}`, {
+            position: "top-center",
+            draggable: false,
+            autoClose: 3500,
+          });
+        };
+        loginFailed()
+      }
     });
 };
