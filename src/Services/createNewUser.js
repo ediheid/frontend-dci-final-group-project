@@ -29,7 +29,7 @@ export const signup = async (hookData, sethookData) => {
         switch (response.status) {
           case 400:
             return response.json().then((err) => {
-              throw new Error(err.message);
+              throw new Error(err.errors[0].msg);
             });
           case 401:
             return response.json().then((err) => {
@@ -46,10 +46,10 @@ export const signup = async (hookData, sethookData) => {
     })
     .then((data) => {
       // console.log(data); // setCurrentUser(data)
-      const loginSuccessful = () => {
+      const signInSuccessful = () => {
         toast("Your User data has been received!", {
           position: "top-center",
-          autoClose: 2000,
+          autoClose: 3500,
           draggable: false,
           onClose: () =>
             window.location.replace(`/user-signed-up?message=${data.message}`),
@@ -64,25 +64,34 @@ export const signup = async (hookData, sethookData) => {
         confirmedPassword: "",
       });
 
-      loginSuccessful();
+      signInSuccessful();
     })
     .catch((err) => {
+
+      if (err.message) {
+        console.log(err)
       const signUpFailed = () => {
         toast.error(`Error: ${err.message}`, {
           position: "top-center",
           draggable: false,
-          autoClose: 2000,
+          autoClose: 3500,
         });
       };
 
       signUpFailed();
+      } else {
+        console.log("ERRORS ARR", err)
 
-      sethookData({
-        firstname: "",
-        lastname: "",
-        email: "",
-        password: "",
-        confirmedPassword: "",
-      });
-    });
+        
+        const signUpFailed = () => {
+          toast.error(`Error: ${err}`, {
+            position: "top-center",
+            draggable: false,
+            autoClose: 3500
+          });
+        };
+  
+        signUpFailed();
+    }
+  });
 };
