@@ -7,6 +7,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CookiesProvider } from "react-cookie";
 import { BrowserRouter as Router } from "react-router-dom";
+import "./Styling/global.scss";
 
 ReactDOM.render(
   <React.StrictMode>
