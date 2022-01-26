@@ -9,7 +9,7 @@ const spinner = <FontAwesomeIcon icon={faSpinner} />
 const LoadingModal = () => {
     return (
         <div className={styles.loadingModal}>
-            <p>Loading ...</p>
+            <p className={styles.load}>Loading ...</p>
             <div className={styles.spinner}>{spinner}</div>
         </div>
     )

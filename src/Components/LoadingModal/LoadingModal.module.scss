@@ -4,15 +4,21 @@
 @import "../../Styling/reset.module";
 
 .loadingModal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
     width: 100vw;
     height: 100vh;
     z-index: 100;
     background: $main-font-colour;
     font-size: 4rem;
     color: $cream;
+    opacity: 0.8;
+}
+
+.load {
+    width: 100vw;
 }
 
 .spinner {

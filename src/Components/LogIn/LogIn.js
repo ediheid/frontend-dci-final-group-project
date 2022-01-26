@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 // !!! Add useContext to React and import AppContext below
 import { AppContext } from "../../App";
@@ -12,6 +13,7 @@ import { login } from "../../Services/getLoggedUser.js";
 const LogIn = (props) => {
   // !!! This is where we define Context from App to use in current Component
   const loginContext = useContext(AppContext);
+  const history = useHistory();
 
   // Login Modal is not visible
   if (!props.showLogin) {
@@ -22,6 +24,8 @@ const LogIn = (props) => {
     event.stopPropagation();
   };
 
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     login(
@@ -30,8 +34,12 @@ const LogIn = (props) => {
       loginContext.setCurrentUser,
       loginContext.setShowLoginModal,
       loginContext.setCookie,
-      loginContext.history
     );
+
+    setTimeout(() => {
+      history.push("/welcome-page");
+    }, 700)
+      
   };
 
   return (
