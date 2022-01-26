@@ -42,14 +42,14 @@ const Card = (props) => {
 
             <div className={styles.description}>
               <p>{loc.description.slice(0, 800)}</p>
-              <a
-                href={`${frontendURL}location-details/${loc._id}`}
-                alt={`Show property page for ${loc.title}`}
-              >
-                <button className={btnStyles.button}>show more</button>
-                {/* Show more &#62; */}
-              </a>
             </div>
+            <a
+              href={`${frontendURL}location-details/${loc._id}`}
+              alt={`Show property page for ${loc.title}`}
+            >
+              <button className={btnStyles.button}>show more</button>
+              {/* Show more &#62; */}
+            </a>
           </div>
         </div>
       </div>
