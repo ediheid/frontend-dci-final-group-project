@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../App";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -53,7 +54,10 @@ const LoggedInCarousel = () => {
             alt="Credit to Alisa Anton on Unsplash"
           />
           <div className={styles["about-us"]}>
-            <Button>About us</Button>
+            <Link to="/about-us">
+              {" "}
+              <Button>About us</Button>
+            </Link>
           </div>
         </div>
         <div>
