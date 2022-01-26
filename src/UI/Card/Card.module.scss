@@ -8,11 +8,11 @@
 .card-container {
   font-family: $main-font-font-family;
   color: $army-green;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .card-container:hover {
-  transform: scale(102%)
+  transform: scale(102%);
 }
 
 .card-item {
@@ -68,6 +68,9 @@
   padding-top: 1vh;
   text-align: justify;
   text-align-last: none;
+
+  overflow: hidden;
+  max-height: 8rem;
 
   font-size: 1.5rem;
 }
