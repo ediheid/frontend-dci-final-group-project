@@ -66,6 +66,7 @@ const spinner = <FontAwesomeIcon icon={faSpinner} />;
 const LocationDetails = () => {
   const [specificLocationData, setSpecificLocationData] = useState(null);
   const [readMore, setReadMore] = useState(false);
+  const [readMoreLoc, setReadMoreLoc] = useState(false);
   const [visibleAvailability, setVisibleAvailability] = useState(false);
   const [visibleRules, setVisibleRules] = useState(false);
   const [visibleCancellation, setVisibleCancellation] = useState(false);
@@ -93,6 +94,22 @@ const LocationDetails = () => {
     }
   };
 
+  const cutLocText = (text) => {
+    if (!readMoreLoc) {
+      return text.slice(0, 300);
+    } else {
+      return text;
+    }
+  };
+
+  useEffect(() => {
+    if (window.innerWidth > 768) {
+      setOpenAmenitiesList(true)
+    } else {
+      setOpenAmenitiesList(false)
+    }
+  }, [])
+
   // ? Function to get inner width of window and to change openAmenities state
   const getInnerWith = () => {
     let size = window.innerWidth;
@@ -103,9 +120,15 @@ const LocationDetails = () => {
     }
   };
   // ? Call Function on "onresize" eventhandler
-  window.onresize = getInnerWith;
+  window.onresize = getInnerWith
+
+  const hostTexts = ["I'm a fascinated backpacker who is always looking for an exciting and beautiful adventure and likes to meet people. Feel free to check out my offered space. I look forward to getting to know you.", "Hi guys, I offer a dream location and look forward to like-minded peoples. I hope to see you soon ;-)", "Camping is a lifestyle not a vacation. At my place you will find a location where this way of life comes into its own. I look forward to your visit.", "I have been offering this special place for nature loving people for over 20 years. Come by and enjoy this great atmosphere."]
+  const randomT = Math.floor(Math.random() * hostTexts.length)
+  let randomText = hostTexts[randomT];
+
 
   const linkname = readMore ? "show less" : "show more";
+  const linkLocName = readMoreLoc ? "show less" : "show more";
 
   const params = useParams();
   const getParams = params.id;
@@ -231,10 +254,12 @@ const LocationDetails = () => {
               <div className={styles["heading-title"]}>
                 {/* {nameOfPlace}  */}
                 <br />
-                Hosted by {specificLocationData.host}.
+                Hosted by {specificLocationData.host}
                 {/* <div>Joined in December 2020</div>
                             <Button>Contact host</Button> */}
+                            <div className={styles.hostDescription}>{randomText}</div>
               </div>
+              {/* <div>{randomText}</div> */}
 
               <div>
                 <img className={styles["host-image"]} src={pic} alt="Host" />
@@ -330,14 +355,14 @@ const LocationDetails = () => {
                     {specificLocationData.location.region},{" "}
                     {specificLocationData.location.country}
                   </div>
-                  <div>{cutText(specificLocationData.regionalDescription)}</div>
+                  <div>{cutLocText(specificLocationData.regionalDescription)}</div>
                 </div>
                 <div className={styles["map-description-link"]}>
                   <button
                     className={btnStyles.button}
-                    onClick={() => setReadMore(!readMore)}
+                    onClick={() => setReadMoreLoc(!readMoreLoc)}
                   >
-                    {linkname}
+                    {linkLocName}
                   </button>
                   {/* <a className="showmore" onClick={() => setReadMore(!readMore)}>{linkname} &#62;</a> */}
                 </div>
