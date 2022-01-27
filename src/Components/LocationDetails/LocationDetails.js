@@ -104,11 +104,11 @@ const LocationDetails = () => {
 
   useEffect(() => {
     if (window.innerWidth > 768) {
-      setOpenAmenitiesList(true)
+      setOpenAmenitiesList(true);
     } else {
-      setOpenAmenitiesList(false)
+      setOpenAmenitiesList(false);
     }
-  }, [])
+  }, []);
 
   // ? Function to get inner width of window and to change openAmenities state
   const getInnerWith = () => {
@@ -120,12 +120,16 @@ const LocationDetails = () => {
     }
   };
   // ? Call Function on "onresize" eventhandler
-  window.onresize = getInnerWith
+  window.onresize = getInnerWith;
 
-  const hostTexts = ["I'm a fascinated backpacker who is always looking for an exciting and beautiful adventure and likes to meet people. Feel free to check out my offered space. I look forward to getting to know you.", "Hi guys, I offer a dream location and look forward to like-minded peoples. I hope to see you soon ;-)", "Camping is a lifestyle not a vacation. At my place you will find a location where this way of life comes into its own. I look forward to your visit.", "I have been offering this special place for nature loving people for over 20 years. Come by and enjoy this great atmosphere."]
-  const randomT = Math.floor(Math.random() * hostTexts.length)
+  const hostTexts = [
+    "I'm a fascinated backpacker, always looking for a new and exciting adventure and love meeting people from all walks of life! I'm sure you will love my property and I look forward to welcoming you.",
+    "Hi guys, I'm offering a dream location and always look forward to meeting like minded people. I hope to see you soon ;-)",
+    "Camping is a lifestyle not a vacation! On my property you can experience just this. I look forward to your visit.",
+    "I have been offering this special place for nature lovers for over 20 years now. Come by and enjoy this great atmosphere.",
+  ];
+  const randomT = Math.floor(Math.random() * hostTexts.length);
   let randomText = hostTexts[randomT];
-
 
   const linkname = readMore ? "show less" : "show more";
   const linkLocName = readMoreLoc ? "show less" : "show more";
@@ -221,15 +225,13 @@ const LocationDetails = () => {
     }
   };
 
-  
-
   const creationDate = new Date(specificLocationData?.createdAt);
 
   // specificLocationData.createdAt
-  console.log("Date", specificLocationData?.createdAt)
+  console.log("Date", specificLocationData?.createdAt);
   const getCreationDate = creationDate.toDateString();
 
-  console.log("creationDate", getCreationDate)
+  console.log("creationDate", getCreationDate);
 
   if (specificLocationData) {
     return (
@@ -267,7 +269,7 @@ const LocationDetails = () => {
                 Hosted by {specificLocationData.host}
                 {/* <div>Joined in December 2020</div>
                             <Button>Contact host</Button> */}
-                            <div className={styles.hostDescription}>{randomText}</div>
+                <div className={styles.hostDescription}>{randomText}</div>
               </div>
               {/* <div>{randomText}</div> */}
 
@@ -365,7 +367,9 @@ const LocationDetails = () => {
                     {specificLocationData.location.region},{" "}
                     {specificLocationData.location.country}
                   </div>
-                  <div>{cutLocText(specificLocationData.regionalDescription)}</div>
+                  <div>
+                    {cutLocText(specificLocationData.regionalDescription)}
+                  </div>
                 </div>
                 <div className={styles["map-description-link"]}>
                   <button
