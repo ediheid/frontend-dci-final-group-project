@@ -221,6 +221,16 @@ const LocationDetails = () => {
     }
   };
 
+  
+
+  const creationDate = new Date(specificLocationData?.createdAt);
+
+  // specificLocationData.createdAt
+  console.log("Date", specificLocationData?.createdAt)
+  const getCreationDate = creationDate.toDateString();
+
+  console.log("creationDate", getCreationDate)
+
   if (specificLocationData) {
     return (
       <>
@@ -375,7 +385,7 @@ const LocationDetails = () => {
                 Hosted by {specificLocationData.host}
                 {/* <br /> */}
                 <div className={styles["member-since"]}>
-                  {`created on ${specificLocationData.createdAt}`}
+                  {`created on ${getCreationDate}`}
                 </div>
                 <div>
                   <i className="fas fa-user-check"></i>
@@ -384,14 +394,6 @@ const LocationDetails = () => {
                 <div>
                   <i className="fas fa-clipboard-check"></i>12 reviews
                 </div>
-              </div>
-
-              <div>
-                {/* <img
-                  className={styles["host-image"]}
-                  src={florian}
-                  alt="Blond man with yellow flowers"
-                /> */}
               </div>
             </div>
             <Button>Contact host</Button>
