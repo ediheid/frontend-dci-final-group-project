@@ -47,7 +47,7 @@ const Card = (props) => {
               href={`${frontendURL}location-details/${loc._id}`}
               alt={`Show property page for ${loc.title}`}
             >
-              <button className={btnStyles.button}>show more</button>
+              <button className={btnStyles.button}>show details</button>
               {/* Show more &#62; */}
             </a>
           </div>
