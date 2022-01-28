@@ -21,110 +21,110 @@ import image6 from "./static/pexels-alasdair-braxton-1992889.jpg";
 // import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
 
 const Carousel = () => {
-  //   const SearchContext = useContext(AppContext);
+    //   const SearchContext = useContext(AppContext);
 
-  //   const username = SearchContext.currentUser.firstname;
+    //   const username = SearchContext.currentUser.firstname;
 
-  const settings = {
-    dots: true,
-    autoplay: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 1399,
-        settings: { slidesToShow: 3 },
-      },
-      {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-    ],
-  };
-  return (
-    <div className={styles.container}>
-      <div className={styles.heading}>Find your next adventure...</div>
-      <Slider {...settings}>
-        <div className={styles.imagecontainer}>
-          <img
-            className={styles.image5}
-            src={image5}
-            alt="Credit to Joshua Earle on Unsplash"
-          />
-        </div>
-        <div>
-          <img
-            className={styles.image2}
-            src={image2}
-            alt="Credit to Alisa Anton on Unsplash"
-          />
-        </div>
-        <div>
-          <img
-            className={styles.image3}
-            src={image3}
-            alt="Credit to Igor Ovsyannykov on Unsplash"
-          />
-        </div>
-        <div>
-          <img
-            className={styles.image4}
-            src={image4}
-            alt="Credit to Pierre Châtel-Innocenti on Unsplash"
-          />
-        </div>
-        <div>
-          <img
-            className={styles.image1}
-            src={image1}
-            alt="Credit to Richard Nolan on Unsplash"
-          />
-        </div>
-        <div>
-          <img
-            className={styles.image6}
-            src={image6}
-            alt="Credit to Cristina Gottardi on Unsplash"
-          />
-        </div>
-        {/* <div>
+    const settings = {
+        dots: true,
+        autoplay: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        responsive: [
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                },
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
+            {
+                breakpoint: 1399,
+                settings: { slidesToShow: 3 },
+            },
+            {
+                breakpoint: 2400,
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
+        ],
+    };
+    return (
+        <div className={styles.container}>
+            <div className={styles.heading}>Find your next adventure...</div>
+            <Slider {...settings}>
+                <div className={styles.imagecontainer}>
+                    <img
+                        className={styles.image5}
+                        src={image5}
+                        alt="Credit to Joshua Earle on Unsplash"
+                    />
+                </div>
+                <div>
+                    <img
+                        className={styles.image2}
+                        src={image2}
+                        alt="Credit to Alisa Anton on Unsplash"
+                    />
+                </div>
+                <div>
+                    <img
+                        className={styles.image3}
+                        src={image3}
+                        alt="Credit to Igor Ovsyannykov on Unsplash"
+                    />
+                </div>
+                <div>
+                    <img
+                        className={styles.image4}
+                        src={image4}
+                        alt="Credit to Pierre Châtel-Innocenti on Unsplash"
+                    />
+                </div>
+                <div>
+                    <img
+                        className={styles.image1}
+                        src={image1}
+                        alt="Credit to Richard Nolan on Unsplash"
+                    />
+                </div>
+                <div>
+                    <img
+                        className={styles.image6}
+                        src={image6}
+                        alt="Credit to Cristina Gottardi on Unsplash"
+                    />
+                </div>
+                {/* <div>
                     <img
                         className={styles.image7}
                         src={image7}
                         alt="Credit to Cristina Gottardi on Unsplash"
                     />
                 </div> */}
-      </Slider>
-    </div>
-  );
+            </Slider>
+        </div>
+    );
 };
 
 export default Carousel;
