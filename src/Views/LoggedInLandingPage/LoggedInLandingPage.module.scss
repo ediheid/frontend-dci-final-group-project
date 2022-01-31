@@ -81,17 +81,43 @@
     // border: 2px solid blue;
 }
 
-.description {
+.button-container {
     cursor: pointer;
     width: 95vw;
     position: absolute;
-    color: $off-white;
-    text-shadow: 2px 2px $army-green;
-    font-size: 3rem;
     text-align: right;
-    top: 65vh;
+    top: 75vh;
     left: 0vw;
     // border: 2px solid blue;
+}
+
+.button {
+    font-family: $main-font-font-family;
+    color: $main-font-colour;
+    font-weight: bold;
+    background-color: $main-font-colour-light;
+    box-shadow: 5px 8px 15px rgba(56, 89, 68, 0.8);
+
+    font-size: 1.7rem;
+    margin-top: 2vh;
+    padding: 1.2vh 5vw 1.2vh 5vw;
+    border-radius: 25px;
+    border: none;
+
+    cursor: pointer;
+
+    &:focus {
+        color: $light-green;
+        font-weight: bold;
+    }
+}
+
+/* solves sticky problem */
+@media (hover: hover) {
+    button:hover {
+        color: $light-green;
+        font-weight: bold;
+    }
 }
 
 .card-container {
@@ -120,9 +146,9 @@
     .heading {
         text-align: left;
     }
-    .description {
+    .button-container {
         font-size: 4.5rem;
-        top: 70vh;
+        top: 80vh;
         text-shadow: 3px 3px $army-green;
     }
 }
@@ -147,7 +173,7 @@
         width: 50vw;
         text-shadow: 3px 3px $army-green;
     }
-    .description {
+    .button-container {
         font-size: 4.5rem;
         top: 67vh;
         text-shadow: 3px 3px $army-green;
@@ -185,9 +211,9 @@
     .image {
         object-position: 10% 31%;
     }
-    .description {
+    .button-container {
         font-size: 4.5rem;
-        top: 62vh;
+        top: 65vh;
         text-shadow: 3px 3px $army-green;
 
         // border: 2px solid blue;
@@ -218,7 +244,7 @@
         object-position: 10% 31%;
     }
 
-    .description {
+    .button-container {
         font-size: 5.5rem;
 
         top: 65vh;
@@ -248,7 +274,7 @@
         object-position: 10% 31%;
     }
 
-    .description {
+    .button-container {
         font-size: 5.5rem;
         top: 60vh;
         text-shadow: 3px 3px $army-green;

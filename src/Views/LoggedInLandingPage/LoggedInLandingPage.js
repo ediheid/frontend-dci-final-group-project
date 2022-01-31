@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./LoggedInLandingPage.module.scss";
 
 // ? All Component and View imports
-// import Button from "../../UI/Button/Button";
+import Button from "../../UI/Button/Button";
 // import LogIn from "../../Components/LogIn/LogIn";
 // import Search from "../../Components/Search/Search";
 // import Navbar from "../../Components/Navbar/Navbar";
@@ -50,10 +50,16 @@ const LoggedInLandingPage = () => {
                                 Become a host
                             </div>
                             {/* <div> */}
-                            <div className={styles.description}>
-                            Fill out your beautiful property details to start
-                            sharing with our community!
-                        </div>
+                            <div className={styles["button-container"]}>
+                                <Link to="/location-form">
+                                    {/* // ? Button */}
+                                    <div>
+                                        <button className={styles.button}>
+                                            Add property
+                                        </button>
+                                    </div>
+                                </Link>
+                            </div>
                         </Link>
                     </div>
 
@@ -62,7 +68,6 @@ const LoggedInLandingPage = () => {
                             Not sure where to go? Browse some of our top
                             locations..
                         </div>
-                        
                     </di>
                 </div>
                 <div className={styles["card-container"]}>

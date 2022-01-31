@@ -6,10 +6,6 @@ import jwt_decode from "jwt-decode";
 // ? Stylesheet
 import styles from "../Navbar/Navbar.module.scss";
 
-// ?? Logo
-import freshbnbLogo from "./static/freshbnb_logo.png";
-import logo from "./static/Freshbnb_logo_n_font.png";
-
 // ? All Component and View imports
 import Registration from "../../Views/Registration/Registration";
 
@@ -63,12 +59,7 @@ const Navbar = (props) => {
         <div className={styles["icon-container"]}>
             <Link onClick={SearchContext.returnHome} to="/">
                 <div className={styles.icon}>
-                    {/* <i className="fas fa-caravan"></i> */}
-                    <img
-                        className={styles.logo}
-                        src={freshbnbLogo}
-                        alt="Freshbnb Logo"
-                    />
+                    <i className="fas fa-caravan"></i>
                 </div>
             </Link>
 
@@ -113,12 +104,7 @@ const Navbar = (props) => {
         <div className={styles["icon-container"]}>
             <Link onClick={SearchContext.returnHome} to="/">
                 <div className={styles.icon}>
-                    {/* <i className="fas fa-caravan"></i> */}
-                    <img
-                        className={styles.logo}
-                        src={freshbnbLogo}
-                        alt="Freshbnb Logo"
-                    />
+                    <i className="fas fa-caravan"></i>
                 </div>
             </Link>
 
