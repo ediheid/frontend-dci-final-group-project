@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./LoggedInLandingPage.module.scss";
 
 // ? All Component and View imports
-// import Button from "../../UI/Button/Button";
+import Button from "../../UI/Button/Button";
 // import LogIn from "../../Components/LogIn/LogIn";
 // import Search from "../../Components/Search/Search";
 // import Navbar from "../../Components/Navbar/Navbar";
@@ -18,48 +18,64 @@ import host from "./static/pexels-valeria-boltneva-7960259.jpg";
 // import hostImage from "./static/pexels-erik-mclean-4300343.jpg";
 
 const LoggedInLandingPage = () => {
-  // const [showLogIn, setShowLogIn] = useState(false);
+    // const [showLogIn, setShowLogIn] = useState(false);
 
-  // const openLogIn = (event) => {
-  //     event.preventDefault();
-  //     setShowLogIn(true);
-  // };
+    // const openLogIn = (event) => {
+    //     event.preventDefault();
+    //     setShowLogIn(true);
+    // };
 
-  // const closeLogIn = (event) => {
-  //     event.preventDefault();
-  //     setShowLogIn(false);
-  //     console.log("background was clicked close log in");
-  // };
-  return (
-    <>
-      {/* <Navbar />
+    // const closeLogIn = (event) => {
+    //     event.preventDefault();
+    //     setShowLogIn(false);
+    //     console.log("background was clicked close log in");
+    // };
+    return (
+        <>
+            {/* <Navbar />
       <Search /> */}
-      <div className={styles["test-container"]}>
-        <LoggedInCarousel />
-      </div>
-      <div className={styles["main-container"]}>
-        <div className={styles["content-container"]}>
-          <div className={styles["image-container"]}>
-            <Link to="/location-form">
-              <img
-                className={styles.image}
-                src={host}
-                alt="Camper by Devries from Pexels"
-              />
-              <div className={styles["heading-image"]}>Become a host</div>
-            </Link>
-          </div>
+            <div className={styles["test-container"]}>
+                <LoggedInCarousel />
+            </div>
+            <div className={styles["main-container"]}>
+                <div className={styles["content-container"]}>
+                    <div className={styles["image-container"]}>
+                        <Link to="/location-form">
+                            <img
+                                className={styles.image}
+                                src={host}
+                                alt="Camper by Devries from Pexels"
+                            />
+                            <div className={styles["heading-image"]}>
+                                Become a host
+                            </div>
+                            {/* <div> */}
+                            <div className={styles["button-container"]}>
+                                <Link to="/location-form">
+                                    {/* // ? Button */}
+                                    <div>
+                                        <button className={styles.button}>
+                                            Add property
+                                        </button>
+                                    </div>
+                                </Link>
+                            </div>
+                        </Link>
+                    </div>
 
-          <div className={styles.heading}>
-            Not sure where to go? Browse some of our top locations..
-          </div>
-        </div>
-        <div className={styles["card-container"]}>
-          <Card />
-        </div>
-      </div>
-    </>
-  );
+                    <di className={styles.heading}>
+                        <div>
+                            Not sure where to go? Browse some of our top
+                            locations..
+                        </div>
+                    </di>
+                </div>
+                <div className={styles["card-container"]}>
+                    <Card />
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default LoggedInLandingPage;

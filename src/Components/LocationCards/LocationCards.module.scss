@@ -4,75 +4,75 @@
 @import "../../Styling/reset.module";
 
 .wrapper {
-  padding: 1%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(35rem, 5rem));
-  gap: 3rem;
-  justify-content: center;
+    padding: 1%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 5rem));
+    gap: 3rem;
+    justify-content: center;
 }
 
 .card {
-  overflow: hidden;
-  box-shadow: 0 2px 20px $light-grey;
-  width: 28vw;
-  height: 93vh;
-  border-radius: $border-radius;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: transform 200ms ease-in;
-
-  &__image {
-    width: 35vw;
-    height: 70vh;
-    object-fit: cover;
-  }
-  &__title {
-    font-family: $roboto-bold-font-family;
-    height: 5vh;
-    width: 10vw;
-    padding: 1rem;
-  }
-  &__description {
-    padding: 0 1rem;
-  }
-  &__btn {
-    position: absolute;
-    cursor: pointer;
-    padding: 1rem;
-    font-family: "Roboto Bold";
-    font-weight: 800;
-    font-size: 1rem;
-    margin: 1rem;
-    border: 2px solid $light-grey;
+    overflow: hidden;
+    box-shadow: 0 2px 20px $light-grey;
+    width: 28vw;
+    height: 93vh;
     border-radius: $border-radius;
-    transition: background 2000ms ease-in-out, color 2000ms ease-in-out;
-  }
-  // &:hover{
-  // transform:scale(0.80);
-  // }
-  &:hover &__btn {
-    padding: 2%;
-    border-color: $light-grey;
-    background: $dark-green;
-    color: $off-white;
-  }
-  ul,
-  li {
-    font-family: $roboto-medium-font-family;
-    padding-top: 1.8%;
-    text-align: end;
-    list-style-type: none;
-    margin-top: 1.8rem;
-    line-height: 0;
-  }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+
+    &__image {
+        width: 35vw;
+        height: 70vh;
+        object-fit: cover;
+    }
+    &__title {
+        font-family: $roboto-bold-font-family;
+        height: 5vh;
+        width: 10vw;
+        padding: 1rem;
+    }
+    &__description {
+        padding: 0 1rem;
+    }
+    &__btn {
+        position: absolute;
+        cursor: pointer;
+        padding: 1rem;
+        font-family: "Roboto Bold";
+        font-weight: 800;
+        font-size: 1rem;
+        margin: 1rem;
+        border: 2px solid $light-grey;
+        border-radius: $border-radius;
+        transition: background 2000ms ease-in-out, color 2000ms ease-in-out;
+    }
+    // &:hover{
+    // transform:scale(0.80);
+    // }
+    &:hover &__btn {
+        padding: 2%;
+        border-color: $light-grey;
+        background: $dark-green;
+        color: $off-white;
+    }
+    ul,
+    li {
+        font-family: $roboto-medium-font-family;
+        padding-top: 1.8%;
+        text-align: end;
+        list-style-type: none;
+        margin-top: 1.8rem;
+        line-height: 0;
+    }
 }
 
 .card__body {
-  //  background: $white;
-  color: $dark-green;
-  font-size: 0.8rem;
+    //  background: $white;
+    color: $dark-green;
+    font-size: 0.8rem;
 }
 
 // ? Media Queries
@@ -80,74 +80,74 @@
 
 // * X-Small = Less than 576px - small mobile devices
 @include x-small {
-  .card {
-    margin: 0 auto;
-    width: 90%;
-    &__image {
-      width: 90vw;
-      height: 70vh;
-      object-fit: cover;
+    .card {
+        margin: 0 auto;
+        width: 90%;
+        &__image {
+            width: 90vw;
+            height: 70vh;
+            object-fit: cover;
+        }
     }
-  }
 }
 
 // * Small = Less than 768px - mobile devices
 @include small {
-  .card {
-    margin: 0 auto;
-    width: 90%;
-    &__image {
-      width: 120vw;
-      height: 76vh;
-      object-fit: cover;
+    .card {
+        margin: 0 auto;
+        width: 90%;
+        &__image {
+            width: 120vw;
+            height: 76vh;
+            object-fit: cover;
+        }
     }
-  }
 }
 
 // * Medium = Less than 992px - tablets
 @include medium {
-  .card {
-    margin: 0 auto;
-    width: 100%;
-    &__image {
-      width: 130vw;
-      height: 70vh;
-      object-fit: cover;
+    .card {
+        margin: 0 auto;
+        width: 100%;
+        &__image {
+            width: 130vw;
+            height: 70vh;
+            object-fit: cover;
+        }
     }
-  }
 }
 
 // * Large = Less than 1200px - small desktops
 @include large {
-  .card {
-    margin: 0 auto;
-    width: 100%;
-    &__image {
-      width: 140vw;
-      height: 65vh;
-      object-fit: cover;
+    .card {
+        margin: 0 auto;
+        width: 100%;
+        &__image {
+            width: 140vw;
+            height: 65vh;
+            object-fit: cover;
+        }
     }
-  }
 }
 
 // * Extra Large = Less than 1399px - medium desktops
 @include extra-large {
-  .card {
-    margin: 0 auto;
-    width: 100%;
-    &__image {
-      width: 100%;
+    .card {
+        margin: 0 auto;
+        width: 100%;
+        &__image {
+            width: 100%;
+        }
     }
-  }
 }
 
 // * Extra EXTRA Large = More than 1400px - medium desktops
 @include extra-extra-large {
-  .card {
-    margin: 0 auto;
-    width: 100%;
-    &__image {
-      width: 100%;
+    .card {
+        margin: 0 auto;
+        width: 100%;
+        &__image {
+            width: 100%;
+        }
     }
-  }
 }

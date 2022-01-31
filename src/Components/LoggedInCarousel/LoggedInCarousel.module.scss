@@ -5,6 +5,19 @@
 
 // ? Universal styling
 
+.slick-prev,
+.slick-next {
+    z-index: 3000;
+}
+
+.slick-prev {
+    left: 25px;
+}
+
+.slick-next {
+    right: 25px;
+}
+
 // .image {
 //     object-fit: cover;
 //     object-position: 20% 50%;
